@@ -1,0 +1,124 @@
+@font-face {
+    font-family: "OleoScript-Bold";
+    src: url(/font/OleoScript-Bold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Inter-Light";
+    src: url(/font/Inter-Light.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Inter-Regular";
+    src: url(/font/Inter-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "AbyssinicaSIL-Regular";
+    src: url(/font/AbyssinicaSIL-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "JacquesFrancois-Regular";
+    src: url(/font/JacquesFrancois-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Inter-ExtraBold";
+    src: url(/font/Inter-ExtraBold.ttf) format('truetype');
+}
+
+body{
+    background-color:#FFFFFF;
+}
+
+.brandApp{
+    margin-left: 50px;
+}
+
+.textAniqah{
+    font-family: 'OleoScript-Bold';
+    font-size: 64px;
+    margin-bottom: 0px;
+}
+
+.deskripsiBrand{
+    font-family: 'Inter-Light';
+    font-size: 20px;
+    margin-top: 0px;
+    font-style: italic;
+}
+
+.navbar {
+    background-color: #BBD6B8;
+    margin-top: 30px;
+    text-align: justify;
+}
+
+.judulDetailLokasi{
+    text-align: center;
+}
+
+.navbar-nav {
+    display: flex; /* Mengatur elemen-elemen navbar menjadi tampilan flexbox */
+    justify-content: space-between; /* Menyebarkan elemen-elemen secara merata */
+    width: 100%; /* Memastikan elemen navbar mengisi lebar penuh */
+}
+
+.nav-item {
+    flex: 1; /* Membuat setiap elemen mengambil lebar yang sama */
+    text-align: center; /* Mengatur teks menjadi berada di tengah */
+    white-space: nowrap; /* Mencegah patah baris pada teks */
+    font-size: 36px;
+    font-family: 'Inter-Regular';
+    color: black;
+}
+
+/* Google Maps */
+#map {
+    height: 500px;
+    width: 100%;
+}
+/* End Google Maps */
+
+.detail_lokasi{
+    margin: 81px;
+    padding: 20px;
+    background-color: #DBE1C6;
+    border-radius: 40px;
+}
+
+.detailLokasi{
+    font-family: 'AbyssinicaSIL-Regular';
+    font-size: 64px;
+}
+
+.JudulDetailLokasi{
+    text-align: center;
+    font-size: 64px;
+}
+
+.logoHome{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.lokasi{
+    text-align: center;
+    margin-top: 40px;
+    font-family: 'JacquesFrancois-Regular';
+    font-size: 36px;
+}
+
+.footNote{
+    background-color: #BBD6B8;
+    padding: 40px;
+}
+
+.row{
+    margin: 60px;
+}
+
+.aboutUs{
+    font-family: 'Inter-ExtraBold';
+}
