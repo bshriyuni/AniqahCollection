@@ -20,3 +20,5 @@ Route::get('/', function () {
 Route::get('/lokasi', function () {
     return view('user/lokasi');
 });
+
+
