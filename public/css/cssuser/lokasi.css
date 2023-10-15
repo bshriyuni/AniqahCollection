@@ -28,6 +28,7 @@
     src: url(/font/Inter-ExtraBold.ttf) format('truetype');
 }
 
+/* bran & navbar */
 body{
     background-color:#FFFFFF;
 }
@@ -55,10 +56,6 @@ body{
     text-align: justify;
 }
 
-.judulDetailLokasi{
-    text-align: center;
-}
-
 .navbar-nav {
     display: flex; /* Mengatur elemen-elemen navbar menjadi tampilan flexbox */
     justify-content: space-between; /* Menyebarkan elemen-elemen secara merata */
@@ -73,6 +70,7 @@ body{
     font-family: 'Inter-Regular';
     color: black;
 }
+/* End brand & navbar */
 
 /* Google Maps */
 #map {
@@ -80,6 +78,10 @@ body{
     width: 100%;
 }
 /* End Google Maps */
+
+.judulDetailLokasi{
+    text-align: center;
+}
 
 .detail_lokasi{
     margin: 81px;
