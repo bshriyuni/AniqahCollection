@@ -21,6 +21,14 @@ Route::get('/lokasi', function () {
     return view('user/lokasi');
 });
 
+Route::get('/testimoni', function () {
+    return view('user/testimoni');
+});
+
+Route::get('/admintestimoni', function () {
+    return view('admin/testimoni');
+});
+
 Route::get('/detailproduk', function () {
     return view('user/detailproduk');
 });
@@ -32,3 +40,4 @@ Route::get('/jahitbaju', function () {
 Route::get('/carapemesanan', function () {
     return view('user/carapemesanan');
 });
+
