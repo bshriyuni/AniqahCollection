@@ -20,3 +20,12 @@ Route::get('/', function () {
 Route::get('/lokasi', function () {
     return view('user/lokasi');
 });
+
+Route::get('/testimoni', function () {
+    return view('user/testimoni');
+});
+
+Route::get('/admintestimoni', function () {
+    return view('admin/testimoni');
+});
+

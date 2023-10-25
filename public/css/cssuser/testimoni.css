@@ -1,0 +1,167 @@
+@font-face {
+    font-family: "OleoScript-Bold";
+    src: url(/font/OleoScript-Bold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Inter-Light";
+    src: url(/font/Inter-Light.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Inter-Regular";
+    src: url(/font/Inter-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "AbyssinicaSIL-Regular";
+    src: url(/font/AbyssinicaSIL-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "JacquesFrancois-Regular";
+    src: url(/font/JacquesFrancois-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Inter-ExtraBold";
+    src: url(/font/Inter-ExtraBold.ttf) format('truetype');
+}
+@font-face {
+    font-family: "Abril-Fatface";
+    src: url(/font/Abril-Fatface.ttf) format('truetype');
+}
+
+body{
+    background-color:#FFFFFF;
+}
+
+.brandApp{
+    margin-left: 50px;
+}
+
+.textAniqah{
+    font-family: 'OleoScript-Bold';
+    font-size: 64px;
+    margin-bottom: 0px;
+}
+
+.deskripsiBrand{
+    font-family: 'Inter-Light';
+    font-size: 20px;
+    margin-top: 0px;
+    font-style: italic;
+}
+
+.navbar {
+    background-color: #BBD6B8;
+    margin-top: 30px;
+    text-align: justify;
+}
+
+.judulDetailLokasi{
+    text-align: center;
+}
+
+.navbar-nav {
+    display: flex; /* Mengatur elemen-elemen navbar menjadi tampilan flexbox */
+    justify-content: space-between; /* Menyebarkan elemen-elemen secara merata */
+    width: 100%; /* Memastikan elemen navbar mengisi lebar penuh */
+}
+
+.nav-item {
+    flex: 1; /* Membuat setiap elemen mengambil lebar yang sama */
+    text-align: center; /* Mengatur teks menjadi berada di tengah */
+    white-space: nowrap; /* Mencegah patah baris pada teks */
+    font-size: 36px;
+    font-family: 'Inter-Regular';
+    color: black;
+}
+
+
+.logoHome{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.lokasi{
+    text-align: center;
+    margin-top: 40px;
+    font-family: 'JacquesFrancois-Regular';
+    font-size: 36px;
+}
+
+.footNote{
+    background-color: #BBD6B8;
+    padding: 40px;
+}
+
+.row{
+    margin: 60px;
+}
+
+.aboutUs{
+    font-family: 'Inter-ExtraBold';
+}
+
+.custom-heading {
+    font-family: 'Abril-Fatface';
+    padding: 20px;
+    margin-left: 50px;
+}
+.col {
+    background-color: #BBD6B8; /* Ganti dengan warna latar belakang yang diinginkan, contoh: oranye */
+    padding: 30px;
+    margin: 5px;
+    border-radius: 10px;
+}
+.line-with-text {
+    position: relative;
+    text-align: center;
+    margin-top: 20px; /* Atur jarak atas sesuai kebutuhan */
+}
+
+.line-with-text div {
+    border-top: 10px solid black; /* Atur ketebalan garis (10px dalam contoh ini) */
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    z-index: -1;
+}
+.colReview {
+    background-color: #F4EAD5; /* Ganti dengan warna latar belakang yang diinginkan, contoh: oranye */
+    /* padding: 1px; */
+    margin: 5px;
+    border-radius: 100px;
+}
+.rounded-image {
+    width: 150px; /* Atur lebar gambar */
+    height: 150px; /* Atur tinggi gambar */
+    border-radius: 50%; /* Membuat gambar bulat */
+}
+.col-4 h6 {
+    margin-top: 20px; /* Atur jarak atas sesuai kebutuhan */
+}
+.bg-light {
+    font-family: 'JacquesFrancois-Regular';
+    font-size: 30px;
+}
+.line-with-text div {
+    border-top: 10px solid black; /* Atur ketebalan garis (10px dalam contoh ini) */
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    z-index: -1;
+}
+
+.line-with-text span {
+    background-color: #FFFFFF;
+    padding: 10px 20px;
+    font-size: 30px;
+    font-family: 'Abril-Fatface';
+    font-weight: normal; /* Mengatur tulisan menjadi tidak tebal */
+}
+
+.yellow-star {
+    color: yellow;
+}
