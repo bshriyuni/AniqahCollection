@@ -21,6 +21,10 @@ Route::get('/lokasi', function () {
     return view('user/lokasi');
 });
 
+Route::get('/detailproduk', function () {
+    return view('user/detailproduk');
+});
+
 Route::get('/jahitbaju', function () {
     return view('user/jahit');
 });
