@@ -28,6 +28,11 @@
     src: url(/font/Inter-ExtraBold.ttf) format('truetype');
 }
 
+@font-face {
+    font-family: "Corinthia-Bold";
+    src: url(/font/Corinthia-Bold.ttf) format('truetype');
+}
+
 
 body{
     background-color:#FFFFFF;
@@ -56,10 +61,6 @@ body{
     text-align: justify;
 }
 
-.judulDetailLokasi{
-    text-align: center;
-}
-
 .navbar-nav {
     display: flex; /* Mengatur elemen-elemen navbar menjadi tampilan flexbox */
     justify-content: space-between; /* Menyebarkan elemen-elemen secara merata */
@@ -75,41 +76,79 @@ body{
     color: black;
 }
 
-/* Google Maps */
-#map {
-    height: 500px;
-    width: 100%;
+.textTitle{
+    font-family: 'Corinthia-Bold';
+    font-size: 70px;
+    text-align: center;
+    margin-top: 70px;
+    margin-bottom: 0px;
+    color: black;
 }
-/* End Google Maps */
 
-.detail_lokasi{
-    margin: 81px;
+.description{
+    font-family: 'Inter-Regular';
+    text-align: center;
+    margin-top: 0px;
+    color: black;
+}   
+
+/* .row{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Membagi grid menjadi 2 kolom yang sama lebar */
+    /* gap: 20px; Jarak antara card
+} */ 
+
+/* .card {
+    background-color: #DBE4C6;
+    border: 1px solid #ccc;
     padding: 20px;
-    background-color: #DBE1C6;
-    border-radius: 40px;
+    width: 300px;
+    height: 500px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-top-left-radius: 200px;
+    border-top-right-radius: 200px;
 }
 
-.detailLokasi{
-    font-family: 'AbyssinicaSIL-Regular';
-    font-size: 64px;
+.card-content1 {
+    background-color: #DBE4C6;
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 300px;
+    height: 100px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-top-left-radius: 200px;
+    border-top-right-radius: 200px;
 }
 
-.JudulDetailLokasi{
-    text-align: center;
-    font-size: 64px;
+.card-content2 {
+    background-color: #DBE4C6;
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-top-left-radius: 200px;
+    border-top-right-radius: 200px;
 }
 
-.logoHome{
-    text-align: center;
-    margin-top: 40px;
-}
-
-.lokasi{
-    text-align: center;
-    margin-top: 40px;
-    font-family: 'JacquesFrancois-Regular';
-    font-size: 36px;
-}
+.card-content3 {
+    background-color: #BBD6B8;
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 300px;
+    height: 500px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    border-top-left-radius: 200px;
+    border-top-right-radius: 200px;
+} */
 
 .footNote{
     background-color: #BBD6B8;
