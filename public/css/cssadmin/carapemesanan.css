@@ -1,0 +1,176 @@
+@font-face {
+    font-family: "OleoScript-Bold";
+    src: url(/font/OleoScript-Bold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Inter-Light";
+    src: url(/font/Inter-Light.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Inter-Regular";
+    src: url(/font/Inter-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "AbyssinicaSIL-Regular";
+    src: url(/font/AbyssinicaSIL-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "JacquesFrancois-Regular";
+    src: url(/font/JacquesFrancois-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Inter-ExtraBold";
+    src: url(/font/Inter-ExtraBold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "CherryBombOne-Regular";
+    src: url(/font/CherryBombOne-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Itim-Regular";
+    src: url(/font/Itim-Regular.ttf) format('truetype');
+}
+
+body{
+    background-color:#FFFFFF;
+}
+
+.brandApp{
+    margin-left: 50px;
+}
+
+.textAniqah{
+    font-family: 'OleoScript-Bold';
+    font-size: 64px;
+    margin-bottom: 0px;
+}
+
+.deskripsiBrand{
+    font-family: 'Inter-Light';
+    font-size: 20px;
+    margin-top: 0px;
+    font-style: italic;
+}
+
+.navbar {
+    background-color: #BBD6B8;
+    margin-top: 30px;
+    text-align: justify;
+}
+
+.navbar-nav {
+    display: flex; /* Mengatur elemen-elemen navbar menjadi tampilan flexbox */
+    justify-content: space-between; /* Menyebarkan elemen-elemen secara merata */
+    width: 100%; /* Memastikan elemen navbar mengisi lebar penuh */
+}
+
+.nav-item {
+    flex: 1; /* Membuat setiap elemen mengambil lebar yang sama */
+    text-align: center; /* Mengatur teks menjadi berada di tengah */
+    white-space: nowrap; /* Mencegah patah baris pada teks */
+    font-size: 36px;
+    font-family: 'Inter-Regular';
+    color: black;
+}
+
+.judul{
+    font-family: 'CherryBombOne-Regular';
+    color: #526754;
+    text-align: center;
+}
+
+.card:last-child {
+    margin-right: 0; /* Hapus margin-right pada card terakhir */
+}
+
+.rounded-card {
+    width: 120px;
+    height: 120px;
+    background-color: #BBD6B8   ;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    margin: 0 auto;
+    padding: 0;
+    
+    
+}
+
+.step{
+    font-family: 'Itim-Regular';
+    font-size: 35px;
+    margin-top: 50px;
+    font-style: unset;
+    margin-left: 18px;
+}
+
+
+
+.logoHome{
+    text-align: center;
+    margin-top: 40px;
+}
+
+
+.footNote{
+    background-color: #BBD6B8;
+    padding: 40px;
+}
+
+.row{
+    margin: 60px;
+}
+
+.aboutUs{
+    font-family: 'Inter-ExtraBold';
+}
+.custom-card {
+    background-color: #DBE4C6; /* Ganti dengan warna latar belakang yang Anda inginkan */
+    border-radius: 100px;
+    padding: 0;
+    font-size: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.custom-card2 {
+    background-color: #D6E8DB; /* Ganti dengan warna latar belakang yang Anda inginkan */
+    border-radius: 100px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+}
+
+.custom-card3 {
+    background-color: #F4EAD5; /* Ganti dengan warna latar belakang yang Anda inginkan */
+    border-radius: 100px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+}
+
+.custom-card4 {
+    background-color: #FFFBE9; /* Ganti dengan warna latar belakang yang Anda inginkan */
+    border-radius: 100px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+}
+
+.custom-card5{
+    background-color: #E3F2C1; /* Ganti dengan warna latar belakang yang Anda inginkan */
+    border-radius: 100px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+}
+
+

@@ -27,7 +27,13 @@
     font-family: "Inter-ExtraBold";
     src: url(/font/Inter-ExtraBold.ttf) format('truetype');
 }
-/* bran & navbar */
+
+@font-face {
+    font-family: "Corinthia-Bold";
+    src: url(/font/Corinthia-Bold.ttf) format('truetype');
+}
+
+
 body{
     background-color:#FFFFFF;
 }
@@ -69,47 +75,52 @@ body{
     font-family: 'Inter-Regular';
     color: black;
 }
-/* End brand & navbar */
 
-/* Google Maps */
-#map {
-    height: 500px;
-    width: 100%;
-}
-/* End Google Maps */
-
-.judulDetailLokasi{
+.textTitle{
+    font-family: 'Corinthia-Bold';
+    font-size: 70px;
     text-align: center;
+    margin-top: 70px;
+    margin-bottom: 0px;
+    color: black;
 }
 
-.detail_lokasi{
-    margin: 81px;
+.description{
+    font-family: 'Inter-Regular';
+    text-align: center;
+    margin-top: 0px;
+    color: black;
+}   
+
+.custom-arrows {
+    text-align: center; 
+}
+
+.custom-arrows i {
+    margin: 0 20px; 
+    margin-bottom: 50px;
+    color: #6e836c; 
+}
+
+.order{
+    width: 300px;
+    height: 50px;
+    border: 1px solid #2e382d;
     padding: 20px;
-    background-color: #DBE1C6;
-    border-radius: 40px;
+    border-radius: 10px;
+    background-color: #D6E8DB;
+    text-align: center; 
+    margin: 0 auto; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    margin-bottom: 50px;
 }
 
-.detailLokasi{
-    font-family: 'AbyssinicaSIL-Regular';
-    font-size: 64px;
-}
-
-.JudulDetailLokasi{
+.card-content{
     text-align: center;
-    font-size: 64px;
 }
 
-.logoHome{
-    text-align: center;
-    margin-top: 40px;
-}
-
-.lokasi{
-    text-align: center;
-    margin-top: 40px;
-    font-family: 'JacquesFrancois-Regular';
-    font-size: 36px;
-}
 
 .footNote{
     background-color: #BBD6B8;

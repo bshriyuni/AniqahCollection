@@ -1,0 +1,113 @@
+@font-face {
+    font-family: "OleoScript-Bold";
+    src: url(/font/OleoScript-Bold.ttf) format('truetype');
+}
+@font-face {
+    font-family: "JockeyOne-regular";
+    src: url(/font/JockeyOne-regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Inter-Light";
+    src: url(/font/Inter-Light.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Inter-Regular";
+    src: url(/font/Inter-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "AbyssinicaSIL-Regular";
+    src: url(/font/AbyssinicaSIL-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "JacquesFrancois-Regular";
+    src: url(/font/JacquesFrancois-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Inter-ExtraBold";
+    src: url(/font/Inter-ExtraBold.ttf) format('truetype');
+}
+@font-face {
+    font-family: "Abril-Fatface";
+    src: url(/font/Abril-Fatface.ttf) format('truetype');
+}
+.brandApp{
+    background-color:#BBD6B8;
+    
+
+}
+
+.textAniqah{
+    font-family: 'OleoScript-Bold';
+    font-size: 64px;
+    margin-bottom: 0px;
+    margin-left: 50px;
+
+}
+
+.deskripsiBrand{
+    font-family: 'Inter-Light';
+    font-size: 20px;
+    margin-top: 0px;
+    font-style: italic;
+    margin-left: 50px;
+
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+.container2 {
+    display: flex;
+    justify-content: flex-end;
+    width: 70%;
+
+    /* background-image:('foto/testimoni2.jpeg') ; */
+}
+
+.upload-container {
+    width: 500px;
+    height: 400px;
+    border: 2px dashed #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    margin-bottom: 20px;
+    background-color: #D9D9D9; 
+    border-radius: 50px;
+    background-image: url(/public/foto/review1.jpeg);
+}
+
+#fileInput {
+    display: none;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.submit-button {
+    margin-top: 10px;
+    background-color: #D9D9D9; /* Warna latar belakang tombol */
+    color: black; /* Warna teks tombol */
+    padding: 10px 20px; /* Padding tombol (atas-bawah kiri-kanan) */
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: JockeyOne-regular; 
+}
+
+
