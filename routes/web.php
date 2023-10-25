@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('/lokasi', function () {
     return view('user/lokasi');
 });
+
+Route::get('/product', function() {
+    return view('user/produk');
+});
