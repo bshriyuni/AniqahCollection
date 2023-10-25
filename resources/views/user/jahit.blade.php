@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{ asset('font') }}"> <!-- Ganti 'font.css' dengan nama file CSS Anda -->
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6xHzyrrFJur_ytwYcXT7iC5dUcHj9e5w&callback=initMap" async defer></script>
 
 
@@ -77,7 +78,7 @@
                 border-top-left-radius: 200px; 
                 border-top-right-radius: 200px;">
                     <div class="card-content">
-                        <p>Ini adalah konten card pertama.</p>
+                        <img src="gambar1.png">
                     </div>
                 </div>
                 <p style="margin-top: 10px; font-family: 'Inter-ExtraBold';">Engagement</p>
@@ -114,6 +115,17 @@
                 <p style="margin-top: 10px; font-family: 'Inter-ExtraBold';">Bridesmaid</p>
             </div>
         
+        </div>
+    </div>
+
+    <div class="custom-arrows">
+        <i class="fas fa-arrow-left" style="font-size: 50px;"></i>
+        <i class="fas fa-arrow-right" style="font-size: 50px;"></i>
+    </div>
+
+    <div class="order">
+        <div class="card-content">
+            <p style= "font-size: 18px; font-family: 'Inter-ExtraBold' ; color: #333; text-align: center; margin-top:13px;">Hubungi Penjahit</p>
         </div>
     </div>
 

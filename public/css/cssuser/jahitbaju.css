@@ -92,63 +92,35 @@ body{
     color: black;
 }   
 
-/* .row{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Membagi grid menjadi 2 kolom yang sama lebar */
-    /* gap: 20px; Jarak antara card
-} */ 
-
-/* .card {
-    background-color: #DBE4C6;
-    border: 1px solid #ccc;
-    padding: 20px;
-    width: 300px;
-    height: 500px;
-    margin: 0 auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    border-top-left-radius: 200px;
-    border-top-right-radius: 200px;
+.custom-arrows {
+    text-align: center; 
 }
 
-.card-content1 {
-    background-color: #DBE4C6;
-    border: 1px solid #ccc;
-    padding: 20px;
-    width: 300px;
-    height: 100px;
-    margin: 0 auto;
-    margin-top: 50px;
+.custom-arrows i {
+    margin: 0 20px; 
     margin-bottom: 50px;
-    border-top-left-radius: 200px;
-    border-top-right-radius: 200px;
+    color: #6e836c; 
 }
 
-.card-content2 {
-    background-color: #DBE4C6;
-    border: 1px solid #ccc;
-    padding: 20px;
+.order{
     width: 300px;
-    height: 300px;
-    margin: 0 auto;
-    margin-top: 50px;
+    height: 50px;
+    border: 1px solid #2e382d;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #D6E8DB;
+    text-align: center; 
+    margin: 0 auto; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
     margin-bottom: 50px;
-    border-top-left-radius: 200px;
-    border-top-right-radius: 200px;
 }
 
-.card-content3 {
-    background-color: #BBD6B8;
-    border: 1px solid #ccc;
-    padding: 20px;
-    width: 300px;
-    height: 500px;
-    margin: 0 auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    border-top-left-radius: 200px;
-    border-top-right-radius: 200px;
-} */
+.card-content{
+    text-align: center;
+}
+
 
 .footNote{
     background-color: #BBD6B8;
