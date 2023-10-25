@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user/homepage');
 });
 
 Route::get('/lokasi', function () {
@@ -25,4 +25,10 @@ Route::get('/detailproduk', function () {
     return view('user/detailproduk');
 });
 
+Route::get('/jahitbaju', function () {
+    return view('user/jahit');
+});
 
+Route::get('/carapemesanan', function () {
+    return view('user/carapemesanan');
+});
