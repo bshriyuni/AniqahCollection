@@ -21,4 +21,6 @@ Route::get('/lokasi', function () {
     return view('user/lokasi');
 });
 
-
+Route::get('/carapemesanan', function () {
+    return view('user/carapemesanan');
+});
