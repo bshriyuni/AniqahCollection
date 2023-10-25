@@ -37,7 +37,7 @@
     <!-- Brand App -->
     <div class="brandApp">
         <div class="Aniqah" style="margin-top: 20px;">
-            <h1 class="textAniqah">Aniqah Collction</h1>
+            <h1 class="textAniqah">Aniqah Collection</h1>
             <h7 class="deskripsiBrand">Sewa baju bodo dan jasa jahit baju</h7>
         </div>
     </div>
