@@ -52,10 +52,10 @@
     </div>
     </nav>
     
-    <h1></h1>
-    <form class="d-flex" role="search" >
+    <br>
+    <center><form class="d-flex" role="search" >
         <input class="form-control me-4" type="search" placeholder="Search" aria-label="Search" style="background-color: #D9D9D9;">
-    </form>
+    </form></center>
     
     <br>
     <div id="most">
@@ -86,37 +86,37 @@
     <div class="container text-center">
         <div class="row align-items-start">
             <div class="col">
-             <div class="card" style="background-color: #BBD6B8;">
+             <div class="card" style="background-color: #BBD6B8; padding:10px ">
                 <div class="card-body" style="text-align :start;">
                     <h5 class="card-title">Kode Baju</h5>
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                 </div>
-                <div class="container" style="background-color: #F4EEEE; padding:40;">
+                <div class="container" style="background-color: #F4EEEE; padding:20px ;">
                     <img src="foto/foto1.jpg" class="card-img-bottom" alt="...">
                 </div>
              </div>
             </div>
             <div class="col">
-             <div class="card" style="background-color: #BBD6B8;">
+             <div class="card" style="background-color: #BBD6B8; padding:10px">
                 <div class="card-body" style="text-align :start;">
                     <h5 class="card-title">Kode Baju</h5>
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                 </div>
-                <div class="container" style="background-color: #F4EEEE;">
+                <div class="container" style="background-color: #F4EEEE; padding:20px">
                     <img src="foto/foto2.jpg" class="card-img-bottom" alt="...">
                 </div>
              </div>
             </div>
             <div class="col">
-             <div class="card" style="background-color: #BBD6B8;">
+             <div class="card" style="background-color: #BBD6B8; padding:10px">
                 <div class="card-body" style="text-align :start;">
                     <h5 class="card-title">Kode Baju</h5>
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                 </div>
-                <div class="container" style="background-color: #F4EEEE;">
+                <div class="container" style="background-color: #F4EEEE; padding:20px">
                     <img src="foto/foto3.jpg" class="card-img-bottom" alt="...">
                 </div>
              </div>
@@ -125,37 +125,37 @@
         <br>
         <div class="row align-items-start">
             <div class="col">
-             <div class="card" style="background-color: #BBD6B8;">
+             <div class="card" style="background-color: #BBD6B8; padding:10px">
                 <div class="card-body" style="text-align :start;">
                     <h5 class="card-title">Kode Baju</h5>
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                 </div>
-                <div class="container" style="background-color: #F4EEEE;">
+                <div class="container" style="background-color: #F4EEEE; padding:20px">
                     <img src="foto/foto4.jpg" class="card-img-bottom" alt="...">
                 </div>
              </div>
             </div>
             <div class="col">
-             <div class="card" style="background-color: #BBD6B8;">
+             <div class="card" style="background-color: #BBD6B8; padding:10px">
                 <div class="card-body" style="text-align :start;">
                     <h5 class="card-title">Kode Baju</h5>
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                 </div>
-                <div class="container" style="background-color: #F4EEEE;" width="20px" height="20px">
+                <div class="container" style="background-color: #F4EEEE; padding:20px">
                     <img src="foto/foto5.jpg" class="card-img-bottom" alt="..." >
                 </div>
              </div>
             </div>
             <div class="col">
-             <div class="card" style="background-color: #BBD6B8;">
+             <div class="card" style="background-color: #BBD6B8; padding:10px">
                 <div class="card-body" style="text-align :start;">
                     <h5 class="card-title">Kode Baju</h5>
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                 </div>
-                <div class="container" style="background-color: #F4EEEE;">
+                <div class="container" style="background-color: #F4EEEE; padding:20px">
                     <img src="foto/foto6.jpg" class="card-img-bottom" alt="...">
                 </div>
              </div>
@@ -164,6 +164,36 @@
     </div>
   
     <br>
+    <div class="container text-center">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <img src="number/number-1.png" width="40px" height="40px" >
+                </div>
+                <div class="col">
+                    <img src="number/number-2.png" width="40px" height="40px" >
+                </div>
+                <div class="col">
+                    <img src="number/number-3.png" width="40px" height="40px" >
+                </div>
+                <div class="col">
+                    <img src="number/number-4.png" width="40px" height="40px" >
+                </div>
+                <div class="col">
+                    <img src="number/number-5.png"  width="40px" height="40px">
+                </div>
+                <div class="col">
+                    <img src="number/number-6.png"  width="40px" height="40px">
+                </div>
+            </div>
+        </div>
+        <div class="col"> </div>
+    </div>
+    </div>
+
+    <br><br>
     <!-- FootNote -->
     <div class="footNote" style="background-color: #BBD6B8;">
         <div class="row">
