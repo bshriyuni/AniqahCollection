@@ -90,7 +90,50 @@ body{
     text-align: center;
     margin-top: 0px;
     color: black;
-}   
+}  
+
+.card{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-content{
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-1{
+    width: 186%;
+    height: auto;
+    /* max-width: 100%;
+    max-height: 100%; */
+    display: block;
+    margin: 0 auto;
+}
+
+.image-2{
+    width: 150%;
+    height: auto;
+    /* max-width: 100%;
+    max-height: 100%; */
+    display: block;
+    margin: 0 auto;
+}
+
+.image-3{
+    width: 150%;
+    height: auto;
+    /* max-width: 100%;
+    max-height: 100%; */
+    display: block;
+    margin: 0 auto;
+}
 
 .custom-arrows {
     text-align: center; 
@@ -102,14 +145,15 @@ body{
     color: #6e836c; 
 }
 
-.order{
+.custom-button {
+    background-color: #D6E8DB; /* Warna latar belakang tombol */
     width: 300px;
     height: 50px;
     border: 1px solid #2e382d;
     padding: 20px;
     border-radius: 10px;
-    background-color: #D6E8DB;
-    text-align: center; 
+    border-radius: 5px; /* Sudut bulat tombol */
+    text-align: center; /* Pusatkan teks secara horizontal */
     margin: 0 auto; 
     display: flex; 
     flex-direction: column; 
@@ -117,8 +161,8 @@ body{
     margin-bottom: 50px;
 }
 
-.card-content{
-    text-align: center;
+.custom-button:hover {
+    background-color: #70bd85; /* Warna latar belakang saat tombol dihover */
 }
 
 
