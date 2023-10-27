@@ -37,7 +37,7 @@
     <!-- Brand App -->
     <div class="brandApp">
         <div class="Aniqah" style="margin-top: 20px;">
-            <h1 class="textAniqah">Aniqah Collction</h1>
+            <h1 class="textAniqah">Aniqah Collection</h1>
             <h7 class="deskripsiBrand">Sewa baju bodo dan jasa jahit baju</h7>
         </div>
     </div>
@@ -49,22 +49,22 @@
             <div class="collapse navbar-collapse ml-auto" id="collapsibleNavbar">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Produk</a>
+                        <a class="nav-link" href="/product">Produk</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-bold" href="#">Lokasi</a>
+                        <a class="nav-link fw-bold" href="/lokasi">Lokasi</a>
                     </li> 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Testimoni</a>
+                        <a class="nav-link" href="/testimoni">Testimoni</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cara Pemesanan</a>
+                        <a class="nav-link" href="/crapemesanan">Cara Pemesanan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Jahit</a>
+                        <a class="nav-link" href="/jahitbaju">Jahit</a>
                     </li>
                 </ul>
             </div>
@@ -122,6 +122,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
+  </body>
 </body>
 </html>

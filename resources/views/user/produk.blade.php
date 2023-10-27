@@ -30,22 +30,22 @@
         <div class="navbar-nav" style="width: 100%;">
             <div class="row horizontal-text" style="display: flex; justify-content: space-between; width: 100%;">
                 <div class="col">
-                    <a class="nav-link" href="#" style="flex: 1;">Home</a>
+                    <a class="nav-link" href="/" style="flex: 1;">Home</a>
                 </div>
                 <div class="col">
-                    <a class="nav-link" href="#" style="flex: 1;">Produk</a>
+                    <a class="nav-link" href="/product" style="flex: 1;">Produk</a>
                 </div>
                 <div class="col">
-                    <a class="nav-link" href="#" style="flex: 1;">Lokasi</a>
+                    <a class="nav-link" href="/lokasi" style="flex: 1;">Lokasi</a>
                 </div>
                 <div class="col">
-                    <a class="nav-link" href="#" style="flex: 1;">Testimoni</a>
+                    <a class="nav-link" href="/testimoni" style="flex: 1;">Testimoni</a>
                 </div>
                 <div class="col">
-                    <a class="nav-link" href="#" style="flex: 1; white-space: nowrap;">Cara Pemesanan</a>
+                    <a class="nav-link" href="/carapemesanan" style="flex: 1; white-space: nowrap;">Cara Pemesanan</a>
                 </div>
                 <div class="col">
-                    <a class="nav-link" href="#" style="flex: 1;">Jahit</a>
+                    <a class="nav-link" href="/jahitbaju" style="flex: 1;">Jahit</a>
                 </div>
             </div> 
         </div>
