@@ -24,3 +24,7 @@ Route::get('/lokasi', function () {
 Route::get('/product', function() {
     return view('user/produk');
 });
+
+Route::get('/productadmin', function() {
+    return view('admin/produk');
+});
