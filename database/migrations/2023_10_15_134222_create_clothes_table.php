@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('kode_baju');
             $table->string('kategori_baju');
             $table->string('deskripsi_baju');
+            $table->string('syarat_ketentuan');
             $table->string('harga');
             $table->integer('jumlah_stok');
             $table->timestamps();
