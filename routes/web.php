@@ -48,4 +48,8 @@ Route::get('/adminlokasi', function () {
 
 Route::get('/admintestimoni', function () {
     return view('admin/testimoni');
+ });
+
+Route::get('/productadmin', function() {
+    return view('admin/produk');
 });

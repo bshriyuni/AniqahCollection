@@ -7,18 +7,18 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-    <!-- <style>
-        a {
-            text-align : center;
+    <style>
+        hr {
+          border: 4px solid black;
         }
-    </style> -->
+    </style>
  
 </head>
 <body>
      <!-- Brand App -->
      <div class="brandApp">
         <div class="Aniqah" style="margin-top: 20px;">
-            <h1 class="textAniqah">Aniqah Collction</h1>
+            <h1 class="textAniqah">Aniqah Collection</h1>
             <h7 class="deskripsiBrand">Sewa baju bodo dan jasa jahit baju</h7>
         </div>
     </div>
@@ -53,9 +53,11 @@
     </nav>
     
     <br>
-    <center><form class="d-flex" role="search" >
+    <div class="container">
+    <form class="d-flex" role="search" >
         <input class="form-control me-4" type="search" placeholder="Search" aria-label="Search" style="background-color: #D9D9D9;">
-    </form></center>
+    </form>
+    </div>
     
     <br>
     <div id="most">
@@ -68,7 +70,7 @@
         </div>
     </div>
 
-    <br />
+    <br><br>
     <div id="product lainnya">
         <div class="row align-items-start">
             <div class="col">
@@ -83,6 +85,7 @@
         </div>
     </div>
 
+    <br>
     <div class="container text-center">
         <div class="row align-items-start">
             <div class="col">
