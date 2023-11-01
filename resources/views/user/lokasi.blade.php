@@ -89,9 +89,9 @@
             <i class="fas fa-home fa-9x"></i>
         </div>
         <div class="lokasi">
-            <h6>Jln.Pemuda II. (Perumahan Fortuna Permai)</h6>
-            <h6>Takkalala, Wara Selatan, Palopo City, South Sulawesi</h6>
-            <h6>Indonesia</h6>
+            <h4>Jln.Pemuda II. (Perumahan Fortuna Permai)</h4>
+            <h4>Takkalala, Wara Selatan, Palopo City, South Sulawesi</h4>
+            <h4>Indonesia</h4>
         </div>
     </div>
     <!-- End Detail Lokasi -->
