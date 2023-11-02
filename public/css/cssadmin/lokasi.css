@@ -71,7 +71,7 @@ body{
     flex: 1; /* Membuat setiap elemen mengambil lebar yang sama */
     text-align: center; /* Mengatur teks menjadi berada di tengah */
     white-space: nowrap; /* Mencegah patah baris pada teks */
-    font-size: 36px;
+    font-size: 20px;
     font-family: 'Inter-Regular';
     color: black;
 }
@@ -107,13 +107,10 @@ body{
 }
 
 .detail_lokasi{
-    margin: auto;
+    margin: 81px;
     padding: 20px;
-    width: 1000px;
     background-color: #DBE1C6;
     border-radius: 40px;
-    margin-top: 60px;
-    margin-bottom: 60px;
 }
 
 .detailLokasi{
@@ -123,7 +120,7 @@ body{
 
 .JudulDetailLokasi{
     text-align: center;
-    font-size: 64px;
+    font-size: 50px;
 }
 
 .logoHome{
