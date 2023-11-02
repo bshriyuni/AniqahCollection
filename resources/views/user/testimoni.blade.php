@@ -79,27 +79,26 @@
 <br>
     <!-- Review -->
     <div class="container text-center review">
-    <div class="row">
-        <div class="colReview">
-            <div class="row">
-                <div class="col-4">
-                    <img src="{{ asset('foto/review1.jpeg') }}" alt="Gambar 1"  class="img-fluid rounded-image">
-                    <h6>Mbak Adel</h6>
-                </div>
-                <div class="col-8" style="margin-top: 20px;" >Lorem ipsum is a placeholder text commonly used in the design and printing industry. It is a Latin looking text that has been used since the 16th century as a filler text when the final content is not yet available.</div>
-                <div class="container">
-                    <span class="fas fa-star yellow-star"></span>
-                    <span class="fas fa-star yellow-star"></span>
-                    <span class="fas fa-star yellow-star"></span>
-                    <span class="fas fa-star yellow-star"></span>
-                    <span class="fas fa-star yellow-star"></span>
-                    <span style="margin-left: 5px;"> 5 </span>
-
-                </div>
-
+        <div class="row">
+            <div class="colReview">
+                <div class="row">
+                    <div class="col-4">
+                        <img src="{{ asset('foto/review1.jpeg') }}" alt="Gambar 1"  class="img-fluid rounded-image">
+                        <h6>Mbak Adel</h6>
+                    </div>
+                    <div class="col-8" style="margin-top: 20px;" >Lorem ipsum is a placeholder text commonly used in the design and printing industry. It is a Latin looking text that has been used since the 16th century as a filler text when the final content is not yet available.</div>
+                    <div class="container">
+                        <span class="fas fa-star yellow-star"></span>
+                        <span class="fas fa-star yellow-star"></span>
+                        <span class="fas fa-star yellow-star"></span>
+                        <span class="fas fa-star yellow-star"></span>
+                        <span class="fas fa-star yellow-star"></span>
+                        <span style="margin-left: 5px;"> 5 </span>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 
     <!-- FootNote -->
     <div class="footNote">

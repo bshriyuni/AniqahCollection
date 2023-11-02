@@ -35,7 +35,7 @@
             <div class="collapse navbar-collapse ml-auto" id="collapsibleNavbar">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
+                    <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fw-bold" href="/product">Produk</a>
@@ -44,7 +44,7 @@
                         <a class="nav-link" href="/lokasi">Lokasi</a>
                     </li> 
                     <li class="nav-item">
-                        <a class="nav-link" href="/testimoni">Testimoni</a>
+                        <a class="nav-link fw-bold" href="/testimoni">Testimoni</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/carapemesanan">Cara Pemesanan</a>
