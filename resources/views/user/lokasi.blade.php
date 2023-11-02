@@ -49,22 +49,22 @@
             <div class="collapse navbar-collapse ml-auto" id="collapsibleNavbar">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Produk</a>
+                        <a class="nav-link" href="/product">Produk</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-bold" href="#">Lokasi</a>
+                        <a class="nav-link fw-bold" href="/lokasi">Lokasi</a>
                     </li> 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Testimoni</a>
+                        <a class="nav-link" href="/testimoni">Testimoni</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cara Pemesanan</a>
+                        <a class="nav-link" href="/crapemesanan">Cara Pemesanan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Jahit</a>
+                        <a class="nav-link" href="/jahitbaju">Jahit</a>
                     </li>
                 </ul>
             </div>
@@ -89,9 +89,9 @@
             <i class="fas fa-home fa-9x"></i>
         </div>
         <div class="lokasi">
-            <h6>Jln.Pemuda II. (Perumahan Fortuna Permai)</h6>
-            <h6>Takkalala, Wara Selatan, Palopo City, South Sulawesi</h6>
-            <h6>Indonesia</h6>
+            <h4>Jln.Pemuda II. (Perumahan Fortuna Permai)</h4>
+            <h4>Takkalala, Wara Selatan, Palopo City, South Sulawesi</h4>
+            <h4>Indonesia</h4>
         </div>
     </div>
     <!-- End Detail Lokasi -->

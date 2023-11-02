@@ -29,11 +29,11 @@
 }
 
 @font-face {
-    font-family: "Corinthia-Bold";
-    src: url(/font/Corinthia-Bold.ttf) format('truetype');
+    font-family: "JockeyOne-Regular";
+    src: url(/font/JockeyOne-Regular.ttf) format('truetype');
 }
 
-
+/* bran & navbar */
 body{
     background-color:#FFFFFF;
 }
@@ -75,97 +75,84 @@ body{
     font-family: 'Inter-Regular';
     color: black;
 }
+/* End brand & navbar */
 
-.textTitle{
-    font-family: 'Corinthia-Bold';
-    font-size: 70px;
-    text-align: center;
-    margin-top: 70px;
-    margin-bottom: 0px;
-    color: black;
-}
-
-.description{
-    font-family: 'Inter-Regular';
-    text-align: center;
-    margin-top: 0px;
-    color: black;
-}  
-
-.card{
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.card-content{
-    text-align: center;
+/* isi konten */
+/* Google Maps */
+#map {
+    height: 500px;
     width: 100%;
-    height: 100%;
+}
+/* End Google Maps */
+
+/* Modal */
+.modal-title{
+    font-family: 'OleoScript-Bold';
+    font-size: 44px;
+}
+
+.h3Lokasi{
+    font-family: 'JockeyOne-Regular';
+    font-size: 30px;
+}
+
+.form-label{
+    font-family: 'JockeyOne-Regular';
+}
+/* End Modal */
+
+/* Detail Lokasi */
+.judulDetailLokasi{
+    text-align: center;
+}
+
+.detail_lokasi{
+    margin: auto;
+    padding: 20px;
+    width: 1000px;
+    background-color: #DBE1C6;
+    border-radius: 40px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.detailLokasi{
+    font-family: 'AbyssinicaSIL-Regular';
+    font-size: 64px;
+}
+
+.JudulDetailLokasi{
+    text-align: center;
+    font-size: 64px;
+}
+
+.logoHome{
+    text-align: center;
+    margin-top: 40px;
+}
+
+.lokasi{
+    text-align: center;
+    margin-top: 40px;
+    font-family: 'JacquesFrancois-Regular';
+    font-size: 36px;
+}
+/* end Detail Lokasi */
+
+/* Edit Lokasi */
+.edit_lokasi{
+    background-color: #DBE1C6;
+    border-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 237px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
-.image-1{
-    width: 186%;
-    height: auto;
-    /* max-width: 100%;
-    max-height: 100%; */
-    display: block;
-    margin: 0 auto;
-}
-
-.image-2{
-    width: 150%;
-    height: auto;
-    /* max-width: 100%;
-    max-height: 100%; */
-    display: block;
-    margin: 0 auto;
-}
-
-.image-3{
-    width: 150%;
-    height: auto;
-    /* max-width: 100%;
-    max-height: 100%; */
-    display: block;
-    margin: 0 auto;
-}
-
-.custom-arrows {
-    text-align: center; 
-}
-
-.custom-arrows i {
-    margin: 0 20px; 
-    margin-bottom: 50px;
-    color: #6e836c; 
-}
-
-.custom-button {
-    background-color: #D6E8DB; /* Warna latar belakang tombol */
-    width: 300px;
-    height: 50px;
-    border: 1px solid #2e382d;
-    padding: 20px;
-    border-radius: 10px;
-    border-radius: 5px; /* Sudut bulat tombol */
-    text-align: center; /* Pusatkan teks secara horizontal */
-    margin: 0 auto; 
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
-    margin-bottom: 50px;
-}
-
-.custom-button:hover {
-    background-color: #70bd85; /* Warna latar belakang saat tombol dihover */
-}
-
-
+/* footnote */
 .footNote{
     background-color: #BBD6B8;
     padding: 40px;
@@ -178,3 +165,4 @@ body{
 .aboutUs{
     font-family: 'Inter-ExtraBold';
 }
+/* end footnote */
