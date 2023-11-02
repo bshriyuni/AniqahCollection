@@ -55,12 +55,12 @@
 <body>
     <!-- Brand App -->
     <div class="row brandApp">
-        <div class="col-sm-11 Aniqah col-10" style="margin-top: -30px; margin-bottom: -40px; margin-left: -20px;">
+        <div class="col-md-11 col-12 Aniqah" style="margin-top: -30px; margin-bottom: -40px;">
             <h1 class="textAniqah">Aniqah Collection</h1>
             <h7 class="deskripsiBrand">Sewa baju bodo dan jasa jahit baju</h7>
         </div>
-        <div class="col-sm-1" style="position: absolute; right: 0;">
-        <button id="editButton" type="button" class="btn btn-light" data-toggle="modal" data-target="#editModal" style="margin-right: -20px;">
+        <div class="col-md-1 col-12" style="text-align: right;">
+            <button id="editButton" type="button" class="btn btn-light" data-toggle="modal" data-target="#editModal" style="margin-right: -20px;">
                 <i class="fas fa-pencil-alt fa-2x"></i>
             </button>
         </div>
@@ -107,10 +107,13 @@
     <!-- End Modal Edit Lokasi -->
 
     <!-- Menu App -->
-    <nav class="navbar navbar-expand-sm costom-navbar">
+    <nav class="navbar navbar-expand-md navbar-light">
         <div class="container-fluid">
-            <div class="collapse navbar-collapse ml-auto" id="collapsibleNavbar">
-                <ul class="navbar-nav ml-auto">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
                         <a class="nav-link" href="/">Home</a>
                     </li>
@@ -119,7 +122,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fw-bold" href="/lokasi">Lokasi</a>
-                    </li> 
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/testimoni">Testimoni</a>
                     </li>
@@ -242,6 +245,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </body>
 </html>
