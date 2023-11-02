@@ -45,7 +45,7 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link fw-bold" href="/">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/product">Produk</a>
@@ -57,7 +57,7 @@
                         <a class="nav-link" href="/testimoni">Testimoni</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/crapemesanan">Cara Pemesanan</a>
+                        <a class="nav-link" href="/carapemesanan">Cara Pemesanan</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/jahitbaju">Jahit</a>

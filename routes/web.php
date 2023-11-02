@@ -29,10 +29,6 @@ Route::get('/testimoni', function () {
     return view('user/testimoni');
 });
 
-Route::get('/admintestimoni', function () {
-    return view('admin/testimoni');
-});
-
 Route::get('/detailproduk', function () {
     return view('user/detailproduk');
 });
@@ -44,3 +40,20 @@ Route::get('/jahitbaju', function () {
 Route::get('/carapemesanan', function () {
     return view('user/carapemesanan');
 });
+
+// Admin
+Route::get('/adminlokasi', function () {
+    return view('admin/lokasi');
+});
+
+Route::get('/admintestimoni', function () {
+    return view('admin/testimoni');
+ });
+
+Route::get('/productadmin', function() {
+    return view('admin/produk');
+});
+
+Route::get('/admincarapemesanan', function () {
+    return view('admin/carapemesanan');
+ });

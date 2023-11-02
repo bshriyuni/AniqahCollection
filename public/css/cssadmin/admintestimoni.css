@@ -27,7 +27,11 @@
     font-family: "Inter-ExtraBold";
     src: url(/font/Inter-ExtraBold.ttf) format('truetype');
 }
-/* bran & navbar */
+@font-face {
+    font-family: "Abril-Fatface";
+    src: url(/font/Abril-Fatface.ttf) format('truetype');
+}
+
 body{
     background-color:#FFFFFF;
 }
@@ -55,6 +59,10 @@ body{
     text-align: justify;
 }
 
+.judulDetailLokasi{
+    text-align: center;
+}
+
 .navbar-nav {
     display: flex; /* Mengatur elemen-elemen navbar menjadi tampilan flexbox */
     justify-content: space-between; /* Menyebarkan elemen-elemen secara merata */
@@ -65,39 +73,11 @@ body{
     flex: 1; /* Membuat setiap elemen mengambil lebar yang sama */
     text-align: center; /* Mengatur teks menjadi berada di tengah */
     white-space: nowrap; /* Mencegah patah baris pada teks */
-    font-size: 20px;
+    font-size: 36px;
     font-family: 'Inter-Regular';
     color: black;
 }
-/* End brand & navbar */
 
-/* Google Maps */
-#map {
-    height: 500px;
-    width: 100%;
-}
-/* End Google Maps */
-
-.judulDetailLokasi{
-    text-align: center;
-}
-
-.detail_lokasi{
-    margin: 81px;
-    padding: 20px;
-    background-color: #DBE1C6;
-    border-radius: 40px;
-}
-
-.detailLokasi{
-    font-family: 'AbyssinicaSIL-Regular';
-    font-size: 64px;
-}
-
-.JudulDetailLokasi{
-    text-align: center;
-    font-size: 50px;
-}
 
 .logoHome{
     text-align: center;
@@ -122,4 +102,66 @@ body{
 
 .aboutUs{
     font-family: 'Inter-ExtraBold';
+}
+
+.custom-heading {
+    font-family: 'Abril-Fatface';
+    padding: 20px;
+    margin-left: 50px;
+}
+.col {
+    background-color: #BBD6B8; /* Ganti dengan warna latar belakang yang diinginkan, contoh: oranye */
+    padding: 30px;
+    margin: 5px;
+    border-radius: 10px;
+}
+.line-with-text {
+    position: relative;
+    text-align: center;
+    margin-top: 20px; /* Atur jarak atas sesuai kebutuhan */
+}
+
+.line-with-text div {
+    border-top: 10px solid black; /* Atur ketebalan garis (10px dalam contoh ini) */
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    z-index: -1;
+}
+.colReview {
+    background-color: #F4EAD5; /* Ganti dengan warna latar belakang yang diinginkan, contoh: oranye */
+    /* padding: 1px; */
+    margin: 5px;
+    border-radius: 100px;
+}
+.rounded-image {
+    width: 150px; /* Atur lebar gambar */
+    height: 150px; /* Atur tinggi gambar */
+    border-radius: 50%; /* Membuat gambar bulat */
+}
+.col-4 h6 {
+    margin-top: 20px; /* Atur jarak atas sesuai kebutuhan */
+}
+.bg-light {
+    font-family: 'JacquesFrancois-Regular';
+    font-size: 30px;
+}
+.line-with-text div {
+    border-top: 10px solid black; /* Atur ketebalan garis (10px dalam contoh ini) */
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    z-index: -1;
+}
+
+.line-with-text span {
+    background-color: #FFFFFF;
+    padding: 10px 20px;
+    font-size: 30px;
+    font-family: 'Abril-Fatface';
+    font-weight: normal; /* Mengatur tulisan menjadi tidak tebal */
+}
+
+.yellow-star {
+    color: yellow;
 }

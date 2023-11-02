@@ -27,6 +27,12 @@
     font-family: "Inter-ExtraBold";
     src: url(/font/Inter-ExtraBold.ttf) format('truetype');
 }
+
+@font-face {
+    font-family: "JockeyOne-Regular";
+    src: url(/font/JockeyOne-Regular.ttf) format('truetype');
+}
+
 /* bran & navbar */
 body{
     background-color:#FFFFFF;
@@ -71,6 +77,7 @@ body{
 }
 /* End brand & navbar */
 
+/* isi konten */
 /* Google Maps */
 #map {
     height: 500px;
@@ -78,6 +85,23 @@ body{
 }
 /* End Google Maps */
 
+/* Modal */
+.modal-title{
+    font-family: 'OleoScript-Bold';
+    font-size: 44px;
+}
+
+.h3Lokasi{
+    font-family: 'JockeyOne-Regular';
+    font-size: 30px;
+}
+
+.form-label{
+    font-family: 'JockeyOne-Regular';
+}
+/* End Modal */
+
+/* Detail Lokasi */
 .judulDetailLokasi{
     text-align: center;
 }
@@ -110,7 +134,22 @@ body{
     font-family: 'JacquesFrancois-Regular';
     font-size: 36px;
 }
+/* end Detail Lokasi */
 
+/* Edit Lokasi */
+.edit_lokasi{
+    background-color: #DBE1C6;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 237px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* footnote */
 .footNote{
     background-color: #BBD6B8;
     padding: 40px;
@@ -123,3 +162,4 @@ body{
 .aboutUs{
     font-family: 'Inter-ExtraBold';
 }
+/* end footnote */

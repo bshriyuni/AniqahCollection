@@ -44,27 +44,30 @@
     <!-- end Brand App -->
 
     <!-- Menu App -->
-    <nav class="navbar navbar-expand-sm costom-navbar">
+    <nav class="navbar navbar-expand-md navbar-light">
         <div class="container-fluid">
-            <div class="collapse navbar-collapse ml-auto" id="collapsibleNavbar">
-                <ul class="navbar-nav ml-auto">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Produk</a>
+                        <a class="nav-link" href="/product">Produk</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-bold" href="#">Lokasi</a>
-                    </li> 
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Testimoni</a>
+                        <a class="nav-link fw-bold" href="/lokasi">Lokasi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cara Pemesanan</a>
+                        <a class="nav-link" href="/testimoni">Testimoni</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Jahit</a>
+                        <a class="nav-link" href="/crapemesanan">Cara Pemesanan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/jahitbaju">Jahit</a>
                     </li>
                 </ul>
             </div>
@@ -89,9 +92,9 @@
             <i class="fas fa-home fa-9x"></i>
         </div>
         <div class="lokasi">
-            <h6>Jln.Pemuda II. (Perumahan Fortuna Permai)</h6>
-            <h6>Takkalala, Wara Selatan, Palopo City, South Sulawesi</h6>
-            <h6>Indonesia</h6>
+            <h4 id="namaJalanDetail">Jln.Pemuda II. (Perumahan Fortuna Permai)</h4>
+            <h4 id="kotaProvinsiDetail">Takkalala, Wara Selatan, Palopo City, South Sulawesi</h4>
+            <h4 id="negaraDetail">Indonesia</h4>
         </div>
     </div>
     <!-- End Detail Lokasi -->
@@ -122,6 +125,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </body>
 </html>
