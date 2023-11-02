@@ -53,3 +53,7 @@ Route::get('/admintestimoni', function () {
 Route::get('/productadmin', function() {
     return view('admin/produk');
 });
+
+Route::get('/admincarapemesanan', function () {
+    return view('admin/carapemesanan');
+ });

@@ -8,41 +8,28 @@
     <!-- Link Bootstraps -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <!-- Link CSS -->
-    <link rel="stylesheet" href="css/cssuser/carapemesanan.css">
+    <link rel="stylesheet" href="css/cssadmin/carapemesanan.css">
     <!-- link font awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('font') }}"> <!-- Ganti 'font.css' dengan nama file CSS Anda -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6xHzyrrFJur_ytwYcXT7iC5dUcHj9e5w&callback=initMap" async defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
 
-    <script>
-        let map;
-        let marker;
-            function initMap() {
-                map = new google.maps.Map(document.getElementById("map"), {
-                    center: {lat: -3.022163, lng:  120.212572},
-                    zoom: 20,
-                });
-
-                // Buat marker dengan koordinat yang ditentukan
-                marker = new google.maps.Marker({
-                    position: { lat: -3.022163, lng: 120.212572 }, // Ganti dengan koordinat yang Anda inginkan
-                    map: map,
-                    title: "Lokasi yang Ditandai", // Ganti dengan judul marker Anda
-                });
-            }
-    </script>
-
 </head>
 <body>
-    <!-- Brand App -->
-    <div class="brandApp">
-        <div class="Aniqah" style="margin-top: 20px;">
+   <!-- Brand App -->
+   <div class="row brandApp">
+        <div class="col-sm-11 Aniqah col-10" style="margin-top: -30px; margin-bottom: -40px; margin-left: -20px;">
             <h1 class="textAniqah">Aniqah Collection</h1>
             <h7 class="deskripsiBrand">Sewa baju bodo dan jasa jahit baju</h7>
         </div>
+        <div class="col-sm-1" style="position: absolute; right: 0;">
+        <button id="editButton" type="button" class="btn btn-light" data-toggle="modal" data-target="#editModal" style="margin-right: -20px;">
+                <i class="fas fa-pencil-alt fa-3x"></i>
+            </button>
+        </div>
     </div>
-    <!-- end Brand App -->
+    <!-- end Brand App -->
 
     <!-- Menu App -->
     <nav class="navbar navbar-expand-sm costom-navbar">
@@ -75,8 +62,6 @@
     <br>
 
     <!-- Tata Cara Pemesanan -->
-
-   
         <div class="judul" style="margin-top: 20px;">
             <h1> TATA CARA PEMESANAN</h1>
         </div>
@@ -88,7 +73,7 @@
             <p class="custom-text" style="padding: 10px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
             <div class="col-4">
-            <div class="rounded-card" style="margin-top: 20px;">
+            <div class="rounded-card" style="padding: 30px;" style="margin-top: 20px;">
                 <i class="fa-solid fa-lightbulb fa-4x" style="color: #fffafa;"></i>
             </div>
             </div>
@@ -116,7 +101,7 @@
             <p class="custom-text" style="padding: 10px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
             <div class="col-4">
-            <div class="rounded-card" style="margin-top: 20px;">
+            <div class="rounded-card" style="padding: 20px;" style="margin-top: 20px;">
                 <i class="fa-solid fa-address-book fa-3x" style="color: #fffafa;"></i>
             </div>
             </div>
@@ -130,7 +115,7 @@
             <p class="custom-text" style="padding: 10px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
             <div class="col-4">
-            <div class="rounded-card" style="margin-top: 20px;">
+            <div class="rounded-card" style="padding: 30px;" style="margin-top: 20px;">
                 <i class="fa-solid fa-dollar-sign fa-3x" style="color: #fffafa;"></i>
             </div>
             </div>
@@ -158,7 +143,7 @@
             <p class="custom-text" style="padding: 10px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
             <div class="col-4">
-            <div class="rounded-card" style="margin-top: 20px;">
+            <div class="rounded-card" style="padding: 30px;" style="margin-top: 20px;">
                 <i class="fa-solid fa-thumbs-up fa-3x" style="color: #fffafa;"></i>
             </div>
             </div>
@@ -172,7 +157,7 @@
             <p class="custom-text" style="padding: 10px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
             <div class="col-4">
-            <div class="rounded-card" style="margin-top: 20px;">
+            <div class="rounded-card" style="padding: 20px;" style="margin-top: 20px;">
                 <i class="fa-solid fa-cart-shopping fa-3x" style="color: #fffafa;"></i>
             </div>
             </div>
@@ -188,7 +173,61 @@
 </div>
     </div>
   </div>
+   <!-- End Tata Cara Pemesanan -->
 
+  <!-- Modal Form-->
+  <div class="modal fade" id="addtesti" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Cara Pemesanan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Edit di Sini -->
+                    <form>
+                        <div class="row mb-3">
+                            <label for="inputName" class="col-sm-3 col-form-label">Edit Step 1</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control custom-input" id="inputName" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputName" class="col-sm-3 col-form-label">Edit Step 2</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control custom-input" id="inputName" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputName" class="col-sm-3 col-form-label">Edit Step 3</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control custom-input" id="inputName" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputName" class="col-sm-3 col-form-label">Edit Step 4</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control custom-input" id="inputName" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputName" class="col-sm-3 col-form-label">Edit Step 5</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control custom-input" id="inputName" required>
+                            </div>
+                        </div>
+                        <!-- Form Tambah Step -->
+                                <div class="col" style="margin-left: 200px;">
+                                <button class="btn btn-sm btn-custom-sm" id="tambahStep">
+                                    <i class="fas fa-plus"></i> Tambah Step
+                                </button>
+                                <button type="button" style="margin-left: 300px;" class="btn btn-success" id="submit">Submit</button>
+                            </div>
+                        </div>
+            </div>  
+        </div>
+    </div>
+    <!-- End Modal Form-->
 
     <!-- FootNote -->
     <div class="footNote">
@@ -211,6 +250,41 @@
         </div>
     </div>
     <!-- End Foot Note -->
+
+    <!-- JS -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var editButton = document.getElementById('editButton');
+            var closeButton = document.querySelector('.btn-close');
+
+             // Menambahkan event listener untuk menampilkan modal pemesanan saat tombol "Submit" ditekan
+            editButton.addEventListener('click', function () {
+                // resetInputValues(); // Mengatur ulang nilai inputan pada modal
+                $('#addtesti').modal('show'); // Menampilkan modal
+            });
+
+             // Event listener untuk tombol "Tambah Model Lain"
+             var tambahModelLainButton = document.querySelector('#tambahStep');
+            tambahModelLainButton.addEventListener('click', function (e) {
+                e.preventDefault();
+                var kodeBajuDiv = document.querySelector('#tambahStep');
+                var clonedDiv = kodeBajuDiv.cloneNode(true);
+                clonedDiv.classList.add('additional-model');
+                clonedDiv.querySelector('#inputKodeBaju').value = '';
+                clonedDiv.querySelector('#inputJumlahDewasa').value = '';
+                clonedDiv.querySelector('#inputJumlahAnak').value = '';
+
+                kodeBajuDiv.parentNode.appendChild(clonedDiv);
+            });
+
+            // Menutup modal saat tombol close (icon "X") ditekan
+            closeButton.addEventListener('click', function () {
+                // resetInputValues(); // Mengatur ulang nilai inputan pada modal saat modal ditutup
+                $('#addtesti').modal('hide'); // Menyembunyikan modal
+            });
+        });
+    </script>
+    <!-- End JS -->
 
     <!-- link -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
