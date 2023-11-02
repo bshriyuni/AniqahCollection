@@ -7,18 +7,18 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-    <!-- <style>
-        a {
-            text-align : center;
+    <style>
+        hr {
+          border: 4px solid black;
         }
-    </style> -->
+    </style>
  
 </head>
 <body>
      <!-- Brand App -->
      <div class="brandApp">
         <div class="Aniqah" style="margin-top: 20px;">
-            <h1 class="textAniqah">Aniqah Collction</h1>
+            <h1 class="textAniqah">Aniqah Collection</h1>
             <h7 class="deskripsiBrand">Sewa baju bodo dan jasa jahit baju</h7>
         </div>
     </div>
@@ -30,32 +30,34 @@
         <div class="navbar-nav" style="width: 100%;">
             <div class="row horizontal-text" style="display: flex; justify-content: space-between; width: 100%;">
                 <div class="col">
-                    <a class="nav-link" href="#" style="flex: 1;">Home</a>
+                    <a class="nav-link" href="/" style="flex: 1;">Home</a>
                 </div>
                 <div class="col">
-                    <a class="nav-link" href="#" style="flex: 1;">Produk</a>
+                    <a class="nav-link" href="/product" style="flex: 1;">Produk</a>
                 </div>
                 <div class="col">
-                    <a class="nav-link" href="#" style="flex: 1;">Lokasi</a>
+                    <a class="nav-link" href="/lokasi" style="flex: 1;">Lokasi</a>
                 </div>
                 <div class="col">
-                    <a class="nav-link" href="#" style="flex: 1;">Testimoni</a>
+                    <a class="nav-link" href="/testimoni" style="flex: 1;">Testimoni</a>
                 </div>
                 <div class="col">
-                    <a class="nav-link" href="#" style="flex: 1; white-space: nowrap;">Cara Pemesanan</a>
+                    <a class="nav-link" href="/carapemesanan" style="flex: 1; white-space: nowrap;">Cara Pemesanan</a>
                 </div>
                 <div class="col">
-                    <a class="nav-link" href="#" style="flex: 1;">Jahit</a>
+                    <a class="nav-link" href="/jahitbaju" style="flex: 1;">Jahit</a>
                 </div>
             </div> 
         </div>
     </div>
     </nav>
     
-    <h1></h1>
+    <br>
+    <div class="container">
     <form class="d-flex" role="search" >
         <input class="form-control me-4" type="search" placeholder="Search" aria-label="Search" style="background-color: #D9D9D9;">
     </form>
+    </div>
     
     <br>
     <div id="most">
@@ -68,7 +70,7 @@
         </div>
     </div>
 
-    <br />
+    <br><br>
     <div id="product lainnya">
         <div class="row align-items-start">
             <div class="col">
@@ -83,40 +85,41 @@
         </div>
     </div>
 
+    <br>
     <div class="container text-center">
         <div class="row align-items-start">
             <div class="col">
-             <div class="card" style="background-color: #BBD6B8;">
+             <div class="card" style="background-color: #BBD6B8; padding:10px ">
                 <div class="card-body" style="text-align :start;">
                     <h5 class="card-title">Kode Baju</h5>
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                 </div>
-                <div class="container" style="background-color: #F4EEEE; padding:40;">
+                <div class="container" style="background-color: #F4EEEE; padding:20px ;">
                     <img src="foto/foto1.jpg" class="card-img-bottom" alt="...">
                 </div>
              </div>
             </div>
             <div class="col">
-             <div class="card" style="background-color: #BBD6B8;">
+             <div class="card" style="background-color: #BBD6B8; padding:10px">
                 <div class="card-body" style="text-align :start;">
                     <h5 class="card-title">Kode Baju</h5>
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                 </div>
-                <div class="container" style="background-color: #F4EEEE;">
+                <div class="container" style="background-color: #F4EEEE; padding:20px">
                     <img src="foto/foto2.jpg" class="card-img-bottom" alt="...">
                 </div>
              </div>
             </div>
             <div class="col">
-             <div class="card" style="background-color: #BBD6B8;">
+             <div class="card" style="background-color: #BBD6B8; padding:10px">
                 <div class="card-body" style="text-align :start;">
                     <h5 class="card-title">Kode Baju</h5>
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                 </div>
-                <div class="container" style="background-color: #F4EEEE;">
+                <div class="container" style="background-color: #F4EEEE; padding:20px">
                     <img src="foto/foto3.jpg" class="card-img-bottom" alt="...">
                 </div>
              </div>
@@ -125,37 +128,37 @@
         <br>
         <div class="row align-items-start">
             <div class="col">
-             <div class="card" style="background-color: #BBD6B8;">
+             <div class="card" style="background-color: #BBD6B8; padding:10px">
                 <div class="card-body" style="text-align :start;">
                     <h5 class="card-title">Kode Baju</h5>
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                 </div>
-                <div class="container" style="background-color: #F4EEEE;">
+                <div class="container" style="background-color: #F4EEEE; padding:20px">
                     <img src="foto/foto4.jpg" class="card-img-bottom" alt="...">
                 </div>
              </div>
             </div>
             <div class="col">
-             <div class="card" style="background-color: #BBD6B8;">
+             <div class="card" style="background-color: #BBD6B8; padding:10px">
                 <div class="card-body" style="text-align :start;">
                     <h5 class="card-title">Kode Baju</h5>
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                 </div>
-                <div class="container" style="background-color: #F4EEEE;" width="20px" height="20px">
+                <div class="container" style="background-color: #F4EEEE; padding:20px">
                     <img src="foto/foto5.jpg" class="card-img-bottom" alt="..." >
                 </div>
              </div>
             </div>
             <div class="col">
-             <div class="card" style="background-color: #BBD6B8;">
+             <div class="card" style="background-color: #BBD6B8; padding:10px">
                 <div class="card-body" style="text-align :start;">
                     <h5 class="card-title">Kode Baju</h5>
                     <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
                 </div>
-                <div class="container" style="background-color: #F4EEEE;">
+                <div class="container" style="background-color: #F4EEEE; padding:20px">
                     <img src="foto/foto6.jpg" class="card-img-bottom" alt="...">
                 </div>
              </div>
@@ -164,6 +167,36 @@
     </div>
   
     <br>
+    <div class="container text-center">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <img src="number/number-1.png" width="40px" height="40px" >
+                </div>
+                <div class="col">
+                    <img src="number/number-2.png" width="40px" height="40px" >
+                </div>
+                <div class="col">
+                    <img src="number/number-3.png" width="40px" height="40px" >
+                </div>
+                <div class="col">
+                    <img src="number/number-4.png" width="40px" height="40px" >
+                </div>
+                <div class="col">
+                    <img src="number/number-5.png"  width="40px" height="40px">
+                </div>
+                <div class="col">
+                    <img src="number/number-6.png"  width="40px" height="40px">
+                </div>
+            </div>
+        </div>
+        <div class="col"> </div>
+    </div>
+    </div>
+
+    <br><br>
     <!-- FootNote -->
     <div class="footNote" style="background-color: #BBD6B8;">
         <div class="row">

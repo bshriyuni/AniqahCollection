@@ -38,7 +38,7 @@
                     <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/produk">Produk</a>
+                        <a class="nav-link fw-bold" href="/product">Produk</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/lokasi">Lokasi</a>

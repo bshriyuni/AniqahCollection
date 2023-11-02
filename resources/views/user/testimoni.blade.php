@@ -29,22 +29,22 @@
             <div class="collapse navbar-collapse ml-auto" id="collapsibleNavbar">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Produk</a>
+                        <a class="nav-link" href="/product">Produk</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Lokasi</a>
+                        <a class="nav-link" href="/lokasi">Lokasi</a>
                     </li> 
                     <li class="nav-item">
-                        <a class="nav-link fw-bold" href="#">Testimoni</a>
+                        <a class="nav-link fw-bold" href="/testimoni">Testimoni</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Cara Pemesanan</a>
+                        <a class="nav-link" href="/carapemesanan">Cara Pemesanan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Jahit</a>
+                        <a class="nav-link" href="/jahitbaju">Jahit</a>
                     </li>
                 </ul>
             </div>

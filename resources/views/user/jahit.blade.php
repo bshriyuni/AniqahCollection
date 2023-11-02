@@ -35,22 +35,22 @@
             <div class="collapse navbar-collapse ml-auto" id="collapsibleNavbar">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/produk">Produk</a>
+                        <a class="nav-link" href="/product">Produk</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/lokasi">Lokasi</a>
                     </li> 
                     <li class="nav-item">
-                        <a class="nav-link fw-bold" href="/testimoni">Testimoni</a>
+                        <a class="nav-link" href="/testimoni">Testimoni</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/carapemesanan">Cara Pemesanan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/jahitbaju">Jahit</a>
+                        <a class="nav-link fw-bold" href="/jahitbaju">Jahit</a>
                     </li>
                 </ul>
             </div>
@@ -78,10 +78,10 @@
                 border-top-left-radius: 200px; 
                 border-top-right-radius: 200px;">
                     <div class="card-content">
-                        <img src="gambar1.png">
+                        <img src="{{ asset('foto/gambar1.png') }}" class="image-1">
                     </div>
                 </div>
-                <p style="margin-top: 10px; font-family: 'Inter-ExtraBold';">Engagement</p>
+                <p style="margin-top: 10px; font-family: 'Inter-ExtraBold';">Bridesmaid</p>
             </div>
 
             <div class="col" style="margin: 0 auto; display: flex; flex-direction: column; align-items: center;">
@@ -93,7 +93,7 @@
                 border-top-left-radius: 200px; 
                 border-top-right-radius: 200px;">
                     <div class="card-content">
-                        <p>Ini adalah konten card kedua.</p>
+                        <img src="{{ asset('foto/gambar2.png') }}" class="image-2">
                     </div>
                 </div>
                 <p style="margin-top: 10px; font-family: 'Inter-ExtraBold';">Graduation</p>
@@ -109,10 +109,10 @@
                 border-top-left-radius: 200px; 
                 border-top-right-radius: 200px;">
                     <div class="card-content">
-                        <p>Ini adalah konten card ketiga.</p>
+                        <img src="{{ asset('foto/gambar3.png') }}" class="image-3">
                     </div>
                 </div>
-                <p style="margin-top: 10px; font-family: 'Inter-ExtraBold';">Bridesmaid</p>
+                <p style="margin-top: 10px; font-family: 'Inter-ExtraBold';">Engagement</p>
             </div>
         
         </div>
@@ -124,8 +124,10 @@
     </div>
 
     <div class="order">
-        <div class="card-content">
-            <p style= "font-size: 18px; font-family: 'Inter-ExtraBold' ; color: #333; text-align: center; margin-top:13px;">Hubungi Penjahit</p>
+        <div class="custom-button" onclick="window.open('https://api.whatsapp.com/send?phone=085299581471')">
+            <p style="font-size: 18px; font-family: 'Inter-ExtraBold'; color: #333; text-align: center; margin-top: 13px;">
+                Hubungi Penjahit
+            </p>
         </div>
     </div>
 
