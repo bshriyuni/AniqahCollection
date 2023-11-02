@@ -44,3 +44,7 @@ Route::get('/jahitbaju', function () {
 Route::get('/carapemesanan', function () {
     return view('user/carapemesanan');
 });
+
+Route::get('/admincarapemesanan', function () {
+    return view('admin/carapemesanan');
+});
