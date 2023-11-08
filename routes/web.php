@@ -36,6 +36,11 @@ Route::get('/detailproduk', function () {
     return view('user/detailproduk');
 });
 
+
+Route::get('/adminjahit', function () {
+    return view('admin/jahit');
+});
+
 Route::get('/detailproduk', [DetailProdukController::class, 'index']);
 
 Route::get('/jahitbaju', function () {
