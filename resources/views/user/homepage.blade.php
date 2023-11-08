@@ -21,6 +21,9 @@
         <!-- link font awesome cdn -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 
+        <!-- Link js homepage -->
+        <!-- <script src="js/homepage.js"></script> -->
+
 
 </head>
 <body>
@@ -33,11 +36,14 @@
     </div>
     <!-- end Brand App -->
 
-    <!-- Menu App -->
-    <nav class="navbar navbar-expand-sm costom-navbar">
+<!-- Menu App -->
+<nav class="navbar navbar-expand-md navbar-light">
         <div class="container-fluid">
-            <div class="collapse navbar-collapse ml-auto" id="collapsibleNavbar">
-                <ul class="navbar-nav ml-auto">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
                         <a class="nav-link fw-bold" href="/">Home</a>
                     </li>
@@ -45,8 +51,8 @@
                         <a class="nav-link" href="/product">Produk</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/lokasi">Lokasi</a>
-                    </li> 
+                        <a class="nav-link fw-bold" href="/lokasi">Lokasi</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/testimoni">Testimoni</a>
                     </li>
@@ -60,7 +66,7 @@
             </div>
         </div>
     </nav>
-    <!-- End Menu App -->
+    <!-- End Menu App -->
 
     <!-- Carousel -->
     
@@ -68,7 +74,7 @@
         <!-- Slides -->
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="foto/baju1.jpg" alt="Image 1" class="d-block w-100" style="width: 100%; height: 100%;">
+                <img src="foto/sagebg.jpg" alt="Image 1" class="d-block w-100">
                 <div class="carousel-caption position-absolute top-50 start-0 translate-middle-y">
                     <h2>Slide 1</h2>
                     <p>This is the first slide. It contains some text that goes here.</p>
@@ -119,7 +125,7 @@
                 </div>
 
                 <div class="center-button">
-                        <a href="" class="btn btn-outline-dark auto-width-button fw-bold">See More -></a>
+                        <a href="/product" class="btn btn-outline-dark auto-width-button fw-bold">See More -></a>
                 </div>
 
             </div>
@@ -131,28 +137,45 @@
     <!-- Layanan -->
 
     <div class="container fluid layanan pt-5 pb-5">
-    <div class="container text-center">
-        <h3 class = "display-4" id= "layanan">Why Us?</h3>
-        <div class="row">
-            <div class="col-3">
-                <i class="fa-solid fa-check fa-3x mb-4"></i>
-                <h5 class= "title mb-4">Kualitas Terjamin</h5>
-                <p class="desc-product">Kualitas selalu menjadi prioritas utama kami </p>
-            </div>
-            <div class="col-3">     
-                <i class="fa-solid fa-wand-magic-sparkles fa-3x mb-4"></i>
-                <h5 class= "title mb-4">Desain Kostum</h5>
-                <p class="desc-product">Anda memiliki kebebasan untuk merancang pakaian sesuai dengan selera dan gaya Anda </p>
-            </div>
-            <div class="col-3">
-                <i class="fa-solid fa-dollar-sign fa-3x mb-4"></i>
-                <h5 class= "title mb-4">Harga Terjangkau</h5>
-                <p class="desc-product">Anda akan menemukan berbagai pilihan pakaian yang cocok dengan anggaran Anda, menjadikan tampilan yang stylish lebih mudah diakses bagi semua orang</p>
-            </div>
-            <div class="col-3">
-                <i class="fa-solid fa-cart-shopping fa-3x mb-4"></i>
-                <h5 class= "title mb-4">Pilihan Yang Bervariasi</h5>
-                <p class="desc-product">Menyediakan beragam pilihan fashion yang tak terbatas untuk memenuhi segala kebutuhan gaya Anda untuk tampil memukau di acara terbaik anda</p>
+        <div class="container text-center">
+            <h3 class = "display-4" id= "layanan">Why Us?</h3>
+            <div class="row">
+                <div class="col-3">
+                    <div class="d-flex flex-column align-items-center text-center">
+                        <div class="itemwhyus">
+                            <i class="fa-solid fa-check fa-3x mb-4"></i>
+                        </div>
+                        <h5 class="title mb-4">Kualitas Terjamin</h5>
+                        <p class="desc-product">Kualitas selalu menjadi prioritas utama kami</p>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="d-flex flex-column align-items-center text-center">
+                        <div class="itemwhyus">
+                            <i class="fa-solid fa-wand-magic-sparkles fa-3x mb-4"></i>
+                        </div>
+                        <h5 class= "title mb-4">Desain Kostum</h5>
+                        <p class="desc-product">Anda memiliki kebebasan untuk merancang pakaian sesuai dengan selera dan gaya Anda </p>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="d-flex flex-column align-items-center text-center">
+                        <div class="itemwhyus">
+                            <i class="fa-solid fa-dollar-sign fa-3x mb-4"></i>
+                        </div>
+                        <h5 class= "title mb-4">Harga Terjangkau</h5>
+                        <p class="desc-product">Anda akan menemukan berbagai pilihan pakaian yang cocok dengan anggaran Anda, menjadikan tampilan yang stylish lebih mudah diakses bagi semua orang</p>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="d-flex flex-column align-items-center text-center">
+                        <div class="itemwhyus">
+                            <i class="fa-solid fa-cart-shopping fa-3x mb-4"></i>
+                        </div>
+                        <h5 class= "title mb-4">Pilihan Yang Bervariasi</h5>
+                        <p class="desc-product">Menyediakan beragam pilihan fashion yang tak terbatas untuk memenuhi segala kebutuhan gaya Anda untuk tampil memukau di acara terbaik anda</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

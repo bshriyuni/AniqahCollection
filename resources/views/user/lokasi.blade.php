@@ -19,13 +19,13 @@
         let marker;
             function initMap() {
                 map = new google.maps.Map(document.getElementById("map"), {
-                    center: {lat: -3.022163, lng:  120.212572},
+                    center: { lat: {{ $lokasiTerbaru->latitude }}, lng: {{ $lokasiTerbaru->longitude }} },
                     zoom: 20,
                 });
 
                 // Buat marker dengan koordinat yang ditentukan
                 marker = new google.maps.Marker({
-                    position: { lat: -3.022163, lng: 120.212572 }, // Ganti dengan koordinat yang Anda inginkan
+                    position: { lat: {{ $lokasiTerbaru->latitude }}, lng: {{ $lokasiTerbaru->longitude }} }, // Ganti dengan koordinat yang Anda inginkan
                     map: map,
                     title: "Lokasi yang Ditandai", // Ganti dengan judul marker Anda
                 });
@@ -44,10 +44,13 @@
     <!-- end Brand App -->
 
     <!-- Menu App -->
-    <nav class="navbar navbar-expand-sm costom-navbar">
+    <nav class="navbar navbar-expand-md navbar-light">
         <div class="container-fluid">
-            <div class="collapse navbar-collapse ml-auto" id="collapsibleNavbar">
-                <ul class="navbar-nav ml-auto">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
                         <a class="nav-link" href="/">Home</a>
                     </li>
@@ -56,12 +59,12 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fw-bold" href="/lokasi">Lokasi</a>
-                    </li> 
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/testimoni">Testimoni</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/crapemesanan">Cara Pemesanan</a>
+                        <a class="nav-link" href="/carapemesanan">Cara Pemesanan</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/jahitbaju">Jahit</a>
@@ -89,9 +92,9 @@
             <i class="fas fa-home fa-9x"></i>
         </div>
         <div class="lokasi">
-            <h6>Jln.Pemuda II. (Perumahan Fortuna Permai)</h6>
-            <h6>Takkalala, Wara Selatan, Palopo City, South Sulawesi</h6>
-            <h6>Indonesia</h6>
+            <h4 id="namaJalanDetail">{{ $lokasiTerbaru->nama_jalan }}</h4>
+            <h4 id="kotaProvinsiDetail">{{ $lokasiTerbaru->kota_prov }}</h4>
+            <h4 id="negaraDetail">{{ $lokasiTerbaru->negara }}</h4>
         </div>
     </div>
     <!-- End Detail Lokasi -->
@@ -108,7 +111,6 @@
                 <i class="fab fa-whatsapp fa-2x"></i>
             </div>
             <div class="col" style="margin-left: 20px;">
-                <button class="buttonAdmin" style="bacground-color:black;">ADMIN</button>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Tuliskan ulasanmu disini</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="border: 1px solid black;"></textarea>
@@ -122,6 +124,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </body>
 </html>

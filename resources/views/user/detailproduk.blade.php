@@ -13,11 +13,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('font') }}">
     <!-- Tambahkan skrip FullCalendar -->
-    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid/main.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/core/main.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid/main.css" rel="stylesheet" />
-
 </head>
 <body>
      <!-- Brand App -->
@@ -30,10 +27,13 @@
     <!-- end Brand App -->
 
     <!-- Menu App -->
-    <nav class="navbar navbar-expand-sm costom-navbar">
+    <nav class="navbar navbar-expand-md navbar-light">
         <div class="container-fluid">
-            <div class="collapse navbar-collapse ml-auto" id="collapsibleNavbar">
-                <ul class="navbar-nav ml-auto">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
                         <a class="nav-link" href="/">Home</a>
                     </li>
@@ -42,7 +42,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/lokasi">Lokasi</a>
-                    </li> 
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/testimoni">Testimoni</a>
                     </li>
@@ -82,7 +82,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <p>disini kalender</p>
-                            <div id="calender"></div>
+                            <div id="calendar"></div>
                         </div>
                     </div>
                     
@@ -128,6 +128,9 @@
                 </div>
                 <div class="modal-body">
                     <!-- Isi formulir booking di sini -->
+                    <div id="errorMessage" class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
                     <form>
                         <div class="row mb-3">
                             <label for="inputName" class="col-sm-3 col-form-label">Nama Lengkap</label>
@@ -146,18 +149,11 @@
                             <div class="col-sm-9">
                                 <div class="input-group" id="modelLain">
                                     <input type="text" class="forAdd form-control custom-input" id="inputKodeBaju">
-                                    <input type="number" class="forAdd form-control custom-input" id="inputJumlahDewasa" placeholder="Dewasa">
-                                    <input type="number" class="forAdd form-control custom-input" id="inputJumlahAnak" placeholder="Anak">
+                                    <input type="number" class="forAdd form-control custom-input" id="inputJumlahDewasa" min="1" placeholder="Dewasa">
+                                    <input type="number" class="forAdd form-control custom-input" id="inputJumlahAnak" min="1" placeholder="Anak">
                                 </div>
                             </div>
-                            <!-- Form Tambah Model Lain -->
-                            <div class="col" style="margin-left: 200px;">
-                                <button class="btn btn-sm btn-custom-sm" id="tambahModelLain">
-                                    <i class="fas fa-plus"></i> Tambah Model Lain
-                                </button>
-                            </div>
                         </div>
-                        
                         <div class="row mb-3">
                             <label for="inputTglPengambilan" class="col-sm-3 col-form-label">Tgl Pengambilan</label>
                             <div class="col-sm-9">
@@ -275,6 +271,8 @@
 
             // Tambahkan event listener untuk tombol "Submit"
             var submitButton = document.getElementById('submit');
+            var error_massage = document.getElementById('errorMessage')
+            error_massage.style.display = 'none'; //sembunyikan alert ketika memuat modal
             submitButton.addEventListener('click', function () {
                 // Mengambil nilai dari inputan modal form
                 var namaLengkap = document.getElementById('inputName').value;
@@ -288,7 +286,12 @@
                 // jika inputan kosong
                 if (namaLengkap.trim() === "" || nomorTelpon.trim() === "" || kodeBaju.trim() === "" || jumlahDewasa.trim() === "" || jumlahAnak.trim() === "" || tglPengambilan.trim() === "" || tglPengembalian.trim() === "") {
                     // Jika ada input yang kosong, beritahu pengguna dan hentikan operasi selanjutnya
-                    alert("Harap isi semua input sebelum mengirimkan formulir!");
+                    error_massage.textContent = ("Harap isi semua inputan sebelum mengirim formulir")
+                    error_massage.style.display = 'block'; //tampilkan alert ketika tombol submit di tekan
+                    // Sembunyikan pesan kesalahan setelah 5 detik
+                    setTimeout(function() {
+                        errorMessage.style.display = 'none';
+                    }, 3000);
                     return;
                 }
 
@@ -313,28 +316,6 @@
                 document.getElementById('tglAmbil').textContent = tglPengambilan;
                 document.getElementById('tglKembali').textContent = tglPengembalian;
 
-                //mengambil data dari setiap model tambahan yang telah ditambahkan oleh pengguna
-                tambahanData.forEach(function (data, index) {
-                    if (data.kodeBaju && data.kodeBaju.trim() !== "") {
-                        var detailModel = document.getElementById('kodeBaju' + (index + 2));
-                        if (detailModel) {
-                            detailModel.textContent = data.kodeBaju;
-                        }
-                    }
-                    if (data.jumlahDewasa && data.jumlahDewasa.trim() !== "") {
-                        var detailDewasa = document.getElementById('dewasa' + (index + 2));
-                        if (detailDewasa) {
-                            detailDewasa.textContent = 'Dewasa: ' + data.jumlahDewasa;
-                        }
-                    }
-                    if (data.jumlahAnak && data.jumlahAnak.trim() !== "") {
-                        var detailAnak = document.getElementById('anak' + (index + 2));
-                        if (detailAnak) {
-                            detailAnak.textContent = 'Anak: ' + data.jumlahAnak;
-                        }
-                    }
-                });
-
                 $('#submitModal').modal('show');
                 $('#bookingModal').modal('hide');
             });
@@ -343,20 +324,6 @@
             var batalButton = document.getElementById('btnBatal');
             batalButton.addEventListener('click', function () {
                 $('#submitModal').modal('hide');
-            });
-
-            // Event listener untuk tombol "Tambah Model Lain"
-            var tambahModelLainButton = document.querySelector('#tambahModelLain');
-            tambahModelLainButton.addEventListener('click', function (e) {
-                e.preventDefault();
-                var kodeBajuDiv = document.querySelector('#modelLain');
-                var clonedDiv = kodeBajuDiv.cloneNode(true);
-                clonedDiv.classList.add('additional-model');
-                clonedDiv.querySelector('#inputKodeBaju').value = '';
-                clonedDiv.querySelector('#inputJumlahDewasa').value = '';
-                clonedDiv.querySelector('#inputJumlahAnak').value = '';
-
-                kodeBajuDiv.parentNode.appendChild(clonedDiv);
             });
 
             // Event listener untuk menangani penutupan modal
@@ -368,7 +335,7 @@
             });
 
             // Kalender
-            var calendarEl = document.getElementById('calender');
+            var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
                 events: [
@@ -400,5 +367,8 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/core/main.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid/main.min.js"></script>
 </body>
 </html>
