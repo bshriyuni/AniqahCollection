@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\carapesanController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,9 +38,7 @@ Route::get('/jahitbaju', function () {
     return view('user/jahit');
 });
 
-Route::get('/carapemesanan', function () {
-    return view('user/carapemesanan');
-});
+Route::get('/carapemesanan', [carapesanController::class, 'indexUser']);
 
 // Admin
 Route::get('/adminlokasi', function () {
@@ -54,6 +53,5 @@ Route::get('/productadmin', function() {
     return view('admin/produk');
 });
 
-Route::get('/admincarapemesanan', function () {
-    return view('admin/carapemesanan');
- });
+Route::get('/admincarapemesanan', [carapesanController::class, 'indexAdmin']);
+Route::post('/admincarapemesanan', [carapesanController::class, 'updateStep']);
