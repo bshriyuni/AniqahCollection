@@ -19,13 +19,13 @@
         let marker;
             function initMap() {
                 map = new google.maps.Map(document.getElementById("map"), {
-                    center: {lat: -3.022163, lng:  120.212572},
+                    center: { lat: {{ $lokasiTerbaru->latitude }}, lng: {{ $lokasiTerbaru->longitude }} },
                     zoom: 20,
                 });
 
                 // Buat marker dengan koordinat yang ditentukan
                 marker = new google.maps.Marker({
-                    position: { lat: -3.022163, lng: 120.212572 }, // Ganti dengan koordinat yang Anda inginkan
+                    position: { lat: {{ $lokasiTerbaru->latitude }}, lng: {{ $lokasiTerbaru->longitude }} }, // Ganti dengan koordinat yang Anda inginkan
                     map: map,
                     title: "Lokasi yang Ditandai", // Ganti dengan judul marker Anda
                 });
@@ -92,9 +92,9 @@
             <i class="fas fa-home fa-9x"></i>
         </div>
         <div class="lokasi">
-            <h4 id="namaJalanDetail">Jln.Pemuda II. (Perumahan Fortuna Permai)</h4>
-            <h4 id="kotaProvinsiDetail">Takkalala, Wara Selatan, Palopo City, South Sulawesi</h4>
-            <h4 id="negaraDetail">Indonesia</h4>
+            <h4 id="namaJalanDetail">{{ $lokasiTerbaru->nama_jalan }}</h4>
+            <h4 id="kotaProvinsiDetail">{{ $lokasiTerbaru->kota_prov }}</h4>
+            <h4 id="negaraDetail">{{ $lokasiTerbaru->negara }}</h4>
         </div>
     </div>
     <!-- End Detail Lokasi -->
@@ -111,7 +111,6 @@
                 <i class="fab fa-whatsapp fa-2x"></i>
             </div>
             <div class="col" style="margin-left: 20px;">
-                <button class="buttonAdmin" style="bacground-color:black;">ADMIN</button>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Tuliskan ulasanmu disini</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="border: 1px solid black;"></textarea>

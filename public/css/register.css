@@ -1,0 +1,56 @@
+/* Font */
+@font-face {
+    font-family: "OleoScript-Bold";
+    src: url(/font/OleoScript-Bold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Inter-Light";
+    src: url(/font/Inter-Light.ttf) format('truetype');
+}
+/* End Font */
+
+/* brand */
+body{
+    background-color:#FFFFFF;
+}
+
+.brandApp{
+    margin-left: 50px;
+}
+
+.textAniqah{
+    font-family: 'OleoScript-Bold';
+    font-size: 64px;
+    margin-bottom: 0px;
+}
+
+.deskripsiBrand{
+    font-family: 'Inter-Light';
+    font-size: 20px;
+    margin-top: 0px;
+    font-style: italic;
+}
+/* End Brand */
+
+/* Box Login */
+.boxLogin{
+    background-color: #F4EEEE;
+    border-radius: 30px;
+    padding: 30px;
+    margin-top: 50px;
+}
+
+.formLogin{
+    margin-top: 60px;
+}
+
+.textLogin{
+    text-align: center;
+    font-size: 40px;
+}
+
+.btn{
+    margin-top: 20px;
+}
+/* End Box Login */
