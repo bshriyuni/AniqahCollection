@@ -1,6 +1,10 @@
 <?php
 
 use App\Http\Controllers\carapesanController;
+use App\Http\Controllers\DetailProdukController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LokasiController;
+use App\Http\Controllers\registerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +22,7 @@ Route::get('/', function () {
     return view('user/homepage');
 });
 
-Route::get('/lokasi', function () {
-    return view('user/lokasi');
-});
+Route::get('/lokasi', [LokasiController::class, 'indexuser']);
 
 Route::get('/product', function() {
     return view('user/produk');
@@ -34,6 +36,8 @@ Route::get('/detailproduk', function () {
     return view('user/detailproduk');
 });
 
+Route::get('/detailproduk', [DetailProdukController::class, 'index']);
+
 Route::get('/jahitbaju', function () {
     return view('user/jahit');
 });
@@ -41,9 +45,8 @@ Route::get('/jahitbaju', function () {
 Route::get('/carapemesanan', [carapesanController::class, 'indexUser']);
 
 // Admin
-Route::get('/adminlokasi', function () {
-    return view('admin/lokasi');
-});
+Route::get('/adminlokasi', [LokasiController::class, 'indexadmin']);
+Route::post('/adminlokasi', [LokasiController::class, 'updateLocation']);
 
 Route::get('/admintestimoni', function () {
     return view('admin/testimoni');
@@ -55,3 +58,13 @@ Route::get('/productadmin', function() {
 
 Route::get('/admincarapemesanan', [carapesanController::class, 'indexAdmin']);
 Route::post('/admincarapemesanan', [carapesanController::class, 'updateStep']);
+
+Route::get('/login', [LoginController::class, 'login']);
+Route::post('/login', [LoginController::class, 'authenticate']);
+
+Route::get('/register', [registerController::class, 'index']);
+Route::post('/register', [registerController::class, 'store']);
+
+Route::get('/adminproduk', function () {
+    return view('admin/produk');
+ });
