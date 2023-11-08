@@ -64,7 +64,7 @@
                         <a class="nav-link" href="/testimoni">Testimoni</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/crapemesanan">Cara Pemesanan</a>
+                        <a class="nav-link" href="/carapemesanan">Cara Pemesanan</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/jahitbaju">Jahit</a>

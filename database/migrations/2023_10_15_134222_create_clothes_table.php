@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('clothes', function (Blueprint $table) {
             $table->id();
             $table->string('kode_baju');
+            $table->string('deskripsi');
+            $table->string('s&k');
             $table->string('kategori_baju');
             $table->string('deskripsi_baju');
             $table->string('syarat_ketentuan');
