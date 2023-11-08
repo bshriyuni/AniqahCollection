@@ -37,6 +37,10 @@ Route::get('/detailproduk', function () {
     return view('user/detailproduk');
 });
 
+Route::get('/adminjahit', function () {
+    return view('admin/jahit');
+});
+
 Route::get('/jahitbaju', function () {
     return view('user/jahit');
 });
