@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\carapesanController;
 use App\Http\Controllers\DetailProdukController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LokasiController;
@@ -41,9 +42,7 @@ Route::get('/jahitbaju', function () {
     return view('user/jahit');
 });
 
-Route::get('/carapemesanan', function () {
-    return view('user/carapemesanan');
-});
+Route::get('/carapemesanan', [carapesanController::class, 'indexUser']);
 
 // Admin
 Route::get('/adminlokasi', [LokasiController::class, 'indexadmin']);
@@ -57,9 +56,8 @@ Route::get('/productadmin', function() {
     return view('admin/produk');
 });
 
-Route::get('/admincarapemesanan', function () {
-    return view('admin/carapemesanan');
-});
+Route::get('/admincarapemesanan', [carapesanController::class, 'indexAdmin']);
+Route::post('/admincarapemesanan', [carapesanController::class, 'updateStep']);
 
 Route::get('/login', [LoginController::class, 'login']);
 Route::post('/login', [LoginController::class, 'authenticate']);
