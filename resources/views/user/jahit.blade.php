@@ -21,7 +21,7 @@
 </head>
 <body>
      <!-- Brand App -->
-     <div class="brandApp">
+    <div class="brandApp">
         <div class="Aniqah" style="margin-top: 20px;">
             <h1 class="textAniqah">Aniqah Collection</h1>
             <h7 class="deskripsiBrand">Sewa baju bodo dan jasa jahit baju</h7>
@@ -30,10 +30,13 @@
     <!-- end Brand App -->
 
     <!-- Menu App -->
-    <nav class="navbar navbar-expand-sm costom-navbar">
+    <nav class="navbar navbar-expand-md navbar-light">
         <div class="container-fluid">
-            <div class="collapse navbar-collapse ml-auto" id="collapsibleNavbar">
-                <ul class="navbar-nav ml-auto">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
                         <a class="nav-link" href="/">Home</a>
                     </li>
@@ -42,12 +45,12 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/lokasi">Lokasi</a>
-                    </li> 
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/testimoni">Testimoni</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/carapemesanan">Cara Pemesanan</a>
+                        <a class="nav-link" href="/crapemesanan">Cara Pemesanan</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fw-bold" href="/jahitbaju">Jahit</a>
@@ -152,5 +155,8 @@
         </div>
     </div>
     <!-- End Foot Note -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
