@@ -1,0 +1,125 @@
+@font-face {
+    font-family: "OleoScript-Bold";
+    src: url(/font/OleoScript-Bold.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Inter-Light";
+    src: url(/font/Inter-Light.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Inter-Regular";
+    src: url(/font/Inter-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "AbyssinicaSIL-Regular";
+    src: url(/font/AbyssinicaSIL-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "JacquesFrancois-Regular";
+    src: url(/font/JacquesFrancois-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Inter-ExtraBold";
+    src: url(/font/Inter-ExtraBold.ttf) format('truetype');
+
+}
+
+@font-face {
+    font-family: "DMSerifText-Regular";
+    src: url(/font/DMSerifText-Regular.ttf) format('truetype');
+
+}
+
+@font-face {
+    font-family: "JosefinSans-VariableFont_wght";
+    src: url(/font/JosefinSans-VariableFont_wght.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Corinthia-Bold";
+    src: url(/font/Corinthia-Bold.ttf) format('truetype');
+}
+
+body{
+    background-color:#FFFFFF;
+}
+
+.brandApp{
+    margin-left: 50px;
+}
+
+.textAniqah{
+    font-family: 'OleoScript-Bold';
+    font-size: 64px;
+    margin-bottom: 0px;
+}
+
+.deskripsiBrand{
+    font-family: 'Inter-Light';
+    font-size: 20px;
+    margin-top: 0px;
+    font-style: italic;
+}
+
+.navbar {
+    background-color: #BBD6B8;
+    margin-top: 30px;
+    text-align: justify;
+}
+
+.navbar-nav {
+    display: flex; /* Mengatur elemen-elemen navbar menjadi tampilan flexbox */
+    justify-content: space-between; /* Menyebarkan elemen-elemen secara merata */
+    width: 100%; /* Memastikan elemen navbar mengisi lebar penuh */
+}
+
+.nav-item {
+    flex: 1; /* Membuat setiap elemen mengambil lebar yang sama */
+    text-align: center; /* Mengatur teks menjadi berada di tengah */
+    white-space: nowrap; /* Mencegah patah baris pada teks */
+    font-size: 20px;
+    font-family: 'Inter-Regular';
+    color: black;
+}
+
+/* TABLE ITEM */
+#table-title{
+    background-color: #618264;
+}
+
+th, td{
+    text-align: center;
+}
+
+/* Logout Button Item */
+.logout-button {
+    position: fixed;
+    bottom: 10px; /* Jarak dari bawah */
+    right: 20px; /* Jarak dari kanan */
+  }
+  
+.logout-button button {
+    background-color: #f5f0f0; /* Warna latar belakang tombol */
+    color: #1c1616; /* Warna teks tombol */
+    padding: 10px 20px; /* Atur padding tombol sesuai kebutuhan */
+    border-radius: 20px; /* Buat tombol terlihat lebih cantik */
+    cursor: pointer;
+    font-style: italic;
+  }
+  
+  /* Efek hover untuk tombol jika diinginkan */
+.logout-button button:hover {
+    background-color: #e14c4c; /* Warna latar belakang saat dihover */
+  }
+  
+.titleList{
+    font-family: 'DMSerifText-Regular';
+}
+  
+  
+  

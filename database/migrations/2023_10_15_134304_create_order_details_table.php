@@ -13,14 +13,17 @@ return new class extends Migration
     {
         Schema::create('order_details', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('order_id');
-            $table->unsignedBigInteger('clothes_id');
-            $table->integer('jumlah_sewa');
-            $table->string('harga_sewa');
+            // $table->unsignedBigInteger('order_id');
+            $table->string('kode_baju');
+            $table->string('no_hp');
+            $table->integer('dewasa');
+            $table->integer('anak');
+            $table->date('tgl_pengambilan');
+            $table->date('tgl_pengembalian');
+            $table->string('status');
             $table->timestamps();
 
-            $table->foreign('order_id')->references('id')->on('orders');
-            $table->foreign('clothes_id')->references('id')->on('clothes');
+            // $table->foreign('order_id')->references('id')->on('orders');
         });
     }
 

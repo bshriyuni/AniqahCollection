@@ -21,9 +21,6 @@
         <!-- link font awesome cdn -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 
-        <!-- Link js homepage -->
-        <!-- <script src="js/homepage.js"></script> -->
-
 
 </head>
 <body>
@@ -51,7 +48,7 @@
                         <a class="nav-link" href="/product">Produk</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-bold" href="/lokasi">Lokasi</a>
+                        <a class="nav-link" href="/lokasi">Lokasi</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/testimoni">Testimoni</a>
@@ -69,46 +66,38 @@
     <!-- End Menu App -->
 
     <!-- Carousel -->
-    
-    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-        <!-- Slides -->
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="foto/sagebg.jpg" alt="Image 1" class="d-block w-100">
-                <div class="carousel-caption position-absolute top-50 start-0 translate-middle-y">
-                    <h2>Slide 1</h2>
-                    <p>This is the first slide. It contains some text that goes here.</p>
-                    <a href="produk" class="btn btn-primary position-absolute top-50 start-0 translate-middle-y">Check It Now</a>
+    <div class="wrapper">
+        <div class="hero">
+            <div class="inner-wrapper">
+                <div class="row row-cols-2 mt-0">
+                    <div class="col-md-6">
+                        <div class="header-left">
+                            <h1 class="header-text">Welcome to Aniqah Collection</h1>
+                            <p class="header-desc">Pilihan yang tepat untuk tampil memukau di hari spesial anda</p>
+                            
+                            <div class="buttonHeader">
+                                <a href="/product" class="btn btn-outline-dark fw-bold" id="btn-Header">Check it now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="image-container">
+                            <img src="foto/baju2-removebg.png" alt=""> 
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="carousel-item">
-                <img src="foto/sagebg.jpg" alt="Image 2" class="d-block w-100" style="width: 100; height: 100;">
-                <div class="carousel-caption position-absolute top-50 start-0 translate-middle-y">
-                    <h2>Slide 2</h2>
-                    <p>This is the second slide. More text can go here.</p>
-                    <a href="#" class="btn btn-primary position-absolute top-50 start-0 translate-middle-y">Check It Now</a>
-                </div>
-            </div>
+            </div>    
         </div>
-
-        <!-- Controls (previous/next) -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </div>
     <!-- End Carousel -->
 
     <!-- Preview Products -->
     <div class= "container-fluid py-5">
         <div class="container">
-            <h2 class= "text-center mb-5">Most Popular Products</h2>
+            <h2 class= "text-center" style="font-family: 'Corinthia-Bold';">Most Popular Collections</h2>
+            <div class="line"></div> <!-- Tambahkan elemen dengan kelas "line" -->
             
-            <div class="row">
+            <div class="row" id="itemProduct">
                 <div class="col-4">
                     <img src="foto/baju4.jpg" class="img" alt="...">
                     <p class="text-center fw-bold">Baju Bodo</p>
@@ -125,7 +114,7 @@
                 </div>
 
                 <div class="center-button">
-                        <a href="/product" class="btn btn-outline-dark auto-width-button fw-bold">See More -></a>
+                    <a href="/product" class="btn btn-outline-dark fw-bold" id="btn-SeeMore">See More -></a>
                 </div>
 
             </div>
@@ -143,37 +132,37 @@
                 <div class="col-3">
                     <div class="d-flex flex-column align-items-center text-center">
                         <div class="itemwhyus">
-                            <i class="fa-solid fa-check fa-3x mb-4"></i>
+                            <i class="fa-solid fa-check fa-2x"></i>
                         </div>
                         <h5 class="title mb-4">Kualitas Terjamin</h5>
-                        <p class="desc-product">Kualitas selalu menjadi prioritas utama kami</p>
+                        <small class="desc-product">Kualitas selalu menjadi prioritas utama kami</small>
                     </div>
                 </div>
                 <div class="col-3">
                     <div class="d-flex flex-column align-items-center text-center">
                         <div class="itemwhyus">
-                            <i class="fa-solid fa-wand-magic-sparkles fa-3x mb-4"></i>
+                            <i class="fa-solid fa-wand-magic-sparkles fa-2x"></i>
                         </div>
                         <h5 class= "title mb-4">Desain Kostum</h5>
-                        <p class="desc-product">Anda memiliki kebebasan untuk merancang pakaian sesuai dengan selera dan gaya Anda </p>
+                        <small class="desc-product">Anda memiliki kebebasan untuk merancang pakaian sesuai dengan selera dan gaya Anda </small>
                     </div>
                 </div>
                 <div class="col-3">
                     <div class="d-flex flex-column align-items-center text-center">
                         <div class="itemwhyus">
-                            <i class="fa-solid fa-dollar-sign fa-3x mb-4"></i>
+                            <i class="fa-solid fa-dollar-sign fa-2x"></i>
                         </div>
                         <h5 class= "title mb-4">Harga Terjangkau</h5>
-                        <p class="desc-product">Anda akan menemukan berbagai pilihan pakaian yang cocok dengan anggaran Anda, menjadikan tampilan yang stylish lebih mudah diakses bagi semua orang</p>
+                        <small class="desc-product">Anda akan menemukan berbagai pilihan pakaian yang cocok dengan anggaran Anda</small>
                     </div>
                 </div>
                 <div class="col-3">
                     <div class="d-flex flex-column align-items-center text-center">
                         <div class="itemwhyus">
-                            <i class="fa-solid fa-cart-shopping fa-3x mb-4"></i>
+                            <i class="fa-solid fa-cart-shopping fa-2x"></i>
                         </div>
                         <h5 class= "title mb-4">Pilihan Yang Bervariasi</h5>
-                        <p class="desc-product">Menyediakan beragam pilihan fashion yang tak terbatas untuk memenuhi segala kebutuhan gaya Anda untuk tampil memukau di acara terbaik anda</p>
+                        <small class="desc-product">Menyediakan beragam pilihan fashion yang tak terbatas</small>
                     </div>
                 </div>
             </div>
@@ -193,10 +182,10 @@
                 <i class="fab fa-whatsapp fa-2x"></i>
             </div>
             <div class="col" style="margin-left: 20px;">
-                <button class="buttonAdmin" style="bacground-color:black;">ADMIN</button>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Tuliskan ulasanmu disini</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="border: 1px solid black;"></textarea>
+                    <button class="btn-send mt-3">Send</button>
                 </div>
             </div>
         </div>

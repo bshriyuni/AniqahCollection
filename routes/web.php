@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OrderDetailController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,3 +58,9 @@ Route::get('/productadmin', function() {
 Route::get('/admincarapemesanan', function () {
     return view('admin/carapemesanan');
  });
+
+Route::get('/adminpesanan', function () {
+    return view('admin/pesanan');
+ });
+
+ Route::resource('pesanan', OrderDetailController::class);
