@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\orderDetail;
 use Illuminate\Http\Request;
+
 
 class OrderDetailController extends Controller
 {
@@ -12,7 +12,7 @@ class OrderDetailController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.pesanan');
     }
 
     /**
@@ -36,7 +36,7 @@ class OrderDetailController extends Controller
      */
     public function show(orderDetail $orderDetail)
     {
-        //
+      
     }
 
     /**

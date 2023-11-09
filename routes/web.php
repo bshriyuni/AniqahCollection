@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\OrderDetailController;
+
 use App\Http\Controllers\carapesanController;
 use App\Http\Controllers\DetailProdukController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LokasiController;
 use App\Http\Controllers\registerController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -60,6 +63,16 @@ Route::get('/admintestimoni', function () {
 Route::get('/productadmin', function() {
     return view('admin/produk');
 });
+
+Route::get('/admincarapemesanan', function () {
+    return view('admin/carapemesanan');
+ });
+
+Route::get('/adminpesanan', function () {
+    return view('admin/pesanan');
+ });
+
+ Route::resource('pesanan', OrderDetailController::class);
 
 Route::get('/admincarapemesanan', [carapesanController::class, 'indexAdmin']);
 Route::post('/admincarapemesanan', [carapesanController::class, 'updateStep']);
