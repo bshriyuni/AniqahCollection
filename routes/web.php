@@ -3,6 +3,7 @@
 use App\Http\Controllers\OrderDetailController;
 
 use App\Http\Controllers\carapesanController;
+use App\Http\Controllers\ClothesController;
 use App\Http\Controllers\DetailProdukController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LokasiController;
@@ -83,6 +84,5 @@ Route::post('/login', [LoginController::class, 'authenticate']);
 Route::get('/register', [registerController::class, 'index']);
 Route::post('/register', [registerController::class, 'store']);
 
-Route::get('/adminproduk', function () {
-    return view('admin/produk');
- });
+Route::get('/adminproduk', [ClothesController::class, 'indexAdmin']);
+Route::post('/adminproduk', [ClothesController::class, 'create']);
