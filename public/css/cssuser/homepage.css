@@ -182,11 +182,6 @@ body{
     width: auto; /* Mengatur lebar tombol sesuai dengan panjang teks di dalamnya */
 }
 
-.line{
-    border-bottom: 1px solid #000; /* Ubah warna dan ketebalan sesuai kebutuhan */
-    margin: 10px 0; 
-}
-
 .footNote{
     background-color: #BBD6B8;
     padding: 40px;

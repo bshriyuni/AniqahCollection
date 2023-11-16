@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\OrderDetailController;
-
 use App\Http\Controllers\carapesanController;
 use App\Http\Controllers\DetailProdukController;
 use App\Http\Controllers\LoginController;
@@ -68,11 +67,8 @@ Route::get('/admincarapemesanan', function () {
     return view('admin/carapemesanan');
  });
 
-Route::get('/adminpesanan', function () {
-    return view('admin/pesanan');
- });
-
- Route::resource('pesanan', OrderDetailController::class);
+Route::resource('pesanan', OrderDetailController::class);
+Route::put('pesanan/update-status/{orderDetail}', [OrderDetailController::class, 'updateStatus'])->name('pesanan.updateStatus');
 
 Route::get('/admincarapemesanan', [carapesanController::class, 'indexAdmin']);
 Route::post('/admincarapemesanan', [carapesanController::class, 'updateStep']);
