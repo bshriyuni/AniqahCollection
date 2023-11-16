@@ -37,22 +37,22 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link fw-bold" href="/">Pesanan</a>
+                        <a class="nav-link fw-bold" href="/pesanan">Pesanan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/product">Produk</a>
+                        <a class="nav-link" href="/adminproduk">Produk</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/lokasi">Lokasi</a>
+                        <a class="nav-link" href="/adminlokasi">Lokasi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/testimoni">Testimoni</a>
+                        <a class="nav-link" href="/admintestimoni">Testimoni</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/carapemesanan">Cara Pemesanan</a>
+                        <a class="nav-link" href="/admincarapemesanan">Cara Pemesanan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/jahitbaju">Jahit</a>
+                        <a class="nav-link" href="/adminjahit">Jahit</a>
                     </li>
                 </ul>
             </div>
@@ -180,7 +180,10 @@
             </li>
         </div>
         <div class="logout-button">
-            <button>logout</button>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit">Logout</button>
+            </form>
         </div>
     </div>
     
