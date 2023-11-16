@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestimoniController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -57,3 +59,12 @@ Route::get('/productadmin', function() {
 Route::get('/admincarapemesanan', function () {
     return view('admin/carapemesanan');
  });
+
+// Menambahkan route untuk menampilkan halaman testimoni
+Route::get('/admintestimoni', [TestimoniController::class, 'index'])->name('testimoni.index');
+
+// Menambahkan route untuk menangani operasi CRUD testimoni
+Route::post('/admintestimoni', [TestimoniController::class, 'store'])->name('testimoni.store');
+Route::delete('/admintestimoni/{id}', [TestimoniController::class, 'destroy'])->name('testimoni.destroy');;
+// Route::get('/admintestimoni/delete/{id}', [TestimoniController::class, "Delete"]);
+
