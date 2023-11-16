@@ -9,6 +9,8 @@ use App\Http\Controllers\LokasiController;
 use App\Http\Controllers\registerController;
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TestimoniController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -64,15 +66,19 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/admincarapemesanan', [carapesanController::class, 'indexAdmin']);
     Route::post('/admincarapemesanan', [carapesanController::class, 'updateStep']);
 
+    // Menambahkan route untuk menampilkan halaman testimoni
+    Route::get('/admintestimoni', [TestimoniController::class, 'index'])->name('testimoni.index');
+
+    // Menambahkan route untuk menangani operasi CRUD testimoni
+    Route::post('/admintestimoni', [TestimoniController::class, 'store'])->name('testimoni.store');
+    Route::delete('/admintestimoni/{id}', [TestimoniController::class, 'destroy'])->name('testimoni.destroy');;
+    // Route::get('/admintestimoni/delete/{id}', [TestimoniController::class, "Delete"]);
+
     Route::get('/adminlokasi', [LokasiController::class, 'indexadmin']);
     Route::post('/adminlokasi', [LokasiController::class, 'updateLocation']);
   
     Route::resource('pesanan', OrderDetailController::class);
     Route::put('pesanan/update-status/{orderDetail}', [OrderDetailController::class, 'updateStatus'])->name('pesanan.updateStatus');
-
-    Route::get('/admintestimoni', function () {
-        return view('admin/testimoni');
-    });
 
     Route::get('/adminjahit', function () {
         return view('admin/jahit');

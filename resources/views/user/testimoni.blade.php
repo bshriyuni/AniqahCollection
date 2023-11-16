@@ -24,10 +24,13 @@
     <!-- end Brand App -->
 
     <!-- Menu App -->
-    <nav class="navbar navbar-expand-sm costom-navbar">
+    <nav class="navbar navbar-expand-md navbar-light">
         <div class="container-fluid">
-            <div class="collapse navbar-collapse ml-auto" id="collapsibleNavbar">
-                <ul class="navbar-nav ml-auto">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
                         <a class="nav-link" href="/">Home</a>
                     </li>
@@ -35,10 +38,10 @@
                         <a class="nav-link" href="/product">Produk</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/lokasi">Lokasi</a>
-                    </li> 
+                        <a class="nav-link fw-bold" href="/lokasi">Lokasi</a>
+                    </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-bold" href="/testimoni">Testimoni</a>
+                        <a class="nav-link" href="/testimoni">Testimoni</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/carapemesanan">Cara Pemesanan</a>
@@ -53,20 +56,28 @@
     <!-- End Menu App -->
     <br>
     <h1 class="custom-heading"><b>What they say?</b></h1>
+
     
-<div class="container text-center">
+    <div class="card-body">
         <div class="row">
-            <div class="col ms-4 me-4">
-                <img src="{{ asset('foto/testimoni1.jpeg') }}" alt="Gambar 1" class="img-fluid w-100 h-auto">
+            <div class="col-lg-4 col-6">
+                <!-- small box -->
+                    <div class="small-box custom-bg mx-auto rounded d-flex align-items-center ">
+                        <div class="inner">
+                            <img class="card-img-top rounded" alt="" src="{{ asset('foto/ical.jpeg') }}" >
+                            <!-- <a href="" type="button" class="btn"><i class="fas fa-trash"></i></a> -->
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-bag"></i>
+                        </div>
+                    </div>
+                <!-- /.small-box -->
             </div>
-            <div class="col ms-4 me-4">
-                <img src="{{ asset('foto/testimoni2.jpeg') }}" alt="Gambar 1" class="img-fluid w-100 h-auto">
-            </div>
-            <div class="col ms-4 me-4">
-                <img src="{{ asset('foto/ical.jpeg') }}" alt="Gambar 1" class="img-fluid w-100 h-auto">
-            </div>
+                  <!-- ./col -->
         </div>
+                        <!-- /.row -->
     </div>
+                      <!-- /.card-body -->
     <!-- Menggunakan Bootstrap JS (Optional, tergantung kebutuhan Anda) -->
     
     <div class="container text-center">

@@ -165,3 +165,33 @@ body{
 .yellow-star {
     color: yellow;
 }
+.custom-bg {
+    background-color: #BBD6B8; /* Gantilah dengan kode warna yang diinginkan */
+}
+
+/* Menyesuaikan ukuran gambar */
+.custom-image {
+    width: 100%; /* Lebar gambar 100% dari container */
+    height: 100; /* Mempertahankan aspek rasio gambar */
+}
+.small-box {
+    max-width: 300px; /* Menentukan lebar maksimal small-box */
+    margin: 0 auto; /* Memusatkan small-box horizontal */
+    text-align: center; /* Memusatkan isi small-box */
+    padding: 20px; /* Menambahkan padding agar kontennya tidak terlalu dekat dengan pinggir */
+}
+.rounded {
+    border-radius: 20px; /* Menambahkan radius pinggir 10px */
+}
+
+.card-img-top {
+    width: 100%; /* Menentukan lebar gambar 100% dari parent (small-box) */
+    height: auto; /* Mempertahankan aspek rasio gambar */
+    border-radius: 20px; /* Menambahkan radius pinggir gambar */
+    object-fit: cover; /* Menjaga aspek ratio dan memotong jika perlu */
+
+}
+
+.btn {
+    margin-top: 10px; /* Menambahkan margin atas pada tombol */
+}
