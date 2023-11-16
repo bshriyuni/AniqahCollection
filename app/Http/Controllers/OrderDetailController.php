@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\orderDetail;
 use Illuminate\Http\Request;
+
 
 class OrderDetailController extends Controller
 {
@@ -12,7 +12,9 @@ class OrderDetailController extends Controller
      */
     public function index()
     {
-        //
+        $orderDetails = OrderDetail::all(); // Ambil semua data pesanan dari database
+
+        return view('admin/pesanan', compact('orderDetails'));
     }
 
     /**
@@ -36,7 +38,7 @@ class OrderDetailController extends Controller
      */
     public function show(orderDetail $orderDetail)
     {
-        //
+      
     }
 
     /**
@@ -50,9 +52,15 @@ class OrderDetailController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, orderDetail $orderDetail)
+    public function updateStatus(Request $request, OrderDetail $orderDetail)
     {
-        //
+        $request->validate([
+            'status' => 'required|in:Menunggu Konfirmasi,Proses Pengambilan,Pesanan Diambil,Selesai',
+        ]);
+
+        $orderDetail->update(['status' => $request->status]);
+
+        return redirect()->back();
     }
 
     /**

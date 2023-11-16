@@ -26,6 +26,23 @@
 @font-face {
     font-family: "Inter-ExtraBold";
     src: url(/font/Inter-ExtraBold.ttf) format('truetype');
+
+}
+
+@font-face {
+    font-family: "DMSerifText-Regular";
+    src: url(/font/DMSerifText-Regular.ttf) format('truetype');
+
+}
+
+@font-face {
+    font-family: "JosefinSans-VariableFont_wght";
+    src: url(/font/JosefinSans-VariableFont_wght.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: "Corinthia-Bold";
+    src: url(/font/Corinthia-Bold.ttf) format('truetype');
 }
 
 body{
@@ -55,10 +72,6 @@ body{
     text-align: justify;
 }
 
-.judulDetailLokasi{
-    text-align: center;
-}
-
 .navbar-nav {
     display: flex; /* Mengatur elemen-elemen navbar menjadi tampilan flexbox */
     justify-content: space-between; /* Menyebarkan elemen-elemen secara merata */
@@ -69,27 +82,44 @@ body{
     flex: 1; /* Membuat setiap elemen mengambil lebar yang sama */
     text-align: center; /* Mengatur teks menjadi berada di tengah */
     white-space: nowrap; /* Mencegah patah baris pada teks */
-    font-size: 36px;
+    font-size: 20px;
     font-family: 'Inter-Regular';
     color: black;
 }
 
+/* TABLE ITEM */
+#table-title{
+    background-color: #618264;
+}
 
-.logoHome{
+th, td{
     text-align: center;
-    margin-top: 40px;
 }
 
-.footNote{
-    background-color: #BBD6B8;
-    padding: 40px;
+/* Logout Button Item */
+.logout-button {
+    position: fixed;
+    bottom: 10px; /* Jarak dari bawah */
+    right: 20px; /* Jarak dari kanan */
+  }
+  
+.logout-button button {
+    background-color: #f5f0f0; /* Warna latar belakang tombol */
+    color: #1c1616; /* Warna teks tombol */
+    padding: 10px 20px; /* Atur padding tombol sesuai kebutuhan */
+    border-radius: 20px; /* Buat tombol terlihat lebih cantik */
+    cursor: pointer;
+    font-style: italic;
+  }
+  
+  /* Efek hover untuk tombol jika diinginkan */
+.logout-button button:hover {
+    background-color: #e14c4c; /* Warna latar belakang saat dihover */
+  }
+  
+.titleList{
+    font-family: 'DMSerifText-Regular';
 }
-
-/* .row{
-    margin: 60px;
-} */
-
-.aboutUs{
-    font-family: 'Inter-ExtraBold';
-}
-
+  
+  
+  

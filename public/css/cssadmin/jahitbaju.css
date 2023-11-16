@@ -55,6 +55,65 @@ body{
     font-style: italic;
 }
 
+/* Gaya untuk tombol close */
+.modal-header .close {
+    position: absolute;
+    top: 0;
+    right: 5px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Gaya untuk modal */
+.modal {
+    max-width: 500px; 
+    margin: 0 auto;
+}
+
+/* Gaya untuk elemen judul modal */
+.modal-header {
+    position: relative;
+    background-color: #9fda98;
+    color: #0f0f0f;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Gaya untuk judul modal */
+.modal-header h2 {
+    margin: 0;
+    font-family: 'OleoScript-Bold';
+    font-size: 25px;
+}
+
+/* Gaya untuk input jenis baju */
+.modal-body h4 {
+    margin-top: 0px;
+}
+
+/* Gaya untuk label gambar */
+.modal-body label {
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Gaya untuk ikon gambar */
+.modal-body i {
+    margin-right: 5px;
+}
+
+/* Gaya untuk tombol submit */
+.modal-footer button[type="submit"] {
+    background-color: #65c468;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+
 .navbar {
     background-color: #BBD6B8;
     margin-top: 30px;
@@ -76,7 +135,6 @@ body{
     color: black;
 }
 /* End brand & navbar */
-
 
 .textTitle{
     font-family: 'Corinthia-Bold';
