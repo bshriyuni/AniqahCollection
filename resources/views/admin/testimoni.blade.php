@@ -58,7 +58,7 @@
     <!-- End Modal Formulir -->
 
     <!-- Menu App -->
-    <nav class="navbar navbar-expand-md navbar-light">
+     <nav class="navbar navbar-expand-md navbar-light">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
