@@ -12,7 +12,9 @@ class OrderDetailController extends Controller
      */
     public function index()
     {
-        return view('admin.pesanan');
+        $orderDetails = OrderDetail::all(); // Ambil semua data pesanan dari database
+
+        return view('admin/pesanan', compact('orderDetails'));
     }
 
     /**
@@ -50,9 +52,15 @@ class OrderDetailController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, orderDetail $orderDetail)
+    public function updateStatus(Request $request, OrderDetail $orderDetail)
     {
-        //
+        $request->validate([
+            'status' => 'required|in:Menunggu Konfirmasi,Proses Pengambilan,Pesanan Diambil,Selesai',
+        ]);
+
+        $orderDetail->update(['status' => $request->status]);
+
+        return redirect()->back();
     }
 
     /**

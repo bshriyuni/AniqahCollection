@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\OrderDetailController;
-
 use App\Http\Controllers\carapesanController;
 use App\Http\Controllers\ClothesController;
 use App\Http\Controllers\DetailProdukController;
@@ -67,8 +66,9 @@ Route::middleware(['admin'])->group(function () {
 
     Route::get('/adminlokasi', [LokasiController::class, 'indexadmin']);
     Route::post('/adminlokasi', [LokasiController::class, 'updateLocation']);
-
+  
     Route::resource('pesanan', OrderDetailController::class);
+    Route::put('pesanan/update-status/{orderDetail}', [OrderDetailController::class, 'updateStatus'])->name('pesanan.updateStatus');
 
     Route::get('/admintestimoni', function () {
         return view('admin/testimoni');
