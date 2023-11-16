@@ -82,7 +82,7 @@
                     </div>
                     <div class="row mb-3">
                         <div class="offset-sm-10">
-                            <button class="btn btn-secondary"><a href="/login"></a>Register</button>
+                            <button type="submit" class="btn btn-secondary">Register</button>
                         </div>
                     </div>
                 </form>

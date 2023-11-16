@@ -28,9 +28,7 @@ Route::get('/', function () {
 
 Route::get('/lokasi', [LokasiController::class, 'indexuser']);
 
-Route::get('/product', function() {
-    return view('user/produk');
-});
+Route::get('/product', [ClothesController::class, 'indexUser']);
 
 Route::get('/testimoni', function () {
     return view('user/testimoni');
@@ -38,11 +36,6 @@ Route::get('/testimoni', function () {
 
 Route::get('/detailproduk', function () {
     return view('user/detailproduk');
-});
-
-
-Route::get('/adminjahit', function () {
-    return view('admin/jahit');
 });
 
 Route::get('/detailproduk', [DetailProdukController::class, 'index']);
@@ -53,36 +46,35 @@ Route::get('/jahitbaju', function () {
 
 Route::get('/carapemesanan', [carapesanController::class, 'indexUser']);
 
-// Admin
-Route::get('/adminlokasi', [LokasiController::class, 'indexadmin']);
-Route::post('/adminlokasi', [LokasiController::class, 'updateLocation']);
-
-Route::get('/admintestimoni', function () {
-    return view('admin/testimoni');
- });
-
-Route::get('/productadmin', function() {
-    return view('admin/produk');
-});
-
-Route::get('/admincarapemesanan', function () {
-    return view('admin/carapemesanan');
- });
-
-Route::get('/adminpesanan', function () {
-    return view('admin/pesanan');
- });
-
- Route::resource('pesanan', OrderDetailController::class);
-
-Route::get('/admincarapemesanan', [carapesanController::class, 'indexAdmin']);
-Route::post('/admincarapemesanan', [carapesanController::class, 'updateStep']);
-
 Route::get('/login', [LoginController::class, 'login']);
 Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
 
 Route::get('/register', [registerController::class, 'index']);
 Route::post('/register', [registerController::class, 'store']);
 
-Route::get('/adminproduk', [ClothesController::class, 'indexAdmin']);
-Route::post('/adminproduk', [ClothesController::class, 'create']);
+Route::middleware(['admin'])->group(function () {
+    // Semua route admin di sini
+    Route::get('/adminproduct', [ClothesController::class, 'indexAdmin']);
+    Route::post('/adminproduct', [ClothesController::class, 'create']);
+    Route::get('/edit/{id}',[ClothesController::class, 'edit']);
+    Route::post('/edit/{id}', [ClothesController::class, 'update']);
+    Route::get('/delete/{id}', [ClothesController::class, 'delete']);
+
+    Route::get('/admincarapemesanan', [carapesanController::class, 'indexAdmin']);
+    Route::post('/admincarapemesanan', [carapesanController::class, 'updateStep']);
+
+    Route::get('/adminlokasi', [LokasiController::class, 'indexadmin']);
+    Route::post('/adminlokasi', [LokasiController::class, 'updateLocation']);
+
+    Route::resource('pesanan', OrderDetailController::class);
+
+    Route::get('/admintestimoni', function () {
+        return view('admin/testimoni');
+    });
+
+    Route::get('/adminjahit', function () {
+        return view('admin/jahit');
+    });
+});

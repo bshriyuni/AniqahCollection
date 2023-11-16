@@ -44,10 +44,10 @@
                         <a class="nav-link" href="/lokasi">Lokasi</a>
                     </li> 
                     <li class="nav-item">
-                        <a class="nav-link fw-bold" href="/testimoni">Testimoni</a>
+                        <a class="nav-link" href="/testimoni">Testimoni</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/carapemesanan">Cara Pemesanan</a>
+                        <a class="nav-link fw-bold" href="/carapemesanan">Cara Pemesanan</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/jahitbaju">Jahit</a>
@@ -188,7 +188,6 @@
                     <i class="fab fa-whatsapp fa-2x"></i>
                 </div>
                 <div class="col-md-6">
-                    <button class="buttonAdmin" style="background-color: black;">ADMIN</button>
                     <div class="mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Tuliskan ulasanmu disini</label>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="border: 1px solid black;"></textarea>

@@ -28,7 +28,7 @@ return new class extends Migration
          $lokasiAwal->kota_prov = 'Takkalala, Wara Selatan, Palopo City, South Sulawesi';
          $lokasiAwal->negara = 'Indonesia';
          $lokasiAwal->latitude = '-3.022163';
-         $lokasiAwal->longitude = '20.212572';
+         $lokasiAwal->longitude = '120.212572';
          $lokasiAwal->save();
     }
 

@@ -103,81 +103,20 @@
     <br>
     <div class="container text-center">
         <div class="row align-items-start">
+            @foreach($clothes as $clothing)
             <div class="col">
-             <div class="card" style="background-color: #BBD6B8; padding:10px ">
-                <div class="card-body" style="text-align :start;">
-                    <h5 class="card-title">Kode Baju</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                <div class="card" style="background-color: #BBD6B8; padding:10px ">
+                    <div class="card-body" style="text-align :start;">
+                        <h5 class="card-title">{{ $clothing->kode_baju }}</h5>
+                        <p class="card-text">{{ $clothing->deskripsi }}</p>
+                        <h6>Rp {{$clothing->harga}}</h6>
+                    </div>
+                    <div class="container" style="background-color: #F4EEEE; padding:20px ;">
+                        <img src="{{ asset('storage/' . $clothing->foto) }}" class="card-img-bottom" alt="...">
+                    </div>
                 </div>
-                <div class="container" style="background-color: #F4EEEE; padding:20px ;">
-                    <img src="foto/foto1.jpg" class="card-img-bottom" alt="...">
-                </div>
-             </div>
             </div>
-            <div class="col">
-             <div class="card" style="background-color: #BBD6B8; padding:10px">
-                <div class="card-body" style="text-align :start;">
-                    <h5 class="card-title">Kode Baju</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-                </div>
-                <div class="container" style="background-color: #F4EEEE; padding:20px">
-                    <img src="foto/foto2.jpg" class="card-img-bottom" alt="...">
-                </div>
-             </div>
-            </div>
-            <div class="col">
-             <div class="card" style="background-color: #BBD6B8; padding:10px">
-                <div class="card-body" style="text-align :start;">
-                    <h5 class="card-title">Kode Baju</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-                </div>
-                <div class="container" style="background-color: #F4EEEE; padding:20px">
-                    <img src="foto/foto3.jpg" class="card-img-bottom" alt="...">
-                </div>
-             </div>
-            </div>
-        </div>
-        <br>
-        <div class="row align-items-start">
-            <div class="col">
-             <div class="card" style="background-color: #BBD6B8; padding:10px">
-                <div class="card-body" style="text-align :start;">
-                    <h5 class="card-title">Kode Baju</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-                </div>
-                <div class="container" style="background-color: #F4EEEE; padding:20px">
-                    <img src="foto/foto4.jpg" class="card-img-bottom" alt="...">
-                </div>
-             </div>
-            </div>
-            <div class="col">
-             <div class="card" style="background-color: #BBD6B8; padding:10px">
-                <div class="card-body" style="text-align :start;">
-                    <h5 class="card-title">Kode Baju</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-                </div>
-                <div class="container" style="background-color: #F4EEEE; padding:20px">
-                    <img src="foto/foto5.jpg" class="card-img-bottom" alt="..." >
-                </div>
-             </div>
-            </div>
-            <div class="col">
-             <div class="card" style="background-color: #BBD6B8; padding:10px">
-                <div class="card-body" style="text-align :start;">
-                    <h5 class="card-title">Kode Baju</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-                </div>
-                <div class="container" style="background-color: #F4EEEE; padding:20px">
-                    <img src="foto/foto6.jpg" class="card-img-bottom" alt="...">
-                </div>
-             </div>
-            </div>
+            @endforeach
         </div>
     </div>
   
@@ -224,7 +163,6 @@
                 <i class="fab fa-whatsapp fa-2x"></i>
             </div>
             <div class="col" style="margin-left: 20px;">
-                <button class="buttonAdmin" style="bacground-color:black;">ADMIN</button>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Tuliskan ulasanmu disini</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="border: 1px solid black;"></textarea>

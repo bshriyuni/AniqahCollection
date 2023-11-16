@@ -17,10 +17,10 @@ return new class extends Migration
             $table->string('kode_baju');
             $table->string('deskripsi');
             $table->string('foto');
-            $table->string('kategori_baju');
+            $table->integer('jumlah_dewasa');
+            $table->integer('jumlah_anak');
             $table->string('syarat_ketentuan');
-            $table->string('harga');
-            $table->integer('jumlah_stok');
+            $table->decimal('harga', 10, 3);
             $table->timestamps();
         });
 
@@ -28,11 +28,11 @@ return new class extends Migration
         $dataAwal = new clothes;
         $dataAwal->kode_baju = 'A22301';
         $dataAwal->deskripsi = 'INI DESKRISI';
-        $dataAwal->foto = 'disini foto';
-        $dataAwal->kategori_baju = 'Anak';
+        $dataAwal->foto = 'foto/baju1.jpg';
+        $dataAwal->jumlah_dewasa = '5';
+        $dataAwal->jumlah_anak = '5';
         $dataAwal->syarat_ketentuan = 'ini syarat dan ketentuannya';
-        $dataAwal->harga = 'Rp.100.000';
-        $dataAwal->jumlah_stok = '6';
+        $dataAwal->harga = '100';
         $dataAwal->save();
     }
 
