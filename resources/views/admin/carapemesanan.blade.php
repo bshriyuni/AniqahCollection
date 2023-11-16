@@ -44,7 +44,7 @@
                         <a class="nav-link" href="/pesanan">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/adminproduk">Produk</a>
+                        <a class="nav-link" href="/adminproduct">Produk</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/adminlokasi">Lokasi</a>

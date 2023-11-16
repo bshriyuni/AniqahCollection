@@ -40,7 +40,7 @@
                         <a class="nav-link fw-bold" href="/pesanan">Pesanan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/adminproduk">Produk</a>
+                        <a class="nav-link" href="/adminproduct">Produk</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/adminlokasi">Lokasi</a>

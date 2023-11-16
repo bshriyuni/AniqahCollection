@@ -169,7 +169,7 @@
                             <a class="nav-link" href="/pesanan">Pesanan</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-bold" href="/adminproduk">Produk</a>
+                            <a class="nav-link fw-bold" href="/adminproduct">Produk</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/adminlokasi">Lokasi</a>
