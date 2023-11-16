@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> Admin Lokasi</title>
+        <title>Lokasi - ADMIN</title>
 
         <!-- Link Bootstraps -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -166,13 +166,13 @@
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="/adminpesanan">Home</a>
+                            <a class="nav-link" href="/pesanan">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/adminproduct">Produk</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-bold" href="/lokasi">Lokasi</a>
+                            <a class="nav-link fw-bold" href="/adminlokasi">Lokasi</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/admintestimoni">Testimoni</a>
@@ -181,7 +181,7 @@
                             <a class="nav-link" href="/admincarapemesanan">Cara Pemesanan</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/adminjahitbaju">Jahit</a>
+                            <a class="nav-link" href="/adminjahit">Jahit</a>
                         </li>
                     </ul>
                 </div>

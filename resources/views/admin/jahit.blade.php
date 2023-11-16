@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Jahit Baju</title>
+    <title>Jahit Baju - ADMIN</title>
 
     <!-- Link Bootstraps -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -92,22 +92,22 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link" href="/pesanan">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/product">Produk</a>
+                        <a class="nav-link" href="/adminproduk">Produk</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/lokasi">Lokasi</a>
+                        <a class="nav-link" href="/adminlokasi">Lokasi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/testimoni">Testimoni</a>
+                        <a class="nav-link" href="/admintestimoni">Testimoni</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/crapemesanan">Cara Pemesanan</a>
+                        <a class="nav-link" href="/admincarapemesanan">Cara Pemesanan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-bold" href="/jahitbaju">Jahit</a>
+                        <a class="nav-link fw-bold" href="/adminjahit">Jahit</a>
                     </li>
                 </ul>
             </div>
@@ -245,7 +245,6 @@
                 <i class="fab fa-whatsapp fa-2x"></i>
             </div>
             <div class="col" style="margin-left: 20px;">
-                <button class="buttonAdmin" style="bacground-color:black;">ADMIN</button>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Tuliskan ulasanmu disini</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="border: 1px solid black;"></textarea>

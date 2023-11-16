@@ -13,7 +13,12 @@ class ClothesController extends Controller
     public function indexAdmin()
     {
         $clothes = Clothes::all();
-        return view('admin/produk', compact('clothes'));
+        return view('admin/product', compact('clothes'));
+    }
+
+    public function indexUser(){
+        $clothes = clothes::all();
+        return view('user/produk', compact('clothes'));
     }
 
     /**
@@ -21,76 +26,102 @@ class ClothesController extends Controller
      */
     public function create(Request $request)
     {
-        // Validasi data input jika diperlukan
-        $validatedData = $request->validate([
-            'kodeBaju' => 'required',
-            'deskripsi' => 'required',
-            'foto' => 'required|max:255',
-            'kategoriBaju' => 'required',
-            'syaratKetentuan' => 'required',
-            'harga' => 'required',
-            'jumlahStok' => 'required'
+        $kodeBaju = $request->kodeBaju;
+        $deskripsi = $request->deskripsi;
+        $foto = $request->foto;
+        $jumlahDewasa = $request->jumlahDewasa;
+        $jumlahAnak = $request->jumlahAnak;
+        $syaratKetentuan = $request->syaratKetentuan;
+        $harga = $request->harga;
+
+        Clothes::create([
+            "kode_baju"=>$kodeBaju,
+            "deskripsi"=>$deskripsi,
+            "foto"=>$foto,
+            "jumlah_dewasa"=>$jumlahDewasa,
+            "jumlah_anak"=>$jumlahAnak,
+            "syarat_ketentuan"=>$syaratKetentuan,
+            "harga"=>$harga
         ]);
+        
+        return back()->with('success', 'produk berhasil ditambahkan.');
 
-        // Buat instance model dan masukkan data dari permintaan
-        $clothes = new clothes();
-        $clothes->kode_baju = $validatedData['kodeBaju'];
-        $clothes->deskripsi = $validatedData['deskripsi'];
-        $clothes->foto = $validatedData['foto'];
-        $clothes->kategori_baju = $validatedData['kategoriBaju'];
-        $clothes->syarat_ketentuan = $validatedData['syaratKetentuan'];
-        $clothes->harga = $validatedData['harga'];
-        $clothes->jumlah_stok = $validatedData['jumlahStok'];
-        $clothes->save();
 
-        // Simpan data ke dalam database
-        if($clothes->save()){
-            // Jika berhasil, kirim pesan berhasil
-            return back()->with('success', 'produk berhasil ditambahkan.');
-        } else {
-            // Jika gagal, kirim pesan gagal
-            return back()->with('error', 'Gagal menambahkan produk.');
-        }
+
+        // Validasi data input jika diperlukan
+        // $validatedData = $request->validate([
+        //     'kodeBaju' => 'required',
+        //     'deskripsi' => 'required',
+        //     'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        //     'jumlahDewasa' => 'required',
+        //     'jumlahAnak' => 'required',
+        //     'syaratKetentuan' => 'required',
+        //     'harga' => 'required'
+        // ]);
+
+        // // Proses unggah gambar
+        // $fotoPath = $request->file('foto')->store('public/foto/clothes');
+
+        // // Buat instance model dan masukkan data dari permintaan
+        // $clothes = new clothes();
+        // $clothes->kode_baju = $validatedData['kodeBaju'];
+        // $clothes->deskripsi = $validatedData['deskripsi'];
+        // $clothes->foto = $fotoPath;
+        // $clothes->jumlah_dewasa = $validatedData['jumlahDewasa'];
+        // $clothes->jumlah_anak = $validatedData['jumlahAnak'];
+        // $clothes->syarat_ketentuan = $validatedData['syaratKetentuan'];
+        // $clothes->harga = $validatedData['harga'];
+        // $clothes->save();
+
+        // // Simpan data ke dalam database
+        // if($clothes->save()){
+        //     // Jika berhasil, kirim pesan berhasil
+        //     return back()->with('success', 'produk berhasil ditambahkan.');
+        // } else {
+        //     // Jika gagal, kirim pesan gagal
+        //     return back()->with('error', 'Gagal menambahkan produk.');
+        // }
         
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
+    public function edit($id){
+        $clothes = clothes::where("id", $id)->get();
+        $clothes = $clothes[0];
+        return view("edit", ["clothes" => $clothes]);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(clothes $clothes)
-    {
-        //
+    public function update(Request $request, $id){
+        $kodeBaju = $request->kodeBaju;
+        $deskripsi = $request->deskripsi;
+        $foto = $request->foto;
+        $jumlahDewasa = $request->jumlahDewasa;
+        $jumlahAnak = $request->jumlahAnak;
+        $syaratKetentuan = $request->syaratKetentuan;
+        $harga = $request->harga;
+
+        Clothes::where("id", $id)->update([
+            "kode_baju"=>$kodeBaju,
+            "deskripsi"=>$deskripsi,
+            "foto"=>$foto,
+            "jumlah_dewasa"=>$jumlahDewasa,
+            "jumlah_anak"=>$jumlahAnak,
+            "syarat_ketentuan"=>$syaratKetentuan,
+            "harga"=>$harga
+        ]);
+
+        $clothes = Clothes::all();
+        return back()->with('success', 'produk berhasil diedit.');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(clothes $clothes)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, clothes $clothes)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(clothes $clothes)
-    {
-        //
-    }
+    public function delete($id){
+        try {
+            Clothes::destroy($id);
+            dd('terhapus');
+            return back()->with('success', 'produk berhasil dihapus');
+        } catch (\Exception $e) {
+            dd('tdk terhapus');
+            return back()->with('error', 'Gagal menghapus produk. Error: ' . $e->getMessage());
+        }
+     }
+     
 }
