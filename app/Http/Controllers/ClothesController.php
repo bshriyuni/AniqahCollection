@@ -7,9 +7,6 @@ use Illuminate\Http\Request;
 
 class ClothesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function indexAdmin()
     {
         $clothes = Clothes::all();
@@ -21,9 +18,6 @@ class ClothesController extends Controller
         return view('user/produk', compact('clothes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create(Request $request)
     {
         $kodeBaju = $request->kodeBaju;
@@ -45,43 +39,6 @@ class ClothesController extends Controller
         ]);
         
         return back()->with('success', 'produk berhasil ditambahkan.');
-
-
-
-        // Validasi data input jika diperlukan
-        // $validatedData = $request->validate([
-        //     'kodeBaju' => 'required',
-        //     'deskripsi' => 'required',
-        //     'foto' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        //     'jumlahDewasa' => 'required',
-        //     'jumlahAnak' => 'required',
-        //     'syaratKetentuan' => 'required',
-        //     'harga' => 'required'
-        // ]);
-
-        // // Proses unggah gambar
-        // $fotoPath = $request->file('foto')->store('public/foto/clothes');
-
-        // // Buat instance model dan masukkan data dari permintaan
-        // $clothes = new clothes();
-        // $clothes->kode_baju = $validatedData['kodeBaju'];
-        // $clothes->deskripsi = $validatedData['deskripsi'];
-        // $clothes->foto = $fotoPath;
-        // $clothes->jumlah_dewasa = $validatedData['jumlahDewasa'];
-        // $clothes->jumlah_anak = $validatedData['jumlahAnak'];
-        // $clothes->syarat_ketentuan = $validatedData['syaratKetentuan'];
-        // $clothes->harga = $validatedData['harga'];
-        // $clothes->save();
-
-        // // Simpan data ke dalam database
-        // if($clothes->save()){
-        //     // Jika berhasil, kirim pesan berhasil
-        //     return back()->with('success', 'produk berhasil ditambahkan.');
-        // } else {
-        //     // Jika gagal, kirim pesan gagal
-        //     return back()->with('error', 'Gagal menambahkan produk.');
-        // }
-        
     }
 
     public function edit($id){
@@ -122,6 +79,5 @@ class ClothesController extends Controller
             dd('tdk terhapus');
             return back()->with('error', 'Gagal menghapus produk. Error: ' . $e->getMessage());
         }
-     }
-     
+    }     
 }
