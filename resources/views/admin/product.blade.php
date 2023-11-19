@@ -192,7 +192,7 @@
         <!-- Search -->
         <br>
         <div class="container">
-            <form class="d-flex" role="search">
+            <form class="d-flex" role="search" action="{{ route('clothes.search') }}" method="GET">
                 <div style="position: relative; width: 100%;">
                     <i class="fa fa-search" style="position: absolute; left: 10px; top: 10px; color: #777;"></i>
                     <input class="form-control" type="search" placeholder="Search in here" aria-label="Search" style="background-color: #D9D9D9; text-align: center;" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search in here'">
@@ -205,15 +205,15 @@
         <div class="container text-center">
             <div class="row align-items-start">
                 @foreach($clothes as $clothing)
-                <div class="col col-6">
-                    <div class="card" style="background-color: #BBD6B8; padding:10px">
+                <div class="col col-4">
+                    <div class="card" style="background-color: #BBD6B8; padding:5px">
                         <div class="card-body" style="text-align :start;">
                             <h4 class="card-title">{{ $clothing->kode_baju }}</h4>
                             <p class="card-text">{{ $clothing->deskripsi }}</p> 
                             <h6>Rp {{$clothing->harga}}</h6>
                         </div>
-                        <div class="container" style="background-color: #F4EEEE; padding:20px ;">
-                            <img src="{{ $clothing->foto }}" class="card-img-bottom" alt="..." style="height: 400px;">
+                        <div class="container" style="background-color: #F4EEEE; padding:5px;">
+                            <img src="{{ $clothing->foto }}" class="card-img-bottom" alt="..." style="height: 300px;">
                         </div>
                         <div class="">
                             <a href="" type="button" class="btn" data-toggle="modal" data-target="#modal-edit"><i class="fas fa-edit text-info"></i></a>
