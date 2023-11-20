@@ -36,45 +36,36 @@
     <!-- end Brand App -->
 
     <!-- Menu App -->
-    <nav class="navbar navbar-expand-sm costom-navbar">
-      <div class="container-fluid">
-        <div class="collapse navbar-collapse ml-auto" id="collapsibleNavbar">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fw-bold" href="/product">Produk</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/lokasi">Lokasi</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/testimoni">Testimoni</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/carapemesanan">Cara Pemesanan</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/jahitbaju">Jahit</a>
-            </li>
-          </ul>
+    <nav class="navbar navbar-expand-md navbar-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold" href="/product">Produk</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/lokasi">Lokasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/testimoni">Testimoni</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/carapemesanan">Cara Pemesanan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/jahitbaju">Jahit</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
     </nav>
     <!-- End Menu App -->
-
-    <!-- Search -->
-    <br>
-    <div class="container">
-      <form class="d-flex" role="search">
-        <div style="position: relative; width: 100%;">
-          <i class="fa fa-search" style="position: absolute; left: 10px; top: 10px; color: #777;"></i>
-          <input class="form-control" type="search" placeholder="Search in here" aria-label="Search" style="background-color: #D9D9D9; text-align: center;" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search in here'">
-        </div>
-      </form>
-    </div>
-    <!-- End Search -->
     
     <br>
     <div id="most">
@@ -110,16 +101,18 @@
         <div class="row align-items-start">
             @foreach($clothes as $clothing)
             <div class="col col-4">
-                <div class="card" style="background-color: #BBD6B8; padding:10px ">
-                    <div class="card-body" style="text-align :start;">
-                        <h5 class="card-title">{{ $clothing->kode_baju }}</h5>
-                        <p class="card-text">{{ $clothing->deskripsi }}</p>
-                        <h6>Rp {{$clothing->harga}}</h6>
+                <a href="/detailproduk/{id}" style="text-decoration: none; color: inherit;">
+                    <div class="card" style="background-color: #BBD6B8; padding:10px ">
+                        <div class="card-body" style="text-align :start;">
+                            <h5 class="card-title">{{ $clothing->kode_baju }}</h5>
+                            <p class="card-text">{{ $clothing->deskripsi }}</p>
+                            <h6>Rp {{$clothing->harga}}</h6>
+                        </div>
+                        <div class="container" style="background-color: #F4EEEE; padding:5px;">
+                            <img src="{{ $clothing->foto }}" class="card-img-bottom" alt="...">
+                        </div>
                     </div>
-                    <div class="container" style="background-color: #F4EEEE; padding:5px;">
-                        <img src="{{ $clothing->foto }}" class="card-img-bottom" alt="...">
-                    </div>
-                </div>
+                </a>
                 <br><br>
             </div>
             @endforeach
@@ -182,4 +175,5 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 </html>

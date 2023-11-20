@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LokasiController;
 use App\Http\Controllers\registerController;
 
+use App\Models\Clothes;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestimoniController;
 
@@ -30,16 +31,16 @@ Route::get('/', function () {
 Route::get('/lokasi', [LokasiController::class, 'indexuser']);
 
 Route::get('/product', [ClothesController::class, 'indexUser']);
-
-Route::get('/testimoni', function () {
-    return view('user/testimoni');
-});
-
+Route::get('/detailproduk/{id}', [DetailProdukController::class, 'index']);
+Route::post('detailproduk', [DetailProdukController::class, 'booking']);
+// tess doang
 Route::get('/detailproduk', function () {
     return view('user/detailproduk');
 });
 
-Route::get('/detailproduk', [DetailProdukController::class, 'index']);
+Route::get('/testimoni', function () {
+    return view('user/testimoni');
+});
 
 Route::get('/jahitbaju', function () {
     return view('user/jahit');
@@ -59,9 +60,7 @@ Route::middleware(['admin'])->group(function () {
     // Semua route admin di sini
     Route::get('/adminproduct', [ClothesController::class, 'indexAdmin']);
     Route::post('/adminproduct', [ClothesController::class, 'create']);
-    Route::get('/edit/{id}',[ClothesController::class, 'edit']);
-    Route::post('/edit/{id}', [ClothesController::class, 'update']);
-    Route::get('/delete/{id}', [ClothesController::class, 'delete']);
+    Route::delete('/adminproduct/{id}', [ClothesController::class, 'delete'])->name('produk.delete');
 
     Route::get('/admincarapemesanan', [carapesanController::class, 'indexAdmin']);
     Route::post('/admincarapemesanan', [carapesanController::class, 'updateStep']);

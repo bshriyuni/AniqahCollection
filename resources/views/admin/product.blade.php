@@ -70,7 +70,8 @@
                             <div class="mb-3 row">
                                 <label for="inputFoto" class="col-sm-3 col-form-label">Foto</label>
                                 <div class="col-sm-9">
-                                    <input class="form-control" type="file" id="foto" name="foto" accept="image/*">
+                                    <input class="form-control" type="file" id="foto" accept="image/*" name="gambar" onchange="previewImage(event)">
+                                    <div id="imagePreview"></div>
                                 </div>
                             </div>
                             <div class="mb-3 row">
@@ -189,18 +190,6 @@
         </nav>
         <!-- End Menu App -->
 
-        <!-- Search -->
-        <br>
-        <div class="container">
-            <form class="d-flex" role="search" action="{{ route('clothes.search') }}" method="GET">
-                <div style="position: relative; width: 100%;">
-                    <i class="fa fa-search" style="position: absolute; left: 10px; top: 10px; color: #777;"></i>
-                    <input class="form-control" type="search" placeholder="Search in here" aria-label="Search" style="background-color: #D9D9D9; text-align: center;" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search in here'">
-                </div>
-            </form>
-        </div>
-        <!-- End Search -->
-
         <!-- produk -->
         <div class="container text-center">
             <div class="row align-items-start">
@@ -213,10 +202,16 @@
                             <h6>Rp {{$clothing->harga}}</h6>
                         </div>
                         <div class="container" style="background-color: #F4EEEE; padding:5px;">
-                            <img src="{{ $clothing->foto }}" class="card-img-bottom" alt="..." style="height: 300px;">
+                            <img src="{{ asset('foto/' . $clothing->gambar) }} {{ $clothing->foto }}" class="card-img-bottom" alt="..." style="height: 300px;">
                         </div>
                         <div class="">
-                            <a href="" type="button" class="btn" data-toggle="modal" data-target="#modal-edit"><i class="fas fa-edit text-info"></i></a>
+                            <a href="{{ route('produk.delete', $clothing->id) }}" type="button" class="btn" data-toggle="modal" data-target="#modal-edit" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $clothing->id }}').submit();">
+                                <i class="fas fa-edit text-info"></i>
+                            </a>
+                            <form id="delete-form-{{ $clothing->id }}" action="{{ route('produk.delete', $clothing->id) }}" method="POST" style="display: none;">
+                                @csrf
+                                @method('DELETE')
+                            </form>
                             <a href="" type="button" class="btn"><i class="fas fa-trash text-danger"></i></a>                            
                         </div>
                     </div>
@@ -329,6 +324,17 @@
             </div>
         </div>
         <!-- End Foot Note -->
+
+        <script>
+            function previewImage(event) {
+                var reader = new FileReader();
+                reader.onload = function () {
+                    var output = document.getElementById('imagePreview');
+                    output.innerHTML = '<img src="' + reader.result + '" width="100%" height="100%" />';
+                };
+                reader.readAsDataURL(event.target.files[0]);
+            }
+        </script>
     </body>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>

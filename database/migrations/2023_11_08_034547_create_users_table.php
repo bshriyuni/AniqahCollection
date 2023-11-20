@@ -23,6 +23,15 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        // Menambahkan data awal
+        DB::table('users')->insert([
+            'name' => 'Admin User',
+            'username' => 'admin',
+            'email' => 'admin@example.com',
+            'password' => Hash::make('admin123'),
+            'role' => 'admin',
+        ]);
     }
 
     /**
