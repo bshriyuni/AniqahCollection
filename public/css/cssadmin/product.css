@@ -55,6 +55,22 @@ body{
     text-align: justify;
 }
 
+.navbar-nav {
+    display: flex; /* Mengatur elemen-elemen navbar menjadi tampilan flexbox */
+    justify-content: space-between; /* Menyebarkan elemen-elemen secara merata */
+    width: 100%; /* Memastikan elemen navbar mengisi lebar penuh */
+}
+
+.nav-item {
+    flex: 1; /* Membuat setiap elemen mengambil lebar yang sama */
+    text-align: center; /* Mengatur teks menjadi berada di tengah */
+    white-space: nowrap; /* Mencegah patah baris pada teks */
+    font-size: 20px;
+    font-family: 'Inter-Regular';
+    color: black;
+}
+/* End brand & navbar */
+
 .judulDetailLokasi{
     text-align: center;
 }

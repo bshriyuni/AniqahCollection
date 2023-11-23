@@ -27,40 +27,50 @@
   </head>
   <body>
     <!-- Brand App -->
-    <div class="brandApp">
-      <div class="Aniqah" style="margin-top: 20px">
-        <h1 class="textAniqah">Aniqah Collection</h1>
-        <h7 class="deskripsiBrand">Sewa baju bodo dan jasa jahit baju</h7>
-      </div>
+    <div class="row brandApp">
+        <div class="Aniqah col-sm-11" style="margin-top: -40px; position: relative; margin-bottom: -100px">
+            <h1 class="textAniqah">Aniqah Collection</h1>
+            <h7 class="deskripsiBrand">Sewa baju bodo dan jasa jahit baju</h7>
+        </div>
+        
+        <!-- tombol edit testimoni -->
+        <div class="col-sm-1">
+            <button type="button" class="btn btn-light" id="plustestimoni">
+                <i class="fas fa-plus fa-3x" ></i>
+            </button>
+        </div>
     </div>
     <!-- end Brand App -->
 
     <!-- Menu App -->
-    <nav class="navbar navbar-expand-sm costom-navbar">
-      <div class="container-fluid">
-        <div class="collapse navbar-collapse ml-auto" id="collapsibleNavbar">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="/">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link fw-bold" href="/product">Produk</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/lokasi">Lokasi</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/testimoni">Testimoni</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/carapemesanan">Cara Pemesanan</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/jahitbaju">Jahit</a>
-            </li>
-          </ul>
+    <nav class="navbar navbar-expand-md navbar-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link " href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold" href="/product">Produk</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/lokasi">Lokasi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/testimoni">Testimoni</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/carapemesanan">Cara Pemesanan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/jahitbaju">Jahit</a>
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
     </nav>
     <!-- End Menu App -->
 

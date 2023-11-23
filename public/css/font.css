@@ -1,0 +1,29 @@
+@font-face {
+    font-family: "OleoScript-Bold";
+    src: url('/font/OleoScript-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Inter-Light";
+    src: url('/font/Inter-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Inter-Regular";
+    src: url('/font/Inter-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "AbyssinicaSIL-Regular";
+    src: url('/font/AbyssinicaSIL-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "JacquesFrancois-Regular";
+    src: url('/font/JacquesFrancois-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Inter-ExtraBold";
+    src: url('/font/Inter-ExtraBold.ttf') format('truetype');
+}
