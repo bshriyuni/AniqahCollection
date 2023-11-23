@@ -13,6 +13,10 @@ class TestimoniController extends Controller
         return view('admin/testimoni', compact('testimonis'));
     }
 
+    public function user(){
+        $testimonis = Testimoni::all();
+        return view('user/testimoni', compact('testimonis'));
+    }
 
     public function store(Request $request)
     {
@@ -29,10 +33,12 @@ class TestimoniController extends Controller
         $testimoni = Testimoni::create(['gambar' => $imageName]);
 
         // Mengembalikan data sebagai respons JSON
-        return response()->json([
-            'id' => $testimoni->id,
-            'gambar' => $testimoni->gambar,
-        ]);
+        // return response()->json([
+        //     'id' => $testimoni->id,
+        //     'gambar' => $testimoni->gambar,
+        // ]);
+        return back()->with('success', 'testimoni berhasil ditambahkan.');
+
     }
 
     public function destroy($id)
@@ -50,6 +56,8 @@ class TestimoniController extends Controller
         // Set pesan sesi
         session()->flash('success', 'Testimoni berhasil dihapus');
 
-        return response()->json(['message' => 'Testimoni berhasil dihapus']);
+        // return response()->json(['message' => 'Testimoni berhasil dihapus']);
+        return back()->with('success', 'testimoni berhasil dihapus.');
+
     }
     }

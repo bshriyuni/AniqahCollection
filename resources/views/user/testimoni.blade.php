@@ -60,19 +60,17 @@
     
     <div class="card-body">
         <div class="row">
-            <div class="col-lg-4 col-6">
-                <!-- small box -->
-                    <div class="small-box custom-bg mx-auto rounded d-flex align-items-center ">
-                        <div class="inner">
-                            <img class="card-img-top rounded" alt="" src="{{ asset('foto/ical.jpeg') }}" >
-                            <!-- <a href="" type="button" class="btn"><i class="fas fa-trash"></i></a> -->
-                        </div>
-                        <div class="icon">
-                            <i class="ion ion-bag"></i>
-                        </div>
-                    </div>
-                <!-- /.small-box -->
+        @foreach($testimonis as $testimoni)
+        <div class="col-lg-4 col-6 mb-5">
+            <!-- small box -->
+            <div class="small-box custom-bg mx-auto rounded d-flex align-items-center">
+                <div class="inner">
+                    <img class="card-img-top img-fluid rounded" style="height: 350px; weight:100%" alt="" src="{{ asset('foto/' . $testimoni->gambar) }}" >
+                </div>
             </div>
+            <!-- /.small-box -->
+        </div>
+        @endforeach
                   <!-- ./col -->
         </div>
                         <!-- /.row -->

@@ -48,13 +48,8 @@ class ClothesController extends Controller
 
         // Simpan data ke dalam database
         if($clothes->save()){
-            return response()->json([
-                'id' => $clothes->id,
-                'gambar' => $clothes->gambar,
-                'harga' => $clothes->harga,
-            ]);
-            // Jika berhasil, kirim pesan berhasil
-            //return back()->with('success', 'produk berhasil ditambahkan.');
+          
+            return back()->with('success', 'produk berhasil ditambahkan.');
         } else {
             // Jika gagal, kirim pesan gagal
             return back()->with('error', 'Gagal menambahkan produk.');
@@ -77,13 +72,7 @@ class ClothesController extends Controller
         // Hapus data dari database
         $produk->delete();
 
-        // Set pesan sesi
-        session()->flash('success', 'produk berhasil dihapus');
-
-        
-        return response()->json(['message' => 'Testimoni berhasil dihapus']);
-
-        // return back()->with('success', 'produk berhasil ditambahkan.');
+        return back()->with('success', 'produk berhasil ditambahkan.');
     }  
     
 }

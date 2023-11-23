@@ -25,15 +25,15 @@ return new class extends Migration
         });
 
         // Menambahkan data awal
-        $dataAwal = new clothes;
-        $dataAwal->kode_baju = 'A22301';
-        $dataAwal->deskripsi = 'INI DESKRISI';
-        $dataAwal->gambar = 'foto/baju1.jpg';
-        $dataAwal->jumlah_dewasa = '5';
-        $dataAwal->jumlah_anak = '5';
-        $dataAwal->syarat_ketentuan = 'ini syarat dan ketentuannya';
-        $dataAwal->harga = '100';
-        $dataAwal->save();
+        // $dataAwal = new clothes;
+        // $dataAwal->kode_baju = 'A22301';
+        // $dataAwal->deskripsi = 'INI DESKRISI';
+        // $dataAwal->gambar = 'foto/baju1.jpg';
+        // $dataAwal->jumlah_dewasa = '5';
+        // $dataAwal->jumlah_anak = '5';
+        // $dataAwal->syarat_ketentuan = 'ini syarat dan ketentuannya';
+        // $dataAwal->harga = '100';
+        // $dataAwal->save();
     }
 
     /**

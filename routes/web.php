@@ -38,9 +38,7 @@ Route::get('/detailproduk', function () {
     return view('user/detailproduk');
 });
 
-Route::get('/testimoni', function () {
-    return view('user/testimoni');
-});
+Route::get('/testimoni', [TestimoniController::class, 'user']);
 
 Route::get('/jahitbaju', function () {
     return view('user/jahit');
