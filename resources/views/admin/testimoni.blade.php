@@ -37,7 +37,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Gambar Testimoni</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="container">
@@ -95,11 +95,11 @@
     <div class="card-body">
     <div class="row">
         @foreach($testimonis as $testimoni)
-        <div class="col-lg-4 col-6 mb-3">
+        <div class="col-lg-4 col-6 mb-5">
             <!-- small box -->
             <div class="small-box custom-bg mx-auto rounded d-flex align-items-center">
                 <div class="inner">
-                    <img class="card-img-top img-fluid rounded" alt="" src="{{ asset('foto/' . $testimoni->gambar) }}" >
+                    <img class="card-img-top img-fluid rounded" style="height: 350px; weight:100%" alt="" src="{{ asset('foto/' . $testimoni->gambar) }}" >
                     <a href="{{ route('testimoni.destroy', $testimoni->id) }}" type="button" class="btn" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $testimoni->id }}').submit();">
                         <i class="fas fa-trash"></i>
                     </a>
@@ -108,9 +108,6 @@
                         @method('DELETE')
                     </form>
                 </div>
-                <div class="icon">
-                    <i class="ion ion-bag"></i>
-                </div>
             </div>
             <!-- /.small-box -->
         </div>
@@ -118,25 +115,22 @@
     </div>
     <!-- /.row -->
 </div>
-<br>
-<br>
-<br>
 
 <!-- /.card-body -->
 
                       <!-- /.card-body -->
     <!-- Menggunakan Bootstrap JS (Optional, tergantung kebutuhan Anda) -->
     
-    <div class="container text-center">
+    <!-- <div class="container text-center">
         <div class="line-with-text">
             <div></div>
             <span>Review</span>
         </div>
     </div>
 <br>
-<br>
+<br> -->
     <!-- Review -->
-    <div class="container text-center review">
+    <!-- <div class="container text-center review">
         <div class="row">
             <div class="colReview">
                 <div class="row">
@@ -156,7 +150,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- FootNote -->
     <div class="footNote">

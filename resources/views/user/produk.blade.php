@@ -109,7 +109,7 @@
                             <h6>Rp {{$clothing->harga}}</h6>
                         </div>
                         <div class="container" style="background-color: #F4EEEE; padding:5px;">
-                            <img src="{{ $clothing->foto }}" class="card-img-bottom" alt="...">
+                            <img src="{{ asset('foto/' . $clothing->gambar) }} {{ $clothing->foto }}" class="card-img-bottom" alt="..." style="height: 300px;">
                         </div>
                     </div>
                 </a>

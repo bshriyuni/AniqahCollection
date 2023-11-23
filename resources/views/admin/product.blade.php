@@ -206,13 +206,13 @@
                         </div>
                         <div class="">
                             <a href="{{ route('produk.delete', $clothing->id) }}" type="button" class="btn" data-toggle="modal" data-target="#modal-edit" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $clothing->id }}').submit();">
-                                <i class="fas fa-edit text-info"></i>
+                                <i class="fas fa-trash text-danger"></i>
                             </a>
                             <form id="delete-form-{{ $clothing->id }}" action="{{ route('produk.delete', $clothing->id) }}" method="POST" style="display: none;">
                                 @csrf
                                 @method('DELETE')
                             </form>
-                            <a href="" type="button" class="btn"><i class="fas fa-trash text-danger"></i></a>                            
+                            <a href="" type="button" class="btn"><i class="fas fa-edit text-info"></i></a>                            
                         </div>
                     </div>
                     <br><br>
