@@ -62,6 +62,7 @@ Route::middleware(['admin'])->group(function () {
 
     Route::get('/admincarapemesanan', [carapesanController::class, 'indexAdmin']);
     Route::post('/admincarapemesanan', [carapesanController::class, 'updateStep']);
+    Route::post('/admincarapemesanan', [carapesanController::class, 'updateCarapesan']);
 
     // Menambahkan route untuk menampilkan halaman testimoni
     Route::get('/admintestimoni', [TestimoniController::class, 'index'])->name('testimoni.index');
