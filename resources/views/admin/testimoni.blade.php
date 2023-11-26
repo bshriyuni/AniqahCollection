@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testimoni</title>
+    <title>Testimoni - ADMIN</title>
     <!-- Link Bootstraps -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <!-- Link CSS -->
@@ -15,50 +15,50 @@
 </head>
 <body>
     <!-- Brand App -->
-    <div class="row brandApp">
-        <div class="Aniqah col-sm-11" style="margin-top: -40px; position: relative; margin-bottom: -100px">
+    <div class="brandApp d-flex justify-content-between align-items-center">
+        <div class="Aniqah" style="margin-top: 20px;">
             <h1 class="textAniqah">Aniqah Collection</h1>
             <h7 class="deskripsiBrand">Sewa baju bodo dan jasa jahit baju</h7>
         </div>
-        
+
         <!-- tombol edit testimoni -->
         <div class="col-sm-1">
-            <button type="button" class="btn btn-light" id="plustestimoni">
+            <button type="button" class="btn btn-light" id="editButton" data-target="#editModal" data-toggle="modal">
                 <i class="fas fa-plus fa-3x" ></i>
             </button>
         </div>
+
     </div>
     <!-- end Brand App -->
-
-    <!-- modal -->
-    <div class="modal fade" id="addtestimoni" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    
+   <!-- modal -->
+   <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Gambar Testimoni</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <div class="container">
-                        <div class="upload-container" onclick="document.getElementById('fileInput').click();">
-                            <input type="file" id="fileInput" accept="image/*" onchange="previewImage(event)">
-                            <div id="imagePreview"></div>
-                            <i class="fas fa-camera fa-10x" style="justify-content: center; display: flex; align-items: center;" ></i>
-                        </div>
+                        <form class="mx-auto" style="max-width: 700px;" action="/admintestimoni" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <div class="upload-container" onclick="document.getElementById('fileInput').click();">
+                                <input type="file" id="fileInput" accept="image/*" name="gambar" onchange="previewImage(event)">
+                                <div id="imagePreview"></div>
+                                <!-- <i class="fas fa-camera fa-10x" style="justify-content: center; display: flex; align-items: center;"></i> -->
+                            </div>
+                            <button type="submit" class="btn btn-success">Submit</button>
+                        </form>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <!-- <p class="note">Note: Pengambilan dan pengembalian baju diberlakukan maximal 2 hari. jika melewati batas tersebut maka akan dikenakan biaya denda sesuai s&k yang berlaku</p> -->
-                    <button type="button" class="btn btn-success" id="submit">Submit</button>
-                </div>
-            </div>  
+            </div>
         </div>
     </div>
-    <!-- End Modal Form-->
-
+    <!-- End Modal Formulir -->
 
     <!-- Menu App -->
-    <nav class="navbar navbar-expand-md navbar-light">
+     <nav class="navbar navbar-expand-md navbar-light">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -66,22 +66,22 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link" href="/pesanan">Pesanan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/product">Produk</a>
+                        <a class="nav-link" href="/adminproduct">Produk</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-bold" href="/lokasi">Lokasi</a>
+                        <a class="nav-link" href="/adminlokasi">Lokasi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/testimoni">Testimoni</a>
+                        <a class="nav-link fw-bold" href="/admintestimoni">Testimoni</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/crapemesanan">Cara Pemesanan</a>
+                        <a class="nav-link" href="/admincarapemesanan">Cara Pemesanan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/jahitbaju">Jahit</a>
+                        <a class="nav-link" href="/adminjahit">Jahit</a>
                     </li>
                 </ul>
             </div>
@@ -90,33 +90,47 @@
     <!-- End Menu App -->
     <br>
     <h1 class="custom-heading"><b>What they say?</b></h1>
+
     
-<div class="container text-center">
-        <div class="row">
-            <div class="col ms-4 me-4">
-                <img src="{{ asset('foto/testimoni1.jpeg') }}" alt="Gambar 1" class="img-fluid w-100 h-auto">
+    <div class="card-body">
+    <div class="row">
+        @foreach($testimonis as $testimoni)
+        <div class="col-lg-4 col-6 mb-5">
+            <!-- small box -->
+            <div class="small-box custom-bg mx-auto rounded d-flex align-items-center">
+                <div class="inner">
+                    <img class="card-img-top img-fluid rounded" style="height: 350px; weight:100%" alt="" src="{{ asset('foto/' . $testimoni->gambar) }}" >
+                    <a href="{{ route('testimoni.destroy', $testimoni->id) }}" type="button" class="btn" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $testimoni->id }}').submit();">
+                        <i class="fas fa-trash"></i>
+                    </a>
+                    <form id="delete-form-{{ $testimoni->id }}" action="{{ route('testimoni.destroy', $testimoni->id) }}" method="POST" style="display: none;">
+                        @csrf
+                        @method('DELETE')
+                    </form>
+                </div>
             </div>
-            <div class="col ms-4 me-4">
-                <img src="{{ asset('foto/testimoni2.jpeg') }}" alt="Gambar 1" class="img-fluid w-100 h-auto">
-            </div>
-            <div class="col ms-4 me-4">
-                <img src="{{ asset('foto/ical.jpeg') }}" alt="Gambar 1" class="img-fluid w-100 h-auto">
-            </div>
+            <!-- /.small-box -->
         </div>
+        @endforeach
     </div>
+    <!-- /.row -->
+</div>
+
+<!-- /.card-body -->
+
+                      <!-- /.card-body -->
     <!-- Menggunakan Bootstrap JS (Optional, tergantung kebutuhan Anda) -->
     
-    <div class="container text-center">
+    <!-- <div class="container text-center">
         <div class="line-with-text">
             <div></div>
             <span>Review</span>
         </div>
     </div>
-    <br>
-    <br>
-
+<br>
+<br> -->
     <!-- Review -->
-    <div class="container text-center review">
+    <!-- <div class="container text-center review">
         <div class="row">
             <div class="colReview">
                 <div class="row">
@@ -136,7 +150,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
     <!-- FootNote -->
     <div class="footNote">
@@ -150,7 +164,6 @@
                 <i class="fab fa-whatsapp fa-2x"></i>
             </div>
             <div class="col" style="margin-left: 20px;">
-                <button class="buttonAdmin" style="bacground-color:black;">ADMIN</button>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Tuliskan ulasanmu disini</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="border: 1px solid black;"></textarea>
@@ -158,32 +171,24 @@
             </div>
         </div>
     </div>
+    
+    <script>
+    function previewImage(event) {
+        var reader = new FileReader();
+        reader.onload = function () {
+            var output = document.getElementById('imagePreview');
+            output.innerHTML = '<img src="' + reader.result + '" width="100%" height="100%" />';
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    }
+</script>
+    
     <!-- End Foot Note -->
 
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var plustestimoni = document.getElementById('plustestimoni');
-            var closeButton = document.querySelector('.btn-close');
-
-             // Menambahkan event listener untuk menampilkan modal pemesanan saat tombol "Submit" ditekan
-            plustestimoni.addEventListener('click', function () {
-                // resetInputValues(); // Mengatur ulang nilai inputan pada modal
-                $('#addtestimoni').modal('show'); // Menampilkan modal
-            });
-
-            // Menutup modal saat tombol close (icon "X") ditekan
-            closeButton.addEventListener('click', function () {
-                // resetInputValues(); // Mengatur ulang nilai inputan pada modal saat modal ditutup
-                $('#addtestimoni').modal('hide'); // Menyembunyikan modal
-            });
-        });
-    </script>
     <!-- link -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </body>
 </html>

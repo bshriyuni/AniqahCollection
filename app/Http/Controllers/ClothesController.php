@@ -7,59 +7,72 @@ use Illuminate\Http\Request;
 
 class ClothesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function indexAdmin()
     {
-        //
+        $clothes = Clothes::all();
+        return view('admin/product', compact('clothes'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+    public function indexUser(){
+        $clothes = clothes::all();
+        return view('user/produk', compact('clothes'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function create(Request $request)
     {
-        //
+        //Validasi data input jika diperlukan
+        $validatedData = $request->validate([
+            'kodeBaju' => 'required',
+            'deskripsi' => 'required',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'jumlahDewasa' => 'required',
+            'jumlahAnak' => 'required',
+            'syaratKetentuan' => 'required',
+            'harga' => 'required'
+        ]);
+
+        // Upload gambar
+        $imageName = time().'.'.$request->gambar->extension();
+        $request->gambar->move(public_path('foto'), $imageName);
+
+        // Buat instance model dan masukkan data dari permintaan
+        $clothes = new clothes();
+        $clothes->kode_baju = $validatedData['kodeBaju'];
+        $clothes->deskripsi = $validatedData['deskripsi'];
+        $clothes->gambar = $imageName;
+        $clothes->jumlah_dewasa = $validatedData['jumlahDewasa'];
+        $clothes->jumlah_anak = $validatedData['jumlahAnak'];
+        $clothes->syarat_ketentuan = $validatedData['syaratKetentuan'];
+        $clothes->harga = $validatedData['harga'];
+        $clothes->save();
+
+        // Simpan data ke dalam database
+        if($clothes->save()){
+          
+            return back()->with('success', 'produk berhasil ditambahkan.');
+        } else {
+            // Jika gagal, kirim pesan gagal
+            return back()->with('error', 'Gagal menambahkan produk.');
+        }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(clothes $clothes)
-    {
-        //
+    public function edit($id){
+    
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(clothes $clothes)
-    {
-        //
-    }
+    public function delete($id){
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, clothes $clothes)
-    {
-        //
-    }
+        $produk = Clothes::findOrFail($id);
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(clothes $clothes)
-    {
-        //
-    }
+        // Hapus gambar (optional)
+        if (file_exists(public_path('foto/' . $produk->gambar))) {
+            unlink(public_path('foto/' . $produk->gambar));
+        }
+
+        // Hapus data dari database
+        $produk->delete();
+
+        return back()->with('success', 'produk berhasil ditambahkan.');
+    }  
+    
 }

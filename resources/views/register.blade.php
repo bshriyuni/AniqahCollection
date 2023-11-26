@@ -25,7 +25,7 @@
     
     <!-- Box Login -->
     <div class="row justify-content-center">
-        <div class="boxLogin col-md-7">
+        <div class="boxLogin col-md-5">
             @if(session()->has('registerError'))
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 {{ session('registerError') }}
@@ -81,8 +81,8 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <div class="offset-sm-10">
-                            <button class="btn btn-secondary"><a href="/login"></a>Register</button>
+                        <div class="offset-sm-9">
+                            <button type="submit" class="btn btn-secondary">Register</button>
                         </div>
                     </div>
                 </form>
