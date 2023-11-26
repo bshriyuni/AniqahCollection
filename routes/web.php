@@ -57,7 +57,7 @@ Route::get('/productadmin', function() {
 });
 
 Route::get('/admincarapemesanan', [carapesanController::class, 'indexAdmin']);
-Route::post('/admincarapemesanan', [carapesanController::class, 'updateStep']);
+Route::post('/admincarapemesanan', [carapesanController::class, 'updateCarapesan']);
 
 Route::get('/login', [LoginController::class, 'login']);
 Route::post('/login', [LoginController::class, 'authenticate']);

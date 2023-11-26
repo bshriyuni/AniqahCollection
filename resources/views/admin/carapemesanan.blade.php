@@ -18,22 +18,22 @@
 
 </head>
 <body>
-    <!-- Brand App -->
-    <div class="row brandApp">
-        <div class="col-md-11 col-12 Aniqah" style="margin-top: -30px; margin-bottom: -40px;">
-            <h1 class="textAniqah">Aniqah Collection</h1>
-            <h7 class="deskripsiBrand">Sewa baju bodo dan jasa jahit baju</h7>
+<!-- Brand App -->
+<div class="row brandApp">
+            <div class="col-md-11 col-12 Aniqah" style="margin-top: -30px; margin-bottom: -40px;">
+                <h1 class="textAniqah">Aniqah Collection</h1>
+                <h7 class="deskripsiBrand">Sewa baju bodo dan jasa jahit baju</h7>
+            </div>
+            <div class="col-md-1 col-12" style="text-align: right;">
+                <button id="editButton" type="button" class="btn btn-light" data-toggle="modal" data-target="#editModal" style="margin-right: -20px;">
+                    <i class="fas fa-pencil-alt fa-2x"></i>
+                </button>
+            </div>
         </div>
-        <div class="col-md-1 col-12" style="text-align: right;">
-            <button id="editButton" type="button" class="btn btn-light" data-toggle="modal" data-target="#editModal" style="margin-right: -20px;">
-                <i class="fas fa-pencil-alt fa-2x"></i>
-            </button>
-        </div>
-    </div>
-    <!-- end Brand App -->
+        <!-- end Brand App -->
 
     <!-- Menu App -->
-    <nav class="navbar navbar-expand-md navbar-light">
+<nav class="navbar navbar-expand-md navbar-light">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -41,19 +41,19 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link fw-bold" href="/">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/product">Produk</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/lokasi">Lokasi</a>
-                    </li> 
-                    <li class="nav-item">
-                        <a class="nav-link fw-bold" href="/testimoni">Testimoni</a>
+                        <a class="nav-link " href="/lokasi">Lokasi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/carapemesanan">Cara Pemesanan</a>
+                        <a class="nav-link" href="/testimoni">Testimoni</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold" href="/carapemesanan">Cara Pemesanan</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/jahitbaju">Jahit</a>
@@ -62,7 +62,7 @@
             </div>
         </div>
     </nav>
-    <!-- End Menu App -->
+    <!-- End Menu App -->
 
     <!-- Tata Cara Pemesanan -->
     <div class="container">
@@ -218,14 +218,14 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="inputName" name="step5" class="col-sm-3 col-form-label">Edit Step 5</label>
+                            <label for="inputName" class="col-sm-3 col-form-label">Edit Step 5</label>
                             <div class="col-sm-9">
-                                <input type="text" class="form-control custom-input" id="step5Input" required>
+                                <input type="text" name="step5" class="form-control custom-input" id="step5Input" required>
                             </div>
                         </div>
 
                           <!-- Tempatkan elemen yang akan menampilkan nilai yang diubah di sini -->
-                            <div id="step1Display"></div>
+                            <!-- <div id="step1Display"></div> -->
                            
 
                             <!-- Button Submit -->
@@ -233,6 +233,7 @@
                             </div>
                         </div>
                            
+                    </form>
                     
             </div>  
         </div>
@@ -251,10 +252,10 @@
                 <i class="fab fa-whatsapp fa-2x"></i>
             </div>
             <div class="col" style="margin-left: 20px;">
-                <button class="buttonAdmin" style="bacground-color:black;">ADMIN</button>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Tuliskan ulasanmu disini</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="border: 1px solid black;"></textarea>
+                    <button class="btn-send mt-3">Send</button>
                 </div>
             </div>
         </div>
