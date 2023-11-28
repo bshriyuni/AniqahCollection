@@ -18,22 +18,22 @@
 
 </head>
 <body>
-<!-- Brand App -->
-<div class="row brandApp">
-            <div class="col-md-11 col-12 Aniqah" style="margin-top: -30px; margin-bottom: -40px;">
-                <h1 class="textAniqah">Aniqah Collection</h1>
-                <h7 class="deskripsiBrand">Sewa baju bodo dan jasa jahit baju</h7>
-            </div>
-            <div class="col-md-1 col-12" style="text-align: right;">
-                <button id="editButton" type="button" class="btn btn-light" data-toggle="modal" data-target="#editModal" style="margin-right: -20px;">
-                    <i class="fas fa-pencil-alt fa-2x"></i>
-                </button>
-            </div>
+    <!-- Brand App -->
+    <div class="row brandApp">
+        <div class="col-md-11 col-12 Aniqah" style="margin-top: -30px; margin-bottom: -40px;">
+            <h1 class="textAniqah">Aniqah Collection</h1>
+            <h7 class="deskripsiBrand">Sewa baju bodo dan jasa jahit baju</h7>
         </div>
-        <!-- end Brand App -->
+        <div class="col-md-1 col-12" style="text-align: right;">
+            <button id="editButton" type="button" class="btn btn-light" data-toggle="modal" data-target="#editModal" style="margin-right: -20px;">
+                <i class="fas fa-plus fa-2x"></i>
+            </button>
+        </div>
+    </div>
+    <!-- end Brand App -->
 
     <!-- Menu App -->
-<nav class="navbar navbar-expand-md navbar-light">
+    <nav class="navbar navbar-expand-md navbar-light">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -65,180 +65,79 @@
     <!-- End Menu App -->
 
     <!-- Tata Cara Pemesanan -->
-    <div class="container">
-        <div class="judul text-center py-4">
-            <h1>TATA CARA PEMESANAN</h1>
-        </div>
+    <div class="judul text-center py-4">
+        <h1>TATA CARA PEMESANAN</h1>
+    </div>
 
+    <div class="row">
+        @foreach($carapesan as $carapesan)
         <div class="row">
-            <div class="col-md-6 custom-card">
-                <div class="row">
-                    <div class="col-8">
-                        <p class="custom-text" id="step1">{{ $dataTerbaru->step1 }}</p>
-                    </div>
-                    <div class="col-4">
-                        <div class="rounded-card"  style="margin-bottom: 30px;" >
-                            <i class="fa-solid fa-lightbulb fa-4x" style="color: #fffafa;"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="step ">
-                    <p style="color: #526754">STEP</p>
-                    <p style="color: #526754">01</p>
-                </div>
+    <div class="col-2">
+        <div class="rounded-card" style="padding: 20px; margin-top: 20px;">
+            <p class="custom-text" id="step1">{{ $carapesan->no }}</p>
+        </div>
+    </div>
+
+    <div class="col-8">
+        <div class="custom-card">
+            <div class="row">
+                <p class="custom-text" id="step1">{{ $carapesan->step }}</p>
             </div>
         </div>
+    </div>
 
-        <div class="row">
-            <div class="col-md-6">
-                <div class="step" style="margin-left:450px;">
-                    <p style="color: #526754">STEP</p>
-                    <p style="color: #526754">02</p>
-                </div>
-            </div>
 
-            <div class="col-md-6 custom-card2">
-                <div class="row">
-                    <div class="col-8">
-                        <p class="custom-text" id="step2">{{ $dataTerbaru->step2 }}</p>
-                    </div>
-                    <div class="col-4">
-                        <div class="rounded-card" style="padding: 30px;">
-                            <i class="fa-solid fa-address-book fa-3x" style="color: #fffafa;"></i>
-                        </div>
-                    </div>
-                </div>
+        <div class="col-md-1">
+            <a href="{{ route('carapemesanan.destroy', $carapesan->id) }}" type="button" class="btn" data-toggle="modal" data-target="#modal-edit" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $carapesan->id }}').submit();">
+                <i class="fas fa-trash text-danger"></i>
+            </a>
+            <form id="delete-form-{{ $carapesan->id }}" action="{{ route('carapemesanan.destroy', $carapesan->id) }}" method="POST" style="display: none;">
+                @csrf
+                @method('DELETE')
+            </form>
+            <a href="" type="button" class="btn"><i class="fas fa-edit text-info"></i></a>                            
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 custom-card3">
-                <div class="row">
-                    <div class="col-8">
-                        <p class="custom-text" id="step3" style="padding: 10px;">{{ $dataTerbaru->step3 }}</p>
-                    </div>
-                    <div class="col-4">
-                        <div class="rounded-card" style="padding: 30px;">
-                        <i class="fa-solid fa-dollar-sign fa-3x" style="color: #fffafa;"></i>
-                        </div>
-                    </div>
-                </div>
             </div>
-            <div class="col-md-6">
-                <div class="step">
-                    <p style="color: #526754">STEP</p>
-                    <p style="color: #526754">03</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6">
-                <div class="step"style="margin-left:450px;">
-                    <p style="color: #526754">STEP</p>
-                    <p style="color: #526754">04</p>
-                </div>
-            </div>
-
-            <div class="col-md-6 custom-card4">
-                <div class="row">
-                    <div class="col-8">
-                        <p class="custom-text" id="step4" style="padding: 10px;" >{{ $dataTerbaru->step4 }}</p>
-                    </div>
-                    <div class="col-4">
-                        <div class="rounded-card" style="padding: 30px;" >
-                            <i class="fa-solid fa-thumbs-up fa-3x" style="color: #fffafa;"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 custom-card5">
-                <div class="row">
-                    <div class="col-8">
-                        <p class="custom-text" id="step5">{{ $dataTerbaru->step5 }}</p>
-                    </div>
-                    <div class="col-4">
-                        <div class="rounded-card"  style="padding: 30px;" >
-                            <i class="fa-solid fa-cart-shopping fa-3x" style="color: #fffafa;"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="step">
-                    <p style="color: #526754">STEP</p>
-                    <p style="color: #526754">05</p>
-                </div>
-            </div>
-        </div>
-       
-
+        @endforeach
     </div>
     <!-- End Tata Cara Pemesanan -->
 
-  <!-- Modal Form-->
-  <div class="modal fade" id="addtesti" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal Form Add Step-->
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Cara Pemesanan</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-header" style="background-color: #BBD6B8">
+                    <h5 class="modal-title" id="exampleModalLabel">Aniqah Collection</h5>
+                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" style="margin-right:10px;"></button>
                 </div>
                 <div class="modal-body">
-                    <!-- Edit di Sini -->
-                    <form action="/admincarapemesanan" method="post">
+                    <!-- Isi di sini -->
+                    <h3 class="h3Lokasi">Tambahkan Step</h3>
+                    <form class="mx-auto" style="max-width: 700px;" action="/admincarapemesanan" method="post">
                         @csrf
-                        <div class="row mb-3">
-                            <label for="inputName" class="col-sm-3 col-form-label">Edit Step 1</label>
+                        <div class="mb-3 row">
+                            <label for="noStep" class="col-sm-3 col-form-label">Step Ke</label>
                             <div class="col-sm-9">
-                                <input type="text" name="step1" class="form-control custom-input" id="step1Input" required>
+                                <input type="text" name="noStep" class="form-control custom-input" id="step" required>
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <label for="inputName" class="col-sm-3 col-form-label">Edit Step 2</label>
+                        <div class="mb-3 row">
+                            <label for="noStep" class="col-sm-3 col-form-label">Step</label>
                             <div class="col-sm-9">
-                                <input type="text" name="step2" class="form-control custom-input" id="step2Input" required>
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <label for="inputName" class="col-sm-3 col-form-label">Edit Step 3</label>
-                            <div class="col-sm-9">
-                                <input type="text" name="step3" class="form-control custom-input" id="step3Input" required>
+                                <input type="text" name="step" class="form-control custom-input" id="step" required>
                             </div>
                         </div>
                         <div class="row mb-3">
-                            <label for="inputName" class="col-sm-3 col-form-label">Edit Step 4</label>
-                            <div class="col-sm-9">
-                                <input type="text" name="step4" class="form-control custom-input" id="step4Input" required>
+                            <div class="offset-sm-10">
+                                <button type="submit" class="btn btn-success" id="submit">Submit</button>
                             </div>
                         </div>
-                        <div class="row mb-3">
-                            <label for="inputName" class="col-sm-3 col-form-label">Edit Step 5</label>
-                            <div class="col-sm-9">
-                                <input type="text" name="step5" class="form-control custom-input" id="step5Input" required>
-                            </div>
-                        </div>
-
-                          <!-- Tempatkan elemen yang akan menampilkan nilai yang diubah di sini -->
-                            <!-- <div id="step1Display"></div> -->
-                           
-
-                            <!-- Button Submit -->
-                            <button type="button" style="margin-left: 650px;" class="btn btn-success" id="submit">Submit</button>
-                            </div>
-                        </div>
-                           
                     </form>
-                    
+                </div>
             </div>  
         </div>
     </div>
-    <!-- End Modal Form-->
+    <!-- End Modal Add Step-->
 
     <!-- FootNote -->
     <div class="footNote">
@@ -265,8 +164,7 @@
      
 
     <!-- JS -->
-    <script>
-           
+    <!-- <script>
             document.addEventListener("DOMContentLoaded", function() {
             var editButton = document.getElementById('editButton');
             var closeButton = document.querySelector('.btn-close');
@@ -329,7 +227,7 @@
                 $('#addtesti').modal('hide'); // Menyembunyikan modal
             });
         });
-    </script>
+    </script> -->
     <!-- End JS -->
 
     <!-- link -->

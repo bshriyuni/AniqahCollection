@@ -67,113 +67,21 @@
         </div>
 
         <div class="row">
-            <div class="col-md-6 custom-card">
-                <div class="row">
-                    <div class="col-8">
-                        <p class="custom-text">{{ $dataTerbaru->step1 }}</p>
-                    </div>
-                    <div class="col-4">
-                        <div class="rounded-card"  style="padding: 20px;" style="margin-top: 20px;">
-                            <i class="fa-solid fa-lightbulb fa-4x" style="color: #fffafa;"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="step ">
-                    <p style="color: #526754">STEP</p>
-                    <p style="color: #526754">01</p>
-                </div>
+        @foreach($carapesan as $carapesan)
+        <div class="col-md-2 mb-2 custom-card rounded-circle">
+            <div class="row">
+                <p class="custom-text" id="step1">{{ $carapesan->no }}</p>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-6">
-                <div class="step" style="margin-left:400px;">
-                    <p style="color: #526754">STEP</p>
-                    <p style="color: #526754">02</p>
-                </div>
-            </div>
-
-            <div class="col-md-6 custom-card2">
-                <div class="row">
-                    <div class="col-8">
-                        <p class="custom-text">{{ $dataTerbaru->step2 }} </p>
-                    </div>
-                    <div class="col-4">
-                        <div class="rounded-card" style="padding: 20px;"  style="margin-top: 20px;">
-                            <i class="fa-solid fa-address-book fa-3x" style="color: #fffafa;"></i>
-                        </div>
-                    </div>
-                </div>
+        <div class="col-md-8 mb-2 custom-card">
+            <div class="row">
+                <p class="custom-text" id="step1">{{ $carapesan->step }}</p>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-md-6 custom-card3">
-                <div class="row">
-                    <div class="col-8">
-                        <p class="custom-text" style="padding: 10px;">{{ $dataTerbaru->step3 }} </p>
-                    </div>
-                    <div class="col-4">
-                        <div class="rounded-card" style="padding: 30px;">
-                        <i class="fa-solid fa-dollar-sign fa-3x" style="color: #fffafa;"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="step">
-                    <p style="color: #526754">STEP</p>
-                    <p style="color: #526754">03</p>
-                </div>
-            </div>
+            @endforeach
         </div>
-
-        <div class="row">
-            <div class="col-md-6">
-                <div class="step"style="margin-left:400px;">
-                    <p style="color: #526754">STEP</p>
-                    <p style="color: #526754">04</p>
-                </div>
-            </div>
-
-            <div class="col-md-6 custom-card4">
-                <div class="row">
-                    <div class="col-8">
-                        <p class="custom-text" style="padding: 10px;" >{{ $dataTerbaru->step4 }} </p>
-                    </div>
-                    <div class="col-4">
-                        <div class="rounded-card" style="padding: 20px;" style="margin-top: 20px;">
-                            <i class="fa-solid fa-thumbs-up fa-3x" style="color: #fffafa;"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 custom-card5">
-                <div class="row">
-                    <div class="col-8">
-                        <p class="custom-text">{{ $dataTerbaru->step5 }}</p>
-                    </div>
-                    <div class="col-4">
-                        <div class="rounded-card"  style="padding: 20px;" style="margin-top: 20px;">
-                            <i class="fa-solid fa-cart-shopping fa-3x" style="color: #fffafa;"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="step">
-                    <p style="color: #526754">STEP</p>
-                    <p style="color: #526754">05</p>
-                </div>
-            </div>
-        </div>
-       
-
+    </div>
     </div>
     <!-- End Tata Cara Pemesanan -->
 

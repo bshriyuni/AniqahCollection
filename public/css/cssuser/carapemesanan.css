@@ -137,7 +137,7 @@ body{
 }
 .custom-card {
     background-color: #DBE4C6; /* Ganti dengan warna latar belakang yang Anda inginkan */
-    border-radius: 100px;
+    border-radius: 75px;
     padding: 0;
     font-size: 20px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
