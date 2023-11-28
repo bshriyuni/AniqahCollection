@@ -58,9 +58,7 @@ Route::middleware(['admin'])->group(function () {
     // Semua route admin di sini
     Route::get('/adminproduct', [ClothesController::class, 'indexAdmin']);
     Route::post('/adminproduct', [ClothesController::class, 'create']);
-    Route::get('/edit/{id}',[ClothesController::class, 'edit']);
-    Route::post('/edit/{id}', [ClothesController::class, 'update']);
-    Route::get('/delete/{id}', [ClothesController::class, 'delete']);
+    Route::delete('/adminproduct/{id}', [ClothesController::class, 'delete'])->name('produk.delete');
 
     Route::get('/admincarapemesanan', [carapesanController::class, 'indexAdmin']);
     Route::post('/admincarapemesanan', [carapesanController::class, 'updateStep']);
