@@ -134,6 +134,10 @@
         </div>
     </div>
 
+    <a href="https://wa.me/085299581471" target="_blank">
+                <img src="https://i.imgur.com/wzMuhBf.png" alt="WhatsApp" width="64px" height="64px">
+            </a>
+
     <!-- FootNote -->
     <div class="footNote">
         <div class="row">

@@ -14,65 +14,71 @@ class ClothesController extends Controller
     }
 
     public function indexUser(){
-        $clothes = clothes::all();
+        $clothes = clothes::paginate(6);
+        
         return view('user/produk', compact('clothes'));
     }
 
     public function create(Request $request)
     {
-        //Validasi data input jika diperlukan
-        $validatedData = $request->validate([
-            'kodeBaju' => 'required',
-            'deskripsi' => 'required',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'jumlahDewasa' => 'required',
-            'jumlahAnak' => 'required',
-            'syaratKetentuan' => 'required',
-            'harga' => 'required'
+        $kodeBaju = $request->kodeBaju;
+        $deskripsi = $request->deskripsi;
+        $foto = $request->foto;
+        $jumlahDewasa = $request->jumlahDewasa;
+        $jumlahAnak = $request->jumlahAnak;
+        $syaratKetentuan = $request->syaratKetentuan;
+        $harga = $request->harga;
+
+        Clothes::create([
+            "kode_baju"=>$kodeBaju,
+            "deskripsi"=>$deskripsi,
+            "foto"=>$foto,
+            "jumlah_dewasa"=>$jumlahDewasa,
+            "jumlah_anak"=>$jumlahAnak,
+            "syarat_ketentuan"=>$syaratKetentuan,
+            "harga"=>$harga
         ]);
-
-        // Upload gambar
-        $imageName = time().'.'.$request->gambar->extension();
-        $request->gambar->move(public_path('foto'), $imageName);
-
-        // Buat instance model dan masukkan data dari permintaan
-        $clothes = new clothes();
-        $clothes->kode_baju = $validatedData['kodeBaju'];
-        $clothes->deskripsi = $validatedData['deskripsi'];
-        $clothes->gambar = $imageName;
-        $clothes->jumlah_dewasa = $validatedData['jumlahDewasa'];
-        $clothes->jumlah_anak = $validatedData['jumlahAnak'];
-        $clothes->syarat_ketentuan = $validatedData['syaratKetentuan'];
-        $clothes->harga = $validatedData['harga'];
-        $clothes->save();
-
-        // Simpan data ke dalam database
-        if($clothes->save()){
-          
-            return back()->with('success', 'produk berhasil ditambahkan.');
-        } else {
-            // Jika gagal, kirim pesan gagal
-            return back()->with('error', 'Gagal menambahkan produk.');
-        }
+        
+        return back()->with('success', 'produk berhasil ditambahkan.');
     }
 
     public function edit($id){
-    
+        $clothes = clothes::where("id", $id)->get();
+        $clothes = $clothes[0];
+        return view("edit", ["clothes" => $clothes]);
+    }
+
+    public function update(Request $request, $id){
+        $kodeBaju = $request->kodeBaju;
+        $deskripsi = $request->deskripsi;
+        $foto = $request->foto;
+        $jumlahDewasa = $request->jumlahDewasa;
+        $jumlahAnak = $request->jumlahAnak;
+        $syaratKetentuan = $request->syaratKetentuan;
+        $harga = $request->harga;
+
+        Clothes::where("id", $id)->update([
+            "kode_baju"=>$kodeBaju,
+            "deskripsi"=>$deskripsi,
+            "foto"=>$foto,
+            "jumlah_dewasa"=>$jumlahDewasa,
+            "jumlah_anak"=>$jumlahAnak,
+            "syarat_ketentuan"=>$syaratKetentuan,
+            "harga"=>$harga
+        ]);
+
+        $clothes = Clothes::all();
+        return back()->with('success', 'produk berhasil diedit.');
     }
 
     public function delete($id){
-
-        $produk = Clothes::findOrFail($id);
-
-        // Hapus gambar (optional)
-        if (file_exists(public_path('foto/' . $produk->gambar))) {
-            unlink(public_path('foto/' . $produk->gambar));
+        try {
+            Clothes::destroy($id);
+            dd('terhapus');
+            return back()->with('success', 'produk berhasil dihapus');
+        } catch (\Exception $e) {
+            dd('tdk terhapus');
+            return back()->with('error', 'Gagal menghapus produk. Error: ' . $e->getMessage());
         }
-
-        // Hapus data dari database
-        $produk->delete();
-
-        return back()->with('success', 'produk berhasil ditambahkan.');
-    }  
-    
+    }     
 }
