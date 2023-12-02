@@ -109,33 +109,6 @@
         </div>
         <!-- End Modal Edit Lokasi -->
 
-        <!-- Modal Alert -->
-        <!-- Modal untuk pesan berhasil -->
-        <div class="modal" id="successModal" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content text-center">
-                    <div class="modal-body">
-                        <i class="fas fa-check-circle fa-5x" style="color: #28a745;"></i>
-                        <p class="mt-3">Data lokasi berhasil disimpan.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Modal untuk pesan berhasil -->
-
-        <!-- Modal untuk pesan gagal -->
-        <div class="modal" id="errorModal" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content text-center">
-                    <div class="modal-body">
-                        <i class="fas fa-times-circle fa-5x" style="color: #dc3545;"></i>
-                        <p class="mt-3">Gagal menyimpan data lokasi.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Modal untuk pesan gagal -->
-
         <!-- Script Modal Alert -->
         <script>
             @if(session('success'))

@@ -59,6 +59,8 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/adminproduct', [ClothesController::class, 'indexAdmin']);
     Route::post('/adminproduct', [ClothesController::class, 'create']);
     Route::delete('/adminproduct/{id}', [ClothesController::class, 'delete'])->name('produk.delete');
+    Route::get('/adminproduct/{id}', [ClothesController::class, 'edit'])->name('produk.edit');
+    Route::post('/adminproduct/{id}', [ClothesController::class, 'update'])->name('produk.update');
 
     Route::get('/admincarapemesanan', [carapesanController::class, 'indexAdmin']);
     Route::post('/admincarapemesanan', [carapesanController::class, 'add']);

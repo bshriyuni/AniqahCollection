@@ -24,12 +24,11 @@ class ClothesController extends Controller
         //Validasi data input jika diperlukan
         $validatedData = $request->validate([
             'kodeBaju' => 'required',
+            'stok' => 'required',
             'deskripsi' => 'required',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'jumlahDewasa' => 'required',
-            'jumlahAnak' => 'required',
             'syaratKetentuan' => 'required',
-            'harga' => 'required'
+            'harga' => 'required',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         // Upload gambar
@@ -39,17 +38,15 @@ class ClothesController extends Controller
         // Buat instance model dan masukkan data dari permintaan
         $clothes = new clothes();
         $clothes->kode_baju = $validatedData['kodeBaju'];
+        $clothes->stok = $validatedData['stok'];
         $clothes->deskripsi = $validatedData['deskripsi'];
-        $clothes->gambar = $imageName;
-        $clothes->jumlah_dewasa = $validatedData['jumlahDewasa'];
-        $clothes->jumlah_anak = $validatedData['jumlahAnak'];
-        $clothes->syarat_ketentuan = $validatedData['syaratKetentuan'];
+        $clothes->SnK = $validatedData['syaratKetentuan'];
         $clothes->harga = $validatedData['harga'];
+        $clothes->gambar = $imageName;
         $clothes->save();
 
         // Simpan data ke dalam database
         if($clothes->save()){
-        
             return back()->with('success', 'produk berhasil ditambahkan.');
         } else {
             // Jika gagal, kirim pesan gagal
@@ -69,5 +66,24 @@ class ClothesController extends Controller
         $produk->delete();
 
         return back()->with('success', 'produk berhasil ditambahkan.');
-    }     
+    }    
+    
+    public function edit($id){
+        $produk = Clothes::find($id);
+        return view('produk.edit', compact('produk'));
+    }
+
+    public function update(Request $request, $id){
+        $produk = Clothes::find($id);
+
+        $produk->kode_baju = $request->input('kodeBaju');
+        $produk->stok = $request->input('stok');
+        $produk->deskripsi = $request->input('deskripsi');
+        $produk->SnK = $request->input('syaratKetentuan');
+        $produk->harga = $request->input('harga');
+
+        $produk->save();
+
+        return back()->with('success', 'Pakaian berhasil diperbarui!');
+    }
 }
