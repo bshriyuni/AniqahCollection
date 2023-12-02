@@ -70,18 +70,18 @@
         </div>
         
         <div class="row">
-            @foreach($carapesan as $carapesan)
+            @foreach($carapesan as $pesan)
             <div class="row">
         <div class="col-2">
             <div class="rounded-card" style="padding: 20px; margin-top: 20px;">
-                <p class="custom-text" id="step1">{{ $carapesan->no }}</p>
+                <p class="custom-text" id="step1">{{ $pesan->no }}</p>
             </div>
         </div>
 
         <div class="col-7">
             <div class="custom-card">
                 <div class="row">
-                    <p class="custom-text" id="step1">{{ $carapesan->step }}</p>
+                    <p class="custom-text" id="step1">{{ $pesan->step }}</p>
                 </div>
             </div>
         </div>
@@ -89,18 +89,57 @@
 
 
         <div class="col-md-1">
-            <a href="{{ route('carapemesanan.destroy', $carapesan->id) }}" type="button" class="btn" data-toggle="modal" data-target="#modal-edit" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $carapesan->id }}').submit();">
+            <a href="{{ route('carapemesanan.destroy', $pesan->id) }}" type="button" class="btn" data-toggle="modal" data-target="#modal-edit" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $pesan->id }}').submit();">
                 <i class="fas fa-trash text-danger"></i>
             </a>
-            <form id="delete-form-{{ $carapesan->id }}" action="{{ route('carapemesanan.destroy', $carapesan->id) }}" method="POST" style="display: none;">
+            <form id="delete-form-{{ $pesan->id }}" action="{{ route('carapemesanan.destroy', $pesan->id) }}" method="POST" style="display: none;">
                 @csrf
                 @method('DELETE')
             </form>
-            <a href="modal-edit-{{ $carapesan->id }}" type="button" class="btn" data-toggle="modal" data-target="#modal-edit-{{ $carapesan->id }}">
+            <a href="modal-edit-{{ $pesan->id }}" type="button" class="btn" data-toggle="modal" data-target="#modal-edit-{{ $pesan->id }}">
                 <i class="fas fa-edit text-info"></i>
             </a>                          
             </div>
             </div>
+
+            <!-- Modal Edit step-->
+            @if(isset($pesan))
+            <div class="modal fade" id="modal-edit-{{ $pesan->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header" style="background-color: #BBD6B8">
+                            <h5 class="modal-title" id="exampleModalLabel">Aniqah Collection</h5>
+                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" style="margin-right:10px;"></button>
+                        </div>
+                        <div class="modal-body">
+                            <!-- Isi di sini -->
+                            <h3 class="h3carapesan">Edit Step</h3>
+                            <form class="mx-auto" style="max-width: 700px;" action="{{ route('carapemesanan.update', $pesan->id) }}" method="post" enctype="multipart/form-data">
+                                @csrf
+                                <div class="mb-3 row">
+                                    <label for="nostep" class="col-sm-3 col-form-label">No Step</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="nostep" name="nostep" value="{{ $pesan->no }}" autofocus>
+                                    </div>
+                                </div>
+                                <div class="mb-3 row">
+                                    <label for="isistep" class="col-sm-3 col-form-label">Isi Step</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="isistep" name="isistep" value="{{ $pesan->step }}" autofocus>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="offset-sm-10">
+                                        <button type="submit" class="btn btn-success" id="submit">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+            @endif
+            <!-- End Edit Step -->
         @endforeach
     </div>
     <!-- End Tata Cara Pemesanan -->
@@ -141,43 +180,7 @@
         </div>
     </div>
     <!-- End Modal Add Step-->
-
-    <!-- Modal Edit step-->
-    <div class="modal fade" id="modal-edit-{{ $carapesan->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header" style="background-color: #BBD6B8">
-                        <h5 class="modal-title" id="exampleModalLabel">Aniqah Collection</h5>
-                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" style="margin-right:10px;"></button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- Isi di sini -->
-                        <h3 class="h3carapesan">Edit Step</h3>
-                        <form class="mx-auto" style="max-width: 700px;" action="{{ route('carapemesanan.update', $carapesan->id) }}" method="post" enctype="multipart/form-data">
-                            @csrf
-                            <div class="mb-3 row">
-                                <label for="nostep" class="col-sm-3 col-form-label">No Step</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="nostep" name="nostep" value="{{ $carapesan->no }}" autofocus>
-                                </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <label for="isistep" class="col-sm-3 col-form-label">Isi Step</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="isistep" name="isistep" value="{{ $carapesan->step }}" autofocus>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="offset-sm-10">
-                                    <button type="submit" class="btn btn-success" id="submit">Submit</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>  
-            </div>
-        </div>
-
+    
     <!-- FootNote -->
     <div class="footNote">
         <div class="row">

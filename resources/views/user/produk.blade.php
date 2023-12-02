@@ -45,17 +45,18 @@ Produk
 <div class="container text-center mx-auto">
     <div class="row row-gap-3 mb-3">
         @foreach($clothes as $clothing)
-        <div class="col-4">
-            <a href="product/{{$clothing->kode_baju}}">
-                <div class="card h-100" style="background-color: #BBD6B8; padding:10px ">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $clothing->kode_baju }}</h5>
-                        <p class="card-text">{{ $clothing->deskripsi }}</p>
-                        <h6>Rp {{$clothing->harga}}</h6>
-                        <img src="{{ $clothing->foto }}" class="rounded mx-auto d-block img-fluid" alt="...">
-                    </div>
+        <div class="col col-4">
+            <div class="card" style="background-color: #BBD6B8; padding:5px">
+                <div class="card-body" style="text-align :start;">
+                    <h4 class="card-title">{{ $clothing->kode_baju }}</h4>
+                    <p class="card-text">{{ $clothing->deskripsi }}</p> 
+                    <h6>Rp {{$clothing->harga}}</h6>
                 </div>
-            </a>
+                <div class="container" style="background-color: #F4EEEE; padding:5px;">
+                    <img src="{{ asset('foto/' . $clothing->gambar) }} {{ $clothing->foto }}" class="card-img-bottom" alt="..." style="height: 300px;">
+                </div>
+            </div>
+            <br><br>
         </div>
         @endforeach
     </div>

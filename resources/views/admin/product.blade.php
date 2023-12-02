@@ -179,94 +179,90 @@
                                 @csrf
                                 @method('DELETE')
                             </form>
-                            <a href="modal-edit-{{ $clothing->id }}" type="button" class="btn" data-toggle="modal" data-target="#modal-edit-{{ $clothing->id }}">
+                            <a href="modal-edit-{{ $clothing->id }}" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#modal-edit-{{ $clothing->id }}">
                                 <i class="fas fa-edit text-info"></i>
                             </a>                            
                         </div>
                     </div>
                     <br><br>
                 </div>
+
+                <!-- Modal Edit Produk-->
+                @if(isset($clothing))
+                <div class="modal fade" id="modal-edit-{{ $clothing->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header" style="background-color: #BBD6B8">
+                                <h5 class="modal-title" id="exampleModalLabel">Aniqah Collection</h5>
+                                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" style="margin-right:10px;"></button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Isi di sini -->
+                                <h3 class="h3Lokasi">Edit Produk</h3>
+                                <form class="mx-auto" style="max-width: 700px;" action="{{ route('produk.update', $clothing->id) }}" method="post" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="mb-3 row">
+                                        <label for="kodeBaju" class="col-sm-3 col-form-label">Kode Baju</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="kodeBaju" name="kodeBaju" value="{{ $clothing->kode_baju }}" autofocus>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="stok" class="col-sm-3 col-form-label">Stok</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" type="number" id="stok" name="stok" value="{{ $clothing->stok }}" min="1">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="inputDeskripsi" class=" col-sm-3 col-form-label">Deskripsi</label>
+                                        <div class="col-sm-9">
+                                            <textarea class="form-control summernote" id="deskripsi" name="deskripsi" rows="3">{{ $clothing->deskripsi }}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="inputS&K" class=" col-sm-3 col-form-label">Syarat & Ketentuan</label>
+                                        <div class="col-sm-9">
+                                            <textarea class="form-control summernote" id="syaratKetentuan" name="syaratKetentuan" rows="3">{{ $clothing->SnK }}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="inputHarga" class="col-sm-3 col-form-label">Harga</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="harga" name="harga" value="{{ $clothing->harga }}">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="inputFoto" class="col-sm-3 col-form-label">Foto Sebelumnya</label>
+                                        <div class="col-sm-9">
+                                            <img id="previewImage" src="{{ asset('foto/' . $clothing->gambar) }} {{ $clothing->foto }}" alt="Foto Sebelumnya" style="max-width: 100%; height: auto;">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 row">
+                                        <label for="inputFoto" class="col-sm-3 col-form-label">Upload Foto Baru</label>
+                                        <div class="col-sm-9">
+                                        <input class="form-control" type="file" id="foto" accept="image/*" name="gambar" onchange="previewImage(event)">
+                                            <div id="imagePreview"></div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="offset-5">
+                                            <button type="submit" class="btn btn-success" id="submit">Submit</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>  
+                    </div>
+                </div>
+                @endif
+                <!-- End Modal Edit Produk-->
                 @endforeach
                 <!-- pagination -->
-                <nav aria-label="page navigation">
-                    <ul class="pagination justify-content-center">
-                        <li class="page-item"><a href="#" class="page-link" aria-label="Sebelumnya">
-                            <span aria-hidden="True">&laquo;</span></a>
-                        </li>
-                        <li class="page-item"><a href="#" class="page-link">1</a></li>
-                        <li class="page-item"><a href="#" class="page-link">2</a></li>
-                        <li class="page-item"><a href="#" class="page-link">3</a></li>
-                        <li class="page-item"><a href="#" class="page-link" aria-label="Selanjutnya">
-                            <span aria-hidden="True">&raquo;</span></a>
-                        </li>
-                    </ul>
-                </nav>
+                {{ $clothes->links('pagination::bootstrap-5') }}
                 <!-- End Pagination -->
             </div>
         </div>
         <!-- End Produk -->
-
-        <!-- Modal Edit Produk-->
-        <div class="modal fade" id="modal-edit-{{ $clothing->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header" style="background-color: #BBD6B8">
-                        <h5 class="modal-title" id="exampleModalLabel">Aniqah Collection</h5>
-                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" style="margin-right:10px;"></button>
-                    </div>
-                    <div class="modal-body">
-                        <!-- Isi di sini -->
-                        <h3 class="h3Lokasi">Edit Produk</h3>
-                        <form class="mx-auto" style="max-width: 700px;" action="{{ route('produk.update', $clothing->id) }}" method="post" enctype="multipart/form-data">
-                            @csrf
-                            <div class="mb-3 row">
-                                <label for="kodeBaju" class="col-sm-3 col-form-label">Kode Baju</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="kodeBaju" name="kodeBaju" value="{{ $clothing->kode_baju }}" autofocus>
-                                </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <label for="stok" class="col-sm-3 col-form-label">Stok</label>
-                                <div class="col-sm-9">
-                                    <input class="form-control" type="number" id="stok" name="stok" value="{{ $clothing->stok }}" min="1">
-                                </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <label for="inputDeskripsi" class=" col-sm-3 col-form-label">Deskripsi</label>
-                                <div class="col-sm-9">
-                                    <textarea class="form-control summernote" id="deskripsi" name="deskripsi" rows="3">{{ $clothing->deskripsi }}</textarea>
-                                </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <label for="inputS&K" class=" col-sm-3 col-form-label">Syarat & Ketentuan</label>
-                                <div class="col-sm-9">
-                                    <textarea class="form-control summernote" id="syaratKetentuan" name="syaratKetentuan" rows="3">{{ $clothing->SnK }}</textarea>
-                                </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <label for="inputHarga" class="col-sm-3 col-form-label">Harga</label>
-                                <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="harga" name="harga" value="{{ $clothing->harga }}">
-                                </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <label for="inputFoto" class="col-sm-3 col-form-label">Foto</label>
-                                <div class="col-sm-9">
-                                    <input class="form-control" type="file" id="foto" name="gambar" accept="image/*">
-                                    <div id="imagePreview"></div>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="offset-sm-10">
-                                    <button type="submit" class="btn btn-success" id="submit">Submit</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>  
-            </div>
-        </div>
-        <!-- End Modal Edit Produk-->
 
         <!-- FootNote -->
         <div class="footNote">
@@ -298,6 +294,7 @@
                 };
                 reader.readAsDataURL(event.target.files[0]);
             }
+            
         </script>
     </body>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
