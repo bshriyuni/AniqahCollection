@@ -38,6 +38,11 @@
     src: url(/font/Itim-Regular.ttf) format('truetype');
 }
 
+@font-face {
+    font-family: "JockeyOne-Regular";
+    src: url(/font/JockeyOne-Regular.ttf) format('truetype');
+}
+
 body{
     background-color:#FFFFFF;
 }
@@ -83,36 +88,61 @@ body{
 
 .judul{
     font-family: 'CherryBombOne-Regular';
-    color: #526754;
+    color: #99A799;
     text-align: center;
 }
 
-.card:last-child {
-    margin-right: 0; /* Hapus margin-right pada card terakhir */
-}
-
+/* Card */
 .rounded-card {
-    width: 120px;
-    height: 120px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-    background-color: #BBD6B8   ;
+    width: 110px;
+    height: 140px;
+    box-shadow: 2px 6px 10px rgba(0, 0, 0, 0.2);
+    background-color: #92967D ;
+    font-family: 'CherryBombOne-Regular';
+    font-size: 40px;
+    color: aliceblue;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
     margin: 0 auto;
-    padding: 0;
-    
+    padding: 0;  
 }
 
-.step{
-    font-family: 'Itim-Regular';
-    font-size: 35px;
-    margin-top: 50px;
-    font-style: unset;
-    margin-left: 18px;
+.custom-card {
+    background-color: #F7F7E8; /* Ganti dengan warna latar belakang yang Anda inginkan */
+    border-radius: 60px;
+    padding: 0;
+    font-size: 20px;
+    box-shadow: 2px 6px 10px rgba(2, 2, 2, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #526754;
+    font-family:'JockeyOne-Regular' ;
+   
 }
+
+/* End Card */
+
+
+/* Modal */
+.modal-title{
+    font-family: 'OleoScript-Bold';
+    font-size: 44px;
+}
+
+.h3carapesan{
+    font-family: 'JockeyOne-Regular';
+    font-size: 30px;
+}
+
+.-form-label{
+    font-family: 'JockeyOne-Regular';
+}
+/* End Modal */
 
 /* form */
 .modal-header{
@@ -164,25 +194,5 @@ body{
 .aboutUs{
     font-family: 'Inter-ExtraBold';
 }
-.custom-card {
-    background-color: #DBE4C6; /* Ganti dengan warna latar belakang yang Anda inginkan */
-    border-radius: 50px;
-    padding: 0;
-    font-size: 20px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
 
-.custom-card rounded-circle {
-    .custom-small-card {
-        width: 50px; /* Atur lebar sesuai kebutuhan */
-        height: 50px; /* Atur tinggi sesuai kebutuhan */
-    }
-}
 
-.modal-title{
-    font-family: 'Itim-Regular'
-}

@@ -61,24 +61,27 @@
     <!-- End Menu App -->
 
     <!-- Tata Cara Pemesanan -->
-    <div class="container">
-        <div class="judul text-center py-4">
-            <h1>TATA CARA PEMESANAN</h1>
-        </div>
-
-        <div class="row">
+    <div class="judul text-center py-4">
+        <h1>TATA CARA PEMESANAN</h1>
+    </div>
+    
+    <div class="row">
         @foreach($carapesan as $carapesan)
-        <div class="col-md-2 mb-2 custom-card rounded-circle">
-            <div class="row">
-                <p class="custom-text" id="step1">{{ $carapesan->no }}</p>
-            </div>
+        <div class="row">
+    <div class="col-2">
+        <div class="rounded-card" style="padding: 20px; margin-top: 20px;">
+            <p class="custom-text" id="step1">{{ $carapesan->no }}</p>
         </div>
+    </div>
 
-        <div class="col-md-8 mb-2 custom-card">
+    <div class="col-8">
+        <div class="custom-card">
             <div class="row">
                 <p class="custom-text" id="step1">{{ $carapesan->step }}</p>
             </div>
         </div>
+    </div>
+    </div>
             @endforeach
         </div>
     </div>
