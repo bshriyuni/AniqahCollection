@@ -55,27 +55,17 @@ class CarapesanController extends Controller
         return view('carapesan.edit', compact('carapesan'));
     }
 
-    // public function update(Request $request, $id){
-    //     $carapesan = carapesan::find($id);
-
-    //     $carapesan->no = $validatedData['noStep'];
-    //     $carapesan->step = $validatedData['step'];
-    //     $carapesan->save();
-
-    //     return back()->with('success', 'carapesan berhasil diperbarui!');
-    // }
-
     public function update(Request $request, $id)
     {
+        $carapesan = carapesan::find($id);
         $validatedData = $request->validate([
-            'noStep' => 'required',
-            'step' => 'required|max:255'
+            'nostep' => 'required',
+            'isistep' => 'required|max:255'
         ]);
 
-        $carapesan = carapesan::find($id);
 
-        $carapesan->no = $validatedData['noStep'];
-        $carapesan->step = $validatedData['step'];
+        $carapesan->no = $validatedData['nostep'];
+        $carapesan->step = $validatedData['isistep'];
         $carapesan->save();
 
         return back()->with('success', 'carapesan berhasil diperbarui!');

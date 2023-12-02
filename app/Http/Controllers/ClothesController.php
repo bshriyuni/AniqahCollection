@@ -9,7 +9,7 @@ class ClothesController extends Controller
 {
     public function indexAdmin()
     {
-        $clothes = Clothes::all();
+        $clothes = Clothes::paginate(15);
         return view('admin/product', compact('clothes'));
     }
 
@@ -76,11 +76,37 @@ class ClothesController extends Controller
     public function update(Request $request, $id){
         $produk = Clothes::find($id);
 
-        $produk->kode_baju = $request->input('kodeBaju');
-        $produk->stok = $request->input('stok');
-        $produk->deskripsi = $request->input('deskripsi');
-        $produk->SnK = $request->input('syaratKetentuan');
-        $produk->harga = $request->input('harga');
+        // Validasi data input jika diperlukan
+        $validatedData = $request->validate([
+            'kodeBaju' => 'required',
+            'stok' => 'required',
+            'deskripsi' => 'required',
+            'syaratKetentuan' => 'required',
+            'harga' => 'required',
+            'gambar' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        // Update kolom-kolom lainnya
+        $produk->kode_baju = $validatedData['kodeBaju'];
+        $produk->stok = $validatedData['stok'];
+        $produk->deskripsi = $validatedData['deskripsi'];
+        $produk->SnK = $validatedData['syaratKetentuan'];
+        $produk->harga = $validatedData['harga'];
+
+        // Periksa apakah ada file gambar baru yang disediakan
+        if ($request->hasFile('gambar')) {
+            // Hapus gambar lama (opsional)
+            if (file_exists(public_path('foto/' . $produk->gambar))) {
+                unlink(public_path('foto/' . $produk->gambar));
+            }
+
+            // Upload gambar baru
+            $imageName = time() . '.' . $request->gambar->extension();
+            $request->gambar->move(public_path('foto'), $imageName);
+
+            // Update kolom gambar
+            $produk->gambar = $imageName;
+        }
 
         $produk->save();
 
