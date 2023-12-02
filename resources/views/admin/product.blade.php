@@ -62,28 +62,15 @@
                                 </div>
                             </div>
                             <div class="mb-3 row">
+                                <label for="stok" class="col-sm-3 col-form-label">Stok</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="number" id="stok" name="stok" min=1>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
                                 <label for="inputDeskripsi" class=" col-sm-3 col-form-label">Deskripsi</label>
                                 <div class="col-sm-9">
                                     <textarea class="form-control summernote" id="deskripsi" name="deskripsi" rows="3"></textarea>
-                                </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <label for="inputFoto" class="col-sm-3 col-form-label">Foto</label>
-                                <div class="col-sm-9">
-                                    <input class="form-control" type="file" id="foto" accept="image/*" name="gambar" onchange="previewImage(event)">
-                                    <div id="imagePreview"></div>
-                                </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <label for="inputDewasa" class="col-sm-3 col-form-label">Jumlah Dewasa</label>
-                                <div class="col-sm-9">
-                                    <input class="form-control" type="number" id="jumlahDewasa" name="jumlahDewasa">
-                                </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <label for="inputAnak" class="col-sm-3 col-form-label">Jumlah Anak</label>
-                                <div class="col-sm-9">
-                                    <input class="form-control" type="number" id="jumlahAnak" name="jumlahAnak">
                                 </div>
                             </div>
                             <div class="mb-3 row">
@@ -98,9 +85,16 @@
                                     <input type="text" class="form-control" id="harga" name="harga">
                                 </div>
                             </div>
+                            <div class="mb-3 row">
+                                <label for="inputFoto" class="col-sm-3 col-form-label">Foto</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="file" id="foto" accept="image/*" name="gambar" onchange="previewImage(event)">
+                                    <div id="imagePreview"></div>
+                                </div>
+                            </div>
                             <div class="row mb-3">
                                 <div class="offset-sm-10">
-                                    <button type="submit" class="btn btn-success" id="submit">Submit</button>
+                                    <button type="submit" class="btn btn-success" id="submit" href="/adminproduk">Submit</button>
                                 </div>
                             </div>
                         </form>
@@ -110,53 +104,26 @@
         </div>
         <!-- End Modal Add Produk-->
 
-        <!-- Modal Alert -->
-            <!-- Modal untuk pesan berhasil -->
-            <div class="modal" id="successModal" tabindex="-1" role="dialog">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content text-center">
-                        <div class="modal-body">
-                            <i class="fas fa-check-circle fa-5x" style="color: #28a745;"></i>
-                            <p class="mt-3">Produk Berhasil Ditambahkan</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Modal untuk pesan berhasil -->
+        <!-- Script Modal Alert -->
+        <script>
+            @if(session('success'))
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Sukses!',
+                    text: '{{ session('success') }}'
+                });
+            @endif
 
-            <!-- Modal untuk pesan gagal -->
-            <div class="modal" id="errorModal" tabindex="-1" role="dialog">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content text-center">
-                        <div class="modal-body">
-                            <i class="fas fa-times-circle fa-5x" style="color: #dc3545;"></i>
-                            <p class="mt-3">Gagal menambahkan produk</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End Modal untuk pesan gagal -->
-
-            <!-- Script Modal Alert -->
-            <script>
-                @if(session('success'))
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Sukses!',
-                        text: '{{ session('success') }}'
-                    });
-                @endif
-
-                @if(session('error'))
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: '{{ session('error') }}'
-                    });
-                @endif
-            </script>
-            <!-- End Script Modal Alert -->
-            <!-- End Modal Alert -->
+            @if(session('error'))
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: '{{ session('error') }}'
+                });
+            @endif
+        </script>
+        <!-- End Script Modal Alert -->
+        <!-- End Modal Alert -->
             
         <!-- Menu App -->
         <nav class="navbar navbar-expand-md navbar-light">
@@ -212,7 +179,9 @@
                                 @csrf
                                 @method('DELETE')
                             </form>
-                            <a href="" type="button" class="btn"><i class="fas fa-edit text-info"></i></a>                            
+                            <a href="modal-edit-{{ $clothing->id }}" type="button" class="btn" data-toggle="modal" data-target="#modal-edit-{{ $clothing->id }}">
+                                <i class="fas fa-edit text-info"></i>
+                            </a>                            
                         </div>
                     </div>
                     <br><br>
@@ -238,7 +207,7 @@
         <!-- End Produk -->
 
         <!-- Modal Edit Produk-->
-        <div class="modal fade" id="modal-edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="modal-edit-{{ $clothing->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header" style="background-color: #BBD6B8">
@@ -248,48 +217,43 @@
                     <div class="modal-body">
                         <!-- Isi di sini -->
                         <h3 class="h3Lokasi">Edit Produk</h3>
-                        <form class="mx-auto" style="max-width: 700px;" action="/edit/{id}" method="post" enctype="multipart/form-data">
+                        <form class="mx-auto" style="max-width: 700px;" action="{{ route('produk.update', $clothing->id) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3 row">
                                 <label for="kodeBaju" class="col-sm-3 col-form-label">Kode Baju</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="kodeBaju" name="kodeBaju" autofocus>
+                                    <input type="text" class="form-control" id="kodeBaju" name="kodeBaju" value="{{ $clothing->kode_baju }}" autofocus>
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="stok" class="col-sm-3 col-form-label">Stok</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="number" id="stok" name="stok" value="{{ $clothing->stok }}" min="1">
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <label for="inputDeskripsi" class=" col-sm-3 col-form-label">Deskripsi</label>
                                 <div class="col-sm-9">
-                                    <textarea class="form-control summernote" id="deskripsi" name="deskripsi" rows="3"></textarea>
-                                </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <label for="inputFoto" class="col-sm-3 col-form-label">Foto</label>
-                                <div class="col-sm-9">
-                                    <input class="form-control" type="file" id="foto" name="foto" accept="image/*">
-                                </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <label for="inputDewasa" class="col-sm-3 col-form-label">Jumlah Dewasa</label>
-                                <div class="col-sm-9">
-                                    <input class="form-control" type="number" id="jumlahDewasa" name="jumlahDewasa">
-                                </div>
-                            </div>
-                            <div class="mb-3 row">
-                                <label for="inputAnak" class="col-sm-3 col-form-label">Jumlah Anak</label>
-                                <div class="col-sm-9">
-                                    <input class="form-control" type="number" id="jumlahAnak" name="jumlahAnak">
+                                    <textarea class="form-control summernote" id="deskripsi" name="deskripsi" rows="3">{{ $clothing->deskripsi }}</textarea>
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <label for="inputS&K" class=" col-sm-3 col-form-label">Syarat & Ketentuan</label>
                                 <div class="col-sm-9">
-                                    <textarea class="form-control summernote" id="syaratKetentuan" name="syaratKetentuan" rows="3"></textarea>
+                                    <textarea class="form-control summernote" id="syaratKetentuan" name="syaratKetentuan" rows="3">{{ $clothing->SnK }}</textarea>
                                 </div>
                             </div>
                             <div class="mb-3 row">
                                 <label for="inputHarga" class="col-sm-3 col-form-label">Harga</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="harga" name="harga">
+                                    <input type="text" class="form-control" id="harga" name="harga" value="{{ $clothing->harga }}">
+                                </div>
+                            </div>
+                            <div class="mb-3 row">
+                                <label for="inputFoto" class="col-sm-3 col-form-label">Foto</label>
+                                <div class="col-sm-9">
+                                    <input class="form-control" type="file" id="foto" name="gambar" accept="image/*">
+                                    <div id="imagePreview"></div>
                                 </div>
                             </div>
                             <div class="row mb-3">

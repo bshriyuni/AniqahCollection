@@ -13,11 +13,10 @@ class Clothes extends Model
     protected $fillable = [
         'id',
         'kode_baju', 
+        'stok',
         'deskripsi', 
-        'gambar', 
-        'jumlah_dewasa',
-        'jumlah_anak', 
-        'syarat_ketentuan', 
-        'harga'
+        'SnK', 
+        'harga',
+        'gambar' 
     ];
 }
