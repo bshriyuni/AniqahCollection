@@ -66,40 +66,35 @@
             <h1>TATA CARA PEMESANAN</h1>
         </div>
         
-        <div class="row">
-            @foreach($carapesan as $pesan)
-            <div class="row">
-        <div class="col-2">
-            <div class="rounded-card" style="padding: 20px; margin-top: 20px;">
-                <p class="custom-text" id="step1">{{ $pesan->no }}</p>
-            </div>
-        </div>
-
-        <div class="col-7">
-            <div class="custom-card">
-                <div class="row">
-                    <p class="custom-text" id="step1">{{ $pesan->step }}</p>
+    <div class="row">
+        @foreach($carapesan as $pesan)
+            <div class="col-md-6">
+                    <div class="row g-1">
+                        <div class="col-md-4">
+                            <div class="rounded-card">
+                                <p class="custom-text" id="step1">{{ $pesan->no }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="custom-card">
+                                <div class="card-body">
+                                    <p class="card-text" id="step1">{{ $pesan->step }}</p>
+                                    <a href="{{ route('carapemesanan.destroy', $pesan->id) }}" type="button" class="btn" data-toggle="modal" data-target="#modal-edit" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $pesan->id }}').submit();">
+                                        <i class="fas fa-trash text-danger"></i>
+                                    </a>
+                                    <form id="delete-form-{{ $pesan->id }}" action="{{ route('carapemesanan.destroy', $pesan->id) }}" method="POST" style="display: none;">
+                                        @csrf
+                                        @method('DELETE')
+                                    </form>
+                                    <a href="modal-edit-{{ $pesan->id }}" type="button" class="btn" data-toggle="modal" data-target="#modal-edit-{{ $pesan->id }}">
+                                        <i class="fas fa-edit text-info"></i>
+                                    </a>                          
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-
-
-        <div class="col-md-1">
-            <a href="{{ route('carapemesanan.destroy', $pesan->id) }}" type="button" class="btn" data-toggle="modal" data-target="#modal-edit" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $pesan->id }}').submit();">
-                <i class="fas fa-trash text-danger"></i>
-            </a>
-            <form id="delete-form-{{ $pesan->id }}" action="{{ route('carapemesanan.destroy', $pesan->id) }}" method="POST" style="display: none;">
-                @csrf
-                @method('DELETE')
-            </form>
-            <a href="modal-edit-{{ $pesan->id }}" type="button" class="btn" data-toggle="modal" data-target="#modal-edit-{{ $pesan->id }}">
-                <i class="fas fa-edit text-info"></i>
-            </a>                          
-            </div>
-            </div>
-
-            <!-- Modal Edit step-->
+                 <!-- Modal Edit step-->
             @if(isset($pesan))
             <div class="modal fade" id="modal-edit-{{ $pesan->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
@@ -138,6 +133,12 @@
             @endif
             <!-- End Edit Step -->
         @endforeach
+    </div>
+
+
+           
+        
+    </div>
     </div>
     <!-- End Tata Cara Pemesanan -->
 
