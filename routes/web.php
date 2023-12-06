@@ -6,6 +6,7 @@ use App\Http\Controllers\ClothesController;
 use App\Http\Controllers\DetailProdukController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LokasiController;
+use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\registerController;
 
 use Illuminate\Support\Facades\Route;
@@ -45,6 +46,11 @@ Route::get('/jahitbaju', function () {
 });
 
 Route::get('/carapemesanan', [carapesanController::class, 'indexUser']);
+
+Route::get('/profil', [ProfilController::class, 'index']);
+Route::get('/profil/edit', [ProfilController::class, 'edit'])->name('profil.edit');
+Route::post('/profil/update', [ProfilController::class, 'update'])->name('profil.update');
+Route::get('/profil/pesanan', [ProfilController::class, 'profilPesanan']);
 
 Route::get('/login', [LoginController::class, 'login']);
 Route::post('/login', [LoginController::class, 'authenticate']);

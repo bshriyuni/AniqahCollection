@@ -24,16 +24,19 @@
         <link rel="stylesheet" type="text/css" href="styles.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
     <body>
         <!-- Brand App -->
-        <div class="container">
-            <div class="row brandApp">
-                <div class="col-md-11 col-12 Aniqah" style="margin-top: -30px; margin-bottom: -40px;">
-                    <h1 class="textAniqah">Aniqah Collection</h1>
-                    <h7 class="deskripsiBrand">Sewa baju bodo dan jasa jahit baju</h7>
+        <div class="ps-5 mb-4 pt-2">
+            <div class="d-flex align-items-center justify-content-between">
+                <div>
+                    <p class="textAniqah m-0">Aniqah Collection</p>
+                    <p class="deskripsiBrand fs-5 fst-italic fw-light m-0">Sewa baju bodo dan jasa jahit baju</p>
                 </div>
-                <div class="col-md-1 col-12" style="text-align: right;">
+
+                <!-- Tombol Login dan Registrasi atau Nama Pengguna -->
+                <div style="margin-right: 50px;">
                     <button id="editButton" type="button" class="btn btn-light" data-toggle="modal" data-target="#editModal">
                         <i class="fas fa-plus fa-3x"></i>
                     </button>
@@ -147,9 +150,6 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/admincarapemesanan">Cara Pemesanan</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/adminjahit">Jahit</a>
                         </li>
                     </ul>
                 </div>

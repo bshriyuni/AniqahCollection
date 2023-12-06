@@ -46,16 +46,18 @@ Produk
     <div class="row row-gap-3 mb-3">
         @foreach($clothes as $clothing)
         <div class="col col-4">
-            <div class="card" style="background-color: #BBD6B8; padding:5px">
-                <div class="card-body" style="text-align :start;">
-                    <h4 class="card-title">{{ $clothing->kode_baju }}</h4>
-                    <p class="card-text">{{ $clothing->deskripsi }}</p> 
-                    <h6>Rp {{$clothing->harga}}</h6>
+            <a  href="product/{{$clothing->kode_baju}}">
+                <div class="card" style="background-color: #BBD6B8; padding:5px">
+                    <div class="card-body" style="text-align :start;">
+                        <h4 class="card-title">{{ $clothing->kode_baju }}</h4>
+                        <p class="card-text">{{ $clothing->deskripsi }}</p> 
+                        <h6>Rp {{$clothing->harga}}</h6>
+                    </div>
+                    <div class="container" style="background-color: #F4EEEE; padding:5px;">
+                        <img src="{{ asset('foto/' . $clothing->gambar) }} {{ $clothing->foto }}" class="card-img-bottom" alt="..." style="height: 300px;">
+                    </div>
                 </div>
-                <div class="container" style="background-color: #F4EEEE; padding:5px;">
-                    <img src="{{ asset('foto/' . $clothing->gambar) }} {{ $clothing->foto }}" class="card-img-bottom" alt="..." style="height: 300px;">
-                </div>
-            </div>
+            </a>
             <br><br>
         </div>
         @endforeach

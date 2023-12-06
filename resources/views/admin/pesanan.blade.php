@@ -51,9 +51,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/admincarapemesanan">Cara Pemesanan</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/adminjahit">Jahit</a>
-                    </li>
                 </ul>
             </div>
         </div>
