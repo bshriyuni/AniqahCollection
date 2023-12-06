@@ -128,7 +128,6 @@
             @endif
         </script>
         <!-- End Script Modal Alert -->
-        <!-- End Modal Alert -->
 
         <!-- Menu App -->
         <nav class="navbar navbar-expand-md navbar-light">
@@ -152,9 +151,6 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/admincarapemesanan">Cara Pemesanan</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/adminjahit">Jahit</a>
                         </li>
                     </ul>
                 </div>

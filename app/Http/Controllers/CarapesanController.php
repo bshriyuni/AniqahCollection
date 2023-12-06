@@ -35,7 +35,13 @@ class CarapesanController extends Controller
         $carapesan->step = $validatedData['step'];
         $carapesan->save();
 
-        return back()->with('success', 'step berhasil ditambahkan.');
+        if($carapesan->save()){
+            // Jika berhasil, kirim pesan berhasil
+            return back()->with('success', 'step berhasil ditambahkan.');
+        } else {
+            // Jika gagal, kirim pesan gagal
+            return back()->with('error', 'Gagal menambahkan step');
+        }
     }
 
     public function destroy($id)
@@ -68,7 +74,7 @@ class CarapesanController extends Controller
         $carapesan->step = $validatedData['isistep'];
         $carapesan->save();
 
-        return back()->with('success', 'carapesan berhasil diperbarui!');
+        return back()->with('success', 'Cara Pemesanan berhasil diperbarui!');
     }
 
 }

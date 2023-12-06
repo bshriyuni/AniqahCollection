@@ -32,7 +32,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             @endif
-            <p class="textLogin">Login Admin</p>
+            <p class="textLogin">Login</p>
             <div class="formLogin">
                 <form action="/login" method="post">
                     @csrf

@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{ asset('font') }}"> <!-- Ganti 'font.css' dengan nama file CSS Anda -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6xHzyrrFJur_ytwYcXT7iC5dUcHj9e5w&callback=initMap" async defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </head>
 <body>
@@ -54,9 +54,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link fw-bold" href="/admincarapemesanan">Cara Pemesanan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/adminjahit">Jahit</a>
                     </li>
                 </ul>
             </div>
@@ -166,7 +163,7 @@
                         <div class="mb-3 row">
                             <label for="noStep" class="col-sm-3 col-form-label"> Isi Step</label>
                             <div class="col-sm-9">
-                                <input type="text" name="step" class="form-control custom-input" id="step" required>
+                            <textarea class="form-control summernote" id="step" name="step" required></textarea>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -180,6 +177,26 @@
         </div>
     </div>
     <!-- End Modal Add Step-->
+
+    <!-- Script Modal Alert -->
+    <script>
+        @if(session('success'))
+            Swal.fire({
+                icon: 'success',
+                title: 'Sukses!',
+                text: '{{ session('success') }}'
+            });
+        @endif
+
+        @if(session('error'))
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '{{ session('error') }}'
+            });
+        @endif
+    </script>
+    <!-- End Script Modal Alert -->
     
     <!-- FootNote -->
     <div class="footNote">
