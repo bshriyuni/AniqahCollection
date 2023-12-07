@@ -19,4 +19,13 @@ class Clothes extends Model
         'harga',
         'gambar' 
     ];
+    public function orderDetails() {
+        return $this->hasMany(OrderDetail::class, 'kode_baju', 'id');
+    }
+    protected static function booted() {
+        static::deleting(function ($clothing) {
+            // Delete related order_details
+            $clothing->orderDetails()->delete();
+        });
+    }
 }

@@ -2,21 +2,67 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\Models\clothes;
 use Illuminate\Http\Request;
+use App\Models\orderDetail;
 
 class ClothesController extends Controller
 {
+    public function getClothingData($kode_baju) {
+        $clothingData = Clothes::where('id', $kode_baju)->first();
+        return response()->json($clothingData);
+    }
+    
+    public function update(Request $request, $kode_baju) {
+        // Validate the request data
+        $validatedData = $request->validate([
+            'kodeBaju' => 'required',
+            'deskripsi' => 'required',
+            'gambar' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
+            'jumlahDewasa' => 'required',
+            'jumlahAnak' => 'required',
+            'syaratKetentuan' => 'required',
+            'harga' => 'required'
+        ]);
+
+        $clothing = Clothes::find($kode_baju);
+        $imageName = time().'.'.$request->gambar->extension();
+        $request->gambar->move(public_path('foto'), $imageName);
+
+        if ($clothing) {
+            // Handle image upload if provided
+            $clothing->kode_baju = $validatedData['kodeBaju'];
+            $clothing->deskripsi = $validatedData['deskripsi'];
+            $clothing->gambar = $imageName;
+            $clothing->jumlah_dewasa = $validatedData['jumlahDewasa'];
+            $clothing->jumlah_anak = $validatedData['jumlahAnak'];
+            $clothing->syarat_ketentuan = $validatedData['syaratKetentuan'];
+            $clothing->harga = $validatedData['harga'];
+            $clothing->save();
+            
+            return back()->with('success', 'Produk berhasil diupdate.');
+        } else {
+            return back()->with('error', 'Clothing not found');
+        }
+    }    
+
     public function indexAdmin()
     {
-        $clothes = Clothes::paginate(15);
+        $clothes = Clothes::paginate(9);
         return view('admin/product', compact('clothes'));
     }
 
     public function indexUser(){
         $clothes = clothes::paginate(6);
-        
-        return view('user/produk', compact('clothes'));
+        $topThree = DB::select("
+        SELECT kode_baju, gambar, deskripsi, COUNT(*) AS total
+        FROM order_details od
+        JOIN clothes USING(kode_baju)
+        GROUP BY kode_baju, gambar, deskripsi
+        ORDER BY total DESC
+        LIMIT 3");
+        return view('user/produk', compact('clothes', 'topThree'));
     }
 
     public function create(Request $request)
@@ -66,50 +112,5 @@ class ClothesController extends Controller
         $produk->delete();
 
         return back()->with('success', 'produk berhasil ditambahkan.');
-    }    
-    
-    public function edit($id){
-        $produk = Clothes::find($id);
-        return view('produk.edit', compact('produk'));
-    }
-
-    public function update(Request $request, $id){
-        $produk = Clothes::find($id);
-
-        // Validasi data input jika diperlukan
-        $validatedData = $request->validate([
-            'kodeBaju' => 'required',
-            'stok' => 'required',
-            'deskripsi' => 'required',
-            'syaratKetentuan' => 'required',
-            'harga' => 'required',
-            'gambar' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
-
-        // Update kolom-kolom lainnya
-        $produk->kode_baju = $validatedData['kodeBaju'];
-        $produk->stok = $validatedData['stok'];
-        $produk->deskripsi = $validatedData['deskripsi'];
-        $produk->SnK = $validatedData['syaratKetentuan'];
-        $produk->harga = $validatedData['harga'];
-
-        // Periksa apakah ada file gambar baru yang disediakan
-        if ($request->hasFile('gambar')) {
-            // Hapus gambar lama (opsional)
-            if (file_exists(public_path('foto/' . $produk->gambar))) {
-                unlink(public_path('foto/' . $produk->gambar));
-            }
-
-            // Upload gambar baru
-            $imageName = time() . '.' . $request->gambar->extension();
-            $request->gambar->move(public_path('foto'), $imageName);
-
-            // Update kolom gambar
-            $produk->gambar = $imageName;
-        }
-
-        $produk->save();
-
-        return back()->with('success', 'Pakaian berhasil diperbarui!');
     }
 }

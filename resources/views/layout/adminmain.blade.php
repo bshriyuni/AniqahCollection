@@ -46,22 +46,22 @@
             <div class="collapse navbar-collapse row text-center fs-5" id="collapsibleNavbar">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item col-2">
-                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link" href="/pesanan">Home</a>
                     </li>
                     <li class="nav-item col-2">
-                        <a class="nav-link" href="/product">Produk</a>
+                        <a class="nav-link" href="/adminproduct">Produk</a>
                     </li>
                     <li class="nav-item col-2">
-                        <a class="nav-link" href="/lokasi">Lokasi</a>
+                        <a class="nav-link" href="/adminlokasi">Lokasi</a>
                     </li>
                     <li class="nav-item col-2">
-                        <a class="nav-link" href="/testimoni">Testimoni</a>
+                        <a class="nav-link" href="/admintestimoni">Testimoni</a>
                     </li>
                     <li class="nav-item col-2 active">
-                        <a class="nav-link" href="/carapemesanan">Cara Pemesanan</a>
+                        <a class="nav-link" href="/admincarapemesanan">Cara Pemesanan</a>
                     </li>
                     <li class="nav-item col-2">
-                        <a class="nav-link" href="/jahitbaju">Jahit</a>
+                        <a class="nav-link" href="/adminjahitbaju">Jahit</a>
                     </li>
                 </ul>
             </div>

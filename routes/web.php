@@ -30,16 +30,13 @@ Route::get('/', function () {
 
 Route::get('/lokasi', [LokasiController::class, 'indexuser']);
 
-Route::get('/product', [ClothesController::class, 'indexUser']);
+Route::get('/product', [ClothesController::class, 'indexUser'])->name('product');
+Route::get('/product/{kode_test}', [DetailProdukController::class, 'index']);
+Route::post('/product/create', [DetailProdukController::class, 'store']);
 
 Route::get('/testimoni', function () {
     return view('user/testimoni');
 });
-
-Route::get('/product/{kode_test}', [DetailProdukController::class, 'index']);
-
-
-Route::get('/detailproduk', [DetailProdukController::class, 'index']);
 
 Route::get('/jahitbaju', function () {
     return view('user/jahit');
@@ -77,9 +74,9 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/adminproduct', [ClothesController::class, 'indexAdmin']);
     Route::post('/adminproduct', [ClothesController::class, 'create']);
     Route::delete('/adminproduct/{id}', [ClothesController::class, 'delete'])->name('produk.delete');
-    Route::get('/adminproduct/{id}', [ClothesController::class, 'edit'])->name('produk.edit');
-    Route::post('/adminproduct/{id}', [ClothesController::class, 'update'])->name('produk.update');
-
+    Route::post('/editClothingData/{kode_baju}', [ClothesController::class, 'update']);
+    Route::get('/getClothingData/{kode_baju}', [ClothesController::class, 'getClothingData']);
+   
     Route::get('/admincarapemesanan', [carapesanController::class, 'indexAdmin']);
     Route::post('/admincarapemesanan', [carapesanController::class, 'add']);
     Route::delete('/admincarapemesanan/{id}', [carapesanController::class, 'destroy'])->name('carapemesanan.destroy');;

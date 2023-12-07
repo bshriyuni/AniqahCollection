@@ -14,18 +14,26 @@ Produk
 </form>
 <!-- End Search -->
 <div class="container row h-100 mb-5">
-    <div class="col-4 p-4" style="background-color: #BBD6B8;">
-        <img src="foto/baju2.jpg" class="img-fluid mb-3" alt="...">
-        <button type="button" class="btn btn-light mx-auto d-block btn-lg">Selengkapnya</button>
+    @if(count($topThree) >= 1)
+    <div class="col-4 p-4 d-flex flex-column" style="background-color: #BBD6B8;">
+        <img src="../foto/{{$topThree[0]->gambar}}" class="img-fluid mb-3" alt="...">
+        <button type="button" class="btn btn-light mt-auto mx-auto d-block btn-lg">Selengkapnya</button>
     </div>
-    <div class="col-4 p-4" style="background-color: #D9D9D9;">
-        <img src="foto/baju2.jpg" class="img-fluid mb-3" alt="...">
-        <button type="button" class="btn btn-light mx-auto d-block btn-lg">Selengkapnya</button>
+    @endif
+
+    @if(count($topThree) >= 2)
+    <div class="col-4 p-4 d-flex flex-column" style="background-color: #D9D9D9;">
+        <img src="../foto/{{$topThree[1]->gambar}}" class="img-fluid mb-3" alt="...">
+        <button type="button" class="btn btn-light mt-auto mx-auto d-block btn-lg">Selengkapnya</button>
     </div>
-    <div class="col-4 p-4" style="background-color: #BBD6B8;">
-        <img src="foto/baju2.jpg" class="img-fluid mb-3" alt="...">
-        <button type="button" class="btn btn-light mx-auto d-block btn-lg">Selengkapnya</button>
+    @endif
+
+    @if(count($topThree) >= 3)
+    <div class="col-4 p-4 d-flex flex-column" style="background-color: #BBD6B8;">
+        <img src="../foto/{{$topThree[2]->gambar}}" class="img-fluid mb-3" alt="...">
+        <button type="button" class="btn btn-light mt-auto mx-auto d-block btn-lg">Selengkapnya</button>
     </div>
+    @endif
 </div>
 
 <div class="row align-items-start mb-5">
@@ -52,9 +60,7 @@ Produk
                         <h4 class="card-title">{{ $clothing->kode_baju }}</h4>
                         <p class="card-text">{{ $clothing->deskripsi }}</p> 
                         <h6>Rp {{$clothing->harga}}</h6>
-                    </div>
-                    <div class="container" style="background-color: #F4EEEE; padding:5px;">
-                        <img src="{{ asset('foto/' . $clothing->gambar) }} {{ $clothing->foto }}" class="card-img-bottom" alt="..." style="height: 300px;">
+                        <img src="foto/{{ $clothing->gambar }}" class="rounded mx-auto d-block img-fluid" alt="...">
                     </div>
                 </div>
             </a>
