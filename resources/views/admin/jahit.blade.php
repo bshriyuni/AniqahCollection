@@ -40,7 +40,9 @@
     </div>
     <!-- end Brand App -->
 
-    <!-- modal -->
+    <div id="selectedImageNames"></div>
+
+    <!-- Modal -->
     <div class="modal" id="myModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -48,24 +50,49 @@
                 <h2>Aniqah Collection</h2>
             </div>
             <div class="modal-body">
-                <h4>Masukkan Jenis Baju</h4>
-                <input type="text" id="jenisBajuInput" placeholder="Jenis Baju">
-                
-                <h4>Tambah Gambar</h4>
-                <label for="gambarInput">
-                    <i class="fas fa-image"></i> Pilih Gambar
-                </label>
-                <input type="file" id="gambarInput" accept="image/*" style="display: none;">
+                <!-- Gunakan loop untuk membuat input gambar dan jenis baju -->
+                <!-- Tambahkan nomor identifikasi untuk masing-masing input -->
+                <div class="image-input">
+                    <h4>Masukkan Jenis Baju 1</h4>
+                    <input type="text" id="jenisBajuInput1" placeholder="Jenis Baju 1">
+                    
+                    <h4>Tambah Gambar 1</h4>
+                    <label for="gambarInput1" class="custom-file-upload">
+                        <i class="fas fa-image"></i> Pilih Gambar 1
+                    </label>
+                    <input type="file" id="gambarInput1" accept="image/*" style="display: none;">
+                </div>
+
+                <div class="image-input">
+                    <h4>Masukkan Jenis Baju 2</h4>
+                    <input type="text" id="jenisBajuInput2" placeholder="Jenis Baju 2">
+                    
+                    <h4>Tambah Gambar 2</h4>
+                    <label for="gambarInput2" class="custom-file-upload">
+                        <i class="fas fa-image"></i> Pilih Gambar 2
+                    </label>
+                    <input type="file" id="gambarInput2" accept="image/*" style="display: none;">
+                </div>
+
+                <div class="image-input">
+                    <h4>Masukkan Jenis Baju 3</h4>
+                    <input type="text" id="jenisBajuInput3" placeholder="Jenis Baju 3">
+                    
+                    <h4>Tambah Gambar 3</h4>
+                    <label for="gambarInput3" class="custom-file-upload">
+                        <i class="fas fa-image"></i> Pilih Gambar 3
+                    </label>
+                    <input type="file" id="gambarInput3" accept="image/*" style="display: none;">
+                </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" id="simpanButton" class="btn btn-primary">Submit</button>
+                <button type="button" id="simpanButton" class="btn btn-primary">Submit</button>
             </div>
         </div>
     </div>
 
-    <script src="script.js"></script>
-
-    <script> 
+    <script>
+        // JavaScript
         document.getElementById("openModalButton").addEventListener("click", function() {
             document.getElementById("myModal").style.display = "block";
         });
@@ -79,7 +106,74 @@
             // Tutup modal
             document.getElementById("myModal").style.display = "none";
         });
-    </script> 
+
+        // Tangani peristiwa pemilihan gambar dan jenis baju untuk masing-masing input
+        for (let i = 1; i <= 3; i++) {
+            document.getElementById(`gambarInput${i}`).addEventListener("change", function() {
+                let selectedImageName = this.files[0].name;
+                let selectedImageNameElement = document.getElementById("selectedImageNames");
+                selectedImageNameElement.innerHTML = `Gambar yang dipilih ${i}: ${selectedImageName}`;
+            });
+
+            document.getElementById(`jenisBajuInput${i}`).addEventListener("input", function() {
+                let selectedJenisBaju = this.value;
+                console.log(`Jenis Baju ${i}: ${selectedJenisBaju}`);
+            });
+        }
+    </script>
+
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Informasi jenis baju
+        $jenisBaju1 = $_POST["jenisBajuInput"];
+        $jenisBaju2 = $_POST["jenisBajuInput2"];
+        $jenisBaju3 = $_POST["jenisBajuInput3"];
+
+        // Proses unggahan gambar
+        for ($i = 1; $i <= 3; $i++) {
+            $gambarInputName = "gambarInput$i";
+
+            // Pastikan bahwa file gambar dikirim
+            if (isset($_FILES[$gambarInputName]) && $_FILES[$gambarInputName]["error"] == UPLOAD_ERR_OK) {
+                $uploadDir = "uploads/"; // Direktori tempat menyimpan gambar
+                $uploadFile = $uploadDir . basename($_FILES[$gambarInputName]["name"]);
+
+                // Pindahkan file gambar yang diunggah ke direktori tujuan
+                if (move_uploaded_file($_FILES[$gambarInputName]["tmp_name"], $uploadFile)) {
+                    // Simpan informasi gambar ke database, sesuai kebutuhan
+                    $gambarName = $_FILES[$gambarInputName]["name"];
+                    $gambarPath = $uploadDir . $gambarName;
+
+                    // Contoh koneksi dan query untuk menyimpan ke database
+                    $koneksi = new mysqli("localhost", "username", "password", "nama_database");
+
+                    if ($koneksi->connect_error) {
+                        die("Koneksi database gagal: " . $koneksi->connect_error);
+                    }
+
+                    // Gabungkan jenis baju dan informasi gambar dalam satu baris
+                    $jenisBaju = ${"jenisBaju$i"};
+                    $query = "INSERT INTO tabel_gambar (jenis_baju, nama_file, path_file) 
+                            VALUES ('$jenisBaju', '$gambarName', '$gambarPath')";
+
+                    if ($koneksi->query($query) === TRUE) {
+                        echo "Gambar berhasil diunggah dan informasinya disimpan di database.";
+                    } else {
+                        echo "Gagal menyimpan informasi gambar di database: " . $koneksi->error;
+                    }
+
+                    $koneksi->close();
+                } else {
+                    echo "Gagal memindahkan file gambar.";
+                }
+            } else {
+                echo "Terjadi kesalahan saat mengunggah gambar.";
+            }
+        }
+    }
+    ?>
+
     <!-- End Modal -->
 
 
@@ -181,57 +275,26 @@
     </div>
 
     <div class="order">
-        <div class="custom-button" id="openModalButton">
+        <div class="custom-button" id="openModalButton" onclick="openWhatsAppChat()">
             <p style="font-size: 18px; font-family: 'Inter-ExtraBold'; color: #333; text-align: center; margin-top: 13px;">
-                Update Nomor
+                Hubungi Penjual
             </p>
         </div>
     </div>
 
-    <!-- Modal -->
-    <div class="modal" id="teleponModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="close" data-dismiss="modal" id="closeTeleponModal">&times;</span>
-                <h2 style="font-family: 'OleoScript-Bold';">Aniqah Collection</h2>
-            </div>
-            <div class="modal-body">
-                <h4>Masukkan Nomor WhatsApp</h4>
-                <input type="text" id="nomorTeleponInput" placeholder="Nomor Telepon">
-            </div>
-            <div class="modal-footer">
-                <button type="submit" id="submitTeleponButton" class="btn btn-primary">Submit</button>
-            </div>
-        </div>
-    </div>
-
-
+    <!-- Kode JavaScript untuk membuka chat WhatsApp -->
     <script>
-        // Ambil elemen tombol yang akan membuka modal
-        var openModalButton = document.getElementById("openModalButton");
+        function openWhatsAppChat() {
+            // Ganti nomor telepon sesuai kebutuhan
+            var nomorTelepon = "6285299581471";
+            
+            // Membuat URL chat WhatsApp
+            var whatsappURL = "https://api.whatsapp.com/send?phone=" + nomorTelepon;
 
-        // Ambil elemen modal
-        var teleponModal = document.getElementById("teleponModal");
-
-        // Ketika tombol diklik, tampilkan modal
-        openModalButton.addEventListener("click", function () {
-            teleponModal.style.display = "block";
-        });
-
-        // Ketika tombol close diklik, sembunyikan modal
-        var closeTeleponModal = document.getElementById("closeTeleponModal");
-        closeTeleponModal.addEventListener("click", function () {
-            teleponModal.style.display = "none";
-        });
-
-        // Juga sembunyikan modal saat di luar area modal diklik
-        window.addEventListener("click", function (event) {
-            if (event.target == teleponModal) {
-                teleponModal.style.display = "none";
-            }
-        });
+            // Buka link WhatsApp
+            window.open(whatsappURL, "_blank");
+        }
     </script>
-    <!-- End Modal -->
 
     <!-- FootNote -->
     <div class="footNote">

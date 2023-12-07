@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jahit Baju</title>
+    <title>Status Pesanan</title>
 
     <!-- Link Bootstraps -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <!-- Link CSS -->
-    <link rel="stylesheet" href="css/cssuser/jahitbaju.css">
+    <!-- <link rel="stylesheet" href="css/cssuser/jahitbaju.css"> -->
+    <link rel="stylesheet" href="css/cssuser/statuspesanan.css">
     <!-- link font awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('font') }}"> <!-- Ganti 'font.css' dengan nama file CSS Anda -->
@@ -17,6 +18,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6xHzyrrFJur_ytwYcXT7iC5dUcHj9e5w&callback=initMap" async defer></script>
 
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+    <title>Layout Kolom dan Baris</title>
 
 </head>
 <body>
@@ -38,7 +43,7 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link fw-bold" href="/profil">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/product">Produk</a>
@@ -52,104 +57,98 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/crapemesanan">Cara Pemesanan</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link fw-bold" href="/jahitbaju">Jahit</a>
-                    </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <!-- End Menu App -->
-
-    <!-- Halaman Jahit Baju -->
-    <div class="halamanJahit">
-        <div class="title" style="margin-top: 20px;">
-            <h1 class="textTitle">Custom Product</h1>
-            <p class="description">Please customize it as you like.</p>
-        </div>
-    </div>
 
     <div class="container">
-        <div class="row">
-            <div class="col" style="margin: 0 auto; display: flex; flex-direction: column; align-items: center;">
-                <div class="card" style="background-color: #DBE4C6; 
-                border: 1px solid #ccc; 
-                padding: 20px; 
-                width: 300px; 
-                height: 480px; 
-                margin-top: 60px;
-                border-top-left-radius: 200px; 
-                border-top-right-radius: 200px;">
-                    <div class="card-content">
-                        <img src="{{ asset('foto/gambar1.png') }}" class="image-1">
+        <!-- Kolom 1 -->
+        <div class="column">
+            <div class="profile-grid">
+                <div class="profile-picture"></div>
+                    <div class="profile-text">
+                        <div class="username">isty.15</div>
+                        <div>
+                            <i class="fa-solid fa-pencil"></i>Ubah Profile
+                        </div>
                     </div>
-                </div>
-                <p style="margin-top: 10px; font-family: 'Inter-ExtraBold';">Bridesmaid</p>
             </div>
-
-            <div class="col" style="margin: 0 auto; display: flex; flex-direction: column; align-items: center;">
-                <div class="card" style="background-color: #BBD6B8; 
-                border: 1px solid #ccc; 
-                padding: 20px; 
-                width: 410px; 
-                height: 600px; 
-                border-top-left-radius: 200px; 
-                border-top-right-radius: 200px;">
-                    <div class="card-content">
-                        <img src="{{ asset('foto/gambar2.png') }}" class="image-2">
-                    </div>
-                </div>
-                <p style="margin-top: 10px; font-family: 'Inter-ExtraBold';">Graduation</p>
-            </div>
-        
-            <div class="col" style="margin: 0 auto; display: flex; flex-direction: column; align-items: center;">
-                <div class="card" style="background-color: #D6E8DB; 
-                border: 1px solid #ccc; 
-                padding: 20px; 
-                width: 300px; 
-                height: 480px; 
-                margin-top: 60px;
-                border-top-left-radius: 200px; 
-                border-top-right-radius: 200px;">
-                    <div class="card-content">
-                        <img src="{{ asset('foto/gambar3.png') }}" class="image-3">
-                    </div>
-                </div>
-                <p style="margin-top: 10px; font-family: 'Inter-ExtraBold';">Engagement</p>
-            </div>
-        
-        </div>
-    </div>
-
-    <div class="custom-arrows">
-        <i class="fas fa-arrow-left" style="font-size: 50px;"></i>
-        <i class="fas fa-arrow-right" style="font-size: 50px;"></i>
-    </div>
-
-    <div class="order">
-        <div class="custom-button" id="openModalButton" onclick="openWhatsAppChat()">
-            <p style="font-size: 18px; font-family: 'Inter-ExtraBold'; color: #333; text-align: center; margin-top: 13px;">
-                Hubungi Penjual
-            </p>
-        </div>
-    </div>
-
-    <!-- Kode JavaScript untuk membuka chat WhatsApp -->
-    <script>
-        function openWhatsAppChat() {
-            // Ganti nomor telepon sesuai kebutuhan
-            var nomorTelepon = "6285299581471";
             
-            // Membuat URL chat WhatsApp
-            var whatsappURL = "https://api.whatsapp.com/send?phone=" + nomorTelepon;
+            <div class="akun">
+                <i class="fa-regular fa-user"></i>
+            <div>Akun Saya</div>
 
-            // Buka link WhatsApp
-            window.open(whatsappURL, "_blank");
-        }
-    </script>
+        </div>
 
-    <!-- FootNote -->
-    <div class="footNote">
+        </div>    
+
+        <!-- Kolom 2 -->
+        <div class="column">
+
+            <div class="table-container">
+                <div class="table-header">
+                    <h2>Judul Tabel</h2>
+                </div>
+                <div class="table-content">
+                    <div class="color-box"></div>
+                    <div class="text-info">
+                        <ul>
+                            <li style="font-size: 25px;">Sedang Diproses</li>
+                            <li>A201</li>
+                            <li>Rp 20.000</li>
+                        </ul>
+                    </div>
+                    <button class="cancel-button">Batalkan Pesanan</button>
+                </div>
+
+                <div class="table-content">
+                    <div class="color-box"></div>
+                    <div class="text-info">
+                        <ul>
+                            <li style="font-size: 25px;">Status Pesanan</li>
+                            <li>Nama Pesanan</li>
+                            <li>Harga</li>
+                        </ul>
+                    </div>
+                    <button class="cancel-button">Batalkan Pesanan</button>
+                </div>
+
+                <div class="table-content">
+                    <div class="color-box"></div>
+                    <div class="text-info">
+                        <ul>
+                            <li style="font-size: 25px;">Staus Pesanan</li>
+                            <li>Nama Pesanan</li>
+                            <li>Harga</li>
+                        </ul>
+                    </div>
+                    <button class="cancel-button">Batalkan Pesanan</button>
+                </div>
+
+                <div class="table-content">
+                    <div class="color-box"></div>
+                    <div class="text-info">
+                        <ul>
+                            <li style="font-size: 25px;">Status Pesanan</li>
+                            <li>Nama Pesanan</li>
+                            <li>Harga</li>
+                        </ul>
+                    </div>
+                    <button class="cancel-button">Batalkan Pesanan</button>
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+    <!-- End Menu App -->
+
+     <!-- FootNote -->
+     <div class="footNote">
         <div class="row">
             <div class="col" style="margin-right: 20px;">
                 <h3 class="aboutUs">About Us</h3>
@@ -170,7 +169,7 @@
     </div>
     <!-- End Foot Note -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script> -->
 
 </body>
 </html>
