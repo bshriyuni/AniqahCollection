@@ -20,9 +20,29 @@
 </head>
 <body>
     <!-- Brand App -->
-    <div class="brandApp">
-        <h1 class="textAniqah">Aniqah Collection</h1>
-        <h7 class="deskripsiBrand">Sewa baju bodo dan jasa jahit baju</h7>
+    <div class="ps-5 mb-4 pt-2">
+        <div class="d-flex align-items-center justify-content-between">
+            <div>
+                <p class="textAniqah m-0">Aniqah Collection</p>
+                <p class="deskripsiBrand fs-5 fst-italic fw-light m-0">Sewa baju bodo dan jasa jahit baju</p>
+            </div>
+
+            <!-- Tombol Login dan Registrasi atau Nama Pengguna -->
+            <div style="margin-right: 50px;">
+                @guest <!-- Cek apakah pengguna belum login -->
+                    <button class="btn me-2" style="background-color: #BBD6B8">
+                        <a href="/register" class="text-decoration-none" style="color: #000000;">Daftar</a>
+                    </button>
+                    <button class="btn" style="background-color: #BBD6B8">
+                        <a href="/login" class="text-decoration-none" style="color: #000000;">Masuk</a>
+                    </button>
+                @else <!-- Jika pengguna sudah login -->
+                    <button class="btn">
+                        <a href="/profil" class="text-decoration-none" style="color: #000000;">Selamat datang, {{ Auth::user()->name }}</a>
+                    </button>
+                @endguest
+            </div>
+        </div>
     </div>
     <!-- end Brand App -->
 
@@ -35,143 +55,50 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
+                        <a class="nav-link " href="/">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/product">Produk</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/lokasi">Lokasi</a>
-                    </li> 
-                    <li class="nav-item">
-                        <a class="nav-link fw-bold" href="/testimoni">Testimoni</a>
+                        <a class="nav-link " href="/lokasi">Lokasi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/carapemesanan">Cara Pemesanan</a>
+                        <a class="nav-link" href="/testimoni">Testimoni</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/jahitbaju">Jahit</a>
+                        <a class="nav-link fw-bold" href="/carapemesanan">Cara Pemesanan</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <!-- End Menu App -->
+    <!-- End Menu App -->
 
     <!-- Tata Cara Pemesanan -->
-    <div class="container">
-        <div class="judul text-center py-4">
-            <h1>TATA CARA PEMESANAN</h1>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 custom-card">
-                <div class="row">
-                    <div class="col-8">
-                        <p class="custom-text">{{ $dataTerbaru->step1 }}</p>
-                    </div>
-                    <div class="col-4">
-                        <div class="rounded-card"  style="padding: 20px;" style="margin-top: 20px;">
-                            <i class="fa-solid fa-lightbulb fa-4x" style="color: #fffafa;"></i>
+    <div class="judul text-center py-4">
+        <h1>TATA CARA PEMESANAN</h1>
+    </div>
+    
+    <div class="row">
+        @foreach($carapesan as $pesan)
+            <div class="col-md-6">
+                    <div class="row g-1">
+                        <div class="col-md-4">
+                            <div class="rounded-card">
+                                <p class="custom-text" id="step1">{{ $pesan->no }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="custom-card">
+                                <div class="card-body">
+                                    <p class="card-text" id="step1">{{ $pesan->step }}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="step ">
-                    <p style="color: #526754">STEP</p>
-                    <p style="color: #526754">01</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6">
-                <div class="step" style="margin-left:400px;">
-                    <p style="color: #526754">STEP</p>
-                    <p style="color: #526754">02</p>
-                </div>
-            </div>
-
-            <div class="col-md-6 custom-card2">
-                <div class="row">
-                    <div class="col-8">
-                        <p class="custom-text">{{ $dataTerbaru->step2 }} </p>
-                    </div>
-                    <div class="col-4">
-                        <div class="rounded-card" style="padding: 20px;"  style="margin-top: 20px;">
-                            <i class="fa-solid fa-address-book fa-3x" style="color: #fffafa;"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 custom-card3">
-                <div class="row">
-                    <div class="col-8">
-                        <p class="custom-text" style="padding: 10px;">{{ $dataTerbaru->step3 }} </p>
-                    </div>
-                    <div class="col-4">
-                        <div class="rounded-card" style="padding: 30px;">
-                        <i class="fa-solid fa-dollar-sign fa-3x" style="color: #fffafa;"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="step">
-                    <p style="color: #526754">STEP</p>
-                    <p style="color: #526754">03</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6">
-                <div class="step"style="margin-left:400px;">
-                    <p style="color: #526754">STEP</p>
-                    <p style="color: #526754">04</p>
-                </div>
-            </div>
-
-            <div class="col-md-6 custom-card4">
-                <div class="row">
-                    <div class="col-8">
-                        <p class="custom-text" style="padding: 10px;" >{{ $dataTerbaru->step4 }} </p>
-                    </div>
-                    <div class="col-4">
-                        <div class="rounded-card" style="padding: 20px;" style="margin-top: 20px;">
-                            <i class="fa-solid fa-thumbs-up fa-3x" style="color: #fffafa;"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 custom-card5">
-                <div class="row">
-                    <div class="col-8">
-                        <p class="custom-text">{{ $dataTerbaru->step5 }}</p>
-                    </div>
-                    <div class="col-4">
-                        <div class="rounded-card"  style="padding: 20px;" style="margin-top: 20px;">
-                            <i class="fa-solid fa-cart-shopping fa-3x" style="color: #fffafa;"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="step">
-                    <p style="color: #526754">STEP</p>
-                    <p style="color: #526754">05</p>
-                </div>
-            </div>
-        </div>
-       
-
+        @endforeach
     </div>
     <!-- End Tata Cara Pemesanan -->
 
@@ -188,10 +115,10 @@
                     <i class="fab fa-whatsapp fa-2x"></i>
                 </div>
                 <div class="col-md-6">
-                    <button class="buttonAdmin" style="background-color: black;">ADMIN</button>
                     <div class="mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Tuliskan ulasanmu disini</label>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="border: 1px solid black;"></textarea>
+                        <button class="btn-send mt-3">Send</button>
                     </div>
                 </div>
             </div>

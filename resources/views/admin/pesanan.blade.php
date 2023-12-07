@@ -37,22 +37,19 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link fw-bold" href="/">Pesanan</a>
+                        <a class="nav-link fw-bold" href="/pesanan">Pesanan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/product">Produk</a>
+                        <a class="nav-link" href="/adminproduct">Produk</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/lokasi">Lokasi</a>
+                        <a class="nav-link" href="/adminlokasi">Lokasi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/testimoni">Testimoni</a>
+                        <a class="nav-link" href="/admintestimoni">Testimoni</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/carapemesanan">Cara Pemesanan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/jahitbaju">Jahit</a>
+                        <a class="nav-link" href="/admincarapemesanan">Cara Pemesanan</a>
                     </li>
                 </ul>
             </div>
@@ -75,35 +72,35 @@
                             <th scope="col">Anak</th>
                             <th scope="col">Tanggal Ambil</th>
                             <th scope="col">Tanggal Kembali</th>
-                            <th scope="col">Keterangan</th>
-                            <th scope="col">Aksi</th>
+                            <th scope="col">Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                        <th scope="row">A234</th>
-                            <td>Sisi</td>
-                            <td>087753932218</td>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>01/12/2023</td>
-                            <td>03/12/2023</td>
-                            <td>Proses</td>
-                            <td>
-                            <!-- Example single danger button -->
-                                <div class="btn-group">
-                                <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Action
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Action</a></li>
-                                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                                    <li><a class="dropdown-item" href="#">Separated link</a></li>
-                                </ul>
-                                </div>
-                            </td>
-                        </tr>
+                    @foreach($orderDetails as $orderDetail)
+                    <tr>
+                        <td>{{ $orderDetail->kode_baju }}</td>
+                        <td>{{ $orderDetail->nama_pelanggan }}</td>
+                        <td>{{ $orderDetail->no_hp }}</td>
+                        <td>{{ $orderDetail->dewasa }}</td>
+                        <td>{{ $orderDetail->anak }}</td>
+                        <td>{{ $orderDetail->tgl_pengambilan }}</td>
+                        <td>{{ $orderDetail->tgl_pengembalian }}</td>
+                        <td>
+                             <div class="btn-group" data-order-detail-id="{{ $orderDetail->id }}">
+                             <form action="{{ route('pesanan.updateStatus', $orderDetail) }}" method="POST">
+                                @csrf
+                                @method('PUT')
+                                <select name="status" class="form-select" onchange="this.form.submit()">
+                                    <option value="Menunggu Konfirmasi" {{ $orderDetail->status === 'Menunggu Konfirmasi' ? 'selected' : '' }}>Menunggu Konfirmasi</option>
+                                    <option value="Proses Pengambilan" {{ $orderDetail->status === 'Proses Pengambilan' ? 'selected' : '' }}>Proses Pengambilan</option>
+                                    <option value="Pesanan Diambil" {{ $orderDetail->status === 'Pesanan Diambil' ? 'selected' : '' }}>Pesanan Diambil</option>
+                                    <option value="Selesai" {{ $orderDetail->status === 'Selesai' ? 'selected' : '' }}>Selesai</option>
+                                </select>
+                            </form>
+                            </div>
+                        </td>
+                    </tr>
+                    @endforeach
                     </tbody>
                 </table>
             </div>
@@ -136,7 +133,6 @@
                             <th scope="col">Tanggal Ambil</th>
                             <th scope="col">Tanggal Kembali</th>
                             <th scope="col">Keterangan</th>
-                            <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -148,13 +144,7 @@
                             <td>2</td>
                             <td>01/12/2023</td>
                             <td>03/12/2023</td>
-                            <td>On-Process</td>
-                            <td>
-                            <a href="#" class="btn btn-warning btn-sm">Edit</a>
-                            <form onsubmit="return confirm('Yakin akan menghapus data?')" class='d-inline' action="" method="post">
-                                <button type="submit" name="submit" class="btn btn-danger btn-sm">Del</button>
-                            </form>
-                            </td>
+                            <td>Selesai</td>
                         </tr>
                     </tbody>
                 </table>
@@ -173,15 +163,37 @@
                 </ul>
             </nav>
         </div>
+        
+        <div>
+            <p>Keterangan aksi:</p>
+            <li>Menunggu Konfirmasi : 
+                Form yang telah diisi oleh customer telah diterima datanya dan masuk ke list pesanan, yang selanjunya admin akan menghubungi customer untuk mengonfirmasi pesanannya
+            </li>
+            <li>Proses Pengambilan :
+                Pesanan telah dikonfirmasi oleh customer dan sisa dilakukan pengambilan barang dan pembayaran  
+            </li>
+            <li>Pesanan Diambil :
+                Pembayaran telah dilakukan dan customer sudah mengambil barang yang kemudian akan menunggu pengembalian pada waktu yang telah disepakati  
+            </li>
+        </div>
         <div class="logout-button">
-            <button>logout</button>
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit">Logout</button>
+            </form>
         </div>
     </div>
     
 
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    
     <!-- link -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
 </body>
 </html>

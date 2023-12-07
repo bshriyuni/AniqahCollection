@@ -15,19 +15,40 @@
 </head>
 <body>
     <!-- Brand App -->
-    <div class="brandApp">
-        <div class="Aniqah" style="margin-top: 20px;">
-            <h1 class="textAniqah">Aniqah Collection</h1>
-            <h7 class="deskripsiBrand">Sewa baju bodo dan jasa jahit baju</h7>
+    <div class="ps-5 mb-4 pt-2">
+        <div class="d-flex align-items-center justify-content-between">
+            <div>
+                <p class="textAniqah m-0">Aniqah Collection</p>
+                <p class="deskripsiBrand fs-5 fst-italic fw-light m-0">Sewa baju bodo dan jasa jahit baju</p>
+            </div>
+
+            <!-- Tombol Login dan Registrasi atau Nama Pengguna -->
+            <div style="margin-right: 50px;">
+                @guest <!-- Cek apakah pengguna belum login -->
+                    <button class="btn me-2" style="background-color: #BBD6B8">
+                        <a href="/register" class="text-decoration-none" style="color: #000000;">Daftar</a>
+                    </button>
+                    <button class="btn" style="background-color: #BBD6B8">
+                        <a href="/login" class="text-decoration-none" style="color: #000000;">Masuk</a>
+                    </button>
+                @else <!-- Jika pengguna sudah login -->
+                    <button class="btn">
+                        <a href="/profil" class="text-decoration-none" style="color: #000000;">Selamat datang, {{ Auth::user()->name }}</a>
+                    </button>
+                @endguest
+            </div>
         </div>
     </div>
     <!-- end Brand App -->
 
     <!-- Menu App -->
-    <nav class="navbar navbar-expand-sm costom-navbar">
+    <nav class="navbar navbar-expand-md navbar-light">
         <div class="container-fluid">
-            <div class="collapse navbar-collapse ml-auto" id="collapsibleNavbar">
-                <ul class="navbar-nav ml-auto">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
                         <a class="nav-link" href="/">Home</a>
                     </li>
@@ -35,16 +56,13 @@
                         <a class="nav-link" href="/product">Produk</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/lokasi">Lokasi</a>
-                    </li> 
+                        <a class="nav-link fw-bold" href="/lokasi">Lokasi</a>
+                    </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-bold" href="/testimoni">Testimoni</a>
+                        <a class="nav-link" href="/testimoni">Testimoni</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/carapemesanan">Cara Pemesanan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/jahitbaju">Jahit</a>
                     </li>
                 </ul>
             </div>
@@ -53,20 +71,26 @@
     <!-- End Menu App -->
     <br>
     <h1 class="custom-heading"><b>What they say?</b></h1>
+
     
-<div class="container text-center">
+    <div class="card-body">
         <div class="row">
-            <div class="col ms-4 me-4">
-                <img src="{{ asset('foto/testimoni1.jpeg') }}" alt="Gambar 1" class="img-fluid w-100 h-auto">
+        @foreach($testimonis as $testimoni)
+        <div class="col-lg-4 col-6 mb-5">
+            <!-- small box -->
+            <div class="small-box custom-bg mx-auto rounded d-flex align-items-center">
+                <div class="inner">
+                    <img class="card-img-top img-fluid rounded" style="height: 350px; weight:100%" alt="" src="{{ asset('foto/' . $testimoni->gambar) }}" >
+                </div>
             </div>
-            <div class="col ms-4 me-4">
-                <img src="{{ asset('foto/testimoni2.jpeg') }}" alt="Gambar 1" class="img-fluid w-100 h-auto">
-            </div>
-            <div class="col ms-4 me-4">
-                <img src="{{ asset('foto/ical.jpeg') }}" alt="Gambar 1" class="img-fluid w-100 h-auto">
-            </div>
+            <!-- /.small-box -->
         </div>
+        @endforeach
+                  <!-- ./col -->
+        </div>
+                        <!-- /.row -->
     </div>
+                      <!-- /.card-body -->
     <!-- Menggunakan Bootstrap JS (Optional, tergantung kebutuhan Anda) -->
     
     <div class="container text-center">
@@ -112,7 +136,6 @@
                 <i class="fab fa-whatsapp fa-2x"></i>
             </div>
             <div class="col" style="margin-left: 20px;">
-                <button class="buttonAdmin" style="bacground-color:black;">ADMIN</button>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Tuliskan ulasanmu disini</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="border: 1px solid black;"></textarea>

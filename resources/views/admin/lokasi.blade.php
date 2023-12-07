@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title> Admin Lokasi</title>
+        <title>Lokasi - ADMIN</title>
 
         <!-- Link Bootstraps -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -109,33 +109,6 @@
         </div>
         <!-- End Modal Edit Lokasi -->
 
-        <!-- Modal Alert -->
-        <!-- Modal untuk pesan berhasil -->
-        <div class="modal" id="successModal" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content text-center">
-                    <div class="modal-body">
-                        <i class="fas fa-check-circle fa-5x" style="color: #28a745;"></i>
-                        <p class="mt-3">Data lokasi berhasil disimpan.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Modal untuk pesan berhasil -->
-
-        <!-- Modal untuk pesan gagal -->
-        <div class="modal" id="errorModal" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content text-center">
-                    <div class="modal-body">
-                        <i class="fas fa-times-circle fa-5x" style="color: #dc3545;"></i>
-                        <p class="mt-3">Gagal menyimpan data lokasi.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Modal untuk pesan gagal -->
-
         <!-- Script Modal Alert -->
         <script>
             @if(session('success'))
@@ -155,7 +128,6 @@
             @endif
         </script>
         <!-- End Script Modal Alert -->
-        <!-- End Modal Alert -->
 
         <!-- Menu App -->
         <nav class="navbar navbar-expand-md navbar-light">
@@ -166,22 +138,19 @@
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="/adminpesanan">Home</a>
+                            <a class="nav-link" href="/pesanan">Pesanan</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/adminproduct">Produk</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link fw-bold" href="/lokasi">Lokasi</a>
+                            <a class="nav-link fw-bold" href="/adminlokasi">Lokasi</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/admintestimoni">Testimoni</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/admincarapemesanan">Cara Pemesanan</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/adminjahitbaju">Jahit</a>
                         </li>
                     </ul>
                 </div>

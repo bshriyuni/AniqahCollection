@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\clothes;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -14,13 +15,11 @@ return new class extends Migration
         Schema::create('clothes', function (Blueprint $table) {
             $table->id();
             $table->string('kode_baju');
+            $table->integer('stok');
             $table->string('deskripsi');
-            $table->string('s&k');
-            $table->string('kategori_baju');
-            $table->string('deskripsi_baju');
-            $table->string('syarat_ketentuan');
-            $table->string('harga');
-            $table->integer('jumlah_stok');
+            $table->string('SnK');
+            $table->decimal('harga', 10, 3);
+            $table->string('gambar', 100);
             $table->timestamps();
         });
     }

@@ -25,16 +25,34 @@
 </head>
 <body>
     <!-- Brand App -->
-    <div class="brandApp">
-        <div class="Aniqah" style="margin-top: 20px;">
-            <h1 class="textAniqah">Aniqah Collection</h1>
-            <h7 class="deskripsiBrand">Sewa baju bodo dan jasa jahit baju</h7>
+    <div class="ps-5 mb-4 pt-2">
+        <div class="d-flex align-items-center justify-content-between">
+            <div>
+                <p class="textAniqah m-0">Aniqah Collection</p>
+                <p class="deskripsiBrand fs-5 fst-italic fw-light m-0">Sewa baju bodo dan jasa jahit baju</p>
+            </div>
+
+            <!-- Tombol Login dan Registrasi atau Nama Pengguna -->
+            <div style="margin-right: 50px;">
+                @guest <!-- Cek apakah pengguna belum login -->
+                    <button class="btn me-2" style="background-color: #BBD6B8">
+                        <a href="/register" class="text-decoration-none" style="color: #000000;">Daftar</a>
+                    </button>
+                    <button class="btn" style="background-color: #BBD6B8">
+                        <a href="/login" class="text-decoration-none" style="color: #000000;">Masuk</a>
+                    </button>
+                @else <!-- Jika pengguna sudah login -->
+                    <button class="btn">
+                        <a href="/profil" class="text-decoration-none" style="color: #000000;">Selamat datang, {{ Auth::user()->name }}</a>
+                    </button>
+                @endguest
+            </div>
         </div>
     </div>
     <!-- end Brand App -->
 
-<!-- Menu App -->
-<nav class="navbar navbar-expand-md navbar-light">
+    <!-- Menu App -->
+    <nav class="navbar navbar-expand-md navbar-light">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -55,9 +73,6 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/carapemesanan">Cara Pemesanan</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/jahitbaju">Jahit</a>
                     </li>
                 </ul>
             </div>
@@ -93,10 +108,8 @@
 
     <!-- Preview Products -->
     <div class= "container-fluid py-5">
-        <div class="container">
-            <h2 class= "text-center" style="font-family: 'Corinthia-Bold';">Most Popular Collections</h2>
-            <div class="line"></div> <!-- Tambahkan elemen dengan kelas "line" -->
-            
+        <div class="container text-center">
+            <h2 class="text" style="font-family: Corinthia-Bold;">Our Collection</h2>
             <div class="row" id="itemProduct">
                 <div class="col-4">
                     <img src="foto/baju4.jpg" class="img" alt="...">
@@ -170,27 +183,59 @@
     </div>
     <!-- End Layanan -->
 
-     <!-- FootNote -->
-    <div class="footNote">
-        <div class="row">
-            <div class="col" style="margin-right: 20px;">
-                <h3 class="aboutUs">About Us</h3>
-                <hr class="bold-hr" style="border: 2px solid black;">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare cursus sed nunc eget dictum  Sed ornare cursus sed nunc eget dictumd nunc eget dictum  Sed ornare cursus sed nunc eget dictum </p>
-                <i class="fab fa-instagram fa-2x"></i>
-                <i class="fab fa-facebook fa-2x"></i>
-                <i class="fab fa-whatsapp fa-2x"></i>
+     <!-- Footer -->
+     <!-- Remove the container if you want to extend the Footer to full width. -->
+    <div class="">
+
+        <footer class="bg-dark text-center text-white">
+            <!-- Grid container -->
+            <div class="container p-4 pb-0">
+                <!-- Section: Social media -->
+                <section class="mb-4">
+                    <!-- Facebook -->
+                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                    ><i class="fab fa-facebook-f"></i
+                    ></a>
+
+                    <!-- Twitter -->
+                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                    ><i class="fab fa-twitter"></i
+                    ></a>
+
+                    <!-- Google -->
+                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                    ><i class="fab fa-google"></i
+                    ></a>
+
+                    <!-- Instagram -->
+                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                    ><i class="fab fa-instagram"></i
+                    ></a>
+
+                    <!-- Linkedin -->
+                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+                    ><i class="fab fa-linkedin-in"></i
+                    ></a>
+
+                    <!-- Github -->
+                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </section>
+                <!-- Section: Social media -->
             </div>
-            <div class="col" style="margin-left: 20px;">
-                <div class="mb-3">
-                    <label for="exampleFormControlTextarea1" class="form-label">Tuliskan ulasanmu disini</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="border: 1px solid black;"></textarea>
-                    <button class="btn-send mt-3">Send</button>
-                </div>
+            <!-- Grid container -->
+
+            <!-- Copyright -->
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2020 Copyright:
+            <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
             </div>
-        </div>
+            <!-- Copyright -->
+        </footer>
+
     </div>
-    <!-- End Foot Note -->
+    <!-- End of Footer -->
 
     <!-- link -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

@@ -25,32 +25,32 @@
     
     <!-- Box Login -->
     <div class="row justify-content-center">
-        <div class="boxLogin col-md-7">
+        <div class="boxLogin col-md-5">
             @if(session()->has('loginError'))
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 {{ session('loginError')}}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             @endif
-            <p class="textLogin">Login Admin</p>
+            <p class="textLogin">Login</p>
             <div class="formLogin">
                 <form action="/login" method="post">
                     @csrf
                     <div class="row mb-3">
-                        <label for="inputUsername" class="col-sm-2 col-form-label">Username</label>
-                        <div class="col-sm-10">
+                        <label for="inputUsername" class="col-sm-3 col-form-label">Username</label>
+                        <div class="col-sm-9">
                             <input type="text" name="username" class="form-control custom-input" id="username" autofocus required>
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                        <div class="col-sm-10">
+                        <label for="inputPassword" class="col-sm-3 col-form-label">Password</label>
+                        <div class="col-sm-9">
                             <input type="password" name="password" class="form-control custom-input" id="password" required>
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <div class="offset-sm-10">
-                            <button class="btn btn-secondary"><a href="/"></a>Login</button>
+                        <div class="offset-sm-9">
+                            <button class="btn btn-secondary"><a href="/pesanan"></a>Login</button>
                         </div>
                     </div>
                 </form>

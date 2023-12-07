@@ -25,14 +25,14 @@
     
     <!-- Box Login -->
     <div class="row justify-content-center">
-        <div class="boxLogin col-md-7">
+        <div class="boxLogin col-md-5">
             @if(session()->has('registerError'))
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                 {{ session('registerError') }}
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             @endif
-            <p class="textLogin">Register Admin</p>
+            <p class="textLogin">Register</p>
             <div class="formregister">
                 <form action="/register" method="post">
                     @csrf
@@ -50,8 +50,19 @@
                     <div class="row mb-3">
                         <label for="inputUsername" class="col-sm-3 col-form-label">Username</label>
                         <div class="col-sm-9">
-                            <input type="text" name="username" class="form-control custom-input @error('name') is-invalid @enderror" id="username" required value="{{old('username')}}">
+                            <input type="text" name="username" class="form-control custom-input @error('username') is-invalid @enderror" id="username" required value="{{old('username')}}">
                             @error('username')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="inputPassword" class="col-sm-3 col-form-label">No Telepon</label>
+                        <div class="col-sm-9">
+                            <input type="number" name="notlp" class="form-control custom-input @error('notlp') is-invalid @enderror" id="notlp" required>
+                            @error('notlp')
                             <div class="invalid-feedback">
                                 {{ $message }}
                             </div>
@@ -61,7 +72,7 @@
                     <div class="row mb-3">
                         <label for="inputEmail" class="col-sm-3 col-form-label">Email</label>
                         <div class="col-sm-9">
-                            <input type="email" name="email" class="form-control custom-input @error('name') is-invalid @enderror" id="email" required value="{{old('email')}}">
+                            <input type="email" name="email" class="form-control custom-input @error('email') is-invalid @enderror" id="email" required value="{{old('email')}}">
                             @error('email')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -72,7 +83,7 @@
                     <div class="row mb-3">
                         <label for="inputPassword" class="col-sm-3 col-form-label">Password</label>
                         <div class="col-sm-9">
-                            <input type="password" name="password" class="form-control custom-input @error('name') is-invalid @enderror" id="password" required>
+                            <input type="password" name="password" class="form-control custom-input @error('password') is-invalid @enderror" id="password" required>
                             @error('password')
                             <div class="invalid-feedback">
                                 {{ $message }}
@@ -81,8 +92,8 @@
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <div class="offset-sm-10">
-                            <button class="btn btn-secondary"><a href="/login"></a>Register</button>
+                        <div class="offset-sm-9">
+                            <button type="submit" class="btn btn-secondary">Register</button>
                         </div>
                     </div>
                 </form>
