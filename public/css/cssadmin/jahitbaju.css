@@ -113,6 +113,20 @@ body{
     cursor: pointer;
 }
 
+.custom-file-upload {
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.custom-file-upload:hover {
+    background-color: #45a049;
+}
 
 .navbar {
     background-color: #BBD6B8;

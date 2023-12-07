@@ -20,16 +20,34 @@
 </head>
 <body>
     <!-- Brand App -->
-    <div class="brandApp">
-        <div class="Aniqah" style="margin-top: 20px;">
-            <h1 class="textAniqah">Aniqah Collection</h1>
-            <h7 class="deskripsiBrand">Sewa baju bodo dan jasa jahit baju</h7>
+    <div class="ps-5 mb-4 pt-2">
+        <div class="d-flex align-items-center justify-content-between">
+            <div>
+                <p class="textAniqah m-0">Aniqah Collection</p>
+                <p class="deskripsiBrand fs-5 fst-italic fw-light m-0">Sewa baju bodo dan jasa jahit baju</p>
+            </div>
+
+            <!-- Tombol Login dan Registrasi atau Nama Pengguna -->
+            <div style="margin-right: 50px;">
+                @guest <!-- Cek apakah pengguna belum login -->
+                    <button class="btn me-2" style="background-color: #BBD6B8">
+                        <a href="/register" class="text-decoration-none" style="color: #000000;">Daftar</a>
+                    </button>
+                    <button class="btn" style="background-color: #BBD6B8">
+                        <a href="/login" class="text-decoration-none" style="color: #000000;">Masuk</a>
+                    </button>
+                @else <!-- Jika pengguna sudah login -->
+                    <button class="btn">
+                        <a href="/profil" class="text-decoration-none" style="color: #000000;">Selamat datang, {{ Auth::user()->name }}</a>
+                    </button>
+                @endguest
+            </div>
         </div>
     </div>
     <!-- end Brand App -->
 
-<!-- Menu App -->
-<nav class="navbar navbar-expand-md navbar-light">
+    <!-- Menu App -->
+    <nav class="navbar navbar-expand-md navbar-light">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -51,9 +69,6 @@
                     <li class="nav-item">
                         <a class="nav-link fw-bold" href="/carapemesanan">Cara Pemesanan</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/jahitbaju">Jahit</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -61,27 +76,29 @@
     <!-- End Menu App -->
 
     <!-- Tata Cara Pemesanan -->
-    <div class="container">
-        <div class="judul text-center py-4">
-            <h1>TATA CARA PEMESANAN</h1>
-        </div>
-
-        <div class="row">
-        @foreach($carapesan as $carapesan)
-        <div class="col-md-2 mb-2 custom-card rounded-circle">
-            <div class="row">
-                <p class="custom-text" id="step1">{{ $carapesan->no }}</p>
-            </div>
-        </div>
-
-        <div class="col-md-8 mb-2 custom-card">
-            <div class="row">
-                <p class="custom-text" id="step1">{{ $carapesan->step }}</p>
-            </div>
-        </div>
-            @endforeach
-        </div>
+    <div class="judul text-center py-4">
+        <h1>TATA CARA PEMESANAN</h1>
     </div>
+    
+    <div class="row">
+        @foreach($carapesan as $pesan)
+            <div class="col-md-6">
+                    <div class="row g-1">
+                        <div class="col-md-4">
+                            <div class="rounded-card">
+                                <p class="custom-text" id="step1">{{ $pesan->no }}</p>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="custom-card">
+                                <div class="card-body">
+                                    <p class="card-text" id="step1">{{ $pesan->step }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        @endforeach
     </div>
     <!-- End Tata Cara Pemesanan -->
 

@@ -20,6 +20,7 @@ class registerController extends Controller
                 'username' => 'required|min:3|max:255|unique:users',
                 'email' => 'required|email|unique:users',
                 'password' => 'required|max:255',
+                'notlp' => 'required'
             ]);
     
              // Enkripsi password sebelum disimpan ke database

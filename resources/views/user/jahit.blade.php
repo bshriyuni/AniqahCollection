@@ -127,16 +127,27 @@
     </div>
 
     <div class="order">
-        <div class="custom-button" onclick="window.open('https://api.whatsapp.com/send?phone=085299581471')">
+        <div class="custom-button" id="openModalButton" onclick="openWhatsAppChat()">
             <p style="font-size: 18px; font-family: 'Inter-ExtraBold'; color: #333; text-align: center; margin-top: 13px;">
-                Hubungi Penjahit
+                Hubungi Penjual
             </p>
         </div>
     </div>
 
-    <a href="https://wa.me/085299581471" target="_blank">
-                <img src="https://i.imgur.com/wzMuhBf.png" alt="WhatsApp" width="64px" height="64px">
-            </a>
+    <!-- Kode JavaScript untuk membuka chat WhatsApp -->
+    <script>
+        function openWhatsAppChat() {
+            // Ganti nomor telepon sesuai kebutuhan
+            var nomorTelepon = "6285299581471";
+            
+            // Membuat URL chat WhatsApp
+            var whatsappURL = "https://api.whatsapp.com/send?phone=" + nomorTelepon;
+
+            // Buka link WhatsApp
+            window.open(whatsappURL, "_blank");
+        }
+    </script>
+
 
     <!-- FootNote -->
     <div class="footNote">

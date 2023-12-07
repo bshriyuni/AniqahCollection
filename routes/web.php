@@ -6,6 +6,7 @@ use App\Http\Controllers\ClothesController;
 use App\Http\Controllers\DetailProdukController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LokasiController;
+use App\Http\Controllers\ProfilController;
 use App\Http\Controllers\registerController;
 
 use Illuminate\Support\Facades\Route;
@@ -41,7 +42,24 @@ Route::get('/jahitbaju', function () {
     return view('user/jahit');
 });
 
+Route::get('/profil', function () {
+    return view('user/profil');
+});
+
+Route::get('/ubahprofil', function () {
+    return view('user/ubahprofil');
+});
+
+Route::get('/statuspesanan', function () {
+    return view('user/statuspesanan');
+});
+
 Route::get('/carapemesanan', [carapesanController::class, 'indexUser']);
+
+Route::get('/profil', [ProfilController::class, 'index']);
+Route::get('/profil/edit', [ProfilController::class, 'edit'])->name('profil.edit');
+Route::post('/profil/update', [ProfilController::class, 'update'])->name('profil.update');
+Route::get('/profil/pesanan', [ProfilController::class, 'profilPesanan']);
 
 Route::get('/login', [LoginController::class, 'login']);
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -58,10 +76,12 @@ Route::middleware(['admin'])->group(function () {
     Route::delete('/adminproduct/{id}', [ClothesController::class, 'delete'])->name('produk.delete');
     Route::post('/editClothingData/{kode_baju}', [ClothesController::class, 'update']);
     Route::get('/getClothingData/{kode_baju}', [ClothesController::class, 'getClothingData']);
-    
+   
     Route::get('/admincarapemesanan', [carapesanController::class, 'indexAdmin']);
     Route::post('/admincarapemesanan', [carapesanController::class, 'add']);
     Route::delete('/admincarapemesanan/{id}', [carapesanController::class, 'destroy'])->name('carapemesanan.destroy');;
+    Route::get('/admincarapemesanan/{id}', [carapesanController::class, 'edit'])->name('carapemesanan.edit');
+    Route::post('/admincarapemesanan/{id}', [carapesanController::class, 'update'])->name('carapemesanan.update');
 
     // Menambahkan route untuk menampilkan halaman testimoni
     Route::get('/admintestimoni', [TestimoniController::class, 'index'])->name('testimoni.index');
