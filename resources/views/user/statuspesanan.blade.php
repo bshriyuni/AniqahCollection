@@ -88,7 +88,7 @@
 
             <div class="table-container">
                 <div class="table-header">
-                    <h2>Judul Tabel</h2>
+                    <h2>Riwayat Pemesanan</h2>
                 </div>
                 <div class="table-content">
                     <div class="color-box"></div>
