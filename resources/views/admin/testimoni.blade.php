@@ -18,7 +18,7 @@
     <div class="brandApp d-flex justify-content-between align-items-center">
         <div class="Aniqah" style="margin-top: 20px;">
             <h1 class="textAniqah">Aniqah Collection</h1>
-            <h7 class="deskripsiBrand">Sewa baju bodo dan jasa jahit baju</h7>
+            <h7 class="deskripsiBrand">Tempat Penyewaan Baju Bodo</h7>
         </div>
 
         <!-- tombol edit testimoni -->

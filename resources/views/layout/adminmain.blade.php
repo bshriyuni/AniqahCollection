@@ -31,7 +31,7 @@
     <div class="ps-5 mb-4 pt-2 pe-5 row">
         <div class="col align-middle">
             <p class="textAniqah m-0">Aniqah Collection</p>
-            <p class="deskripsiBrand fs-5 fst-italic fw-light m-0">Sewa baju bodo dan jasa jahit baju</p>
+            <p class="deskripsiBrand fs-5 fst-italic fw-light m-0">Tempat Penyewaan Baju Bodo</p>
         </div>
         <div class="col text-end pe-5 pt-4">
             @yield('icon')

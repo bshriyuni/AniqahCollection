@@ -22,7 +22,7 @@
     <div class="row brandApp">
         <div class="col-md-11 col-12 Aniqah" style="margin-top: -30px; margin-bottom: -40px;">
             <h1 class="textAniqah">Aniqah Collection</h1>
-            <h7 class="deskripsiBrand">Sewa baju bodo dan jasa jahit baju</h7>
+            <h7 class="deskripsiBrand">Tempat Penyewaan Baju Bodo</h7>
         </div>
         <div class="col-md-1 col-12" style="text-align: right;">
             <button id="editButton" type="button" class="btn btn-light" data-toggle="modal" data-target="#editModal" style="margin-right: -20px;">
