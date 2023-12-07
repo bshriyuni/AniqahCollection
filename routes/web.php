@@ -42,18 +42,6 @@ Route::get('/jahitbaju', function () {
     return view('user/jahit');
 });
 
-Route::get('/profil', function () {
-    return view('user/profil');
-});
-
-Route::get('/ubahprofil', function () {
-    return view('user/ubahprofil');
-});
-
-Route::get('/statuspesanan', function () {
-    return view('user/statuspesanan');
-});
-
 Route::get('/carapemesanan', [carapesanController::class, 'indexUser']);
 
 Route::get('/profil', [ProfilController::class, 'index']);

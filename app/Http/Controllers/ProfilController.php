@@ -102,8 +102,6 @@ class ProfilController extends Controller
             return back()->with('error', 'Gagal memperbarui profil');
         }
     }
-    
-
 
     public function profilPesanan(){
         if (Auth::check()) {
@@ -130,5 +128,7 @@ class ProfilController extends Controller
             'notlp' => $notlp,
             'created_at' => $created_at
         ]);
+
+        
     }
 }

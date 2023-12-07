@@ -24,7 +24,7 @@
         <div class="d-flex align-items-center justify-content-between">
             <div>
                 <p class="textAniqah m-0">Aniqah Collection</p>
-                <p class="deskripsiBrand fs-5 fst-italic fw-light m-0">Sewa baju bodo dan jasa jahit baju</p>
+                <p class="deskripsiBrand fs-5 fst-italic fw-light m-0">Tempat Penyewaan Baju Bodo</p>
             </div>
 
             <!-- Tombol Login dan Registrasi atau Nama Pengguna -->

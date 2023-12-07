@@ -33,7 +33,7 @@
             <div>
                 <p class="textAniqah m-0" style="font-size: 64px; margin-bottom: 0px; font-family: 'OleoScript-Bold';">Aniqah Collection</p>
                 <p class="deskripsiBrand fs-5 fst-italic fw-light m-0" style="font-family: 'Inter-Light'; font-size: 20px;margin-top: 0px; font-style: italic;">
-                Sewa baju bodo dan jasa jahit baju</p>
+                Tempat Penyewaan Baju Bodo</p>
             </div>
 
             <!-- Tombol Login dan Registrasi atau Nama Pengguna -->
