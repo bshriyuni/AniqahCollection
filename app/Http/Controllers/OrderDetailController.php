@@ -12,9 +12,10 @@ class OrderDetailController extends Controller
      */
     public function index()
     {
-        $orderDetails = OrderDetail::all(); // Ambil semua data pesanan dari database
+        $orderDetails = OrderDetail::where('status', '!=', 'Selesai')->paginate(3);
+        $selesai = OrderDetail::where('status', '=', 'Selesai')->paginate(3);
 
-        return view('admin/pesanan', compact('orderDetails'));
+        return view('admin/pesanan', compact('orderDetails', 'selesai'));
     }
 
     /**
