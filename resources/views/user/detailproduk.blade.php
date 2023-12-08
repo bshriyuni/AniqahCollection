@@ -5,6 +5,7 @@ Produk
 @endsection
 @section('style')
 <script src="https://kit.fontawesome.com/2f5ba850ff.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 @endsection
 @section('container')
 <!-- Detail Produk -->
@@ -74,8 +75,37 @@ Produk
 
 <!-- Tombol Booking -->
 <button type="button" class="btn btn-block w-100 btn-outline-0 mt-4" style="background-color: #BBD6B8;"
-    data-bs-toggle="modal" data-bs-target="#bookingModal">Booking Sekarang</button>
+    data-bs-toggle="modal" onclick="checkLoginAndShowPopup()">Booking Sekarang</button>
 <!-- End Tombol Booking -->
+
+<!-- jika belum melakukan login -->
+<script>
+    function checkLoginAndShowPopup() {
+        // Lakukan pemeriksaan login di sini
+        var isLoggedIn = <?php echo json_encode(auth()->check()); ?>;
+
+        if (!isLoggedIn) {
+            // Jika belum login, tampilkan alert pemberitahuan
+            Swal.fire({
+                icon: 'info',
+                title: 'Pemberitahuan',
+                text: 'Anda perlu login terlebih dahulu untuk melakukan booking.',
+                confirmButtonText: 'OK',
+                allowOutsideClick: false // This prevents closing the alert by clicking outside
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Redirect ke halaman login
+                    window.location.href = '/login';
+                }
+            });
+        } else {
+            // Jika sudah login, tampilkan modal formulir booking
+            $('#bookingModal').modal('show');
+        }
+    }
+</script>
+<!-- End -->
+
 <form method="POST" action="/product/create">
     @csrf
     <!-- Modal Form-->

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\orderDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -124,11 +125,11 @@ class ProfilController extends Controller
             'username' => $username,
             'name' => $name,
             'email' => $email,
-            'password' => $password, // Menggantikan password dengan karakter bintang
+            'password' => $password,
             'notlp' => $notlp,
             'created_at' => $created_at
         ]);
+        // $pesanan = orderDetail::all()
 
-        
     }
 }
