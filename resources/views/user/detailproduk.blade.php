@@ -106,7 +106,7 @@ Produk
 </script>
 <!-- End -->
 
-<form method="POST" action="/product/create">
+<form id="myForm" method="POST" action="/product/{{$produk->kode_baju}}" enctype="multipart/form-data">
     @csrf
     <!-- Modal Form-->
     <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
@@ -178,11 +178,11 @@ Produk
                                 Non-Tunai
                             </label>
                             <p class="bg-secondary text-white p-2 ps-4" id="textTunai">
-                                Bank Mandiri (An.Adelia Puspita Hilal) <br>
-                                1740006333819 <br>
+                                Bank Mandiri (ISTY HAMDAYANI) <br>
+                                1520033367133 <br>
                                 <br>
-                                Bank BNi (An.Adelia Puspita Hilal) <br>
-                                0276432481 <br>
+                                Bank BRI (ISTY HAMDAYANI) <br>
+                                033301058314501 <br>
                             </p>
                         </div>
                     </div>
@@ -233,6 +233,15 @@ Produk
                         <p class="col-sm-5">Pembayaran</p>
                         <p class="nama col-sm-7" id="pembayaran"></p>
                     </div>
+                    <div class="mb-3 row" id="bukti">
+                        <label for="inputFoto" class="col-sm-3 col-form-label">Bukti Pembayaran</label>
+                        <div class="col-sm-9">
+                            <input class="form-control" type="file" id="buktiPembayaran" accept="image/*" name="bukti_pembayaran"
+                                onchange="previewEditImage(event)">
+                            <div id="editGambar">
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <p class="note">Note: Pengambilan dan pengembalian baju diberlakukan maximal 2 hari. jika melewati
@@ -240,7 +249,7 @@ Produk
                         tersebut maka akan dikenakan biaya denda sesuai s&k yang berlaku</p>
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close"
                         id="cancelButton">Batalkan</button>
-                    <button type="submit" class="btn btn-success" id="btnKonfirmasi">Konfirmasi</button>
+                    <button type="submit" class="btn btn-success" id="submitData">Konfirmasi</button>
                 </div>
             </div>
         </div>
@@ -252,6 +261,21 @@ Produk
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
+document.getElementById('submitData').addEventListener('click', function() {
+    
+    var form = document.getElementById('myForm'); 
+    if (form) {
+        form.submit();
+    }
+});
+function previewEditImage(event) {
+    var reader = new FileReader();
+    reader.onload = function() {
+        var output = document.getElementById('editGambar');
+        output.innerHTML = '<img src="' + reader.result + '" width="100%" height="100%" />';
+    };
+    reader.readAsDataURL(event.target.files[0]);
+}
 var produk = @json($produk);
 $(document).ready(function() {
     $('#textTunai').hide();
@@ -259,10 +283,14 @@ $(document).ready(function() {
         if (this.id === 'tunai') {
             $('#pembayaran').text('Tunai');
             $('#textTunai').hide();
+            $('#bukti').hide();
+            $('#buktiPembayaran').prop('required', false);
 
         } else if (this.id === 'nonTunai') {
-            $('#textTunai').show();
             $('#pembayaran').text('Non-Tunai');
+            $('#textTunai').show();
+            $('#bukti').show();
+            $('#buktiPembayaran').prop('required', true);
         }
     });
     $('#inputName').on('input', function() {
@@ -279,6 +307,7 @@ $(document).ready(function() {
         var totalHarga = jumlahDewasa * hargaPerBarang;
 
         $('#HargaInput').val(totalHarga);
+        $('#HargaInput').prop(`value`, totalHarga);
         $('#harga').text(totalHarga);
     });
     $('#inputTglPengembalian').on('input', function() {

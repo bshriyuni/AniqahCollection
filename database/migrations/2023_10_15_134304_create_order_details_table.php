@@ -25,6 +25,7 @@ return new class extends Migration
             $table->enum('pembayaran', ['tunai', 'non-tunai']);
             $table->string('bukti_pembayaran');
             $table->enum('status', ['Menunggu Konfirmasi', 'Proses Pengambilan', 'Pesanan Diambil', 'Selesai'])->default('Menunggu Konfirmasi');
+            $table->string('bukti_pembayaran')->nullable();
             $table->timestamps();
 
             $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');;

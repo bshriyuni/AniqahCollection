@@ -32,7 +32,7 @@ Route::get('/lokasi', [LokasiController::class, 'indexuser']);
 
 Route::get('/product', [ClothesController::class, 'indexUser'])->name('product');
 Route::get('/product/{kode_test}', [DetailProdukController::class, 'index']);
-Route::post('/product/create', [DetailProdukController::class, 'store']);
+Route::post('/product/{kode_test}', [DetailProdukController::class, 'store']);
 
 Route::get('/testimoni', function () {
     return view('user/testimoni');

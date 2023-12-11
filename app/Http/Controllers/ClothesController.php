@@ -101,16 +101,19 @@ class ClothesController extends Controller
     }
 
     public function delete($id){
-        $produk = Clothes::findOrFail($id);
+        $product = Clothes::findOrFail($id);
 
-        // Hapus gambar (optional)
-        if (file_exists(public_path('foto/' . $produk->gambar))) {
-            unlink(public_path('foto/' . $produk->gambar));
+        // Delete associated order details
+        $product->orderDetails()->delete();
+    
+        // Delete associated image (optional)
+        if (file_exists(public_path('foto/' . $product->gambar))) {
+            unlink(public_path('foto/' . $product->gambar));
         }
-
-        // Hapus data dari database
-        $produk->delete();
-
-        return back()->with('success', 'produk berhasil ditambahkan.');
+    
+        // Delete the product from the database
+        $product->delete();
+    
+        return back()->with('success', 'Product deleted successfully.');
     }
 }

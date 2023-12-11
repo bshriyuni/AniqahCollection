@@ -27,7 +27,7 @@ Produk
                         @csrf
                         @method('DELETE')
                     </form>
-                    <a class="btn" onclick="confirmDelete({{ $clothing->id }});">
+                    <a class="btn" onclick="confirmDelete( {{ $clothing->id }} );">
                         <i class="fas fa-trash text-danger"></i>
                     </a>
                     <a class="btn edit-btn" data-bs-toggle="modal" data-bs-target="#modal-edit"
@@ -218,26 +218,7 @@ Produk
 </div>
 <!-- End Modal untuk pesan gagal -->
 
-<!-- Script Modal Alert -->
-<script>
-@if(session('success'))
-Swal.fire({
-    icon: 'success',
-    title: 'Sukses!',
-    text: '{{ session('
-    success ') }}'
-});
-@endif
 
-@if(session('error'))
-Swal.fire({
-    icon: 'error',
-    title: 'Oops...',
-    text: '{{ session('
-    error ') }}'
-});
-@endif
-</script>
 <!-- End Script Modal Alert -->
 <!-- End Modal Alert -->
 <script>
