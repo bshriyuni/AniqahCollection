@@ -81,6 +81,7 @@ Produk
                             </div>
                         </div>
                     </div>
+                    
                     <div class="mb-3 row">
                         <label for="inputDewasa" class="col-sm-3 col-form-label">Jumlah Dewasa</label>
                         <div class="col-sm-9">
@@ -264,7 +265,6 @@ document.querySelectorAll('.edit-btn').forEach(btn => {
                 document.getElementById('harga').value = data.harga;
                 document.getElementById('editGambar').innerHTML = '<img src="../foto/' + data
                     .gambar + '" width="100%" height="100%" />';
-
                 // Populate other form fields similarly with retrieved data
             })
             .catch(error => console.error('Error:', error));

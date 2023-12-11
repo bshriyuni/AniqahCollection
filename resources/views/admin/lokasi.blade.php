@@ -57,7 +57,7 @@
         <div class="row brandApp">
             <div class="col-md-11 col-12 Aniqah" style="margin-top: -30px; margin-bottom: -40px;">
                 <h1 class="textAniqah">Aniqah Collection</h1>
-                <h7 class="deskripsiBrand">Sewa baju bodo dan jasa jahit baju</h7>
+                <h7 class="deskripsiBrand">Tempat Penyewaan Baju Bodo</h7>
             </div>
             <div class="col-md-1 col-12" style="text-align: right;">
                 <button id="editButton" type="button" class="btn btn-light" data-toggle="modal" data-target="#editModal" style="margin-right: -20px;">
@@ -109,33 +109,6 @@
         </div>
         <!-- End Modal Edit Lokasi -->
 
-        <!-- Modal Alert -->
-        <!-- Modal untuk pesan berhasil -->
-        <div class="modal" id="successModal" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content text-center">
-                    <div class="modal-body">
-                        <i class="fas fa-check-circle fa-5x" style="color: #28a745;"></i>
-                        <p class="mt-3">Data lokasi berhasil disimpan.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Modal untuk pesan berhasil -->
-
-        <!-- Modal untuk pesan gagal -->
-        <div class="modal" id="errorModal" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content text-center">
-                    <div class="modal-body">
-                        <i class="fas fa-times-circle fa-5x" style="color: #dc3545;"></i>
-                        <p class="mt-3">Gagal menyimpan data lokasi.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End Modal untuk pesan gagal -->
-
         <!-- Script Modal Alert -->
         <script>
             @if(session('success'))
@@ -155,7 +128,6 @@
             @endif
         </script>
         <!-- End Script Modal Alert -->
-        <!-- End Modal Alert -->
 
         <!-- Menu App -->
         <nav class="navbar navbar-expand-md navbar-light">
@@ -179,9 +151,6 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/admincarapemesanan">Cara Pemesanan</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/adminjahit">Jahit</a>
                         </li>
                     </ul>
                 </div>

@@ -20,7 +20,11 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Jika autentikasi berhasil
-            return redirect()->intended('/pesanan');
+            if (Auth::user()->role == 'admin') {
+                return redirect()->intended('/pesanan');
+            } else {
+                return redirect()->intended('/');
+            }
         }
 
         return back()->with('loginError', 'Login Failed!');

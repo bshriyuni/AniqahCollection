@@ -70,12 +70,11 @@ class ClothesController extends Controller
         //Validasi data input jika diperlukan
         $validatedData = $request->validate([
             'kodeBaju' => 'required',
+            'stok' => 'required',
             'deskripsi' => 'required',
-            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'jumlahDewasa' => 'required',
-            'jumlahAnak' => 'required',
             'syaratKetentuan' => 'required',
-            'harga' => 'required'
+            'harga' => 'required',
+            'gambar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         // Upload gambar
@@ -85,12 +84,11 @@ class ClothesController extends Controller
         // Buat instance model dan masukkan data dari permintaan
         $clothes = new clothes();
         $clothes->kode_baju = $validatedData['kodeBaju'];
+        $clothes->stok = $validatedData['stok'];
         $clothes->deskripsi = $validatedData['deskripsi'];
-        $clothes->gambar = $imageName;
-        $clothes->jumlah_dewasa = $validatedData['jumlahDewasa'];
-        $clothes->jumlah_anak = $validatedData['jumlahAnak'];
-        $clothes->syarat_ketentuan = $validatedData['syaratKetentuan'];
+        $clothes->SnK = $validatedData['syaratKetentuan'];
         $clothes->harga = $validatedData['harga'];
+        $clothes->gambar = $imageName;
         $clothes->save();
 
         // Simpan data ke dalam database

@@ -1,32 +1,34 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title')</title>
-    <link rel="stylesheet" href="/css/font.css">
-    @yield('style')
-    <script src="https://kit.fontawesome.com/2f5ba850ff.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil</title>
+
+    <!-- Link Bootstraps -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- Link CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link rel="stylesheet" href="css/cssuser/profil.css">
+    <!-- link font awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('font') }}"> <!-- Ganti 'font.css' dengan nama file CSS Anda -->
     <style>
-    .navbar {
-        background-color: #BBD6B8;
-    }
-
-    .textAniqah {
-        font-family: 'OleoScript-Bold';
-        font-size: 64px;
-    }
-
-    .deskripsiBrand {
-        font-family: 'Inter-Light';
-    }
+        @font-face {
+            font-family: "OleoScript-Bold";
+            src: url(/font/OleoScript-Bold.ttf) format('truetype');
+        }
+        @font-face {
+            font-family: "Inter-Light";
+            src: url(/font/Inter-Light.ttf) format('truetype');
+        }
+        @font-face {
+            font-family: "Inter-ExtraBold";
+            src: url(/font/Inter-ExtraBold.ttf) format('truetype');
+        }
     </style>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
-
-<body>
+<body style="background-color:#FFFFFF;">
     <!-- Brand App --> 
     <div class="ps-5 mb-4 pt-2">
         <div class="d-flex align-items-center justify-content-between">
@@ -54,7 +56,7 @@
         </div>
     </div>
     <!-- end Brand App -->
-
+    
     <!-- Menu App -->
     <nav class="navbar navbar-expand-md navbar-light" style="background-color: #BBD6B8; margin-top: 30px; text-align: justify;">
         <div class="container-fluid">
@@ -84,10 +86,74 @@
     </nav>
     <!-- End Menu App -->
 
-    <div class="container p-5">
-        @yield('container')
+    <!-- Profil Saya -->
+    <div class="profil" style="display: flex; justify-content: space-between; width: 100%; margin: 0 auto;">
+        <div class="content-left" style="flex-basis: 25%; margin-left: 30px; margin-top: 30px;">
+            <div class="row">
+                <div class="profile-circle col-7" style="width: 100px;height: 100px; background-color: #D6B8D5; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+                    <span class="profile-icon" style="font-size: 60px;">&#128103;</span>
+                </div>
+                <div class="username col-5" style="margin-top: 15px;">
+                    <div>
+                        @if($profil)
+                            <p>{{ $profil['username'] }}</p>
+                        @endif
+                        <a href="/profil/edit"><i class="editProfil fas fa-edit">
+                            Edit Profile
+                        </i> </a>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div class="d-flex flex-column">
+                <button class="btn mb-2" style="text-align: left;">
+                    <a href="/profil" class="text-decoration-none" style="color: #000;">
+                        <i class="fas fa-user"> </i>
+                        Akun Saya
+                    </a>
+                </button>
+                <button class="btn"  style="text-align: left;">
+                    <a href="/profil/pesanan" class="text-decoration-none" style="color: #E97E67;">
+                        <i class="fas fa-shopping-cart"></i>
+                        Pesanan Saya
+                    </a>
+                </button>
+            </div>
+        </div>
+        <div class="vertical-line" style="border-left: 2px solid #D9D9D9 ; height: 1000px; margin-top: 20px; margin-bottom: 20px;"></div>
+        <div class="content-right" style="flex-basis: 80%; margin-left: 30px; margin-top: 30px;">
+            <div class="card" style="margin-right: 30px; background-color: #F7F0F0">
+                <div class="card-header" style="background-color: #BBD6B8">
+                    <p style="font-size: 25px">Riwayat Pesanan</p>
+                </div>
+                <div class="card-body">
+                    @foreach($pesanan as $item)
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="container" style="background-color: #F4EEEE; padding:5px;">
+                                    <img src="foto/baju2.jpg" class="card-img-bottom" alt="..." style="height: 200px;">
+                                </div>
+                            </div>
+                            <div class="col-9">
+                                <h2>{{ $item->status }}</h2>
+                                <h5>{{ $item->kode_baju }}</h5>
+                                <h5>Rp {{ $item->harga }}</h5>
+                                <h2>Sedang diproses</h2>
+                                <h5>A123</h5>
+                                <h5>Rp 20.000</h5>
+                                <br><br>
+                                <button type="submit" class="btn" style="background-color: #E97E67">
+                                    <a href="/profil/pesanan/detail" class="text-decoration-none text-end" style="color: #000000;">Batalkan Pesanan</a>
+                                </button>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
     </div>
-    
+    <!-- End Profil Saya -->
+
     <!-- FootNote -->
     <div class="footNote" style="background-color: #BBD6B8; padding: 40px;">
         <div class="ini row" style="margin: 60px;">
@@ -109,12 +175,11 @@
         </div>
     </div>
     <!-- End Foot Note -->
+
+    <!-- link -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
