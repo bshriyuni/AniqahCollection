@@ -118,18 +118,16 @@ class ProfilController extends Controller
             $created_at = $user->created_at;
         } else {
             // Tidak ada pengguna yang sudah login
-            $username = null;
+            $user = null;
         }
 
-        return view('/user/profil/profilPesanan', [
-            'username' => $username,
-            'name' => $name,
-            'email' => $email,
-            'password' => $password,
-            'notlp' => $notlp,
-            'created_at' => $created_at
-        ]);
-        // $pesanan = orderDetail::all()
-
+        $profil = ['username' => $username,
+        'name' => $name,
+        'email' => $email,
+        'password' => $password,
+        'notlp' => $notlp,
+        'created_at' => $created_at];
+        $pesanan = orderDetail::all();
+        return view('/user/profil/profilPesanan', compact('profil', 'pesanan'));
     }
 }
