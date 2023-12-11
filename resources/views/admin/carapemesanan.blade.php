@@ -66,81 +66,78 @@
             <h1>TATA CARA PEMESANAN</h1>
         </div>
         
-    <div class="row">
-        @foreach($carapesan as $pesan)
-            <div class="col-md-6">
-                    <div class="row g-1">
-                        <div class="col-md-4">
-                            <div class="rounded-card">
-                                <p class="custom-text" id="step1">{{ $pesan->no }}</p>
-                            </div>
+        <div class="row">
+            @foreach($carapesan as $pesan)
+            <div class="col col-6">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="rounded-card">
+                            <p class="custom-text" id="step1">{{ $pesan->no }}</p>
                         </div>
-                        <div class="col-md-8">
-                            <div class="custom-card">
-                                <div class="card-body">
-                                    <p class="card-text" id="step1">{{ $pesan->step }}</p>
-                                    <a href="{{ route('carapemesanan.destroy', $pesan->id) }}" type="button" class="btn" data-toggle="modal" data-target="#modal-edit" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $pesan->id }}').submit();">
-                                        <i class="fas fa-trash text-danger"></i>
-                                    </a>
-                                    <form id="delete-form-{{ $pesan->id }}" action="{{ route('carapemesanan.destroy', $pesan->id) }}" method="POST" style="display: none;">
-                                        @csrf
-                                        @method('DELETE')
-                                    </form>
-                                    <a href="modal-edit-{{ $pesan->id }}" type="button" class="btn" data-toggle="modal" data-target="#modal-edit-{{ $pesan->id }}">
-                                        <i class="fas fa-edit text-info"></i>
-                                    </a>                          
-                                </div>
+                    </div>
+                    <div class="col-9">
+                        <div class="custom-card" >
+                            <div class="card-body" style="text-align :start; width: 300px; height: 200px;">
+                                <p class="card-text" id="step1">{{ $pesan->step }}</p> 
+                            </div>
+                            <div class="">
+                                <a href="{{ route('carapemesanan.destroy', $pesan->id) }}" type="button" class="btn" data-toggle="modal" data-target="#modal-edit" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $pesan->id }}').submit();">
+                                    <i class="fas fa-trash text-danger"></i>
+                                </a>
+                                <form id="delete-form-{{ $pesan->id }}" action="{{ route('carapemesanan.destroy', $pesan->id) }}" method="POST" style="display: none;">
+                                    @csrf
+                                    @method('DELETE')
+                                </form>
+                                <a href="modal-edit-{{ $pesan->id }}" type="button" class="btn" data-toggle="modal" data-target="#modal-edit-{{ $pesan->id }}">
+                                    <i class="fas fa-edit text-info"></i>
+                                </a>                             
                             </div>
                         </div>
                     </div>
                 </div>
-                 <!-- Modal Edit step-->
+            </div>
+
+            <!-- Modal Edit step-->
             @if(isset($pesan))
             <div class="modal fade" id="modal-edit-{{ $pesan->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog modal-lg">
                     <div class="modal-content">
-                        <div class="modal-header" style="background-color: #BBD6B8">
-                            <h5 class="modal-title" id="exampleModalLabel">Aniqah Collection</h5>
-                            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" style="margin-right:10px;"></button>
-                        </div>
-                        <div class="modal-body">
-                            <!-- Isi di sini -->
-                            <h3 class="h3carapesan">Edit Step</h3>
-                            <form class="mx-auto" style="max-width: 700px;" action="{{ route('carapemesanan.update', $pesan->id) }}" method="post" enctype="multipart/form-data">
-                                @csrf
-                                <div class="mb-3 row">
-                                    <label for="nostep" class="col-sm-3 col-form-label">No Step</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="nostep" name="nostep" value="{{ $pesan->no }}" autofocus>
+                            <div class="modal-header" style="background-color: #BBD6B8">
+                                <h5 class="modal-title" id="exampleModalLabel">Aniqah Collection</h5>
+                                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" style="margin-right:10px;"></button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Isi di sini -->
+                                <h3 class="h3carapesan">Edit Step</h3>
+                                <form class="mx-auto" style="max-width: 700px;" action="{{ route('carapemesanan.update', $pesan->id) }}" method="post" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="mb-3 row">
+                                        <label for="nostep" class="col-sm-3 col-form-label">No Step</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" id="nostep" name="nostep" value="{{ $pesan->no }}" autofocus>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="mb-3 row">
-                                    <label for="isistep" class="col-sm-3 col-form-label">Isi Step</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="isistep" name="isistep" value="{{ $pesan->step }}" autofocus>
+                                    <div class="mb-3 row">
+                                        <label for="isistep" class="col-sm-3 col-form-label">Isi Step</label>
+                                        <div class="col-sm-9">
+                                            <textarea type="text" class="form-control summernote" id="isistep" name="isistep" required>{{ $pesan->step }}</textarea>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="offset-sm-10">
-                                        <button type="submit" class="btn btn-success" id="submit">Submit</button>
+                                    <div class="row mb-3">
+                                        <div class="offset-sm-10">
+                                            <button type="submit" class="btn btn-success" id="submit">Submit</button>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>  
+                                </form>
+                            </div>
+                        </div>  
+                    </div>
                 </div>
-            </div>
-            @endif
-            <!-- End Edit Step -->
-        @endforeach
-    </div>
-
-
-           
-        
-    </div>
-    </div>
-    <!-- End Tata Cara Pemesanan -->
+                 @endif
+                <!-- End Edit Step -->
+            @endforeach
+        </div> 
+        <!-- End Tata Cara Pemesanan -->
 
     <!-- Modal Form Add Step-->
     <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -164,7 +161,7 @@
                         <div class="mb-3 row">
                             <label for="noStep" class="col-sm-3 col-form-label"> Isi Step</label>
                             <div class="col-sm-9">
-                            <textarea class="form-control summernote" id="step" name="step" required></textarea>
+                                <textarea class="form-control summernote" id="step" name="step" required></textarea>
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -295,6 +292,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+
 </body>
 </body>
 </html>
