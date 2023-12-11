@@ -17,21 +17,27 @@ Produk
     @if(count($topThree) >= 1)
     <div class="col-4 p-4 d-flex flex-column" style="background-color: #BBD6B8;">
         <img src="../foto/{{$topThree[0]->gambar}}" class="img-fluid mb-3" alt="...">
-        <button type="button" class="btn btn-light mt-auto mx-auto d-block btn-lg">Selengkapnya</button>
+        <a href="product/{{$topThree[0]->kode_baju}}" class="mt-auto mx-auto d-block">
+            <button type="button" class="btn btn-light btn-lg">Selengkapnya</button>
+        </a>
     </div>
     @endif
 
     @if(count($topThree) >= 2)
     <div class="col-4 p-4 d-flex flex-column" style="background-color: #D9D9D9;">
         <img src="../foto/{{$topThree[1]->gambar}}" class="img-fluid mb-3" alt="...">
-        <button type="button" class="btn btn-light mt-auto mx-auto d-block btn-lg">Selengkapnya</button>
+        <a href="product/{{$topThree[1]->kode_baju}}" class="mt-auto mx-auto d-block">
+            <button type="button" class="btn btn-light btn-lg">Selengkapnya</button>
+        </a>
     </div>
     @endif
 
     @if(count($topThree) >= 3)
     <div class="col-4 p-4 d-flex flex-column" style="background-color: #BBD6B8;">
         <img src="../foto/{{$topThree[2]->gambar}}" class="img-fluid mb-3" alt="...">
-        <button type="button" class="btn btn-light mt-auto mx-auto d-block btn-lg">Selengkapnya</button>
+        <a href="product/{{$topThree[2]->kode_baju}}" class="mt-auto mx-auto d-block">
+            <button type="button" class="btn btn-light btn-lg">Selengkapnya</button>
+        </a>
     </div>
     @endif
 </div>

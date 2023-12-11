@@ -15,30 +15,45 @@ class DetailProdukController extends Controller
     }
 
 
-    public function store(Request $request){
-
-        $request->validate([
+    public function store(Request $request)
+    {
+        // dd($request->all());
+        $validateData = $request->validate([
             "tanggal_Pengembalian" => 'required',
             "tanggal_Pengambilan" => 'required',
             "dewasa" => 'required',
             "kode_baju" => 'required',
             "no_telp" => 'required',
             "nama" => 'required',
-            // "pembayaran" => 'required'
+            'bukti_pembayaran' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-        $order_details = new orderDetail;
-        $order_details->status = 'Menunggu Konfirmasi';
-        $order_details->tgl_pengembalian = $request->tanggal_Pengembalian;
-        $order_details->tgl_pengambilan = $request->tanggal_Pengambilan;
-        $order_details->dewasa = $request->dewasa;
-        $order_details->anak = $request->dewasa;
-        $order_details->kode_baju = $request->kode_baju;
-        $order_details->no_hp = $request->no_telp;
-        $order_details->nama_pelanggan = $request->nama;
-        // $order_details->pembayaran = $request->pembayaran;
-
-        $order_details->save();
-        
-        return redirect()->route('product')->withSuccess('Product Telah Di tambahkan!!!');
+    
+        try {
+            $order_details = new orderDetail;
+            $order_details->status = 'Menunggu Konfirmasi';
+            $order_details->tgl_pengembalian = $validateData["tanggal_Pengembalian"];
+            $order_details->tgl_pengambilan = $validateData["tanggal_Pengambilan"];
+            $order_details->dewasa = $validateData["dewasa"];
+            $order_details->anak = $validateData["dewasa"];
+            $order_details->kode_baju = $validateData["kode_baju"];
+            $order_details->no_hp = $validateData["no_telp"];
+            $order_details->nama_pelanggan = $validateData["nama"];
+    
+            if ($request->hasFile('bukti_pembayaran')) {
+                $imageName = time().'.'.$request->bukti_pembayaran->extension();
+                $request->bukti_pembayaran->move(public_path('foto'), $imageName);
+                $order_details->bukti_pembayaran = $imageName;
+            }
+    
+            if ($order_details->save()) {
+                return redirect()->route('product')->withSuccess('Product Telah Ditambahkan!!!');
+            } else {
+                return redirect()->back()->with('error', 'Gagal menyimpan data.');
+            }
+        } catch (\Exception $e) {
+            // Log or handle the exception here
+            return redirect()->back()->with('error', 'Terjadi kesalahan: '.$e->getMessage());
+        }
     }
+    
 }
