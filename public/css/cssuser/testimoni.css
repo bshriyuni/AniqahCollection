@@ -128,17 +128,16 @@ body{
     top: 50%;
     z-index: -1;
 }
+
+
 .colReview {
-    background-color: #F4EAD5; /* Ganti dengan warna latar belakang yang diinginkan, contoh: oranye */
-    /* padding: 1px; */
+    background-color: #eddcb9;
     margin: 5px;
     border-radius: 100px;
+    width: 400px;
+    /* height: 100px; */
 }
-.rounded-image {
-    width: 150px; /* Atur lebar gambar */
-    height: 150px; /* Atur tinggi gambar */
-    border-radius: 50%; /* Membuat gambar bulat */
-}
+
 .col-4 h6 {
     margin-top: 20px; /* Atur jarak atas sesuai kebutuhan */
 }
