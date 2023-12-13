@@ -12,6 +12,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('font') }}"> <!-- Ganti 'font.css' dengan nama file CSS Anda -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body>
     <!-- Brand App -->
@@ -113,41 +115,6 @@
     <!-- /.row -->
 </div>
 
-<!-- /.card-body -->
-
-                      <!-- /.card-body -->
-    <!-- Menggunakan Bootstrap JS (Optional, tergantung kebutuhan Anda) -->
-    
-    <!-- <div class="container text-center">
-        <div class="line-with-text">
-            <div></div>
-            <span>Review</span>
-        </div>
-    </div>
-<br>
-<br> -->
-    <!-- Review -->
-    <!-- <div class="container text-center review">
-        <div class="row">
-            <div class="colReview">
-                <div class="row">
-                    <div class="col-4">
-                        <img src="{{ asset('foto/review1.jpeg') }}" alt="Gambar 1"  class="img-fluid rounded-image">
-                        <h6>Mbak Adel</h6>
-                    </div>
-                    <div class="col-8" style="margin-top: 20px;" >Lorem ipsum is a placeholder text commonly used in the design and printing industry. It is a Latin looking text that has been used since the 16th century as a filler text when the final content is not yet available.</div>
-                    <div class="container">
-                        <span class="fas fa-star yellow-star"></span>
-                        <span class="fas fa-star yellow-star"></span>
-                        <span class="fas fa-star yellow-star"></span>
-                        <span class="fas fa-star yellow-star"></span>
-                        <span class="fas fa-star yellow-star"></span>
-                        <span style="margin-left: 5px;"> 5 </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
 
     <!-- FootNote -->
     <div class="footNote">
@@ -179,6 +146,25 @@
         reader.readAsDataURL(event.target.files[0]);
     }
 </script>
+<!-- Script Modal Alert -->
+<script>
+            @if(session('success'))
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Sukses!',
+                    text: '{{ session('success') }}'
+                });
+            @endif
+
+            @if(session('error'))
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: '{{ session('error') }}'
+                });
+            @endif
+        </script>
+        <!-- End Script Modal Alert -->
     
     <!-- End Foot Note -->
 

@@ -74,7 +74,7 @@
 
     
     <div class="card-body">
-        <div class="row">
+    <div class="row">
         @foreach($testimonis as $testimoni)
         <div class="col-lg-4 col-6 mb-5">
             <!-- small box -->
@@ -86,11 +86,9 @@
             <!-- /.small-box -->
         </div>
         @endforeach
-                  <!-- ./col -->
-        </div>
-                        <!-- /.row -->
     </div>
-                      <!-- /.card-body -->
+    <!-- /.row -->
+</div>
     <!-- Menggunakan Bootstrap JS (Optional, tergantung kebutuhan Anda) -->
     
     <div class="container text-center">
@@ -100,36 +98,106 @@
         </div>
     </div>
 <br>
-<br>
+       
+<!-- modal -->
+<!-- Button to trigger modal -->
+
     <!-- Review -->
-    <div class="container text-center review">
-        <div class="row">
-            <div class="colReview">
-                <div class="row">
-                    <div class="col-4">
-                        <img src="{{ asset('foto/review1.jpeg') }}" alt="Gambar 1"  class="img-fluid rounded-image">
-                        <h6>Mbak Adel</h6>
-                    </div>
-                    <div class="col-8" style="margin-top: 20px;" >Lorem ipsum is a placeholder text commonly used in the design and printing industry. It is a Latin looking text that has been used since the 16th century as a filler text when the final content is not yet available.</div>
-                    <div class="container">
-                        <span class="fas fa-star yellow-star"></span>
-                        <span class="fas fa-star yellow-star"></span>
-                        <span class="fas fa-star yellow-star"></span>
-                        <span class="fas fa-star yellow-star"></span>
-                        <span class="fas fa-star yellow-star"></span>
-                        <span style="margin-left: 5px;"> 5 </span>
+    <!-- <div class="container text-center review">
+    <div class="row">
+        @foreach($comments as $comment)
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="colReview p-4">
+                    <div class="row align-items-center">
+                        <div class="col-4">
+                            <div class="profile-circle col-7 mx-auto" style="width: 70px; height: 70px; background-color: #D6B8D5; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+                                <span class="profile-icon" style="font-size: 40px;">&#128103;</span>
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <h6 class="mt-3">{{ $comment->nama }}</h6>
+                            <p class="mb-0">{{ $comment->comment }}</p>
+                        </div>
                     </div>
                 </div>
             </div>
+        @endforeach
+    </div>
+</div> -->
+
+<div class="container text-center review">
+    <div class="row">
+        @foreach($comments as $comment)
+            <div class="col-12 mb-4">
+                <div class="colReview p-4 shadow rounded w-100">
+                    <div class="row align-items-center">
+                        <div class="col-4">
+                            <div class="profile-circle col-7 mx-auto" style="width: 70px; height: 70px; background-color: #D6B8D5; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+                                <span class="profile-icon" style="font-size: 40px;">&#128103;</span>
+                            </div>
+                        </div>
+                        <div class="col-8">
+                            <h6 class="mt-3">{{ $comment->nama }}</h6>
+                            <p class="mb-0">{{ $comment->comment }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+</div>
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="commentModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="commentModalLabel">Tambahkan Komentar</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Comment Form -->
+                <form method="post" action="/testimoni">
+                    @csrf
+                    <div class="form-group">
+                        <label for="commentName">Nama:</label>
+                        <input type="text" class="form-control" id="commentName" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="commentContent">Komentar:</label>
+                        <textarea class="form-control" id="commentContent" name="comment" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
         </div>
     </div>
+</div>
+
+    <!-- End Modal Formulir -->
+    <div class="row justify-content-end">
+        <div class="col-sm-2">
+            <button type="button" class="btn" id="editButton" data-target="#commentModal" data-toggle="modal" style="background-color: #e8b548; color: #fff;">
+                <i class="fas fa-comment"></i> Tambahkan Komentar
+            </button>
+        </div>
+    </div>
+
+
 
     <!-- FootNote -->
     <div class="footNote">
         <div class="row">
             <div class="col" style="margin-right: 20px;">
                 <h3 class="aboutUs">About Us</h3>
-                <hr class="bold-hr" style="border: 2px solid black;">
+                <hr class="bold-hr" style="border: 1px solid black;">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare cursus sed nunc eget dictum  Sed ornare cursus sed nunc eget dictumd nunc eget dictum  Sed ornare cursus sed nunc eget dictum </p>
                 <i class="fab fa-instagram fa-2x"></i>
                 <i class="fab fa-facebook fa-2x"></i>

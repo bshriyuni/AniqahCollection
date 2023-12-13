@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Testimoni;
+use App\Models\Comment;
+
 
 class TestimoniController extends Controller
 {
@@ -15,8 +17,28 @@ class TestimoniController extends Controller
 
     public function user(){
         $testimonis = Testimoni::all();
-        return view('user/testimoni', compact('testimonis'));
+        $comments = Comment::all(); 
+        return view('user/testimoni', compact('testimonis', 'comments'));
     }
+
+    public function comment(Request $request){
+        $validated = $request->validate([
+            'name' => 'required',
+            'comment' => 'required',
+        ]);
+
+        $comment = new Comment();
+        $comment->nama = $validated['name'];
+        $comment->comment = $validated['comment'];
+        $comment->save();
+        if ($comment->save()) {
+            return back()->with('success', 'comment sukses');
+        } else {
+            return back()->with('error', 'comment gagal');
+
+        }
+    }
+    
 
     public function store(Request $request)
     {
@@ -32,11 +54,6 @@ class TestimoniController extends Controller
         // Simpan data ke database
         $testimoni = Testimoni::create(['gambar' => $imageName]);
 
-        // Mengembalikan data sebagai respons JSON
-        // return response()->json([
-        //     'id' => $testimoni->id,
-        //     'gambar' => $testimoni->gambar,
-        // ]);
         return back()->with('success', 'testimoni berhasil ditambahkan.');
 
     }
