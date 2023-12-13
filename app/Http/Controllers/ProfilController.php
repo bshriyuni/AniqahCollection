@@ -127,7 +127,16 @@ class ProfilController extends Controller
         'password' => $password,
         'notlp' => $notlp,
         'created_at' => $created_at];
-        $pesanan = orderDetail::all();
+        $pesanan = orderDetail::paginate(4);
         return view('/user/profil/profilPesanan', compact('profil', 'pesanan'));
+    }
+
+    public function delete($id){
+        $pesanan = orderDetail::findOrFail($id);
+
+        // Delete the product from the database
+        $pesanan->delete();
+    
+        return back()->with('success', 'Pesanan dibatalkan');
     }
 }

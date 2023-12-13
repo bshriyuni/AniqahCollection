@@ -13,6 +13,7 @@
     <!-- link font awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('font') }}"> <!-- Ganti 'font.css' dengan nama file CSS Anda -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         @font-face {
             font-family: "OleoScript-Bold";
@@ -131,28 +132,108 @@
                         <div class="row">
                             <div class="col-3">
                                 <div class="container" style="background-color: #F4EEEE; padding:5px;">
-                                    <img src="foto/baju2.jpg" class="card-img-bottom" alt="..." style="height: 200px;">
+                                    <img src="{{ asset('foto/' .  $item->gambar) }}" class="card-img-bottom" alt="..." style="height: 200px;">
                                 </div>
                             </div>
                             <div class="col-9">
                                 <h2>{{ $item->status }}</h2>
                                 <h5>{{ $item->kode_baju }}</h5>
-                                <h5>Rp {{ $item->harga }}</h5>
-                                <h2>Sedang diproses</h2>
-                                <h5>A123</h5>
-                                <h5>Rp 20.000</h5>
-                                <br><br>
-                                <button type="submit" class="btn" style="background-color: #E97E67">
-                                    <a href="/profil/pesanan/detail" class="text-decoration-none text-end" style="color: #000000;">Batalkan Pesanan</a>
+                                <h5>Rp {{ $item->total_harga }}</h5>
+                                <br>
+                                <button id="editButton" type="button" class="btn" style="background-color: #E97E67" data-toggle="modal" data-target="#deletemodal">
+                                    Batalkan Pesanan
                                 </button>
                             </div>
                         </div>
+                        <hr>
+                        <!-- Modal Edit Produk-->
+                        <div class="modal fade" id="deletemodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="background-color: #BBD6B8">
+                                        <h5 class="modal-title" id="exampleModalLabel">Batalkan Pesanan</h5>
+                                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"
+                                            style="margin-right:10px;"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row mb-2">
+                                            <p class="col-sm-4">Nama Lengkap</p>
+                                                <p class="col-sm-8">: {{ $item->nama_lengkap }}</p>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <p class="col-sm-4">No Telepon</p>
+                                                <p class="col-sm-8">: {{ $item->no_hp }}</p>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <p class="col-sm-4">Alamat</p>
+                                                <p class="col-sm-8">: {{ $item->alamat }}</p>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <p class="col-sm-4">Kode Baju</p>
+                                                <p class="col-sm-8">: {{ $item->kode_baju }}</p>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <p class="col-sm-4">Tanggan Pengambilan</p>
+                                                <p class="col-sm-8">: {{ $item->tgl_pengambilan }}</p>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <p class="col-sm-4">Tanggan Pengembalian</p>
+                                                <p class="col-sm-8">: {{ $item->tgl_pengembalian }}</p>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <p class="col-sm-4">Total Harga</p>
+                                                <p class="col-sm-8">: {{ $item->total_harga }}</p>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <p class="col-sm-4">Status Pemesanan</p>
+                                                <p class="col-sm-8">: {{ $item->status }}</p>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <p class="col-sm-4">Metode Pembayaran</p>
+                                                <p class="col-sm-8">: {{ $item->pembayaran }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
+                                        <a href="{{ route('pesanan.delete', $item->id) }}" type="button" class="btn" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item->id }}').submit();">
+                                            <button type="button" class="btn btn-primary" onclick="confirmDelete( {{ $item->id }} );">Batalkan Pesanan</button>
+                                        </a>
+                                        <form id="delete-form-{{ $item->id }}" action="{{ route('pesanan.delete', $item->id) }}" method="POST" style="display: none;">
+                                            @csrf
+                                            @method('DELETE')
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Modal Edit Produk-->
                     @endforeach
+                    {{ $pesanan->links('pagination::bootstrap-5') }}
                 </div>
             </div>
         </div>
     </div>
     <!-- End Profil Saya -->
+
+    <!-- Script Modal Alert -->
+    <script>
+            @if(session('success'))
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Sukses!',
+                    text: '{{ session('success') }}'
+                });
+            @endif
+
+            @if(session('error'))
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: '{{ session('error') }}'
+                });
+            @endif
+        </script>
+        <!-- End Script Modal Alert -->
 
     <!-- FootNote -->
     <div class="footNote" style="background-color: #BBD6B8; padding: 40px;">
