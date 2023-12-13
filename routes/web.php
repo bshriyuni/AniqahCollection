@@ -48,6 +48,7 @@ Route::get('/profil', [ProfilController::class, 'index']);
 Route::get('/profil/edit', [ProfilController::class, 'edit'])->name('profil.edit');
 Route::post('/profil/update', [ProfilController::class, 'update'])->name('profil.update');
 Route::get('/profil/pesanan', [ProfilController::class, 'profilPesanan']);
+Route::delete('/profil/pesanan/{id}', [ProfilController::class, 'delete'])->name('pesanan.delete');
 
 Route::get('/login', [LoginController::class, 'login']);
 Route::post('/login', [LoginController::class, 'authenticate']);
