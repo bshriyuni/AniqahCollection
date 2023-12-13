@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('order_details', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('order_id');
+            // $table->unsignedBigInteger('order_id');
             $table->string('nama_lengkap');
             $table->string('alamat');
             $table->string('no_hp');
@@ -23,12 +23,11 @@ return new class extends Migration
             $table->date('tgl_pengambilan');
             $table->date('tgl_pengembalian');
             $table->enum('pembayaran', ['tunai', 'non-tunai']);
-            $table->string('bukti_pembayaran');
             $table->enum('status', ['Menunggu Konfirmasi', 'Proses Pengambilan', 'Pesanan Diambil', 'Selesai'])->default('Menunggu Konfirmasi');
             $table->string('bukti_pembayaran')->nullable();
             $table->timestamps();
 
-            $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');;
+            // $table->foreign('order_id')->references('id')->on('orders')->onDelete('cascade');;
         });
     }
 
