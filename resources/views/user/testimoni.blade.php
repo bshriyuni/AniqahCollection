@@ -56,10 +56,10 @@
                         <a class="nav-link" href="/product">Produk</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link fw-bold" href="/lokasi">Lokasi</a>
+                        <a class="nav-link" href="/lokasi">Lokasi</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/testimoni">Testimoni</a>
+                        <a class="nav-link fw-bold" href="/testimoni">Testimoni</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/carapemesanan">Cara Pemesanan</a>

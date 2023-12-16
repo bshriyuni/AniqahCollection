@@ -63,36 +63,36 @@ class ProfilController extends Controller
     }
 
     public function update(Request $request){
-        // Validasi data dari formulir jika diperlukan
-        $request->validate([
-            'username' => 'string|max:255',
-            'nama' => 'string|max:255',
-            'email' => 'email|max:255',
+        $user = Auth::user();
+        $validatedData = $request->validate([
+            'username' => 'nullable|string|max:255',
+            'nama' => 'nullable|string|max:255',
+            'email' => 'nullable|email|max:255',
             'password' => 'nullable|string|min:6',
-            'noTlp' => 'nullable|numeric',
-            // Sesuaikan dengan kebutuhan validasi lainnya
+            'noTlp' => 'nullable|numeric'
         ]);
     
-        // Dapatkan pengguna yang sedang login
-        $user = Auth::user();
+        // Periksa dan atur nilai-nilai yang berubah
+        if (isset($validatedData['username'])) {
+            $user->username = $validatedData['username'];
+        }
     
-        // Update data pengguna berdasarkan input formulir
-        if ($request->filled('username')) {
-            $user->username = $request->input('username');
+        if (isset($validatedData['nama'])) {
+            $user->name = $validatedData['nama'];
         }
-        if ($request->filled('nama')) {
-            $user->name = $request->input('nama');
+    
+        if (isset($validatedData['email'])) {
+            $user->email = $validatedData['email'];
         }
-        if ($request->filled('email')) {
-            $user->email = $request->input('email');
+    
+        // Setelah verifikasi, Anda dapat melanjutkan dengan mengatur nilai password
+        if (isset($validatedData['password'])) {
+            $user->password = bcrypt($validatedData['password']);
         }
-        if ($request->filled('password')) {
-            $user->password = bcrypt($request->input('password'));
+    
+        if (isset($validatedData['noTlp'])) {
+            $user->notlp = $validatedData['noTlp'];
         }
-        if ($request->filled('noTlp')) {
-            $user->notlp = $request->input('noTlp');
-        }
-        // Update kolom lainnya sesuai kebutuhan
     
         // Simpan perubahan
         if ($user->save()) {
@@ -102,7 +102,7 @@ class ProfilController extends Controller
             // Jika gagal, kirim pesan gagal
             return back()->with('error', 'Gagal memperbarui profil');
         }
-    }
+    }    
 
     public function profilPesanan(){
         if (Auth::check()) {
@@ -131,12 +131,9 @@ class ProfilController extends Controller
         return view('/user/profil/profilPesanan', compact('profil', 'pesanan'));
     }
 
-    public function delete($id){
-        $pesanan = orderDetail::findOrFail($id);
-
-        // Delete the product from the database
-        $pesanan->delete();
-    
+    public function updatestatus($id){
+        $pesanan = OrderDetail::findOrFail($id);
+        $pesanan->update(['status' => 'Pesanan dibatalkan']);
         return back()->with('success', 'Pesanan dibatalkan');
     }
 }
