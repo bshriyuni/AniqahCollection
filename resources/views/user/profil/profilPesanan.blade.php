@@ -27,6 +27,10 @@
             font-family: "Inter-ExtraBold";
             src: url(/font/Inter-ExtraBold.ttf) format('truetype');
         }
+        @font-face {
+            font-family: "Inter-Regular";
+            src: url(/font/Inter-Regular.ttf) format('truetype');
+        }
     </style>
 </head>
 <body style="background-color:#FFFFFF;">
@@ -50,7 +54,7 @@
                     </button>
                 @else <!-- Jika pengguna sudah login -->
                     <button class="btn">
-                        <a href="/profil" class="text-decoration-none" style="color: #000000;">Selamat datang, {{ Auth::user()->name }}</a>
+                        <a href="/profil" class="text-decoration-none" style="color: #000000;">Selamat datang, {{ Auth::user()->username }}</a>
                     </button>
                 @endguest
             </div>
@@ -139,23 +143,30 @@
                                 <h2>{{ $item->status }}</h2>
                                 <h5>{{ $item->kode_baju }}</h5>
                                 <h5>Rp {{ $item->total_harga }}</h5>
-                                <br>
-                                <button id="editButton" type="button" class="btn" style="background-color: #E97E67" data-toggle="modal" data-target="#deletemodal">
-                                    Batalkan Pesanan
-                                </button>
+                                <p>Metode Pembayaran: {{ $item->pembayaran}}</p>
+                                @if($item->status == 'Pesanan dibatalkan')
+                                    <button type="button" class="btn" style="background-color: #E97E67" disabled>
+                                        Batalkan Pesanan
+                                    </button>
+                                @else
+                                    <button id="editButton" type="button" class="btn" style="background-color: #E97E67" data-toggle="modal" data-target="#modal-delete-{{ $item->id }}">
+                                        Batalkan Pesanan
+                                    </button>
+                                @endif
                             </div>
                         </div>
                         <hr>
                         <!-- Modal Edit Produk-->
-                        <div class="modal fade" id="deletemodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        @if(isset($item))
+                        <div class="modal fade" id="modal-delete-{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
-                                <div class="modal-content">
+                                <div class="modal-content m-20">
                                     <div class="modal-header" style="background-color: #BBD6B8">
                                         <h5 class="modal-title" id="exampleModalLabel">Batalkan Pesanan</h5>
                                         <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"
                                             style="margin-right:10px;"></button>
                                     </div>
-                                    <div class="modal-body">
+                                    <div class="modal-body" style="margin-left:30px; margin-top:20px;">
                                         <div class="row mb-2">
                                             <p class="col-sm-4">Nama Lengkap</p>
                                                 <p class="col-sm-8">: {{ $item->nama_lengkap }}</p>
@@ -192,20 +203,20 @@
                                             <p class="col-sm-4">Metode Pembayaran</p>
                                                 <p class="col-sm-8">: {{ $item->pembayaran }}</p>
                                         </div>
+                                        <p class="text-danger">Jika melakukan pembatalan pesanan maka pesanan diatas tidak akan disiapkan oleh admin!!</p>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
-                                        <a href="{{ route('pesanan.delete', $item->id) }}" type="button" class="btn" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $item->id }}').submit();">
-                                            <button type="button" class="btn btn-primary" onclick="confirmDelete( {{ $item->id }} );">Batalkan Pesanan</button>
-                                        </a>
-                                        <form id="delete-form-{{ $item->id }}" action="{{ route('pesanan.delete', $item->id) }}" method="POST" style="display: none;">
+                                        <form action="{{ route('order.updatestatus', $item->id) }}" method="post">
                                             @csrf
-                                            @method('DELETE')
+                                            @method('post')
+                                            <button type="submit" class="btn btn-primary">Batalkan Pesanan</button>
                                         </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endif
                         <!-- End Modal Edit Produk-->
                     @endforeach
                     {{ $pesanan->links('pagination::bootstrap-5') }}
