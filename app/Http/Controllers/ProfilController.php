@@ -132,7 +132,8 @@ class ProfilController extends Controller
         'created_at' => $created_at];
         $pesanan = DB::select("
             SELECT 
-                clothes.gambar, 
+                clothes.gambar,
+                order_details.id,
                 order_details.kode_baju, 
                 order_details.total_harga, 
                 order_details.status, 
