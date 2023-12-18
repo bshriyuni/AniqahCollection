@@ -149,7 +149,7 @@
                                         Batalkan Pesanan
                                     </button>
                                 @else
-                                    <button id="editButton" type="button" class="btn" style="background-color: #E97E67" data-toggle="modal" data-target="#modal-delete-{{ $item->kode_baju }}">
+                                    <button id="editButton" type="button" class="btn" style="background-color: #E97E67" data-toggle="modal" data-target="#modal-delete-{{ $item->id }}">
                                         Batalkan Pesanan
                                     </button>
                                 @endif
@@ -158,7 +158,7 @@
                         <hr>
                         <!-- Modal Edit Produk-->
                         @if(isset($item))
-                        <div class="modal fade" id="modal-delete-{{ $item->kode_baju }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="modal-delete-{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content m-20">
                                     <div class="modal-header" style="background-color: #BBD6B8">
@@ -207,7 +207,7 @@
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
-                                        <form action="{{ route('order.updatestatus', $item->kode_baju) }}" method="post">
+                                        <form action="{{ route('order.updatestatus', $item->id) }}" method="post">
                                             @csrf
                                             @method('post')
                                             <button type="submit" class="btn btn-primary">Batalkan Pesanan</button>
@@ -260,7 +260,6 @@
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Tuliskan ulasanmu disini</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="border: 1px solid black;"></textarea>
-                    <button class="btn-send mt-3">Send</button>
                 </div>
             </div>
         </div>

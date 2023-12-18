@@ -34,7 +34,7 @@ class DetailProdukController extends Controller
         try {
             $order_details = new orderDetail;
             $order_details->users_id = $user_id;
-            $order_details->status = 'Menunggu Konfirmasi';
+            $order_details->status = 'Booked';
             $order_details->alamat = $validateData["alamat"];
             $order_details->pembayaran = $validateData["pembayaran"];
             $order_details->tgl_pengembalian = $validateData["tanggal_Pengembalian"];
@@ -57,7 +57,8 @@ class DetailProdukController extends Controller
             // dd($request->all());
 
             if ($order_details->save()) {
-                return redirect()->route('product')->withSuccess('Product Telah Ditambahkan!!!');
+                return back()->with('success', 'Berhasil Melakukan Booking');
+                // return redirect()->route('product')->with('succes', 'Product Telah Ditambahkan!!!');
             } else {
                 return redirect()->back()->with('error', 'Gagal menyimpan data.');
             }
