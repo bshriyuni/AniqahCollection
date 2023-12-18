@@ -20,8 +20,7 @@ class ClothesController extends Controller
             'kodeBaju' => 'required',
             'deskripsi' => 'required',
             'gambar' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
-            'jumlahDewasa' => 'required',
-            'jumlahAnak' => 'required',
+            'stok' => 'required',
             'syaratKetentuan' => 'required',
             'harga' => 'required'
         ]);
@@ -35,8 +34,7 @@ class ClothesController extends Controller
             $clothing->kode_baju = $validatedData['kodeBaju'];
             $clothing->deskripsi = $validatedData['deskripsi'];
             $clothing->gambar = $imageName;
-            $clothing->jumlah_dewasa = $validatedData['jumlahDewasa'];
-            $clothing->jumlah_anak = $validatedData['jumlahAnak'];
+            $clothing->stok = $validatedData['stok'];
             $clothing->syarat_ketentuan = $validatedData['syaratKetentuan'];
             $clothing->harga = $validatedData['harga'];
             $clothing->save();

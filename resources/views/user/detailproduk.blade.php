@@ -19,13 +19,12 @@ Produk
                     <div class="card-body">
                         <h4 class="kodeBaju">{{$produk->kode_baju}}</h4>
                         <p class="desBaju">{{$produk->deskripsi}}</p>
-                        <p><b>Sisa Stock : {{$produk->jumlah_dewasa}}</b></p>
+                        <p id="sisa_stock"><b>Sisa Stock : {{$produk->stok}} (Total)</b></p>
                         <h4 class="harga">Rp {{$produk->harga}}</h4>
                     </div>
                 </div>
             </div>
         </div>
-
         <!-- Kolom Kedua -->
         <div class="col-md-6">
             <!-- Kalender -->
@@ -53,9 +52,9 @@ Produk
             <!-- Keterangans -->
             <div class="row">
                 <div class="col-md-12 d-flex justify-content-center">
-                    <span class="badge bg-secondary m-2">Unavailable</span>
+                    <span class="badge bg-danger m-2">Out of stock / Unavaible</span>
                     <span class="badge bg-success m-2">Available</span>
-                    <span class="badge bg-danger m-2">Booked</span>
+                    <span class="badge bg-warning m-2">Booked</span>
                 </div>
             </div>
 
@@ -64,7 +63,7 @@ Produk
                 <div class="col-md-12">
                     <div class="card p-4" style="background-color: #F4EEEE; color: #000000;">
                         <h5 class="sk">Syarat & Ketentuan</h5>
-                        <p>{{$produk->syarat_ketentuan}}</p>
+                        <p>{{$produk->SnK}}</p>
                     </div>
                 </div>
             </div>
@@ -129,6 +128,12 @@ Produk
                         </div>
                     </div>
                     <div class="row mb-3">
+                        <label for="alamat" class="col-sm-3 col-form-label">Alamat Lengkap</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control custom-input" id="alamat" name="alamat" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
                         <label for="inputNoTelpon" class="col-sm-3 col-form-label">No Telpon</label>
                         <div class="col-sm-9">
                             <input type="tel" class="form-control custom-input" name="no_telp" id="inputNoTelpon"
@@ -141,8 +146,8 @@ Produk
                             <div class="input-group" id="modelLain">
                                 <input type="text" class="forAdd form-control custom-input" name="kode_baju"
                                     id="inputKodeBaju" value="{{ $produk->kode_baju }}" readonly>
-                                <input type="number" class="forAdd form-control custom-input" name="dewasa"
-                                    id="inputJumlahDewasa" min="1" max="{{ $produk->jumlah_dewasa }}"
+                                <input type="number" class="forAdd form-control custom-input" name="jumlah_pesanan"
+                                    id="inputPesanan" min="1" max="{{ $produk->stok }}"
                                     placeholder="Jumlah Barang" required>
                                 <input type="number" class="forAdd form-control custom-input" name="harga"
                                     id="HargaInput" placeholder="Harga" readonly>
@@ -152,7 +157,7 @@ Produk
                     <div class="row mb-3">
                         <label for="inputTglPengambilan" class="col-sm-3 col-form-label">Tgl Pengambilan</label>
                         <div class="col-sm-9">
-                            <input type="date" class="form-control custom-input" name="tanggal_Pengambilan"
+                            <input type="date" class="form-control custom-input" name="tanggal_Pengambilan" onchange="checkDateValidity('inputTglPengambilan')"
                                 id="inputTglPengambilan" required>
                         </div>
                     </div>
@@ -164,7 +169,7 @@ Produk
                         </div>
                     </div>
                     <div class="row mb-3">
-                        <label for="inputName" class="col-sm-3 col-form-label">Pembayaran</label>
+                        <label for="pembayaran" class="col-sm-3 col-form-label">Pembayaran</label>
                         <div class="form-check col-2">
                             <input class="form-check-input" type="radio" name="pembayaran" id="tunai" value="Tunai">
                             <label class="form-check-label" for="tunai">
@@ -210,6 +215,10 @@ Produk
                     <div class="row mb-3" style="margin-top: 30px;">
                         <p class="col-sm-5">Nama Lengkap</p>
                         <p class="nama col-sm-7" id="namaLengkap"></p>
+                    </div>
+                    <div class="row mb-3" style="margin-top: 30px;">
+                        <p class="col-sm-5">Alamat</p>
+                        <p class="nama col-sm-7" id="alamatLengkap"></p>
                     </div>
                     <div class="row mb-3">
                         <p class="col-sm-5">Nomor Telpon</p>
@@ -296,10 +305,13 @@ $(document).ready(function() {
     $('#inputName').on('input', function() {
         $('#namaLengkap').text($(this).val());
     });
+    $('#alamat').on('input', function() {
+        $('#alamatLengkap').text($(this).val());
+    });
     $('#inputNoTelpon').on('input', function() {
         $('#nomorTelpon').text($(this).val());
     });
-    $('#inputJumlahDewasa').on('input', function() {
+    $('#inputPesanan').on('input', function() {
         $('#dewasa').text($(this).val());
         var jumlahDewasa = $(this).val();
 
@@ -327,15 +339,21 @@ document.getElementById('cancelButton').addEventListener('click', function() {
     $('#confirmModal').modal('hide');
     $('#bookingModal').modal('show');
 });
+var produk = @json($produk);
+console.log(produk)
 var order_detail = @json($order_details);
+console.log(order_detail)
 currentDate = new Date();
 tgl_ambil = []
 tgl_kembali = []
+stock = []
 order_detail.forEach(element => {
+    stock.push(element["jumlah_pesanan"])
     tgl_ambil.push(element['tgl_pengambilan'])
     tgl_kembali.push(element['tgl_pengembalian'])
 });
 $(document).ready(function() {
+    disabled_date = []
     var currentDate = new Date();
 
     function generateCalendar(d) {
@@ -347,7 +365,6 @@ $(document).ready(function() {
             for (var i = 1; i <= days; i++) {
                 result.push(i);
             }
-            console.log(result)
             return result;
         }
         Date.prototype.monthDays = function() {
@@ -398,29 +415,36 @@ $(document).ready(function() {
                         createdDate.setHours(0)
                         var currentDate = new Date();
                         let currentDateCollision = false
+                        let stok = produk["stok"];
+                        let stock_sekarang = stok;
                         for (let k = 0; k < tgl_ambil.length; k++) {
                             ambil = new Date(tgl_ambil[k])
                             kembali = new Date(tgl_kembali[k])
                             ambil.setHours(0)
                             kembali.setHours(23)
                             if (createdDate >= ambil && createdDate <= kembali) {
+                                stock_sekarang = stock_sekarang - stock[k];
                                 currentDateCollision = true;
-                                break; // Exit loop if collision found
+                                // break;
                             }
                         }
-                        if (currentDate >= createdDate) {
+                        
+                        fungsi = day + "," + createdDate.getMonth() + "," + createdDate.getYear() + "," + stock_sekarang
+                        if (currentDate >= createdDate || stock_sekarang <= 0) {
+                            disabled_date.push(createdDate.getFullYear() + '-' + (createdDate.getMonth()+1) + '-' + day)
+                            fungsi = day + "," + createdDate.getMonth() + "," + createdDate.getYear() + "," + 0
                             cal[i].push(
-                                '<div class="col"><div class="rounded-circle mx-auto text-bg-secondary" style="height: 45px !important; width: 45px !important;">' +
+                                '<div class="col"><div onclick="changeStock(' + fungsi + ')" class="rounded-circle mx-auto text-bg-danger" style="height: 45px !important; width: 45px !important;">' +
                                 day++
                                 + "</div></div>");
                         } else if (currentDateCollision) {
                             cal[i].push(
-                                '<div class="col"><div class="rounded-circle mx-auto" style="height: 45px !important; width: 45px !important; background-color: #DF7B7B;">' +
-                                day++ +
-                                "</div></div>");
+                                '<div class="col"><div onclick="changeStock(' + fungsi + ')" class="rounded-circle mx-auto text-bg-warning" style="height: 45px !important; width: 45px !important; background-color: #DF7B7B;">' +
+                                day++ 
+                                + "</div></div>");
                         } else {
                             cal[i].push(
-                                '<div class="col"><div class="rounded-circle mx-auto" style="height: 45px !important; width: 45px !important; background-color: #98DB9F;">' +
+                                '<div class="col"><div onclick="changeStock(' + fungsi + ')" class="rounded-circle mx-auto" style="height: 45px !important; width: 45px !important; background-color: #98DB9F;">' +
                                 day++ +
                                 "</div></div>");
                         }
@@ -463,5 +487,33 @@ $(document).ready(function() {
     });
     generateCalendar(currentDate);
 });
+function changeStock(day, month, year, stock){
+    year = year + 1900
+    const bulan = [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+    ];
+    document.getElementById("sisa_stock").innerHTML = '<b>Sisa Stock : ' + stock + ' (' + day + '-' + bulan[month] + '-' + year + ')</b>'
+}
+
+
+function checkDateValidity(id) {
+    input = document.getElementById(id);
+    selectedDate = new Date(input.value);
+
+    // Define the ranges you want to prevent selection
+    for (const dateStr of disabled_date) {
+        const disabledDate = new Date(dateStr);
+        console.log(selectedDate + " " + disabledDate)
+        // Compare the selected date with each disabled date
+        if (selectedDate.getTime() === disabledDate.getTime()) {
+            // If the selected date matches a disabled date, clear the input value
+            input.value = '';
+            return;
+        }
+    }
+}
+
+
 </script>
 @endsection

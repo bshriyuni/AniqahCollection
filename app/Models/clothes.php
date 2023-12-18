@@ -13,11 +13,12 @@ class Clothes extends Model
     protected $fillable = [
         'id',
         'kode_baju', 
-        'stok',
         'deskripsi', 
-        'SnK', 
-        'harga',
-        'gambar' 
+        'gambar', 
+        'jumlah_dewasa',
+        'jumlah_anak', 
+        'syarat_ketentuan', 
+        'harga'
     ];
     public function orderDetails() {
         return $this->hasMany(OrderDetail::class, 'kode_baju', 'id');

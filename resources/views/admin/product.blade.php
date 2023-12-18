@@ -81,17 +81,10 @@ Produk
                             </div>
                         </div>
                     </div>
-                    
                     <div class="mb-3 row">
                         <label for="inputDewasa" class="col-sm-3 col-form-label">Jumlah Dewasa</label>
                         <div class="col-sm-9">
-                            <input class="form-control" type="number" id="jumlahDewasa" name="jumlahDewasa">
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="inputAnak" class="col-sm-3 col-form-label">Jumlah Anak</label>
-                        <div class="col-sm-9">
-                            <input class="form-control" type="number" id="jumlahAnak" name="jumlahAnak">
+                            <input class="form-control" type="number" id="stok" name="stok">
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -155,15 +148,9 @@ Produk
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="inputDewasa" class="col-sm-3 col-form-label">Jumlah Dewasa</label>
+                        <label for="inputDewasa" class="col-sm-3 col-form-label">Stock</label>
                         <div class="col-sm-9">
-                            <input class="form-control" type="number" id="jumlahDewasa" name="jumlahDewasa">
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="inputAnak" class="col-sm-3 col-form-label">Jumlah Anak</label>
-                        <div class="col-sm-9">
-                            <input class="form-control" type="number" id="jumlahAnak" name="jumlahAnak">
+                            <input class="form-control" type="number" id="stok" name="stok">
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -252,15 +239,14 @@ document.querySelectorAll('.edit-btn').forEach(btn => {
         const kodeBaju = this.getAttribute('data-kodebaju');
 
         // Fetch data for the specific kode_baju via AJAX
-        fetch(`/getClothingData/${kodeBaju}`)
+        fetch(/getClothingData/${kodeBaju})
             .then(response => response.json())
             .then(data => {
                 // Populate form fields with fetched data
                 document.getElementById('editForm').action = "../editClothingData/" + data.id;
                 document.getElementById('kodeBaju').value = data.kode_baju;
                 document.getElementById('deskripsi').value = data.deskripsi;
-                document.getElementById('jumlahDewasa').value = data.jumlah_dewasa;
-                document.getElementById('jumlahAnak').value = data.jumlah_anak;
+                document.getElementById('stok').value = data.stok;
                 document.getElementById('syaratKetentuan').value = data.syarat_ketentuan;
                 document.getElementById('harga').value = data.harga;
                 document.getElementById('editGambar').innerHTML = '<img src="../foto/' + data
