@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\Models\orderDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -116,9 +117,11 @@ class ProfilController extends Controller
             $password = $user->password = str_repeat('*', 5) . substr($user->password, -1);
             $notlp = $user->notlp;
             $created_at = $user->created_at;
+            $userId = $user->id;
         } else {
             // Tidak ada pengguna yang sudah login
             $user = null;
+            $userId = null;
         }
 
         $profil = ['username' => $username,
@@ -127,7 +130,25 @@ class ProfilController extends Controller
         'password' => $password,
         'notlp' => $notlp,
         'created_at' => $created_at];
-        $pesanan = orderDetail::paginate(4);
+        $pesanan = DB::select("
+            SELECT 
+                clothes.gambar, 
+                order_details.kode_baju, 
+                order_details.total_harga, 
+                order_details.status, 
+                order_details.pembayaran, 
+                order_details.nama_lengkap, 
+                order_details.no_hp, 
+                order_details.alamat,
+                order_details.jumlah_pesanan, 
+                order_details.tgl_pengambilan, 
+                order_details.tgl_pengembalian
+            FROM order_details
+            JOIN clothes ON order_details.kode_baju = clothes.kode_baju
+            JOIN users ON order_details.users_id = users.id
+            WHERE users.id = $userId
+        ");
+
         return view('/user/profil/profilPesanan', compact('profil', 'pesanan'));
     }
 
