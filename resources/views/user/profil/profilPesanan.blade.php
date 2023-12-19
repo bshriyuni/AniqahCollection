@@ -144,9 +144,10 @@
                                 <h5>{{ $item->kode_baju }}</h5>
                                 <h5>Rp {{ $item->total_harga }}</h5>
                                 <p>Metode Pembayaran: {{ $item->pembayaran}}</p>
-                                @if($item->status == 'Pesanan dibatalkan')
+
+                                @if(in_array($item->status, ['Pesanan dibatalkan', 'Selesai', 'Pesanan Diambil']))
                                     <button type="button" class="btn" style="background-color: #E97E67" disabled>
-                                        Batalkan Pesanan
+                                        Batalkan Pesanan 
                                     </button>
                                 @else
                                     <button id="editButton" type="button" class="btn" style="background-color: #E97E67" data-toggle="modal" data-target="#modal-delete-{{ $item->id }}">

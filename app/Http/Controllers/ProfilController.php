@@ -148,6 +148,7 @@ class ProfilController extends Controller
             JOIN clothes ON order_details.kode_baju = clothes.kode_baju
             JOIN users ON order_details.users_id = users.id
             WHERE users.id = $userId
+            ORDER BY order_details.id DESC
         ");
 
         return view('/user/profil/profilPesanan', compact('profil', 'pesanan'));
