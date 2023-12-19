@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\OrderDetailController;
 use App\Http\Controllers\carapesanController;
 use App\Http\Controllers\ClothesController;
@@ -24,9 +25,7 @@ use App\Http\Controllers\TestimoniController;
 |
 */
 
-Route::get('/', function () {
-    return view('user/homepage');
-});
+Route::get('/', [HomepageController::class, 'index']);
 
 Route::get('/lokasi', [LokasiController::class, 'indexuser']);
 
