@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\OrderDetailController;
 use App\Http\Controllers\carapesanController;
 use App\Http\Controllers\ClothesController;
@@ -24,15 +25,13 @@ use App\Http\Controllers\TestimoniController;
 |
 */
 
-Route::get('/', function () {
-    return view('user/homepage');
-});
+Route::get('/', [HomepageController::class, 'index']);
 
 Route::get('/lokasi', [LokasiController::class, 'indexuser']);
 
 Route::get('/product', [ClothesController::class, 'indexUser'])->name('product');
-Route::get('/product/{kode_test}', [DetailProdukController::class, 'index']);
-Route::post('/product/{kode_test}', [DetailProdukController::class, 'store']);
+Route::get('/detailproduct/{kode_test}', [DetailProdukController::class, 'index']);
+Route::post('/detailproduct/{kode_test}', [DetailProdukController::class, 'store']);
 
 Route::get('/testimoni', [TestimoniController::class, 'user']);
 Route::post('/testimoni', [TestimoniController::class, 'comment'])->name('comment');
@@ -72,13 +71,19 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/admintestimoni', [TestimoniController::class, 'index'])->name('testimoni.index');
 
     // Menambahkan route untuk menangani operasi CRUD testimoni
+    Route::get('/admintestimoni', [TestimoniController::class, 'index'])->name('testimoni.index');
+    Route::get('/admintestimoni', [TestimoniController::class, 'index'])->name('comments.index');
     Route::post('/admintestimoni', [TestimoniController::class, 'store'])->name('testimoni.store');
-    Route::delete('/admintestimoni/{id}', [TestimoniController::class, 'destroy'])->name('testimoni.destroy');;
-    // Route::get('/admintestimoni/delete/{id}', [TestimoniController::class, "Delete"]);
-
+    Route::delete('/admintestimoni/{id}', [TestimoniController::class, 'destroy'])->name('testimoni.destroy');
+    Route::delete('/admintestimoni/comment/{id}', [TestimoniController::class, 'destroyComment'])->name('testimoni.destroyComment');
+    
     Route::get('/adminlokasi', [LokasiController::class, 'indexadmin']);
     Route::post('/adminlokasi', [LokasiController::class, 'updateLocation']);
   
     Route::resource('pesanan', OrderDetailController::class);
     Route::put('pesanan/update-status/{orderDetail}', [OrderDetailController::class, 'updateStatus'])->name('pesanan.updateStatus');
+
+    Route::get('/adminjahit', function () {
+        return view('admin/jahit');
+    });
 });

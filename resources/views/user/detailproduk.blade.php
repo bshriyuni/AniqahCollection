@@ -105,7 +105,7 @@ Produk
 </script>
 <!-- End -->
 
-<form id="myForm" method="POST" action="/product/{{$produk->kode_baju}}" enctype="multipart/form-data">
+<form id="myForm" method="POST" action="/detailproduct/{{$produk->kode_baju}}" enctype="multipart/form-data">
     @csrf
     <!-- Modal Form-->
     <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
@@ -265,38 +265,19 @@ Produk
     </div>
     <!-- End Modal Submin -->
 </form>
-
-<!-- Script Modal Alert -->
-<script>
-    @if(session('success'))
-        Swal.fire({
-            icon: 'success',
-            title: 'Sukses!',
-            text: '{{ session('success') }}'
-        });
-    @endif
-
-    @if(session('error'))
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: '{{ session('error') }}'
-        });
-    @endif
-</script>
-<!-- End Script Modal Alert -->
 <!-- link -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-document.getElementById('submitData').addEventListener('click', function() {
-    
-    var form = document.getElementById('myForm'); 
-    if (form) {
-        form.submit();
-    }
-});
+
+// document.getElementById('submitData').addEventListener('click', function() {
+//     var form = document.getElementById('myForm'); 
+//     if (form) {
+//         form.submit();
+//     }
+// });
+
 function previewEditImage(event) {
     var reader = new FileReader();
     reader.onload = function() {
