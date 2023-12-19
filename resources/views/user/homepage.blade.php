@@ -84,11 +84,11 @@
     <div class="wrapper">
         <div class="hero">
             <div class="inner-wrapper">
-                <div class="row row-cols-2 mt-0">
+                <div class="row row-cols-1 row-cols-md-2 mt-0">
                     <div class="col-md-6">
                         <div class="header-left">
                             <h1 class="header-text">Welcome to Aniqah Collection</h1>
-                            <p class="header-desc">Pilihan yang tepat untuk tampil memukau di hari spesial anda</p>
+                            <p class="header-desc">Pilihan yang tepat untuk tampil memukau di hari spesial Anda</p>
                             
                             <div class="buttonHeader">
                                 <a href="/product" class="btn btn-outline-dark fw-bold" id="btn-Header">Check it now</a>
@@ -112,7 +112,7 @@
             <h2 class="text" style="font-family: Corinthia-Bold;">Our Collection</h2>
             <div class="row" id="itemProduct">
                 @if(count($topThree) >= 1)
-                    <div class="col-4">
+                    <div class="col-md-4 mx-auto">
                         <a href="product/{{$topThree[0]->kode_baju}}" class="mt-auto mx-auto d-block">
                             <img src="../foto/{{$topThree[0]->gambar}}" class="img" alt="...">
                         </a>
@@ -121,7 +121,7 @@
                 @endif
                     
                 @if(count($topThree) >= 2)
-                    <div class="col-4">
+                    <div class="col-md-4 mx-auto">
                         <a href="product/{{$topThree[1]->kode_baju}}" class="mt-auto mx-auto d-block">
                             <img src="../foto/{{$topThree[1]->gambar}}" class="img" alt="...">
                         </a>
@@ -130,22 +130,19 @@
                 @endif
 
                 @if(count($topThree) >= 3)
-                    <div class="col-4">
+                    <div class="col-md-4 mx-auto">
                         <a href="product/{{$topThree[2]->kode_baju}}" class="mt-auto mx-auto d-block">
                             <img src="../foto/{{$topThree[2]->gambar}}" class="img" alt="...">
                         </a>
                         <p class="text-center fw-bold">Baju Bodo</p>
                     </div>
                 @endif
-
                 <div class="center-button">
                     <a href="/product" class="btn btn-outline-dark fw-bold" id="btn-SeeMore">See More -></a>
                 </div>
-
             </div>
         </div>
     </div>
-
     <!-- End Cards -->
 
     <!-- Layanan -->
