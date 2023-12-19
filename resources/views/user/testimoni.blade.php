@@ -99,45 +99,20 @@
     </div>
 <br>
        
-<!-- modal -->
-<!-- Button to trigger modal -->
-
-    <!-- Review -->
-    <!-- <div class="container text-center review">
-    <div class="row">
-        @foreach($comments as $comment)
-            <div class="col-md-6 col-lg-4 mb-4">
-                <div class="colReview p-4">
-                    <div class="row align-items-center">
-                        <div class="col-4">
-                            <div class="profile-circle col-7 mx-auto" style="width: 70px; height: 70px; background-color: #D6B8D5; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
-                                <span class="profile-icon" style="font-size: 40px;">&#128103;</span>
-                            </div>
-                        </div>
-                        <div class="col-8">
-                            <h6 class="mt-3">{{ $comment->nama }}</h6>
-                            <p class="mb-0">{{ $comment->comment }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endforeach
-    </div>
-</div> -->
 
 <div class="container text-center review">
     <div class="row">
         @foreach($comments as $comment)
-            <div class="col-12 mb-4">
-                <div class="colReview p-4 shadow rounded w-100">
+            <div class="col-12 "> <!-- Reduce margin bottom for a more compact layout -->
+                <div class="colReview p-1 shadow rounded w-100"> <!-- Reduce padding for a more compact layout -->
                     <div class="row align-items-center">
-                        <div class="col-4">
-                            <div class="profile-circle col-7 mx-auto" style="width: 70px; height: 70px; background-color: #D6B8D5; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
-                                <span class="profile-icon" style="font-size: 40px;">&#128103;</span>
+                        <div class="col-3"> <!-- Adjust the column size as needed, e.g., col-3 for a smaller width -->
+                            <div class="profile-circle col-8 mx-auto" style="width: 50px; height: 50px; background-color: #D6B8D5; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+                                <span class="profile-icon" style="font-size: 30px;">&#128103;</span>
                             </div>
                         </div>
-                        <div class="col-8">
-                            <h6 class="mt-3">{{ $comment->nama }}</h6>
+                        <div class="col-9">
+                            <h6 class="mt-2">{{ $comment->nama }}</h6>
                             <p class="mb-0">{{ $comment->comment }}</p>
                         </div>
                     </div>
@@ -146,6 +121,7 @@
         @endforeach
     </div>
 </div>
+
 
 
 

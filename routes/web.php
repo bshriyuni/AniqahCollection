@@ -71,8 +71,12 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/admintestimoni', [TestimoniController::class, 'index'])->name('testimoni.index');
 
     // Menambahkan route untuk menangani operasi CRUD testimoni
+    Route::get('/admintestimoni', [TestimoniController::class, 'index'])->name('testimoni.index');
+    Route::get('/admintestimoni', [TestimoniController::class, 'index'])->name('comments.index');
     Route::post('/admintestimoni', [TestimoniController::class, 'store'])->name('testimoni.store');
-    Route::delete('/admintestimoni/{id}', [TestimoniController::class, 'destroy'])->name('testimoni.destroy');;
+    Route::delete('/admintestimoni/{id}', [TestimoniController::class, 'destroy'])->name('testimoni.destroy');
+    Route::delete('/admintestimoni/comment/{id}', [TestimoniController::class, 'destroyComment'])->name('testimoni.destroyComment');
+
     // Route::get('/admintestimoni/delete/{id}', [TestimoniController::class, "Delete"]);
 
     Route::get('/adminlokasi', [LokasiController::class, 'indexadmin']);
