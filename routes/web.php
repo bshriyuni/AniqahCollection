@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\OrderDetailController;
 use App\Http\Controllers\carapesanController;
 use App\Http\Controllers\ClothesController;
@@ -24,9 +25,7 @@ use App\Http\Controllers\TestimoniController;
 |
 */
 
-Route::get('/', function () {
-    return view('user/homepage');
-});
+Route::get('/', [HomepageController::class, 'index']);
 
 Route::get('/lokasi', [LokasiController::class, 'indexuser']);
 
@@ -43,6 +42,8 @@ Route::get('/profil', [ProfilController::class, 'index']);
 Route::get('/profil/edit', [ProfilController::class, 'edit'])->name('profil.edit');
 Route::post('/profil/update', [ProfilController::class, 'update'])->name('profil.update');
 Route::get('/profil/pesanan', [ProfilController::class, 'profilPesanan']);
+Route::post('/update-status/{id}', [ProfilController::class, 'updatestatus'])->name('order.updatestatus');
+
 
 Route::get('/login', [LoginController::class, 'login']);
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -83,8 +84,4 @@ Route::middleware(['admin'])->group(function () {
   
     Route::resource('pesanan', OrderDetailController::class);
     Route::put('pesanan/update-status/{orderDetail}', [OrderDetailController::class, 'updateStatus'])->name('pesanan.updateStatus');
-
-    Route::get('/adminjahit', function () {
-        return view('admin/jahit');
-    });
 });

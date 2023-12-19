@@ -13,6 +13,7 @@
     <!-- link font awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('font') }}"> <!-- Ganti 'font.css' dengan nama file CSS Anda -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         @font-face {
             font-family: "OleoScript-Bold";
@@ -25,6 +26,10 @@
         @font-face {
             font-family: "Inter-ExtraBold";
             src: url(/font/Inter-ExtraBold.ttf) format('truetype');
+        }
+        @font-face {
+            font-family: "Inter-Regular";
+            src: url(/font/Inter-Regular.ttf) format('truetype');
         }
     </style>
 </head>
@@ -49,7 +54,7 @@
                     </button>
                 @else <!-- Jika pengguna sudah login -->
                     <button class="btn">
-                        <a href="/profil" class="text-decoration-none" style="color: #000000;">Selamat datang, {{ Auth::user()->name }}</a>
+                        <a href="/profil" class="text-decoration-none" style="color: #000000;">Selamat datang, {{ Auth::user()->username }}</a>
                     </button>
                 @endguest
             </div>
@@ -131,28 +136,115 @@
                         <div class="row">
                             <div class="col-3">
                                 <div class="container" style="background-color: #F4EEEE; padding:5px;">
-                                    <img src="foto/baju2.jpg" class="card-img-bottom" alt="..." style="height: 200px;">
+                                    <img src="{{ asset('foto/' .  $item->gambar) }}" class="card-img-bottom" alt="..." style="height: 200px;">
                                 </div>
                             </div>
                             <div class="col-9">
                                 <h2>{{ $item->status }}</h2>
                                 <h5>{{ $item->kode_baju }}</h5>
-                                <h5>Rp {{ $item->harga }}</h5>
-                                <h2>Sedang diproses</h2>
-                                <h5>A123</h5>
-                                <h5>Rp 20.000</h5>
-                                <br><br>
-                                <button type="submit" class="btn" style="background-color: #E97E67">
-                                    <a href="/profil/pesanan/detail" class="text-decoration-none text-end" style="color: #000000;">Batalkan Pesanan</a>
-                                </button>
+                                <h5>Rp {{ $item->total_harga }}</h5>
+                                <p>Metode Pembayaran: {{ $item->pembayaran}}</p>
+
+                                @if(in_array($item->status, ['Pesanan Dibatalkan', 'Selesai', 'Diambil']))
+                                    <button type="button" class="btn" style="background-color: #E97E67" disabled>
+                                        Batalkan Pesanan 
+                                    </button>
+                                @else
+                                    <button id="editButton" type="button" class="btn" style="background-color: #E97E67" data-toggle="modal" data-target="#modal-delete-{{ $item->id }}">
+                                        Batalkan Pesanan
+                                    </button>
+                                @endif
                             </div>
                         </div>
+                        <hr>
+                        <!-- Modal Edit Produk-->
+                        @if(isset($item))
+                        <div class="modal fade" id="modal-delete-{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content m-20">
+                                    <div class="modal-header" style="background-color: #BBD6B8">
+                                        <h5 class="modal-title" id="exampleModalLabel">Batalkan Pesanan</h5>
+                                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"
+                                            style="margin-right:10px;"></button>
+                                    </div>
+                                    <div class="modal-body" style="margin-left:30px; margin-top:20px;">
+                                        <div class="row mb-2">
+                                            <p class="col-sm-4">Nama Lengkap</p>
+                                                <p class="col-sm-8">: {{ $item->nama_lengkap }}</p>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <p class="col-sm-4">No Telepon</p>
+                                                <p class="col-sm-8">: {{ $item->no_hp }}</p>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <p class="col-sm-4">Alamat</p>
+                                                <p class="col-sm-8">: {{ $item->alamat }}</p>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <p class="col-sm-4">Kode Baju</p>
+                                                <p class="col-sm-8">: {{ $item->kode_baju }}</p>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <p class="col-sm-4">Tanggan Pengambilan</p>
+                                                <p class="col-sm-8">: {{ $item->tgl_pengambilan }}</p>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <p class="col-sm-4">Tanggan Pengembalian</p>
+                                                <p class="col-sm-8">: {{ $item->tgl_pengembalian }}</p>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <p class="col-sm-4">Total Harga</p>
+                                                <p class="col-sm-8">: {{ $item->total_harga }}</p>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <p class="col-sm-4">Status Pemesanan</p>
+                                                <p class="col-sm-8">: {{ $item->status }}</p>
+                                        </div>
+                                        <div class="row mb-2">
+                                            <p class="col-sm-4">Metode Pembayaran</p>
+                                                <p class="col-sm-8">: {{ $item->pembayaran }}</p>
+                                        </div>
+                                        <p class="text-danger">Jika melakukan pembatalan pesanan maka pesanan diatas tidak akan disiapkan oleh admin!!</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
+                                        <form action="{{ route('order.updatestatus', $item->id) }}" method="post">
+                                            @csrf
+                                            @method('post')
+                                            <button type="submit" class="btn btn-primary">Batalkan Pesanan</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+                        <!-- End Modal Edit Produk-->
                     @endforeach
                 </div>
             </div>
         </div>
     </div>
     <!-- End Profil Saya -->
+
+    <!-- Script Modal Alert -->
+    <script>
+            @if(session('success'))
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Sukses!',
+                    text: '{{ session('success') }}'
+                });
+            @endif
+
+            @if(session('error'))
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: '{{ session('error') }}'
+                });
+            @endif
+        </script>
+        <!-- End Script Modal Alert -->
 
     <!-- FootNote -->
     <div class="footNote" style="background-color: #BBD6B8; padding: 40px;">
@@ -169,7 +261,6 @@
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Tuliskan ulasanmu disini</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="border: 1px solid black;"></textarea>
-                    <button class="btn-send mt-3">Send</button>
                 </div>
             </div>
         </div>

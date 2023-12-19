@@ -44,6 +44,15 @@ Produk
 </div>
 <!-- End Produk -->
 
+<!-- Btn Logout -->
+<div class="logout-button text-end" style=" position: fixed; bottom: 10px; right: 20px;">
+    <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <button type="submit" style="background-color: #f5f0f0; color: #1c1616; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-style: italic;">Logout</button>
+    </form>
+</div>
+<!-- End Btn Logout -->
+
 <!-- Modal Edit Produk-->
 <div class="modal fade" id="modal-edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
@@ -81,17 +90,10 @@ Produk
                             </div>
                         </div>
                     </div>
-                    
                     <div class="mb-3 row">
                         <label for="inputDewasa" class="col-sm-3 col-form-label">Jumlah Dewasa</label>
                         <div class="col-sm-9">
-                            <input class="form-control" type="number" id="jumlahDewasa" name="jumlahDewasa">
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="inputAnak" class="col-sm-3 col-form-label">Jumlah Anak</label>
-                        <div class="col-sm-9">
-                            <input class="form-control" type="number" id="jumlahAnak" name="jumlahAnak">
+                            <input class="form-control" type="number" id="stok" name="stok">
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -155,15 +157,9 @@ Produk
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="inputDewasa" class="col-sm-3 col-form-label">Jumlah Dewasa</label>
+                        <label for="inputDewasa" class="col-sm-3 col-form-label">Stock</label>
                         <div class="col-sm-9">
-                            <input class="form-control" type="number" id="jumlahDewasa" name="jumlahDewasa">
-                        </div>
-                    </div>
-                    <div class="mb-3 row">
-                        <label for="inputAnak" class="col-sm-3 col-form-label">Jumlah Anak</label>
-                        <div class="col-sm-9">
-                            <input class="form-control" type="number" id="jumlahAnak" name="jumlahAnak">
+                            <input class="form-control" type="number" id="stok" name="stok">
                         </div>
                     </div>
                     <div class="mb-3 row">
@@ -191,36 +187,25 @@ Produk
 </div>
 <!-- End Modal Add Produk-->
 
-<!-- Modal Alert -->
-<!-- Modal untuk pesan berhasil -->
-<div class="modal" id="successModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content text-center">
-            <div class="modal-body">
-                <i class="fas fa-check-circle fa-5x" style="color: #28a745;"></i>
-                <p class="mt-3">Produk Berhasil Ditambahkan</p>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Modal untuk pesan berhasil -->
+<!-- Script Modal Alert -->
+<script>
+            @if(session('success'))
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Sukses!',
+                    text: '{{ session('success') }}'
+                });
+            @endif
 
-<!-- Modal untuk pesan gagal -->
-<div class="modal" id="errorModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content text-center">
-            <div class="modal-body">
-                <i class="fas fa-times-circle fa-5x" style="color: #dc3545;"></i>
-                <p class="mt-3">Gagal menambahkan produk</p>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Modal untuk pesan gagal -->
-
-
-<!-- End Script Modal Alert -->
-<!-- End Modal Alert -->
+            @if(session('error'))
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: '{{ session('error') }}'
+                });
+            @endif
+        </script>
+        <!-- End Script Modal Alert -->
 <script>
 function previewImage(event) {
     var reader = new FileReader();
@@ -252,15 +237,14 @@ document.querySelectorAll('.edit-btn').forEach(btn => {
         const kodeBaju = this.getAttribute('data-kodebaju');
 
         // Fetch data for the specific kode_baju via AJAX
-        fetch(`/getClothingData/${kodeBaju}`)
+        fetch(/getClothingData/${kodeBaju})
             .then(response => response.json())
             .then(data => {
                 // Populate form fields with fetched data
                 document.getElementById('editForm').action = "../editClothingData/" + data.id;
                 document.getElementById('kodeBaju').value = data.kode_baju;
                 document.getElementById('deskripsi').value = data.deskripsi;
-                document.getElementById('jumlahDewasa').value = data.jumlah_dewasa;
-                document.getElementById('jumlahAnak').value = data.jumlah_anak;
+                document.getElementById('stok').value = data.stok;
                 document.getElementById('syaratKetentuan').value = data.syarat_ketentuan;
                 document.getElementById('harga').value = data.harga;
                 document.getElementById('editGambar').innerHTML = '<img src="../foto/' + data

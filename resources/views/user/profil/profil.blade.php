@@ -25,6 +25,10 @@
             font-family: "Inter-ExtraBold";
             src: url(/font/Inter-ExtraBold.ttf) format('truetype');
         }
+        @font-face {
+            font-family: "Inter-Regular";
+            src: url(/font/Inter-Regular.ttf) format('truetype');
+        }
     </style>
 </head>
 <body style="background-color:#FFFFFF;">
@@ -48,7 +52,7 @@
                     </button>
                 @else <!-- Jika pengguna sudah login -->
                     <button class="btn">
-                        <a href="/profil" class="text-decoration-none" style="color: #000000;">Selamat datang, {{ Auth::user()->name }}</a>
+                        <a href="/profil" class="text-decoration-none" style="color: #000000;">Selamat datang, {{ Auth::user()->username }}</a>
                     </button>
                 @endguest
             </div>
@@ -178,7 +182,7 @@
                             @if($username)
                                 <div>
                                     <p>{{ $username }}</p>
-                                    <p>Bergabung sejak {{ $created_at}}</p>
+                                    <p>Bergabung sejak {{ \Carbon\Carbon::parse($created_at)->format('d F Y') }}</p>
                                     <br>
                                     <form action="/logout" method="post" class="d-inline">
                                         @csrf
@@ -210,7 +214,6 @@
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Tuliskan ulasanmu disini</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="border: 1px solid black;"></textarea>
-                    <button class="btn-send mt-3">Send</button>
                 </div>
             </div>
         </div>
