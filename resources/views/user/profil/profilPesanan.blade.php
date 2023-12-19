@@ -145,7 +145,7 @@
                                 <h5>Rp {{ $item->total_harga }}</h5>
                                 <p>Metode Pembayaran: {{ $item->pembayaran}}</p>
 
-                                @if(in_array($item->status, ['Pesanan dibatalkan', 'Selesai', 'Pesanan Diambil']))
+                                @if(in_array($item->status, ['Pesanan Dibatalkan', 'Selesai', 'Diambil']))
                                     <button type="button" class="btn" style="background-color: #E97E67" disabled>
                                         Batalkan Pesanan 
                                     </button>

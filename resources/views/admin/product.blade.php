@@ -44,6 +44,15 @@ Produk
 </div>
 <!-- End Produk -->
 
+<!-- Btn Logout -->
+<div class="logout-button text-end" style=" position: fixed; bottom: 10px; right: 20px;">
+    <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <button type="submit" style="background-color: #f5f0f0; color: #1c1616; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-style: italic;">Logout</button>
+    </form>
+</div>
+<!-- End Btn Logout -->
+
 <!-- Modal Edit Produk-->
 <div class="modal fade" id="modal-edit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
