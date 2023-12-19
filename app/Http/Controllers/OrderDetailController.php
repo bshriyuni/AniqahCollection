@@ -56,7 +56,7 @@ class OrderDetailController extends Controller
     public function updateStatus(Request $request, OrderDetail $orderDetail)
     {
         $request->validate([
-            'status' => 'required|in:Menunggu Konfirmasi,Proses Pengambilan,Pesanan Diambil,Selesai',
+            'status' => 'required|in:Booked, Diambil,Selesai, Pesanan Dibatalkan',
         ]);
 
         $orderDetail->update(['status' => $request->status]);
