@@ -130,28 +130,25 @@ class ProfilController extends Controller
         'password' => $password,
         'notlp' => $notlp,
         'created_at' => $created_at];
-        $pesanan = DB::select("
-            SELECT 
-                clothes.gambar,
-                order_details.id,
-                order_details.kode_baju, 
-                order_details.total_harga, 
-                order_details.status, 
-                order_details.pembayaran, 
-                order_details.nama_lengkap, 
-                order_details.no_hp, 
-                order_details.alamat,
-                order_details.jumlah_pesanan, 
-                order_details.tgl_pengambilan, 
-                order_details.tgl_pengembalian
-            FROM order_details
-            JOIN clothes ON order_details.kode_baju = clothes.kode_baju
-            JOIN users ON order_details.users_id = users.id
-            WHERE users.id = $userId
-            ORDER BY order_details.id DESC
-        ");
+        $pesanan = DB::table('order_details')
+            ->select('clothes.gambar', 'order_details.id', 'order_details.kode_baju', 'order_details.total_harga', 'order_details.status', 'order_details.pembayaran', 'order_details.nama_lengkap', 'order_details.no_hp', 'order_details.alamat', 'order_details.jumlah_pesanan', 'order_details.tgl_pengambilan', 'order_details.tgl_pengembalian')
+            ->join('clothes', 'order_details.kode_baju', '=', 'clothes.kode_baju')
+            ->join('users', 'order_details.users_id', '=', 'users.id')
+            ->where('users.id', $userId)
+            ->whereNotIn('order_details.status', ['Selesai', 'Dibatalkan', 'Pesanan Dibatalkan'])
+            ->orderBy('order_details.id', 'DESC')
+            ->paginate(3);
 
-        return view('/user/profil/profilPesanan', compact('profil', 'pesanan'));
+        $riwayat = DB::table('order_details')
+            ->select('clothes.gambar', 'order_details.id', 'order_details.kode_baju', 'order_details.total_harga', 'order_details.status', 'order_details.pembayaran', 'order_details.nama_lengkap', 'order_details.no_hp', 'order_details.alamat', 'order_details.jumlah_pesanan', 'order_details.tgl_pengambilan', 'order_details.tgl_pengembalian')
+            ->join('clothes', 'order_details.kode_baju', '=', 'clothes.kode_baju')
+            ->join('users', 'order_details.users_id', '=', 'users.id')
+            ->where('users.id', $userId)
+            ->whereIn('order_details.status', ['Selesai', 'Dibatalkan', 'Pesanan Dibatalkan'])
+            ->orderBy('order_details.id', 'DESC')
+            ->paginate(3);
+
+        return view('/user/profil/profilPesanan', compact('profil', 'pesanan', 'riwayat'));
     }
 
     public function updatestatus($id){
