@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\Models\orderDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -63,36 +64,36 @@ class ProfilController extends Controller
     }
 
     public function update(Request $request){
-        // Validasi data dari formulir jika diperlukan
-        $request->validate([
-            'username' => 'string|max:255',
-            'nama' => 'string|max:255',
-            'email' => 'email|max:255',
+        $user = Auth::user();
+        $validatedData = $request->validate([
+            'username' => 'nullable|string|max:255',
+            'nama' => 'nullable|string|max:255',
+            'email' => 'nullable|email|max:255',
             'password' => 'nullable|string|min:6',
-            'noTlp' => 'nullable|numeric',
-            // Sesuaikan dengan kebutuhan validasi lainnya
+            'noTlp' => 'nullable|numeric'
         ]);
     
-        // Dapatkan pengguna yang sedang login
-        $user = Auth::user();
+        // Periksa dan atur nilai-nilai yang berubah
+        if (isset($validatedData['username'])) {
+            $user->username = $validatedData['username'];
+        }
     
-        // Update data pengguna berdasarkan input formulir
-        if ($request->filled('username')) {
-            $user->username = $request->input('username');
+        if (isset($validatedData['nama'])) {
+            $user->name = $validatedData['nama'];
         }
-        if ($request->filled('nama')) {
-            $user->name = $request->input('nama');
+    
+        if (isset($validatedData['email'])) {
+            $user->email = $validatedData['email'];
         }
-        if ($request->filled('email')) {
-            $user->email = $request->input('email');
+    
+        // Setelah verifikasi, Anda dapat melanjutkan dengan mengatur nilai password
+        if (isset($validatedData['password'])) {
+            $user->password = bcrypt($validatedData['password']);
         }
-        if ($request->filled('password')) {
-            $user->password = bcrypt($request->input('password'));
+    
+        if (isset($validatedData['noTlp'])) {
+            $user->notlp = $validatedData['noTlp'];
         }
-        if ($request->filled('noTlp')) {
-            $user->notlp = $request->input('noTlp');
-        }
-        // Update kolom lainnya sesuai kebutuhan
     
         // Simpan perubahan
         if ($user->save()) {
@@ -102,7 +103,7 @@ class ProfilController extends Controller
             // Jika gagal, kirim pesan gagal
             return back()->with('error', 'Gagal memperbarui profil');
         }
-    }
+    }    
 
     public function profilPesanan(){
         if (Auth::check()) {
@@ -116,9 +117,11 @@ class ProfilController extends Controller
             $password = $user->password = str_repeat('*', 5) . substr($user->password, -1);
             $notlp = $user->notlp;
             $created_at = $user->created_at;
+            $userId = $user->id;
         } else {
             // Tidak ada pengguna yang sudah login
             $user = null;
+            $userId = null;
         }
 
         $profil = ['username' => $username,
@@ -127,16 +130,33 @@ class ProfilController extends Controller
         'password' => $password,
         'notlp' => $notlp,
         'created_at' => $created_at];
-        $pesanan = orderDetail::paginate(4);
+        $pesanan = DB::select("
+            SELECT 
+                clothes.gambar,
+                order_details.id,
+                order_details.kode_baju, 
+                order_details.total_harga, 
+                order_details.status, 
+                order_details.pembayaran, 
+                order_details.nama_lengkap, 
+                order_details.no_hp, 
+                order_details.alamat,
+                order_details.jumlah_pesanan, 
+                order_details.tgl_pengambilan, 
+                order_details.tgl_pengembalian
+            FROM order_details
+            JOIN clothes ON order_details.kode_baju = clothes.kode_baju
+            JOIN users ON order_details.users_id = users.id
+            WHERE users.id = $userId
+            ORDER BY order_details.id DESC
+        ");
+
         return view('/user/profil/profilPesanan', compact('profil', 'pesanan'));
     }
 
-    public function delete($id){
-        $pesanan = orderDetail::findOrFail($id);
-
-        // Delete the product from the database
-        $pesanan->delete();
-    
+    public function updatestatus($id){
+        $pesanan = OrderDetail::findOrFail($id);
+        $pesanan->update(['status' => 'Pesanan dibatalkan']);
         return back()->with('success', 'Pesanan dibatalkan');
     }
 }

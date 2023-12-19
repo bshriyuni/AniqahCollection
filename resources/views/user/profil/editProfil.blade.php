@@ -25,6 +25,10 @@
             font-family: "Inter-ExtraBold";
             src: url(/font/Inter-ExtraBold.ttf) format('truetype');
         }
+        @font-face {
+            font-family: "Inter-Regular";
+            src: url(/font/Inter-Regular.ttf) format('truetype');
+        }
     </style>
 </head>
 <body style="background-color:#FFFFFF;">
@@ -48,7 +52,7 @@
                     </button>
                 @else <!-- Jika pengguna sudah login -->
                     <button class="btn">
-                        <a href="/profil" class="text-decoration-none" style="color: #000000;">Selamat datang, {{ Auth::user()->name }}</a>
+                        <a href="/profil" class="text-decoration-none" style="color: #000000;">Selamat datang, {{ Auth::user()->username }}</a>
                     </button>
                 @endguest
             </div>
@@ -132,33 +136,33 @@
                     <form style="margin-right: 20px" method="post" action="{{ route('profil.update') }}">
                         @csrf
                         <div class="row mb-3">
-                            <label for="inputUsername" class="col-sm-4 col-form-label text-end">Username</label>
+                            <label for="inputUsername" class="col-sm-4 col-form-label text-end">Nama Pengguna</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="username" name="username" value="{{ $username }}">
+                            <input type="text" class="form-control" id="username" name="username" value="{{ $username }}" placeholder="Masukkan nama pengguna">
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="inputNama" class="col-sm-4 col-form-label text-end">Nama</label>
                             <div class="col-sm-8">
-                            <input type="text" class="form-control" id="inputNama" name="nama" value="{{ $name }}">
+                            <input type="text" class="form-control" id="inputNama" name="nama" value="{{ $name }}" placeholder="Masukkan nama">
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="inputEmail" class="col-sm-4 col-form-label text-end">Email</label>
                             <div class="col-sm-8">
-                            <input type="email" class="form-control" id="inputEmail" name="email" value="{{ $email }}">
+                            <input type="email" class="form-control" id="inputEmail" name="email" value="{{ $email }}" placeholder="Masukkan email">
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="inputPassword" class="col-sm-4 col-form-label text-end">Password</label>
                             <div class="col-sm-8">
-                            <input type="password" class="form-control" id="inputPassword" name="password" value="{{ $password }}">
+                            <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Masukkan password baru">
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label for="inputNo" class="col-sm-4 col-form-label text-end">Nomor Telepon</label>
                             <div class="col-sm-8">
-                            <input type="number" class="form-control" id="inputNo" name="noTlp" value="{{ $notlp }}">
+                            <input type="tel" class="form-control" id="inputNo" name="noTlp" value="{{ $notlp }}" placeholder="Masukkan nomor">
                             </div>
                         </div>
                         <br><br>
@@ -198,7 +202,7 @@
                             @if($username)
                                 <div>
                                     <p>{{ $username }}</p>
-                                    <p>Bergabung sejak {{ $created_at}}</p>
+                                    <p>Bergabung sejak {{ \Carbon\Carbon::parse($created_at)->format('d F Y') }}</p>
                                     <br>
                                     <form action="/logout" method="post" class="d-inline">
                                         @csrf

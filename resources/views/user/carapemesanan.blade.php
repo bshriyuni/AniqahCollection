@@ -81,19 +81,19 @@
     </div>
     
     <div class="row">
-        @foreach($carapesan as $pesan)
-            <div class="col-md-6">
-                    <div class="row g-1">
-                        <div class="col-md-4">
-                            <div class="rounded-card">
-                                <p class="custom-text" id="step1">{{ $pesan->no }}</p>
-                            </div>
+            @foreach($carapesan as $pesan)
+            <div class="col col-6">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="rounded-card">
+                            <p class="custom-text" id="step1">{{ $pesan->no }}</p>
                         </div>
-                        <div class="col-md-8">
-                            <div class="custom-card">
-                                <div class="card-body">
-                                    <p class="card-text" id="step1">{{ $pesan->step }}</p>
-                                </div>
+                    </div>
+                    <div class="col-9">
+                        <div class="custom-card" >
+                            <div class="card-body" style="text-align :start; width: 300px; height: 200px;">
+                                <p class="card-text" id="step1">{{ $pesan->step }}</p> 
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -118,7 +118,6 @@
                     <div class="mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Tuliskan ulasanmu disini</label>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="border: 1px solid black;"></textarea>
-                        <button class="btn-send mt-3">Send</button>
                     </div>
                 </div>
             </div>
@@ -127,10 +126,11 @@
     <!-- End Foot Note -->
 
     <!-- link -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+   <!-- link -->
+   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script> 
+
 </body>
 </html>

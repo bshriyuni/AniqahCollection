@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/css/font.css">
     @yield('style')
     <script src="https://kit.fontawesome.com/2f5ba850ff.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
     .navbar {
         background-color: #BBD6B8;
@@ -27,7 +28,7 @@
 </head>
 
 <body>
-    <!-- Brand App --> 
+    <!-- Brand App -->
     <div class="ps-5 mb-4 pt-2">
         <div class="d-flex align-items-center justify-content-between">
             <div>
@@ -47,15 +48,13 @@
                     </button>
                 @else <!-- Jika pengguna sudah login -->
                     <button class="btn">
-                        <a href="/profil" class="text-decoration-none" style="color: #000000;">Selamat datang, {{ Auth::user()->name }}</a>
+                        <a href="/profil" class="text-decoration-none" style="color: #000000;">Selamat datang, {{ Auth::user()->username }}</a>
                     </button>
                 @endguest
             </div>
         </div>
     </div>
-    <!-- end Brand App -->
-
-    <!-- Menu App -->
+    <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-md navbar-light" style="background-color: #BBD6B8; margin-top: 30px; text-align: justify;">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -67,7 +66,7 @@
                         <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item" style="flex: 1; text-align: center; white-space: nowrap; font-size: 20px; font-family: 'Inter-Regular'; color: black;">
-                        <a class="nav-link" href="/product">Produk</a>
+                        <a class="nav-link fw-bold" href="/product">Produk</a>
                     </li>
                     <li class="nav-item" style="flex: 1; text-align: center; white-space: nowrap; font-size: 20px; font-family: 'Inter-Regular'; color: black;">
                         <a class="nav-link" href="/lokasi">Lokasi</a>
@@ -87,7 +86,6 @@
     <div class="container p-5">
         @yield('container')
     </div>
-    
     <!-- FootNote -->
     <div class="footNote" style="background-color: #BBD6B8; padding: 40px;">
         <div class="ini row" style="margin: 60px;">
@@ -103,7 +101,6 @@
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Tuliskan ulasanmu disini</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="border: 1px solid black;"></textarea>
-                    <button class="btn-send mt-3">Send</button>
                 </div>
             </div>
         </div>
