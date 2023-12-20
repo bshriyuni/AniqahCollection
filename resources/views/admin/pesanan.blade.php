@@ -74,11 +74,13 @@
                             <th scope="col">Kode Baju</th>
                             <th scope="col">Nama</th>
                             <th scope="col">No.HP</th>
-                            <th scope="col">Dewasa</th>
-                            <th scope="col">Anak</th>
-                            <th scope="col">Tanggal Ambil</th>
-                            <th scope="col">Tanggal Kembali</th>
-                            <th scope="col">Status</th>
+                            <th scope="col">Alamat</th> 
+                            <th scope="col">Jumlah</th>
+                            <th scope="col">Total Harga</th>
+                            <th scope="col">Tgl Ambil</th>
+                            <th scope="col">Tgl Kembali</th>
+                            <th scope="col">Pembayaran</th>
+                            <th scope="col">Keterangan</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -86,29 +88,31 @@
                         @if ($orderDetail->status != 'Selesai')
                         <tr>
                             <td>{{ $orderDetail->kode_baju }}</td>
-                            <td>{{ $orderDetail->nama_pelanggan }}</td>
+                            <td>{{ $orderDetail->nama_lengkap }}</td>
                             <td>{{ $orderDetail->no_hp }}</td>
-                            <td>{{ $orderDetail->dewasa }}</td>
-                            <td>{{ $orderDetail->anak }}</td>
+                            <td>{{ $orderDetail->alamat }}</td>
+                            <td>{{ $orderDetail->jumlah_pesanan }}</td>
+                            <td>{{ $orderDetail->total_harga}}</td>
                             <td>{{ $orderDetail->tgl_pengambilan }}</td>
                             <td>{{ $orderDetail->tgl_pengembalian }}</td>
+                            <td>{{ $orderDetail->pembayaran }}</td>
                             <td>
                                 <div class="btn-group" data-order-detail-id="{{ $orderDetail->id }}">
                                     <form action="{{ route('pesanan.updateStatus', $orderDetail) }}" method="POST">
                                         @csrf
                                         @method('PUT')
                                         <select name="status" class="form-select" onchange="this.form.submit()">
-                                            <option value="Menunggu Konfirmasi"
-                                                {{ $orderDetail->status === 'Menunggu Konfirmasi' ? 'selected' : '' }}>
-                                                Menunggu Konfirmasi</option>
-                                            <option value="Proses Pengambilan"
-                                                {{ $orderDetail->status === 'Proses Pengambilan' ? 'selected' : '' }}>
-                                                Proses Pengambilan</option>
-                                            <option value="Pesanan Diambil"
-                                                {{ $orderDetail->status === 'Pesanan Diambil' ? 'selected' : '' }}>
-                                                Pesanan Diambil</option>
+                                            <option value="Booked"
+                                                {{ $orderDetail->status === 'Booked' ? 'selected' : '' }}>
+                                                Booked</option>
+                                            <option value="Diambil"
+                                                {{ $orderDetail->status === 'Diambil' ? 'selected' : '' }}>
+                                                Diambil</option>
                                             <option value="Selesai"
-                                                {{ $orderDetail->status === 'Selesai' ? 'selected' : '' }}>Selesai
+                                                {{ $orderDetail->status === 'Selesai' ? 'selected' : '' }}>
+                                                Selesai</option>
+                                            <option value="Pesanan Dibatalkan"
+                                                {{ $orderDetail->status === 'Pesanan Dibatalkan' ? 'selected' : '' }}>Pesanan Dibatalkan
                                             </option>
                                         </select>
                                     </form>
@@ -132,10 +136,12 @@
                             <th scope="col">Kode Baju</th>
                             <th scope="col">Nama</th>
                             <th scope="col">No.HP</th>
-                            <th scope="col">Dewasa</th>
-                            <th scope="col">Anak</th>
-                            <th scope="col">Tanggal Ambil</th>
-                            <th scope="col">Tanggal Kembali</th>
+                            <th scope="col">Alamat</th> 
+                            <th scope="col">Jumlah</th>
+                            <th scope="col">Total Harga</th>
+                            <th scope="col">Tgl Ambil</th>
+                            <th scope="col">Tgl Kembali</th>
+                            <th scope="col">Pembayaran</th>
                             <th scope="col">Keterangan</th>
                         </tr>
                     </thead>
@@ -143,12 +149,14 @@
                         @foreach($selesai as $orderDetail)
                         <tr>
                             <td>{{ $orderDetail->kode_baju }}</td>
-                            <td>{{ $orderDetail->nama_pelanggan }}</td>
+                            <td>{{ $orderDetail->nama_lengkap }}</td>
                             <td>{{ $orderDetail->no_hp }}</td>
-                            <td>{{ $orderDetail->dewasa }}</td>
-                            <td>{{ $orderDetail->anak }}</td>
+                            <td>{{ $orderDetail->alamat }}</td>
+                            <td>{{ $orderDetail->jumlah_pesanan }}</td>
+                            <td>{{ $orderDetail->total_harga}}</td>
                             <td>{{ $orderDetail->tgl_pengambilan }}</td>
                             <td>{{ $orderDetail->tgl_pengembalian }}</td>
+                            <td>{{ $orderDetail->pembayaran }}</td>
                             <td>{{ $orderDetail->status}}</td>
                         </tr>
                         @endforeach
@@ -158,9 +166,9 @@
             {{ $selesai->links('pagination::bootstrap-5') }}
         </div>
 
-        <div>
+        <!-- <div>
             <p>Keterangan aksi:</p>
-            <li>Menunggu Konfirmasi :
+            <li>Booked :
                 Form yang telah diisi oleh customer telah diterima datanya dan masuk ke list pesanan, yang selanjunya
                 admin akan menghubungi customer untuk mengonfirmasi pesanannya
             </li>
@@ -171,7 +179,7 @@
                 Pembayaran telah dilakukan dan customer sudah mengambil barang yang kemudian akan menunggu pengembalian
                 pada waktu yang telah disepakati
             </li>
-        </div>
+        </div> -->
         <div class="logout-button">
             <form method="POST" action="{{ route('logout') }}">
                 @csrf

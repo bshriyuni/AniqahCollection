@@ -76,7 +76,9 @@ Route::middleware(['admin'])->group(function () {
     Route::post('/admintestimoni', [TestimoniController::class, 'store'])->name('testimoni.store');
     Route::delete('/admintestimoni/{id}', [TestimoniController::class, 'destroy'])->name('testimoni.destroy');
     Route::delete('/admintestimoni/comment/{id}', [TestimoniController::class, 'destroyComment'])->name('testimoni.destroyComment');
-    
+
+    // Route::get('/admintestimoni/delete/{id}', [TestimoniController::class, "Delete"]);
+
     Route::get('/adminlokasi', [LokasiController::class, 'indexadmin']);
     Route::post('/adminlokasi', [LokasiController::class, 'updateLocation']);
   

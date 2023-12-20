@@ -12,7 +12,9 @@ class TestimoniController extends Controller
     public function index()
     {
         $testimonis = Testimoni::all();
-        return view('admin/testimoni', compact('testimonis'));
+        $comments = Comment::all(); 
+
+        return view('admin/testimoni', compact('testimonis', 'comments'));
     }
 
     public function user(){
@@ -76,5 +78,18 @@ class TestimoniController extends Controller
         // return response()->json(['message' => 'Testimoni berhasil dihapus']);
         return back()->with('success', 'testimoni berhasil dihapus.');
 
+    }
+
+    public function destroyComment($id)
+    {
+        $comment = Comment::find($id);
+
+        if (!$comment) {
+            return redirect()->route('comments.index')->with('error', 'Komentar tidak ditemukan');
+        }
+
+        $comment->delete();
+
+        return redirect()->route('comments.index')->with('success', 'Komentar berhasil dihapus');
     }
 }

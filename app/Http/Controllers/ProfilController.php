@@ -131,13 +131,26 @@ class ProfilController extends Controller
         'password' => $password,
         'notlp' => $notlp,
         'created_at' => $created_at];
-        $pageSize = 4; // Number of items per page
-        $pesanan = DB::table('order_details as od')
-        ->select('*')
-        ->join('clothes as c', 'od.kode_baju', '=', 'c.kode_baju')
-        ->where('users_id', $user->id)
-        ->paginate($pageSize);
-        return view('/user/profil/profilPesanan', compact('profil', 'pesanan'));
+
+        $pesanan = DB::table('order_details')
+            ->select('clothes.gambar', 'order_details.id', 'order_details.kode_baju', 'order_details.total_harga', 'order_details.status', 'order_details.pembayaran', 'order_details.nama_lengkap', 'order_details.no_hp', 'order_details.alamat', 'order_details.jumlah_pesanan', 'order_details.tgl_pengambilan', 'order_details.tgl_pengembalian')
+            ->join('clothes', 'order_details.kode_baju', '=', 'clothes.kode_baju')
+            ->join('users', 'order_details.users_id', '=', 'users.id')
+            ->where('users.id', $userId)
+            ->whereNotIn('order_details.status', ['Selesai', 'Dibatalkan', 'Pesanan Dibatalkan'])
+            ->orderBy('order_details.id', 'DESC')
+            ->paginate(3);
+
+        $riwayat = DB::table('order_details')
+            ->select('clothes.gambar', 'order_details.id', 'order_details.kode_baju', 'order_details.total_harga', 'order_details.status', 'order_details.pembayaran', 'order_details.nama_lengkap', 'order_details.no_hp', 'order_details.alamat', 'order_details.jumlah_pesanan', 'order_details.tgl_pengambilan', 'order_details.tgl_pengembalian')
+            ->join('clothes', 'order_details.kode_baju', '=', 'clothes.kode_baju')
+            ->join('users', 'order_details.users_id', '=', 'users.id')
+            ->where('users.id', $userId)
+            ->whereIn('order_details.status', ['Selesai', 'Dibatalkan', 'Pesanan Dibatalkan'])
+            ->orderBy('order_details.id', 'DESC')
+            ->paginate(3);
+
+        return view('/user/profil/profilPesanan', compact('profil', 'pesanan', 'riwayat'));
     }
 
     public function delete($id){
