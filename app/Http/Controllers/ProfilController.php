@@ -155,12 +155,9 @@ class ProfilController extends Controller
         return view('/user/profil/profilPesanan', compact('profil', 'pesanan', 'riwayat'));
     }
 
-    public function delete($id){
-        $pesanan = orderDetail::findOrFail($id);
-
-        // Delete the product from the database
-        $pesanan->delete();
-    
+    public function updatestatus($id){
+        $pesanan = OrderDetail::findOrFail($id);
+        $pesanan->update(['status' => 'Pesanan dibatalkan']);
         return back()->with('success', 'Pesanan dibatalkan');
     }
 }

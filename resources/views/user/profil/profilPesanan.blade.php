@@ -134,7 +134,7 @@
                 <div class="card-body">
                     @foreach($pesanan as $item)
                         <div class="row">
-                            <a class="col-3" href="/product/{{ $item->kode_baju}}" style="text-decoration: none; color: black;">
+                            <a class="col-3" href="/detailproduct/{{ $item->kode_baju}}" style="text-decoration: none; color: black;">
                                 <div class="container" style="background-color: #F4EEEE; padding:5px;">
                                     <img src="{{ asset('foto/' .  $item->gambar) }}" class="card-img-bottom" alt="..." style="height: 200px;">
                                 </div>
@@ -145,7 +145,7 @@
                                 <h5>Rp {{ $item->total_harga }}</h5>
                                 <p>Metode Pembayaran: {{ $item->pembayaran}}</p>
     
-                                @if(in_array($item->status, ['Pesanan Dibatalkan', 'Selesai', 'Diambil']))
+                                @if(in_array($item->status, ['Pesanan Dibatalkan', 'Selesai', 'Diambil', 'Dibatalkan']))
                                     <button type="button" class="btn" style="background-color: #E97E67" disabled>
                                         Batalkan Pesanan 
                                     </button>
@@ -231,7 +231,7 @@
                 <div class="card-body">
                     @foreach($riwayat as $item)
                         <div class="row">
-                            <a class="col-3" href="/product/{{ $item->kode_baju}}" style="text-decoration: none; color: black;">
+                            <a class="col-3" href="/detailproduct/{{ $item->kode_baju}}" style="text-decoration: none; color: black;">
                                 <div class="container" style="background-color: #F4EEEE; padding:5px;">
                                     <img src="{{ asset('foto/' .  $item->gambar) }}" class="card-img-bottom" alt="..." style="height: 200px;">
                                 </div>
@@ -242,7 +242,7 @@
                                 <h5>Rp {{ $item->total_harga }}</h5>
                                 <p>Metode Pembayaran: {{ $item->pembayaran}}</p>
 
-                                @if(in_array($item->status, ['Pesanan Dibatalkan', 'Selesai', 'Diambil']))
+                                @if(in_array($item->status, ['Pesanan Dibatalkan', 'Selesai', 'Diambil', 'Dibatalkan']))
                                     <button type="button" class="btn" style="background-color: #E97E67" disabled>
                                         Batalkan Pesanan 
                                     </button>
@@ -254,68 +254,6 @@
                             </div>
                         </div>
                         <hr>
-                        <!-- Modal Edit Produk-->
-                        @if(isset($item))
-                        <div class="modal fade" id="modal-delete-{{ $item->users_id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg">
-                                <div class="modal-content m-20">
-                                    <div class="modal-header" style="background-color: #BBD6B8">
-                                        <h5 class="modal-title" id="exampleModalLabel">Batalkan Pesanan</h5>
-                                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"
-                                            style="margin-right:10px;"></button>
-                                    </div>
-                                    <div class="modal-body" style="margin-left:30px; margin-top:20px;">
-                                        <div class="row mb-2">
-                                            <p class="col-sm-4">Nama Lengkap</p>
-                                                <p class="col-sm-8">: {{ $item->nama_lengkap }}</p>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <p class="col-sm-4">No Telepon</p>
-                                                <p class="col-sm-8">: {{ $item->no_hp }}</p>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <p class="col-sm-4">Alamat</p>
-                                                <p class="col-sm-8">: {{ $item->alamat }}</p>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <p class="col-sm-4">Kode Baju</p>
-                                                <p class="col-sm-8">: {{ $item->kode_baju }}</p>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <p class="col-sm-4">Tanggan Pengambilan</p>
-                                                <p class="col-sm-8">: {{ $item->tgl_pengambilan }}</p>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <p class="col-sm-4">Tanggan Pengembalian</p>
-                                                <p class="col-sm-8">: {{ $item->tgl_pengembalian }}</p>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <p class="col-sm-4">Total Harga</p>
-                                                <p class="col-sm-8">: {{ $item->total_harga }}</p>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <p class="col-sm-4">Status Pemesanan</p>
-                                                <p class="col-sm-8">: {{ $item->status }}</p>
-                                        </div>
-                                        <div class="row mb-2">
-                                            <p class="col-sm-4">Metode Pembayaran</p>
-                                                <p class="col-sm-8">: {{ $item->pembayaran }}</p>
-                                        </div>
-                                        <p class="text-danger">Jika melakukan pembatalan pesanan maka pesanan diatas tidak akan disiapkan oleh admin!!</p>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Keluar</button>
-                                        <form action="{{ route('order.updatestatus', $item->id) }}" method="post">
-                                            @csrf
-                                            @method('post')
-                                            <button type="submit" class="btn btn-primary">Batalkan Pesanan</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @endif
-                        <!-- End Modal Edit Produk-->
                     @endforeach
                 </div>
             </div>

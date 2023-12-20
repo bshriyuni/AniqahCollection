@@ -185,38 +185,25 @@ Produk
         </div>
     </div>
 </div>
-<!-- End Modal Add Produk-->
 
-<!-- Modal Alert -->
-<!-- Modal untuk pesan berhasil -->
-<div class="modal" id="successModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content text-center">
-            <div class="modal-body">
-                <i class="fas fa-check-circle fa-5x" style="color: #28a745;"></i>
-                <p class="mt-3">Produk Berhasil Ditambahkan</p>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Modal untuk pesan berhasil -->
+<!-- Script Modal Alert -->
+<script>
+    @if(session('success'))
+        Swal.fire({
+            icon: 'success',
+            title: 'Sukses!',
+            text: '{{ session('success') }}'
+        });
+    @endif
+    @if(session('error'))
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: '{{ session('error') }}'
+        });
+    @endif
+</script>
 
-<!-- Modal untuk pesan gagal -->
-<div class="modal" id="errorModal" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content text-center">
-            <div class="modal-body">
-                <i class="fas fa-times-circle fa-5x" style="color: #dc3545;"></i>
-                <p class="mt-3">Gagal menambahkan produk</p>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Modal untuk pesan gagal -->
-
-
-<!-- End Script Modal Alert -->
-<!-- End Modal Alert -->
 <script>
 function previewImage(event) {
     var reader = new FileReader();
