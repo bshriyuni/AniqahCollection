@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\orderDetail;
+use App\Models\Clothes;
 use Illuminate\Http\Request;
 
 
@@ -13,7 +14,7 @@ class OrderDetailController extends Controller
     public function index()
     {
         $orderDetails = OrderDetail::where('status', '!=', 'Selesai')->paginate(3);
-        $selesai = OrderDetail::where('status', '=', 'Selesai')->paginate(3);
+        $selesai = OrderDetail::where('status', '=', 'Selesai')->where('status', '=', 'Dibatalkan')->paginate(3);
 
         return view('admin/pesanan', compact('orderDetails', 'selesai'));
     }
@@ -56,14 +57,20 @@ class OrderDetailController extends Controller
     public function updateStatus(Request $request, OrderDetail $orderDetail)
     {
         $request->validate([
-            'status' => 'required|in:Booked, Diambil,Selesai, Pesanan Dibatalkan',
+            'status' => 'required',
         ]);
 
+        if($request->status == 'Selesai'){
+            $clothes = clothes::where('kode_baju',$orderDetail->kode_baju) -> first();
+            $clothes->stok = $clothes->stok + $orderDetail->jumlah_pesanan;
+            $clothes->save();
+        }
+    
         $orderDetail->update(['status' => $request->status]);
-
+        // return redirect()->route('pesanan')->with('success', 'Status pesanan diperbarui.');
+        // $orderDetail->save();
         return redirect()->back();
     }
-
     /**
      * Remove the specified resource from storage.
      */

@@ -54,10 +54,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/admincarapemesanan">Cara Pemesanan</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/adminjahit">Jahit</a>
-                    </li>
-                </ul>
+                   </ul>
             </div>
         </div>
     </nav>
@@ -114,7 +111,11 @@
                                             <option value="Pesanan Dibatalkan"
                                                 {{ $orderDetail->status === 'Pesanan Dibatalkan' ? 'selected' : '' }}>Pesanan Dibatalkan
                                             </option>
+                                            <option value="Dibatalkan"
+                                                {{ $orderDetail->status === 'Dibatalkan' ? 'selected' : '' }}>Dibatalkan
+                                            </option>
                                         </select>
+                                        
                                     </form>
                                 </div>
                             </td>
@@ -189,11 +190,7 @@
     </div>
 
 
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
     <!-- link -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 
