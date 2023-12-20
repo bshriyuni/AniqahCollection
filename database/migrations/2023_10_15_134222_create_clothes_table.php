@@ -16,8 +16,8 @@ return new class extends Migration
             $table->id();
             $table->string('kode_baju');
             $table->integer('stok');
-            $table->string('deskripsi');
-            $table->string('SnK');
+            $table->longText('deskripsi');
+            $table->longText('SnK');
             $table->decimal('harga', 10, 3);
             $table->string('gambar', 100);
             $table->timestamps();
