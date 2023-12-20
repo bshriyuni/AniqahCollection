@@ -234,7 +234,6 @@
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label">Tuliskan ulasanmu disini</label>
                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="border: 1px solid black;"></textarea>
-                    <button class="btn-send mt-3">Send</button>
                 </div>
             </div>
         </div>

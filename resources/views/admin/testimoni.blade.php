@@ -92,29 +92,74 @@
 
     
     <div class="card-body">
+        <div class="row">
+            @foreach($testimonis as $testimoni)
+            <div class="col-lg-4 col-6 mb-5">
+                <!-- small box -->
+                <div class="small-box custom-bg mx-auto rounded d-flex align-items-center">
+                    <div class="inner">
+                        <img class="card-img-top img-fluid rounded" style="height: 350px; weight:100%" alt="" src="{{ asset('foto/' . $testimoni->gambar) }}" >
+                        <a href="{{ route('testimoni.destroy', $testimoni->id) }}" type="button" class="btn" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $testimoni->id }}').submit();">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                        <form id="delete-form-{{ $testimoni->id }}" action="{{ route('testimoni.destroy', $testimoni->id) }}" method="POST" style="display: none;">
+                            @csrf
+                            @method('DELETE')
+                        </form>
+                    </div>
+                </div>
+                <!-- /.small-box -->
+            </div>
+            @endforeach
+        </div>
+        <!-- /.row -->
+    </div>
+
+<div class="container text-center">
+        <div class="line-with-text">
+            <div></div>
+            <span>Review</span>
+        </div>
+    </div>
+<br>
+
+<div class="container text-center review">
     <div class="row">
-        @foreach($testimonis as $testimoni)
-        <div class="col-lg-4 col-6 mb-5">
-            <!-- small box -->
-            <div class="small-box custom-bg mx-auto rounded d-flex align-items-center">
-                <div class="inner">
-                    <img class="card-img-top img-fluid rounded" style="height: 350px; weight:100%" alt="" src="{{ asset('foto/' . $testimoni->gambar) }}" >
-                    <a href="{{ route('testimoni.destroy', $testimoni->id) }}" type="button" class="btn" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $testimoni->id }}').submit();">
-                        <i class="fas fa-trash"></i>
-                    </a>
-                    <form id="delete-form-{{ $testimoni->id }}" action="{{ route('testimoni.destroy', $testimoni->id) }}" method="POST" style="display: none;">
-                        @csrf
-                        @method('DELETE')
-                    </form>
+        @foreach($comments as $comment)
+            <div class="col-12 mb-3">
+                <div class="colReview p-3 shadow rounded w-100 mx-auto"> <!-- Mengubah lebar menjadi w-100 dan menambahkan mx-auto untuk menengahkan kolom -->
+                    <div class="row align-items-center">
+                        <div class="col-md-3"> <!-- Menggunakan col-md-3 agar di perangkat kecil tetap 100% -->
+                            <div class="profile-circle col-8 mx-auto" style="width: 70px; height: 70px; background-color: #D6B8D5; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+                                <span class="profile-icon" style="font-size: 40px;">&#128103;</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6"> <!-- Menggunakan col-md-6 agar di perangkat kecil tetap 100% -->
+                            <h6 class="mt-2">{{ $comment->nama }}</h6>
+                            <p class="mb-0">{{ $comment->comment }}</p>
+                        </div>
+                        <div class="col-md-3"> <!-- Menggunakan col-md-3 agar di perangkat kecil tetap 100% -->
+                            <form action="{{ route('testimoni.destroyComment', $comment->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- /.small-box -->
-        </div>
         @endforeach
     </div>
-    <!-- /.row -->
 </div>
 
+    <!-- Btn Logout -->
+    <div class="logout-button text-end" style=" position: fixed; bottom: 10px; right: 20px;">
+        <form method="POST" action="{{ route('logout') }}">
+            @csrf
+            <button type="submit" style="background-color: #f5f0f0; color: #1c1616; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-style: italic;">Logout</button>
+        </form>
+    </div>
+    <!-- End Btn Logout -->
 
     <!-- FootNote -->
     <div class="footNote">

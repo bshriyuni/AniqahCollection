@@ -84,11 +84,11 @@
     <div class="wrapper">
         <div class="hero">
             <div class="inner-wrapper">
-                <div class="row row-cols-2 mt-0">
+                <div class="row row-cols-1 row-cols-md-2 mt-0">
                     <div class="col-md-6">
                         <div class="header-left">
                             <h1 class="header-text">Welcome to Aniqah Collection</h1>
-                            <p class="header-desc">Pilihan yang tepat untuk tampil memukau di hari spesial anda</p>
+                            <p class="header-desc">Pilihan yang tepat untuk tampil memukau di hari spesial Anda</p>
                             
                             <div class="buttonHeader">
                                 <a href="/product" class="btn btn-outline-dark fw-bold" id="btn-Header">Check it now</a>
@@ -107,33 +107,42 @@
     <!-- End Carousel -->
 
     <!-- Preview Products -->
-    <div class= "container-fluid py-5">
-        <div class="container text-center">
+    <div class= "fluid py-5">
+        <div class="text-center">
             <h2 class="text" style="font-family: Corinthia-Bold;">Our Collection</h2>
             <div class="row" id="itemProduct">
-                <div class="col-4">
-                    <img src="foto/baju4.jpg" class="img" alt="...">
-                    <p class="text-center fw-bold">Baju Bodo</p>
-                </div>
+                @if(count($topThree) >= 1)
+                    <div class="col-md-4 mx-auto">
+                        <a href="product/{{$topThree[0]->kode_baju}}" class="mt-auto mx-auto d-block">
+                            <img src="../foto/{{$topThree[0]->gambar}}" class="img" alt="...">
+                        </a>
+                        <p class="text-center fw-bold">Baju Bodo</p>
+                    </div>
+                @endif
+                    
+                @if(count($topThree) >= 2)
+                    <div class="col-md-4 mx-auto">
+                        <a href="product/{{$topThree[1]->kode_baju}}" class="mt-auto mx-auto d-block">
+                            <img src="../foto/{{$topThree[1]->gambar}}" class="img" alt="...">
+                        </a>
+                        <p class="text-center fw-bold">Baju Bodo</p>
+                    </div>
+                @endif
 
-                <div class="col-4">
-                    <img src="foto/baju5.jpg" class="img" alt="...">
-                    <p class="text-center fw-bold">Baju Bodo</p>
-                </div>
-
-                <div class="col-4">  
-                    <img src="foto/baju6.jpg" class="img" alt="...">
-                    <p class="text-center fw-bold">Baju Bodo</p>
-                </div>
-
+                @if(count($topThree) >= 3)
+                    <div class="col-md-4 mx-auto">
+                        <a href="product/{{$topThree[2]->kode_baju}}" class="mt-auto mx-auto d-block">
+                            <img src="../foto/{{$topThree[2]->gambar}}" class="img" alt="...">
+                        </a>
+                        <p class="text-center fw-bold">Baju Bodo</p>
+                    </div>
+                @endif
                 <div class="center-button">
                     <a href="/product" class="btn btn-outline-dark fw-bold" id="btn-SeeMore">See More -></a>
                 </div>
-
             </div>
         </div>
     </div>
-
     <!-- End Cards -->
 
     <!-- Layanan -->
@@ -183,56 +192,26 @@
     </div>
     <!-- End Layanan -->
 
-     <!-- Footer -->
-     <!-- Remove the container if you want to extend the Footer to full width. -->
-    <div class="">
-
-        <footer class="bg-dark text-center text-white">
-            <!-- Grid container -->
-            <div class="container p-4 pb-0">
-                <!-- Section: Social media -->
-                <section class="mb-4">
-                    <!-- Facebook -->
-                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                    ><i class="fab fa-facebook-f"></i
-                    ></a>
-
-                    <!-- Twitter -->
-                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                    ><i class="fab fa-twitter"></i
-                    ></a>
-
-                    <!-- Google -->
-                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                    ><i class="fab fa-google"></i
-                    ></a>
-
-                    <!-- Instagram -->
-                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                    ><i class="fab fa-instagram"></i
-                    ></a>
-
-                    <!-- Linkedin -->
-                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
-                    ><i class="fab fa-linkedin-in"></i
-                    ></a>
-
-                    <!-- Github -->
-                    <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </section>
-                <!-- Section: Social media -->
+    <!-- Footer -->
+    <div class="footNote" style="background-color: #BBD6B8; padding: 40px;">
+        <div class="ini row" style="margin: 60px;">
+            <div class="col" style="margin-right: 20px;">
+                <h3 class="aboutUs" style="font-family: 'Inter-ExtraBold';">About Us</h3>
+                <hr class="bold-hr" style="border: 2px solid black;">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare cursus sed nunc eget dictum  Sed ornare cursus sed nunc eget dictumd nunc eget dictum  Sed ornare cursus sed nunc eget dictum </p>
+                <i class="fab fa-instagram fa-2x"></i>
+                <i class="fab fa-facebook fa-2x"></i>
+                <i class="fab fa-whatsapp fa-2x"></i>
             </div>
-            <!-- Grid container -->
-
-            <!-- Copyright -->
-            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2020 Copyright:
-            <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+            <div class="col" style="margin-left: 20px;">
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Tuliskan ulasanmu disini</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="border: 1px solid black;"></textarea>
+                </div>
             </div>
-            <!-- Copyright -->
-        </footer>
+        </div>
+    </div>
+    <!-- End Footer -->
 
     </div>
     <!-- End of Footer -->

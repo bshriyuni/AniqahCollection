@@ -4,20 +4,35 @@
 Produk
 @endsection
 @section('container')
-<form>
+<form method="GET" action="{{ url('/product') }}">
     <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1" style="background-color: #D9D9D9;"><i
-                class="fa-solid fa-magnifying-glass"></i></span>
-        <input type="text" class="form-control" placeholder="Search in here" aria-label="Username"
-            aria-describedby="basic-addon1" style="background-color: #D9D9D9;">
+        <span class="input-group-text" id="basic-addon1" style="background-color: #D9D9D9;">
+            <i class="fa-solid fa-magnifying-glass"></i>
+        </span>
+        <input type="text" class="form-control" name="search" placeholder="Search here"
+            aria-label="Search" aria-describedby="basic-addon1" style="background-color: #D9D9D9;">
+        <button type="submit" class="btn btn-primary">Search</button>
     </div>
 </form>
 <!-- End Search -->
-<div class="container row h-100 mb-5">
+<div class="container row mb-5">
+    <div class="row align-items-start mb-5">
+        <div class="col">
+            <hr>
+        </div>
+        <div class="col">
+            <h1>
+                <center>TOP 3 Product</center>
+            </h1>
+        </div>
+        <div class="col">
+            <hr>
+        </div>
+    </div>
     @if(count($topThree) >= 1)
     <div class="col-4 p-4 d-flex flex-column" style="background-color: #BBD6B8;">
         <img src="../foto/{{$topThree[0]->gambar}}" class="img-fluid mb-3" alt="...">
-        <a href="product/{{$topThree[0]->kode_baju}}" class="mt-auto mx-auto d-block">
+        <a href="../detailproduct/{{$topThree[0]->kode_baju}}" class="mt-auto mx-auto d-block">
             <button type="button" class="btn btn-light btn-lg">Selengkapnya</button>
         </a>
     </div>
@@ -26,7 +41,7 @@ Produk
     @if(count($topThree) >= 2)
     <div class="col-4 p-4 d-flex flex-column" style="background-color: #D9D9D9;">
         <img src="../foto/{{$topThree[1]->gambar}}" class="img-fluid mb-3" alt="...">
-        <a href="product/{{$topThree[1]->kode_baju}}" class="mt-auto mx-auto d-block">
+        <a href="../detailproduct/{{$topThree[1]->kode_baju}}" class="mt-auto mx-auto d-block">
             <button type="button" class="btn btn-light btn-lg">Selengkapnya</button>
         </a>
     </div>
@@ -35,7 +50,7 @@ Produk
     @if(count($topThree) >= 3)
     <div class="col-4 p-4 d-flex flex-column" style="background-color: #BBD6B8;">
         <img src="../foto/{{$topThree[2]->gambar}}" class="img-fluid mb-3" alt="...">
-        <a href="product/{{$topThree[2]->kode_baju}}" class="mt-auto mx-auto d-block">
+        <a href="../detailproduct/{{$topThree[2]->kode_baju}}" class="mt-auto mx-auto d-block">
             <button type="button" class="btn btn-light btn-lg">Selengkapnya</button>
         </a>
     </div>
@@ -59,17 +74,18 @@ Produk
 <div class="container text-center mx-auto">
     <div class="row row-gap-3 mb-3">
         @foreach($clothes as $clothing)
-        <div class="col-4">
-            <a href="product/{{$clothing->kode_baju}}">
-                <div class="card h-100" style="background-color: #BBD6B8; padding:10px ">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $clothing->kode_baju }}</h5>
-                        <p class="card-text">{{ $clothing->deskripsi }}</p>
+        <div class="col col-4 ">
+            <a href="../detailproduct/{{$clothing->kode_baju}}">
+                <div class="card h-100" style="background-color: #BBD6B8; padding:5px">
+                    <div class="card-body" style="text-align :start;">
+                        <h4 class="card-title">{{ $clothing->kode_baju }}</h4>
+                        <p class="card-text">{{ $clothing->deskripsi }}</p> 
                         <h6>Rp {{$clothing->harga}}</h6>
-                        <img src="foto/{{ $clothing->gambar }}" class="rounded mx-auto d-block img-fluid" alt="...">
+                        <img src="../foto/{{ $clothing->gambar }}" class="rounded mx-auto d-block img-fluid" alt="...">
                     </div>
                 </div>
             </a>
+            <br><br>
         </div>
         @endforeach
     </div>
