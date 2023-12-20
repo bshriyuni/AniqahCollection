@@ -62,7 +62,6 @@ class OrderDetailController extends Controller
 
         if($request->status == 'Selesai' || $request->status == 'Dibatalkan'){
             $clothes = clothes::where('kode_baju',$orderDetail->kode_baju) -> first();
-            $clothes->stok = $clothes->stok + $orderDetail->jumlah_pesanan;
             $clothes->save();
         }
     
