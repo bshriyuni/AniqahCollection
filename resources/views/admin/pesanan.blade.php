@@ -82,7 +82,7 @@
                     </thead>
                     <tbody>
                         @foreach($orderDetails as $orderDetail)
-                        @if ($orderDetail->status != 'Selesai')
+                        @if ($orderDetail->status != 'Selesai' && $orderDetail->status != 'Dibatalkan')
                         <tr>
                             <td>{{ $orderDetail->kode_baju }}</td>
                             <td>{{ $orderDetail->nama_lengkap }}</td>
@@ -129,7 +129,7 @@
         </div>
 
         <div class="container-bottom">
-            <h3 class="titleList fw-bold mt-5">Pesanan Selesai</h3>
+            <h3 class="titleList fw-bold mt-5">Riwayat Pesanan</h3>
             <div class="table-wrapper-bottom">
                 <table class="table table-bordered table-striped mt-3">
                     <thead class="table">

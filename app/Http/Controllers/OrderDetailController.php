@@ -14,7 +14,7 @@ class OrderDetailController extends Controller
     public function index()
     {
         $orderDetails = OrderDetail::where('status', '!=', 'Selesai')->paginate(3);
-        $selesai = OrderDetail::where('status', '=', 'Selesai')->where('status', '=', 'Dibatalkan')->paginate(3);
+        $selesai = OrderDetail::where('status', '=', 'Selesai')->orwhere('status', '=', 'Dibatalkan')->paginate(3);
 
         return view('admin/pesanan', compact('orderDetails', 'selesai'));
     }
@@ -60,15 +60,13 @@ class OrderDetailController extends Controller
             'status' => 'required',
         ]);
 
-        if($request->status == 'Selesai'){
+        if($request->status == 'Selesai' || $request->status == 'Dibatalkan'){
             $clothes = clothes::where('kode_baju',$orderDetail->kode_baju) -> first();
             $clothes->stok = $clothes->stok + $orderDetail->jumlah_pesanan;
             $clothes->save();
         }
     
         $orderDetail->update(['status' => $request->status]);
-        // return redirect()->route('pesanan')->with('success', 'Status pesanan diperbarui.');
-        // $orderDetail->save();
         return redirect()->back();
     }
     /**
