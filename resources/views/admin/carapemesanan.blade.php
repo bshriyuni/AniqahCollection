@@ -69,19 +69,19 @@
         
         <div class="row">
             @foreach($carapesan as $pesan)
-            <div class="col col-6">
+            <div class="col-md-6">
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-3 col-md-3">
                         <div class="rounded-card">
                             <p class="custom-text" id="step1">{{ $pesan->no }}</p>
                         </div>
                     </div>
-                    <div class="col-9">
-                        <div class="custom-card" >
-                            <div class="card-body" style="text-align :start; width: 300px; height: 200px;">
-                                <p class="card-text" id="step1">{{ $pesan->step }}</p> 
+                    <div class="col-9 col-md-9">
+                        <div class="custom-card">
+                            <div class="card-body" style="text-align: start; max-width: 300px; height: 200px;">
+                                <p class="card-text" id="step1">{{ $pesan->step }}</p>
                             </div>
-                            <div class="">
+                            <div class="mt-2 d-flex justify-content-between align-items-center">
                                 <a href="{{ route('carapemesanan.destroy', $pesan->id) }}" type="button" class="btn" data-toggle="modal" data-target="#modal-edit" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $pesan->id }}').submit();">
                                     <i class="fas fa-trash text-danger"></i>
                                 </a>
@@ -91,7 +91,7 @@
                                 </form>
                                 <a href="modal-edit-{{ $pesan->id }}" type="button" class="btn" data-toggle="modal" data-target="#modal-edit-{{ $pesan->id }}">
                                     <i class="fas fa-edit text-info"></i>
-                                </a>                             
+                                </a>
                             </div>
                         </div>
                     </div>
