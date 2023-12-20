@@ -75,7 +75,7 @@ Produk
     <div class="row row-gap-3 mb-3">
         @foreach($clothes as $clothing)
         <div class="col col-4 ">
-            <a href="../detailproduct/{{$clothing->kode_baju}}">
+            <a href="../detailproduct/{{$clothing->kode_baju}}" style="text-decoration: none;">
                 <div class="card h-100" style="background-color: #BBD6B8; padding:5px">
                     <div class="card-body" style="text-align :start;">
                         <h4 class="card-title">{{ $clothing->kode_baju }}</h4>
