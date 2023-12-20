@@ -13,7 +13,7 @@ class ClothesController extends Controller
         $clothingData = Clothes::where('id', $kode_baju)->first();
         return response()->json($clothingData);
     }
-    
+
     public function update(Request $request, $kode_baju) {
         // Validate the request data
         $validatedData = $request->validate([
@@ -35,7 +35,7 @@ class ClothesController extends Controller
             $clothing->deskripsi = $validatedData['deskripsi'];
             $clothing->gambar = $imageName;
             $clothing->stok = $validatedData['stok'];
-            $clothing->syarat_ketentuan = $validatedData['syaratKetentuan'];
+            $clothing->SnK = $validatedData['syaratKetentuan'];
             $clothing->harga = $validatedData['harga'];
             $clothing->save();
             
@@ -51,8 +51,15 @@ class ClothesController extends Controller
         return view('admin/product', compact('clothes'));
     }
 
-    public function indexUser(){
-        $clothes = clothes::paginate(6);
+    public function indexUser(Request $request){
+        if ($request->input('search')) {
+            $searchQuery = $request->input('search');
+        } else {$searchQuery = "*";}
+        if ($searchQuery == "*") {
+            $clothes = clothes::paginate(6);
+        } else {
+            $clothes = clothes::where('kode_baju', $searchQuery)->paginate(6);
+        }
         $topThree = DB::select("
         SELECT kode_baju, gambar, deskripsi, COUNT(*) AS total
         FROM order_details od

@@ -30,8 +30,8 @@ Route::get('/', [HomepageController::class, 'index']);
 Route::get('/lokasi', [LokasiController::class, 'indexuser']);
 
 Route::get('/product', [ClothesController::class, 'indexUser'])->name('product');
-Route::get('/product/{kode_test}', [DetailProdukController::class, 'index']);
-Route::post('/product/{kode_test}', [DetailProdukController::class, 'store']);
+Route::get('/detailproduct/{kode_test}', [DetailProdukController::class, 'index']);
+Route::post('/detailproduct/{kode_test}', [DetailProdukController::class, 'store']);
 
 Route::get('/testimoni', [TestimoniController::class, 'user']);
 Route::post('/testimoni', [TestimoniController::class, 'comment'])->name('comment');
@@ -84,4 +84,8 @@ Route::middleware(['admin'])->group(function () {
   
     Route::resource('pesanan', OrderDetailController::class);
     Route::put('pesanan/update-status/{orderDetail}', [OrderDetailController::class, 'updateStatus'])->name('pesanan.updateStatus');
+
+    Route::get('/adminjahit', function () {
+        return view('admin/jahit');
+    });
 });

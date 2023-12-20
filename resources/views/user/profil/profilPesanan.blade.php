@@ -140,7 +140,7 @@
                                 </div>
                             </a>
                             <div class="col-9">
-                                <h2>{{ $item->status }}</h2>
+                                <h2>{{ $item->status }} {{ $item->gambar }}</h2>
                                 <h5>{{ $item->kode_baju }}</h5>
                                 <h5>Rp {{ $item->total_harga }}</h5>
                                 <p>Metode Pembayaran: {{ $item->pembayaran}}</p>
@@ -247,7 +247,7 @@
                                         Batalkan Pesanan 
                                     </button>
                                 @else
-                                    <button id="editButton" type="button" class="btn" style="background-color: #E97E67" data-toggle="modal" data-target="#modal-delete-{{ $item->id }}">
+                                    <button id="editButton" type="button" class="btn" style="background-color: #E97E67" data-toggle="modal" data-target="#modal-delete-{{ $item->users_id }}">
                                         Batalkan Pesanan
                                     </button>
                                 @endif
@@ -256,7 +256,7 @@
                         <hr>
                         <!-- Modal Edit Produk-->
                         @if(isset($item))
-                        <div class="modal fade" id="modal-delete-{{ $item->id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="modal-delete-{{ $item->users_id }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg">
                                 <div class="modal-content m-20">
                                     <div class="modal-header" style="background-color: #BBD6B8">

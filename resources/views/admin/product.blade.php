@@ -71,42 +71,42 @@ Produk
                     <div class="mb-3 row">
                         <label for="kodeBaju" class="col-sm-3 col-form-label">Kode Baju</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="kodeBaju" name="kodeBaju" readonly>
+                            <input required type="text" class="form-control" id="kodeBaju" name="kodeBaju" readonly>
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label for="inputDeskripsi" class=" col-sm-3 col-form-label">Deskripsi</label>
                         <div class="col-sm-9">
-                            <textarea class="form-control summernote" id="deskripsi" name="deskripsi"
+                            <textarea required class="form-control summernote" id="deskripsi" name="deskripsi"
                                 rows="3"></textarea>
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label for="inputFoto" class="col-sm-3 col-form-label">Foto</label>
                         <div class="col-sm-9">
-                            <input class="form-control" type="file" id="foto" accept="image/*" name="gambar"
+                            <input required class="form-control" type="file" id="foto" accept="image/*" name="gambar"
                                 onchange="previewEditImage(event)">
                             <div id="editGambar">
                             </div>
                         </div>
                     </div>
                     <div class="mb-3 row">
-                        <label for="inputDewasa" class="col-sm-3 col-form-label">Jumlah Dewasa</label>
+                        <label for="inputDewasa" class="col-sm-3 col-form-label">Stok</label>
                         <div class="col-sm-9">
-                            <input class="form-control" type="number" id="stok" name="stok">
+                            <input required class="form-control" type="number" id="stok" name="stok">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label for="inputS&K" class=" col-sm-3 col-form-label">Syarat & Ketentuan</label>
                         <div class="col-sm-9">
-                            <textarea class="form-control summernote" id="syaratKetentuan" name="syaratKetentuan"
+                            <textarea required class="form-control summernote" id="syaratKetentuan" name="syaratKetentuan"
                                 rows="3"></textarea>
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label for="inputHarga" class="col-sm-3 col-form-label">Harga</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="harga" name="harga">
+                            <input required type="text" class="form-control" id="harga" name="harga">
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -138,20 +138,20 @@ Produk
                     <div class="mb-3 row">
                         <label for="kodeBaju" class="col-sm-3 col-form-label">Kode Baju</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="kodeBaju" name="kodeBaju" autofocus>
+                            <input required type="text" class="form-control" id="kodeBaju" name="kodeBaju" autofocus>
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label for="inputDeskripsi" class=" col-sm-3 col-form-label">Deskripsi</label>
                         <div class="col-sm-9">
-                            <textarea class="form-control summernote" id="deskripsi" name="deskripsi"
+                            <textarea required class="form-control summernote" id="deskripsi" name="deskripsi"
                                 rows="3"></textarea>
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label for="inputFoto" class="col-sm-3 col-form-label">Foto</label>
                         <div class="col-sm-9">
-                            <input class="form-control" type="file" id="foto" accept="image/*" name="gambar"
+                            <input required class="form-control" type="file" id="foto" accept="image/*" name="gambar"
                                 onchange="previewImage(event)">
                             <div id="imagePreview"></div>
                         </div>
@@ -159,20 +159,20 @@ Produk
                     <div class="mb-3 row">
                         <label for="inputDewasa" class="col-sm-3 col-form-label">Stock</label>
                         <div class="col-sm-9">
-                            <input class="form-control" type="number" id="stok" name="stok">
+                            <input required class="form-control" type="number" id="stok" name="stok">
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label for="inputS&K" class=" col-sm-3 col-form-label">Syarat & Ketentuan</label>
                         <div class="col-sm-9">
-                            <textarea class="form-control summernote" id="syaratKetentuan" name="syaratKetentuan"
+                            <textarea required class="form-control summernote" id="syaratKetentuan" name="syaratKetentuan"
                                 rows="3"></textarea>
                         </div>
                     </div>
                     <div class="mb-3 row">
                         <label for="inputHarga" class="col-sm-3 col-form-label">Harga</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" id="harga" name="harga">
+                            <input required type="text" class="form-control" id="harga" name="harga">
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -187,25 +187,36 @@ Produk
 </div>
 <!-- End Modal Add Produk-->
 
-<!-- Script Modal Alert -->
-<script>
-            @if(session('success'))
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Sukses!',
-                    text: '{{ session('success') }}'
-                });
-            @endif
+<!-- Modal Alert -->
+<!-- Modal untuk pesan berhasil -->
+<div class="modal" id="successModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content text-center">
+            <div class="modal-body">
+                <i class="fas fa-check-circle fa-5x" style="color: #28a745;"></i>
+                <p class="mt-3">Produk Berhasil Ditambahkan</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal untuk pesan berhasil -->
 
-            @if(session('error'))
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: '{{ session('error') }}'
-                });
-            @endif
-        </script>
-        <!-- End Script Modal Alert -->
+<!-- Modal untuk pesan gagal -->
+<div class="modal" id="errorModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content text-center">
+            <div class="modal-body">
+                <i class="fas fa-times-circle fa-5x" style="color: #dc3545;"></i>
+                <p class="mt-3">Gagal menambahkan produk</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal untuk pesan gagal -->
+
+
+<!-- End Script Modal Alert -->
+<!-- End Modal Alert -->
 <script>
 function previewImage(event) {
     var reader = new FileReader();
@@ -237,7 +248,7 @@ document.querySelectorAll('.edit-btn').forEach(btn => {
         const kodeBaju = this.getAttribute('data-kodebaju');
 
         // Fetch data for the specific kode_baju via AJAX
-        fetch(/getClothingData/${kodeBaju})
+        fetch(`/getClothingData/${kodeBaju}`)
             .then(response => response.json())
             .then(data => {
                 // Populate form fields with fetched data
@@ -245,7 +256,7 @@ document.querySelectorAll('.edit-btn').forEach(btn => {
                 document.getElementById('kodeBaju').value = data.kode_baju;
                 document.getElementById('deskripsi').value = data.deskripsi;
                 document.getElementById('stok').value = data.stok;
-                document.getElementById('syaratKetentuan').value = data.syarat_ketentuan;
+                document.getElementById('syaratKetentuan').value = data.SnK;
                 document.getElementById('harga').value = data.harga;
                 document.getElementById('editGambar').innerHTML = '<img src="../foto/' + data
                     .gambar + '" width="100%" height="100%" />';
