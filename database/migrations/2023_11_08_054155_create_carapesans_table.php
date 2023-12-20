@@ -15,7 +15,7 @@ return new class extends Migration
         Schema::create('carapesans', function (Blueprint $table) {
             $table->id();
             $table->integer('no');
-            $table->string('step');
+            $table->longText('step');
             $table->timestamps();
         });
 

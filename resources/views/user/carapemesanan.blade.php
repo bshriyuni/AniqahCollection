@@ -73,6 +73,7 @@
             </div>
         </div>
     </nav>
+    <br>
     <!-- End Menu App -->
 
     <!-- Tata Cara Pemesanan -->
@@ -110,9 +111,15 @@
                     <h3 class="aboutUs">About Us</h3>
                     <hr class="bold-hr">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ornare cursus sed nunc eget dictum Sed ornare cursus sed nunc eget dictumd nunc eget dictum Sed ornare cursus sed nunc eget dictum </p>
+                    <a href="https://www.instagram.com/aniqahcollectionn/" class="text-decoration-none" target="blank" style="color: #000000">
                     <i class="fab fa-instagram fa-2x"></i>
+                    </a>
+                    <a href="https://www.facebook.com/inha.jiun" class="text-decoration-none" target="blank" style="color: #000000">   
                     <i class="fab fa-facebook fa-2x"></i>
+                    </a>
+                    <a href="https://api.whatsapp.com/send?phone=+6285299581471" class="text-decoration-none" target="blank" style="color: #000000">
                     <i class="fab fa-whatsapp fa-2x"></i>
+                    </a>
                 </div>
                 <div class="col-md-6">
                     <div class="mb-3">
