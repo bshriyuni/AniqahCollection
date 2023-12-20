@@ -118,9 +118,11 @@ class ProfilController extends Controller
             $password = $user->password = str_repeat('*', 5) . substr($user->password, -1);
             $notlp = $user->notlp;
             $created_at = $user->created_at;
+            $userId = $user->id;
         } else {
             // Tidak ada pengguna yang sudah login
             $user = null;
+            $userId = null;
         }
 
         $profil = [
