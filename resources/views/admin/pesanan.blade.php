@@ -92,7 +92,37 @@
                             <td>{{ $orderDetail->total_harga}}</td>
                             <td>{{ $orderDetail->tgl_pengambilan }}</td>
                             <td>{{ $orderDetail->tgl_pengembalian }}</td>
-                            <td>{{ $orderDetail->pembayaran }}</td>
+                            <td>
+                                <button id="editButton" type="button" class="btn" style="background-color: transparent" data-toggle="modal" data-target="#paymentModal{{ $orderDetail->id }}">
+                                {{ $orderDetail->pembayaran }}
+                                </button>
+                            </td>
+                            <!-- Modal Bukti Pembayaran-->
+                            @if(isset($orderDetail))
+                            <div class="modal fade" id="paymentModal{{ $orderDetail->id }}" tabindex="-1" role="dialog" aria-labelledby="paymentModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="paymentModalLabel">Bukti Pembayaran</h5>
+                                                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"
+                                                    style="margin-right:10px;">
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="container" style="background-color: #F4EEEE; padding:5px;">
+                                                    <img src="{{ asset('foto/' .  $orderDetail->bukti_pembayaran) }}" class="card-img-bottom" alt="..." style="height: 200px;">
+                                                </div>
+                                                <br>
+                                                <p>Total Pembayaran: {{ $orderDetail->total_harga}}</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @endif
+                            <!-- End Modal Bukti Pembayaran -->
                             <td>
                                 <div class="btn-group" data-order-detail-id="{{ $orderDetail->id }}">
                                     <form action="{{ route('pesanan.updateStatus', $orderDetail) }}" method="POST">
@@ -191,6 +221,10 @@
 
 
     <!-- link -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 
