@@ -23,7 +23,7 @@ return new class extends Migration
             $table->date('tgl_pengambilan');
             $table->date('tgl_pengembalian');
             $table->enum('pembayaran', ['tunai', 'non-tunai']);
-            $table->enum('status', ['Booked', 'Diambil', 'Selesai', 'Pesanan Dibatalkan'])->default('Booked');
+            $table->enum('status', ['Booked', 'Diambil', 'Selesai', 'Pesanan Dibatalkan', 'Dibatalkan'])->default('Booked');
             $table->string('bukti_pembayaran')->nullable();
             $table->timestamps();
         });

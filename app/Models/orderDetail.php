@@ -14,6 +14,6 @@ class orderDetail extends Model
     ];
     
     public function clothes(){
-        return $this->belongsTo(Clothes::class, 'kode_baju', 'kode_baju');
+        return $this->belongsTo(clothes::class, 'kode_baju', 'kode_baju');
     }
 }

@@ -84,8 +84,4 @@ Route::middleware(['admin'])->group(function () {
   
     Route::resource('pesanan', OrderDetailController::class);
     Route::put('pesanan/update-status/{orderDetail}', [OrderDetailController::class, 'updateStatus'])->name('pesanan.updateStatus');
-
-    Route::get('/adminjahit', function () {
-        return view('admin/jahit');
-    });
 });
