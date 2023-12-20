@@ -10,7 +10,7 @@ class OrderDetailController extends Controller
 {
     /**
      * Display a listing of the resource.
-     */
+     */ 
     public function index()
     {
         $orderDetails = OrderDetail::where('status', '!=', 'Selesai')->paginate(50);

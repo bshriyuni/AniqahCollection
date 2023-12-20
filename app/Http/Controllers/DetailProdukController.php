@@ -10,7 +10,7 @@ class DetailProdukController extends Controller
 {
     public function index(Request $request, $kode_test){
         $produk = Clothes::where('kode_baju', $kode_test)->first();
-        $order_details = orderDetail::where('kode_baju', $kode_test)->where('status', "<>", "selesai")->get();
+        $order_details = orderDetail::where('kode_baju', $kode_test)->where('status', "<>", "selesai")->where('status', "<>", "Pesanan Dibatalkan")->where('status', "<>", "Dibatalkan")->get();
         return view('user/detailproduk', compact('produk', 'order_details'));
     }
 
