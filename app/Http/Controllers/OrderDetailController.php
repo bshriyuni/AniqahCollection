@@ -13,8 +13,8 @@ class OrderDetailController extends Controller
      */
     public function index()
     {
-        $orderDetails = OrderDetail::where('status', '!=', 'Selesai')->paginate(3);
-        $selesai = OrderDetail::where('status', '=', 'Selesai')->orwhere('status', '=', 'Dibatalkan')->paginate(3);
+        $orderDetails = OrderDetail::where('status', '!=', 'Selesai')->paginate(50);
+        $selesai = OrderDetail::where('status', '=', 'Selesai')->orwhere('status', '=', 'Dibatalkan')->paginate(50);
 
         return view('admin/pesanan', compact('orderDetails', 'selesai'));
     }
