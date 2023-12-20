@@ -113,7 +113,7 @@
             <div class="row" id="itemProduct">
                 @if(count($topThree) >= 1)
                     <div class="col-md-4 mx-auto">
-                        <a href="product/{{$topThree[0]->kode_baju}}" class="mt-auto mx-auto d-block">
+                        <a href="detailproduct/{{$topThree[0]->kode_baju}}" class="mt-auto mx-auto d-block">
                             <img src="../foto/{{$topThree[0]->gambar}}" class="img" alt="...">
                         </a>
                         <p class="text-center fw-bold">Baju Bodo</p>
@@ -122,7 +122,7 @@
                     
                 @if(count($topThree) >= 2)
                     <div class="col-md-4 mx-auto">
-                        <a href="product/{{$topThree[1]->kode_baju}}" class="mt-auto mx-auto d-block">
+                        <a href="detailproduct/{{$topThree[1]->kode_baju}}" class="mt-auto mx-auto d-block">
                             <img src="../foto/{{$topThree[1]->gambar}}" class="img" alt="...">
                         </a>
                         <p class="text-center fw-bold">Baju Bodo</p>
@@ -131,7 +131,7 @@
 
                 @if(count($topThree) >= 3)
                     <div class="col-md-4 mx-auto">
-                        <a href="product/{{$topThree[2]->kode_baju}}" class="mt-auto mx-auto d-block">
+                        <a href="detailproduct/{{$topThree[2]->kode_baju}}" class="mt-auto mx-auto d-block">
                             <img src="../foto/{{$topThree[2]->gambar}}" class="img" alt="...">
                         </a>
                         <p class="text-center fw-bold">Baju Bodo</p>
