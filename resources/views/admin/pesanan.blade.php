@@ -110,7 +110,7 @@
                                             </div>
                                             <div class="modal-body">
                                                 <div class="container" style="background-color: #F4EEEE; padding:5px;">
-                                                    <img src="{{ asset('foto/' .  $orderDetail->bukti_pembayaran) }}" class="card-img-bottom" alt="..." style="height: 200px;">
+                                                    <img src="{{ asset('foto/' .  $orderDetail->bukti_pembayaran) }}" class="card-img-bottom" alt="..." style="height: 100%;">
                                                 </div>
                                                 <br>
                                                 <p>Total Pembayaran: {{ $orderDetail->total_harga}}</p>
