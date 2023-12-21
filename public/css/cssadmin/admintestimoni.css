@@ -190,6 +190,7 @@ body{
     height: auto; /* Mempertahankan aspek rasio gambar */
     border-radius: 20px; /* Menambahkan radius pinggir gambar */
     object-fit: cover; /* Menjaga aspek ratio dan memotong jika perlu */
+    text-align: center;
 
 }
 

@@ -96,16 +96,18 @@
             @foreach($testimonis as $testimoni)
             <div class="col-lg-4 col-6 mb-5">
                 <!-- small box -->
-                <div class="small-box custom-bg mx-auto rounded d-flex align-items-center">
-                    <div class="inner">
-                        <img class="card-img-top img-fluid rounded" style="height: 350px; weight:100%" alt="" src="{{ asset('foto/' . $testimoni->gambar) }}" >
-                        <a href="{{ route('testimoni.destroy', $testimoni->id) }}" type="button" class="btn" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $testimoni->id }}').submit();">
-                            <i class="fas fa-trash"></i>
-                        </a>
-                        <form id="delete-form-{{ $testimoni->id }}" action="{{ route('testimoni.destroy', $testimoni->id) }}" method="POST" style="display: none;">
+                <div class="small-box custom-bg mx-auto rounded">
+                    <div class="inner text-center">
+                        <img class="card-img-top img-fluid rounded" style="height: 350px;" alt="" src="{{ asset('foto/' . $testimoni->gambar) }}" >
+                        <div class="mt-3">
+                            <a href="{{ route('testimoni.destroy', $testimoni->id) }}" type="button" class="btn" onclick="event.preventDefault(); document.getElementById('delete-form-{{ $testimoni->id }}').submit();">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                            <form id="delete-form-{{ $testimoni->id }}" action="{{ route('testimoni.destroy', $testimoni->id) }}" method="POST" style="display: none;">
                             @csrf
                             @method('DELETE')
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
                 <!-- /.small-box -->
