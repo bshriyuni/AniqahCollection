@@ -80,7 +80,7 @@
                 <!-- small box -->
                 <div class="small-box custom-bg mx-auto rounded">
                     <div class="inner text-center">
-                        <img class="card-img-top img-fluid rounded" style="height: 350px;" alt="" src="{{ asset('foto/' . $testimoni->gambar) }}" >
+                        <img class="card-img-top img-fluid rounded" style="height: 450px;" alt="" src="{{ asset('foto/' . $testimoni->gambar) }}" >
                     </div>
                 </div>
                 <!-- /.small-box -->
@@ -107,12 +107,12 @@
                 <div class="colReview p-1 shadow rounded w-100"> <!-- Reduce padding for a more compact layout -->
                     <div class="row align-items-center">
                         <div class="col-3"> <!-- Adjust the column size as needed, e.g., col-3 for a smaller width -->
-                            <div class="profile-circle col-8 mx-auto" style="width: 50px; height: 50px; background-color: #D6B8D5; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
-                                <span class="profile-icon" style="font-size: 30px;">&#128103;</span>
+                            <div class="profile-circle col-8 mx-auto" style="width: 100px; height: 100px; background-color: #D6B8D5; border-radius: 50%; display: flex; justify-content: center;">
+                                <span class="profile-icon" style="font-size: 60px;">&#128103;</span>
                             </div>
+                            <h6 class="mt-2">{{ $comment->nama }}</h6>
                         </div>
                         <div class="col-9">
-                            <h6 class="mt-2">{{ $comment->nama }}</h6>
                             <p class="mb-0">{{ $comment->comment }}</p>
                         </div>
                     </div>
@@ -200,6 +200,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </body>
 </html>

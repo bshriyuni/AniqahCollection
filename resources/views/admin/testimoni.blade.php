@@ -132,12 +132,12 @@
                 <div class="colReview p-3 shadow rounded w-100 mx-auto"> <!-- Mengubah lebar menjadi w-100 dan menambahkan mx-auto untuk menengahkan kolom -->
                     <div class="row align-items-center">
                         <div class="col-md-3"> <!-- Menggunakan col-md-3 agar di perangkat kecil tetap 100% -->
-                            <div class="profile-circle col-8 mx-auto" style="width: 70px; height: 70px; background-color: #D6B8D5; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
-                                <span class="profile-icon" style="font-size: 40px;">&#128103;</span>
+                            <div class="profile-circle col-8 mx-auto" style="width: 100px; height: 100px; background-color: #D6B8D5; border-radius: 50%; display: flex; justify-content: center; align-items: center;">
+                                <span class="profile-icon" style="font-size: 60px;">&#128103;</span>
                             </div>
+                            <h6 class="mt-2">{{ $comment->nama }}</h6>
                         </div>
                         <div class="col-md-6"> <!-- Menggunakan col-md-6 agar di perangkat kecil tetap 100% -->
-                            <h6 class="mt-2">{{ $comment->nama }}</h6>
                             <p class="mb-0">{{ $comment->comment }}</p>
                         </div>
                         <div class="col-md-3"> <!-- Menggunakan col-md-3 agar di perangkat kecil tetap 100% -->
@@ -225,6 +225,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </body>
 </html>

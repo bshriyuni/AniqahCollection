@@ -132,9 +132,10 @@ body{
 
 .colReview {
     background-color: #fcf6ef;
-    margin: 5px;
+    margin: 10px;
     border-radius: 100px;
     width: 400px;
+    padding: 0%;
     /* height: 100px; */
 }
 
