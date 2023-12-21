@@ -83,22 +83,22 @@
     
     <div class="row">
             @foreach($carapesan as $pesan)
-            <div class="col col-6">
+            <div class="col-md-6">
                 <div class="row">
-                    <div class="col-3">
+                    <div class="col-3 col-md-3">
                         <div class="rounded-card">
                             <p class="custom-text" id="step1">{{ $pesan->no }}</p>
                         </div>
                     </div>
-                    <div class="col-9">
-                        <div class="custom-card" >
-                            <div class="card-body" style="text-align :start; width: 300px; height: 200px;">
-                                <p class="card-text" id="step1">{{ $pesan->step }}</p> 
-                            </div>
+                    <div class="col-9 col-md-9">
+                        <div class="custom-card">
+                            <div class="card-body" style="text-align: start; max-width: 300px; height: 200px;">
+                                <p class="card-text" id="step1">{{ $pesan->step }}</p>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
         @endforeach
     </div>
     <!-- End Tata Cara Pemesanan -->
