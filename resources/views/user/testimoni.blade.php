@@ -77,14 +77,14 @@
     <div class="row">
         @foreach($testimonis as $testimoni)
         <div class="col-lg-4 col-6 mb-5">
-            <!-- small box -->
-            <div class="small-box custom-bg mx-auto rounded d-flex align-items-center">
-                <div class="inner">
-                    <img class="card-img-top img-fluid rounded" style="height: 350px; weight:100%" alt="" src="{{ asset('foto/' . $testimoni->gambar) }}" >
+                <!-- small box -->
+                <div class="small-box custom-bg mx-auto rounded">
+                    <div class="inner text-center">
+                        <img class="card-img-top img-fluid rounded" style="height: 350px;" alt="" src="{{ asset('foto/' . $testimoni->gambar) }}" >
+                    </div>
                 </div>
+                <!-- /.small-box -->
             </div>
-            <!-- /.small-box -->
-        </div>
         @endforeach
     </div>
     <!-- /.row -->
