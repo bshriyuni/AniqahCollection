@@ -52,7 +52,7 @@
                     </button>
                 @else <!-- Jika pengguna sudah login -->
                     <button class="btn">
-                        <a href="/profil" class="text-decoration-none" style="color: #000000;">Selamat datang, {{ Auth::user()->username }}</a>
+                        <a href="/profil" class="text-decoration-none" style="color: #000000;">Selamat datang, {{ Auth::user()->name }}</a>
                     </button>
                 @endguest
             </div>
@@ -131,7 +131,7 @@
                 <P>Kelola informasi profil anda untuk mengontrol, melindungi dan mengamankan akun</P>
                 <hr style="border: 1px solid black;">
             </div>
-            <div class="profil" style="display: flex; justify-content: space-between; width: 100%; margin: 0 auto;">
+            <div style="display: flex; justify-content: space-between; width: 100%; margin: 0 auto;">
                 <div class="left" style="flex-basis: 60%; margin-left: px; margin-top: 30px;">
                     <form style="margin-right: 20px">
                         <div class="row mb-2">

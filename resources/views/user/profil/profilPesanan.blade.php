@@ -54,7 +54,7 @@
                     </button>
                 @else <!-- Jika pengguna sudah login -->
                     <button class="btn">
-                        <a href="/profil" class="text-decoration-none" style="color: #000000;">Selamat datang, {{ Auth::user()->username }}</a>
+                        <a href="/profil" class="text-decoration-none" style="color: #000000;">Selamat datang, {{ Auth::user()->name }}</a>
                     </button>
                 @endguest
             </div>

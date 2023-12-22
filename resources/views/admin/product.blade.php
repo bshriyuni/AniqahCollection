@@ -25,7 +25,7 @@ Produk
                     <form id="delete-form-{{ $clothing->id }}" action="{{ route('produk.delete', $clothing->id) }}"
                         method="POST" style="display: none;">
                         @csrf
-                        @method('DELETE')
+                        
                     </form>
                     <a class="btn" onclick="confirmDelete( {{ $clothing->id }} );">
                         <i class="fas fa-trash text-danger"></i>
@@ -59,7 +59,7 @@ Produk
         <div class="modal-content">
             <div class="modal-header" style="background-color: #BBD6B8">
                 <h5 class="modal-title" id="exampleModalLabel">Aniqah Collection</h5>
-                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
                     style="margin-right:10px;"></button>
             </div>
             <div class="modal-body">
