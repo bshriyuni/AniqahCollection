@@ -32,7 +32,7 @@
     <div class="ps-5 mb-4 pt-2 pe-5 row">
         <div class="col align-middle">
             <p class="textAniqah m-0">Aniqah Collection</p>
-            <p class="deskripsiBrand fs-5 fst-italic fw-light m-0">Sewa baju bodo dan jasa jahit baju</p>
+            <p class="deskripsiBrand fs-5 fst-italic fw-light m-0">Tempat Penyewaan Baju Bodo</p>
         </div>
         <div class="col text-end pe-5 pt-4">
             @yield('icon')
@@ -47,7 +47,7 @@
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0" style="display: flex; justify-content: space-between; width: 100%;">
                     <li class="nav-item" style="flex: 1; text-align: center; white-space: nowrap; font-size: 20px; font-family: 'Inter-Regular'; color: black;">
-                        <a class="nav-link" href="/pesanan">Home</a>
+                        <a class="nav-link" href="/pesanan">Pesanan</a>
                     </li>
                     <li class="nav-item" style="flex: 1; text-align: center; white-space: nowrap; font-size: 20px; font-family: 'Inter-Regular'; color: black;">
                         <a class="nav-link fw-bold" href="/adminproduct">Produk</a>

@@ -73,7 +73,7 @@
                 <div class="modal-content">
                     <div class="modal-header" style="background-color: #BBD6B8">
                         <h5 class="modal-title" id="exampleModalLabel">Aniqah Collection</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="margin-right:10px;"></button>
+                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close" style="margin-right:10px;"></button>
                     </div>
                     <div class="modal-body">
                         <!-- Isi di sini -->
